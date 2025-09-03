@@ -1,1 +1,63 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Pages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a73e8, #ff6f61);
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    a {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 24px;
+      background: #fff;
+      color: #1a73e8;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    a:hover {
+      background: #1a73e8;
+      color: #fff;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My GitHub Pages 🚀</h1>
+  <p>This is a simple landing page hosted with GitHub Pages. You can edit <code>index.html</code> to add your own content.</p>
+  <a href="https://github.com/YOUR_USERNAME">Visit My GitHub</a>
+  <footer>© <span id="year"></span> YOUR_NAME</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
