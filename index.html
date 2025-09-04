@@ -11,19 +11,20 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Ditt Namn</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anna Frankendal – Growth Marketing Portfolio</title>
+  <meta name="description" content="Portfolio för Anna Frankendal, Growth Marketing-student på Berghs. Case, kompetenser och kontakt." />
 
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #1a73e8;
-      --secondary: #ff6f61;
-      --bg: #f9f9f9;
-      --text: #333;
+      --bg: #fff;
+      --text: #111;
+      --card-bg: #f8f8f8;
+      --hover-shadow: rgba(0,0,0,0.1);
     }
 
     * {
@@ -40,8 +41,6 @@
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
       padding: 4rem 2rem;
       text-align: center;
     }
@@ -53,29 +52,29 @@
 
     header p {
       font-size: 1.2rem;
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     nav {
-      background: #fff;
+      background: var(--bg);
       padding: 1rem 2rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-bottom: 1px solid #eee;
     }
 
     nav a {
-      color: var(--primary);
+      color: var(--text);
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: var(--secondary);
+      text-decoration: underline;
     }
 
     section {
@@ -88,31 +87,41 @@
       font-size: 2rem;
       margin-bottom: 1.5rem;
       text-align: center;
-      color: var(--primary);
     }
 
-    .projects {
+    .projects, .course-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
 
-    .card {
-      background: #fff;
+    .card, .course-item {
+      background: var(--card-bg);
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 12px var(--hover-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .card:hover {
+    .card:hover, .course-item:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 20px var(--hover-shadow);
+    }
+
+    .course-item a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .course-item a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: #fff;
+      background: var(--bg);
       color: #777;
       font-size: 0.9rem;
     }
@@ -127,20 +136,21 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <h1>Ditt Namn 🚀</h1>
+    <h1>Anna Frankendal</h1>
     <p>Growth Marketing student @ Berghs | Portfolio & Case Studies</p>
   </header>
 
   <nav>
     <a href="#about">Om mig</a>
     <a href="#cv">CV</a>
+    <a href="#education">Utbildning</a>
     <a href="#projects">Projekt</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
   <section id="about">
     <h2>Om mig</h2>
-    <p>Hej! Jag är student på Berghs inom Growth Marketing. Här samlar jag mina projekt, case och erfarenheter inom digital marknadsföring, strategi och tillväxt.</p>
+    <p>Hej! Jag är Anna Frankendal, student på Berghs inom Growth Marketing. Här samlar jag mina projekt, case och erfarenheter inom digital marknadsföring, strategi och tillväxt.</p>
   </section>
 
   <section id="cv">
@@ -150,33 +160,75 @@
     <p><strong>Skills:</strong> SEO, SEM, Paid Social, Analytics, Conversion Optimization</p>
   </section>
 
+  <section id="education">
+    <h2>Utbildning @ Berghs</h2>
+    <div class="course-list">
+      <div class="course-item"><a href="#cab">Communication According to Berghs (CAB)</a></div>
+      <div class="course-item"><a href="#gmxy">Growth Marketing x You</a></div>
+      <div class="course-item"><a href="#toolbox">Growth Toolbox</a></div>
+      <div class="course-item"><a href="#performance">Performance Marketing</a></div>
+      <div class="course-item"><a href="#seo">SEO & Content Marketing</a></div>
+      <div class="course-item"><a href="#cro">CRO & Analys</a></div>
+      <div class="course-item"><a href="#sustainability">Explore Sustainability</a></div>
+    </div>
+
+    <div id="cab" class="card">
+      <h3>Communication According to Berghs</h3>
+      <p>Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.</p>
+    </div>
+    <div id="gmxy" class="card">
+      <h3>Growth Marketing x You</h3>
+      <p>Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.</p>
+    </div>
+    <div id="toolbox" class="card">
+      <h3>Growth Toolbox</h3>
+      <p>Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.</p>
+    </div>
+    <div id="performance" class="card">
+      <h3>Performance Marketing</h3>
+      <p>Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.</p>
+    </div>
+    <div id="seo" class="card">
+      <h3>SEO & Content Marketing</h3>
+      <p>Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.</p>
+    </div>
+    <div id="cro" class="card">
+      <h3>CRO & Analys</h3>
+      <p>Konverteringsoptimering, A/B-testning och kvantitativ/ kvalitativ analys av data.</p>
+    </div>
+    <div id="sustainability" class="card">
+      <h3>Explore Sustainability</h3>
+      <p>Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.</p>
+    </div>
+  </section>
+
   <section id="projects">
     <h2>Projekt & Case</h2>
     <div class="projects">
       <div class="card">
-        <h3>Case 1</h3>
-        <p>Beskrivning av ditt projekt eller case, vad du gjorde och resultatet.</p>
+        <h3>Paid Social: Sänkt CPA med 30%</h3>
+        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
       </div>
       <div class="card">
-        <h3>Case 2</h3>
-        <p>Ett annat projekt eller case, gärna med insikter eller lärdomar.</p>
+        <h3>CRO: A/B-test av landningssida</h3>
+        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
       </div>
       <div class="card">
-        <h3>Case 3</h3>
-        <p>Kort beskrivning av ditt arbete och vad det bidrog till.</p>
+        <h3>SEO: Content-experiment</h3>
+        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Kontakt</h2>
-    <p>📧 <a href="mailto:dinmail@exempel.com">dinmail@exempel.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/dittnamn" target="_blank">LinkedIn</a></p>
+    <p>📧 <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a></p>
     <p>💻 <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a></p>
   </section>
 
   <footer>
-    © <span id="year"></span> Ditt Namn | Portfolio
+    © <span id="year"></span> Anna Frankendal | Portfolio
   </footer>
 
   <script>
