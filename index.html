@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -27,6 +25,7 @@
       --text: #111;
       --card-bg: #f8f8f8;
       --hover-shadow: rgba(0,0,0,0.1);
+      --accent: #0073b1; /* LinkedIn blå färg */
     }
 
     * {
@@ -119,14 +118,6 @@
       box-shadow: 0 6px 20px var(--hover-shadow);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--bg);
-      color: #777;
-      font-size: 0.9rem;
-    }
-
     /* Accordion CSS */
     .course-item {
       margin-bottom: 1rem;
@@ -151,6 +142,29 @@
       margin-top: 0.5rem;
       background: #f4f4f4;
       border-radius: 8px;
+    }
+
+    /* Kontakt-sektion styling */
+    #contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    #contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg);
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -193,7 +207,6 @@
 
   <section id="education">
     <h2>Utbildning @ Berghs</h2>
-
     <div class="course-item">
       <button class="course-title">Communication According to Berghs (CAB)</button>
       <div class="course-description">
