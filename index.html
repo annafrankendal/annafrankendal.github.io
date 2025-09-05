@@ -42,7 +42,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Kontaktfält högst upp */
     .contact-bar {
       background-color: #fff;
       padding: 15px 30px;
@@ -92,9 +91,8 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Headerbild */
     header img {
-      border-radius: 50%; /* Rund bild */
+      border-radius: 50%;
       display: block;
       margin: 1rem auto;
       width: 200px;
@@ -115,7 +113,7 @@
       justify-content: center;
       gap: 2rem;
       position: sticky;
-      top: 70px; /* under contact bar */
+      top: 70px;
       border-bottom: 1px solid #eee;
       z-index: 1500;
       flex-wrap: wrap;
@@ -147,7 +145,6 @@
       color: var(--text);
     }
 
-    /* About */
     #about p {
       max-width: 650px;
       margin: 0 auto;
@@ -156,7 +153,6 @@
       line-height: 1.7;
     }
 
-    /* CV */
     #cv p {
       max-width: 700px;
       margin: 0.8rem auto;
@@ -168,7 +164,6 @@
       color: var(--text);
     }
 
-    /* Skills */
     .skills-list {
       max-width: 700px;
       margin: 1rem auto 0 auto;
@@ -195,7 +190,6 @@
       cursor: default;
     }
 
-    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -231,7 +225,6 @@
       flex-grow: 1;
     }
 
-    /* Accordion CSS for education */
     .course-item {
       margin-bottom: 1rem;
       max-width: 700px;
@@ -264,7 +257,6 @@
       line-height: 1.5;
     }
 
-    /* Contact */
     #contact p {
       font-size: 1.1rem;
       margin: 0.5rem 0;
@@ -291,7 +283,6 @@
       border-top: 1px solid #ddd;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 600px) {
       .contact-bar {
         gap: 20px;
@@ -312,14 +303,11 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3X7V655"
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Contact bar at the top -->
   <div class="contact-bar">
     <div><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></div>
     <div><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
@@ -333,7 +321,6 @@
       </a>
     </h1>
 
-    <!-- Bilden flyttad hit -->
     <img src="https://via.placeholder.com/200" alt="Portrait of Anna Frankendal" />
 
     <p>Growth Marketing student @ Berghs | Portfolio & Case Studies</p>
@@ -355,7 +342,7 @@
   <section id="cv">
     <h2>CV</h2>
     <p><strong>Education:</strong> Growth Marketing @ Berghs</p>
-    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analysis, and growth strategy.</p>
+    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analysis, and growth strategy. Also worked as a Social Media Assistant.</p>
     <p><strong>Skills & tools:</strong></p>
     <div class="skills-list">
       <div class="skill">SEO</div>
@@ -444,7 +431,6 @@
   </footer>
 
   <script>
-    // Accordion functionality for education section
     const courseTitles = document.querySelectorAll('.course-title');
 
     courseTitles.forEach(title => {
