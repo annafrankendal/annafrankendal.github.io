@@ -50,6 +50,17 @@
       margin-bottom: 0.5rem;
     }
 
+    header h1 a {
+      color: inherit;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header h1 a:hover {
+      text-decoration: underline;
+      color: #0077b5; /* LinkedIn-blå vid hover */
+    }
+
     header p {
       font-size: 1.2rem;
       opacity: 0.8;
@@ -136,7 +147,11 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <h1>Anna Frankendal</h1>
+    <h1>
+      <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">
+        Anna Frankendal
+      </a>
+    </h1>
     <p>Growth Marketing student @ Berghs | Portfolio & Case Studies</p>
   </header>
 
@@ -185,54 +200,4 @@
       <p>Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.</p>
     </div>
     <div id="performance" class="card">
-      <h3>Performance Marketing</h3>
-      <p>Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.</p>
-    </div>
-    <div id="seo" class="card">
-      <h3>SEO & Content Marketing</h3>
-      <p>Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.</p>
-    </div>
-    <div id="cro" class="card">
-      <h3>CRO & Analys</h3>
-      <p>Konverteringsoptimering, A/B-testning och kvantitativ/ kvalitativ analys av data.</p>
-    </div>
-    <div id="sustainability" class="card">
-      <h3>Explore Sustainability</h3>
-      <p>Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.</p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projekt & Case</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Paid Social: Sänkt CPA med 30%</h3>
-        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
-      </div>
-      <div class="card">
-        <h3>CRO: A/B-test av landningssida</h3>
-        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
-      </div>
-      <div class="card">
-        <h3>SEO: Content-experiment</h3>
-        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <p>📧 <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a></p>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Anna Frankendal | Portfolio
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      <h3>Performance Marketing</h3
