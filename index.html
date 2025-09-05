@@ -14,7 +14,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anna Frankendal – Growth Marketing Portfolio</title>
-  <meta name="description" content="Portfolio of Anna Frankendal, Growth Marketing student at Berghs. Cases, skills, and contact information." />
+  <meta name="description" content="Portfolio for Anna Frankendal, Growth Marketing student at Berghs. Cases, skills, and contact." />
 
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Contact bar at the top */
+    /* Kontaktfält högst upp */
     .contact-bar {
       background-color: #fff;
       padding: 15px 30px;
@@ -143,6 +143,15 @@
       font-size: 1.15rem;
       color: #333;
       line-height: 1.7;
+    }
+    #about img {
+      border-radius: 50%; /* Makes the image round */
+      display: block;
+      margin: 1rem auto;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid var(--link-color);
     }
 
     /* CV */
@@ -325,7 +334,7 @@
   </header>
 
   <nav>
-    <a href="#about">About Me</a>
+    <a href="#about">About me</a>
     <a href="#cv">CV</a>
     <a href="#projects">Projects & Cases</a>
     <a href="#education">Education</a>
@@ -333,15 +342,17 @@
   </nav>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I’m Anna Frankendal, a passionate and data-driven Growth Marketing student at Berghs. I love combining creativity with analysis to drive growth and deliver results in digital channels. Here you can explore my projects, case studies, and experience within digital marketing and strategy.</p>
+    <h2>About me</h2>
+    <!-- Replace the src below with your own image when ready -->
+    <img src="https://via.placeholder.com/200" alt="Portrait of Anna Frankendal" />
+    <p>Hello! I'm Anna Frankendal, a passionate and data-driven Growth Marketing student at Berghs. I enjoy combining creativity with analysis to create growth and results in digital channels. Here, you can explore my projects, case studies, and experience within digital marketing and strategy.</p>
   </section>
 
   <section id="cv">
     <h2>CV</h2>
     <p><strong>Education:</strong> Growth Marketing @ Berghs</p>
-    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analytics, and growth strategy.</p>
-    <p><strong>Skills & Tools:</strong></p>
+    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analysis, and growth strategy.</p>
+    <p><strong>Skills & tools:</strong></p>
     <div class="skills-list">
       <div class="skill">SEO</div>
       <div class="skill">SEM</div>
@@ -359,19 +370,19 @@
     <div class="projects">
       <div class="card">
         <h3>Paid Social: Reduced CPA by 30%</h3>
-        <p>Through hypothesis-driven creative testing and precise segmentation, I increased CTR by 45% and reduced CPA by 30%, resulting in a ROAS of 1.6x.</p>
+        <p>Through hypothesis-driven creative testing and precise segmentation, I increased CTR by 45% and lowered CPA by 30%, resulting in a ROAS of 1.6x.</p>
       </div>
       <div class="card">
         <h3>CRO: Landing Page A/B Test</h3>
-        <p>Conducted A/B tests focusing on the hero section, CTA, and social proof, increasing conversion rate by 22% and decreasing bounce rate by 18%.</p>
+        <p>Conducted A/B tests focusing on hero section, CTA, and social proof that increased conversion rate by 22% and reduced bounce rate by 18%.</p>
       </div>
       <div class="card">
         <h3>SEO: Content Experiment</h3>
-        <p>Using keyword analysis and creating content clusters, organic traffic increased by 38%, achieving 12 new top 3 rankings.</p>
+        <p>Using keyword analysis and content clusters, organic traffic increased by 38% and achieved 12 new top 3 rankings.</p>
       </div>
       <div class="card">
         <h3>Fotografiska X Roblox</h3>
-        <p>Combined digital art and gaming to create an innovative, interactive exhibition in the Roblox environment, engaging a new audience.</p>
+        <p>Merged digital art and gaming to create an innovative, interactive exhibition in a Roblox environment, engaging a new audience.</p>
       </div>
     </div>
   </section>
@@ -382,7 +393,7 @@
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-cab">Communication According to Berghs (CAB)</button>
       <div class="course-description" id="desc-cab">
-        The course provides a shared understanding of communication, creativity, processes, and strategy with practical exercises.
+        The course provides a shared perspective on communication, creativity, processes, and strategy with practical exercises.
       </div>
     </div>
     <div class="course-item">
@@ -394,7 +405,7 @@
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-toolbox">Growth Toolbox</button>
       <div class="course-description" id="desc-toolbox">
-        Data-driven approaches focusing on measurement, tracking, analysis, and data management.
+        Data-driven approach focusing on measurement, tracking, analysis, and data management.
       </div>
     </div>
     <div class="course-item">
@@ -406,7 +417,7 @@
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-seo-content">SEO & Content Marketing</button>
       <div class="course-description" id="desc-seo-content">
-        Content strategy and SEO for organic growth as well as work in social media.
+        Content strategy and SEO for organic growth and work with social media.
       </div>
     </div>
     <div class="course-item">
@@ -416,15 +427,4 @@
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title" aria-expanded="false" aria-controls="desc-sustainability">Explore Sustainability</button>
-      <div class="course-description" id="desc-sustainability">
-        Understanding business roles in social solutions, basic knowledge, and sustainability terminology.
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-    <p><a href="tel:+46707595554">+46 707 595
+      <button class="course-title" aria-expanded="false" aria-controls="desc
