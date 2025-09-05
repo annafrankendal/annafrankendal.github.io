@@ -45,6 +45,15 @@
       text-align: center;
     }
 
+    header h1 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    header h1 a:hover {
+      text-decoration: underline;
+    }
+
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
@@ -89,13 +98,13 @@
       text-align: center;
     }
 
-    .projects, .course-list {
+    .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
 
-    .card, .course-item {
+    .card {
       background: var(--card-bg);
       border-radius: 12px;
       padding: 2rem;
@@ -103,19 +112,9 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .card:hover, .course-item:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 20px var(--hover-shadow);
-    }
-
-    .course-item a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .course-item a:hover {
-      text-decoration: underline;
     }
 
     footer {
@@ -124,6 +123,32 @@
       background: var(--bg);
       color: #777;
       font-size: 0.9rem;
+    }
+
+    /* Accordion CSS */
+    .course-item {
+      margin-bottom: 1rem;
+    }
+    .course-title {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .course-title:hover {
+      background: #f0f0f0;
+    }
+    .course-description {
+      display: none;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      background: #f4f4f4;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -136,7 +161,11 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <h1>Anna Frankendal</h1>
+    <h1>
+      <a id="linkedin-link" href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">
+        Anna Frankendal
+      </a>
+    </h1>
     <p>Growth Marketing student @ Berghs | Portfolio & Case Studies</p>
   </header>
 
@@ -162,43 +191,48 @@
 
   <section id="education">
     <h2>Utbildning @ Berghs</h2>
-    <div class="course-list">
-      <div class="course-item"><a href="#cab">Communication According to Berghs (CAB)</a></div>
-      <div class="course-item"><a href="#gmxy">Growth Marketing x You</a></div>
-      <div class="course-item"><a href="#toolbox">Growth Toolbox</a></div>
-      <div class="course-item"><a href="#performance">Performance Marketing</a></div>
-      <div class="course-item"><a href="#seo">SEO & Content Marketing</a></div>
-      <div class="course-item"><a href="#cro">CRO & Analys</a></div>
-      <div class="course-item"><a href="#sustainability">Explore Sustainability</a></div>
-    </div>
 
-    <div id="cab" class="card">
-      <h3>Communication According to Berghs</h3>
-      <p>Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.</p>
+    <div class="course-item">
+      <button class="course-title">Communication According to Berghs (CAB)</button>
+      <div class="course-description">
+        Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.
+      </div>
     </div>
-    <div id="gmxy" class="card">
-      <h3>Growth Marketing x You</h3>
-      <p>Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.</p>
+    <div class="course-item">
+      <button class="course-title">Growth Marketing x You</button>
+      <div class="course-description">
+        Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.
+      </div>
     </div>
-    <div id="toolbox" class="card">
-      <h3>Growth Toolbox</h3>
-      <p>Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.</p>
+    <div class="course-item">
+      <button class="course-title">Growth Toolbox</button>
+      <div class="course-description">
+        Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.
+      </div>
     </div>
-    <div id="performance" class="card">
-      <h3>Performance Marketing</h3>
-      <p>Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.</p>
+    <div class="course-item">
+      <button class="course-title">Performance Marketing</button>
+      <div class="course-description">
+        Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.
+      </div>
     </div>
-    <div id="seo" class="card">
-      <h3>SEO & Content Marketing</h3>
-      <p>Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.</p>
+    <div class="course-item">
+      <button class="course-title">SEO & Content Marketing</button>
+      <div class="course-description">
+        Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.
+      </div>
     </div>
-    <div id="cro" class="card">
-      <h3>CRO & Analys</h3>
-      <p>Konverteringsoptimering, A/B-testning och kvantitativ/ kvalitativ analys av data.</p>
+    <div class="course-item">
+      <button class="course-title">CRO & Analys</button>
+      <div class="course-description">
+        Konverteringsoptimering, A/B-testning och kvantitativ/kvalitativ analys av data.
+      </div>
     </div>
-    <div id="sustainability" class="card">
-      <h3>Explore Sustainability</h3>
-      <p>Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.</p>
+    <div class="course-item">
+      <button class="course-title">Explore Sustainability</button>
+      <div class="course-description">
+        Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.
+      </div>
     </div>
   </section>
 
@@ -233,6 +267,17 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Accordion för kurser
+    const courseButtons = document.querySelectorAll(".course-title");
+    courseButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const desc = button.nextElementSibling;
+        const isVisible = desc.style.display === "block";
+        document.querySelectorAll(".course-description").forEach(d => d.style.display = "none");
+        desc.style.display = isVisible ? "none" : "block";
+      });
+    });
   </script>
 </body>
 </html>
