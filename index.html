@@ -3,11 +3,11 @@
 <head>
   <!-- Google Tag Manager -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W3X7V655');
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W3X7V655');
   </script>
   <!-- End Google Tag Manager -->
 
@@ -41,6 +41,7 @@
       line-height: 1.6;
     }
 
+    /* Kontaktfält högst upp */
     .contact-bar {
       background-color: #fff;
       padding: 15px 30px;
@@ -57,7 +58,6 @@
       z-index: 2000;
       border-bottom: 1px solid #ddd;
       flex-wrap: wrap;
-      text-align: center;
     }
 
     .contact-bar a {
@@ -100,7 +100,7 @@
       justify-content: center;
       gap: 2rem;
       position: sticky;
-      top: 70px;
+      top: 0;
       border-bottom: 1px solid #eee;
       z-index: 1500;
     }
@@ -136,5 +136,201 @@
 
     .card {
       background: var(--card-bg);
-      border-r
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px var(--hover-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px var(--hover-shadow);
+    }
+
+    /* Accordion CSS */
+    .course-item {
+      margin-bottom: 1rem;
+    }
+    .course-title {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .course-title:hover {
+      background: #f0f0f0;
+    }
+    .course-description {
+      display: none;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      background: #f4f4f4;
+      border-radius: 8px;
+    }
+
+    /* Kontakt */
+    #contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    #contact a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg);
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3X7V655"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Kontaktfält högst upp -->
+  <div class="contact-bar">
+    <div><a href="mailto:afrankendal@gmail.com">📧 afrankendal@gmail.com</a></div>
+    <div><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a></div>
+    <div><a href="tel:+46707595554">📞 +46 707 595 554</a></div>
+  </div>
+
+  <header>
+    <h1>
+      <a id="linkedin-link" href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">
+        Anna Frankendal
+      </a>
+    </h1>
+    <p>Growth Marketing student @ Berghs | Portfolio & Case Studies</p>
+  </header>
+
+  <nav>
+    <a href="#about">Om mig</a>
+    <a href="#cv">CV</a>
+    <a href="#education">Utbildning</a>
+    <a href="#projects">Projekt</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+
+  <section id="about">
+    <h2>Om mig</h2>
+    <p>Hej! Jag är Anna Frankendal, student på Berghs inom Growth Marketing. Här samlar jag mina projekt, case och erfarenheter inom digital marknadsföring, strategi och tillväxt.</p>
+  </section>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <p><strong>Utbildning:</strong> Growth Marketing @ Berghs</p>
+    <p><strong>Erfarenhet:</strong> Praktik, case-studier och projekt inom marknadsföring, analys och tillväxtstrategi.</p>
+    <p><strong>Skills:</strong> SEO, SEM, Paid Social, Analytics, Conversion Optimization</p>
+  </section>
+
+  <section id="education">
+    <h2>Utbildning @ Berghs</h2>
+
+    <div class="course-item">
+      <button class="course-title">Communication According to Berghs (CAB)</button>
+      <div class="course-description">
+        Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">Growth Marketing x You</button>
+      <div class="course-description">
+        Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">Growth Toolbox</button>
+      <div class="course-description">
+        Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">Performance Marketing</button>
+      <div class="course-description">
+        Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">SEO & Content Marketing</button>
+      <div class="course-description">
+        Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">CRO & Analys</button>
+      <div class="course-description">
+        Konverteringsoptimering, A/B-testning och kvantitativ/kvalitativ analys av data.
+      </div>
+    </div>
+    <div class="course-item">
+      <button class="course-title">Explore Sustainability</button>
+      <div class="course-description">
+        Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projekt & Case</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Paid Social: Sänkt CPA med 30%</h3>
+        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
+      </div>
+      <div class="card">
+        <h3>CRO: A/B-test av landningssida</h3>
+        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
+      </div>
+      <div class="card">
+        <h3>SEO: Content-experiment</h3>
+        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>📧 <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    <p>💻 <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Anna Frankendal | Portfolio
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Accordion för kurser
+    const courseButtons = document.querySelectorAll(".course-title");
+    courseButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const desc = button.nextElementSibling;
+        if (desc.style.display === "block") {
+          desc.style.display = "none";
+        } else {
+          desc.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
