@@ -60,11 +60,6 @@
       flex-wrap: wrap;
     }
 
-    /* Ta bort eventuella emojis som sätts med ::before */
-    .contact-bar div::before {
-      content: none !important;
-    }
-
     .contact-bar a {
       color: #000;
       text-decoration: none;
@@ -228,8 +223,8 @@
   <nav>
     <a href="#about">Om mig</a>
     <a href="#cv">CV</a>
-    <a href="#education">Utbildning</a>
     <a href="#projects">Projekt</a>
+    <a href="#education">Utbildning</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
@@ -243,6 +238,24 @@
     <p><strong>Utbildning:</strong> Growth Marketing @ Berghs</p>
     <p><strong>Erfarenhet:</strong> Praktik, case-studier och projekt inom marknadsföring, analys och tillväxtstrategi.</p>
     <p><strong>Skills:</strong> SEO, SEM, Paid Social, Analytics, Conversion Optimization</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projekt & Case</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Paid Social: Sänkt CPA med 30%</h3>
+        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
+      </div>
+      <div class="card">
+        <h3>CRO: A/B-test av landningssida</h3>
+        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
+      </div>
+      <div class="card">
+        <h3>SEO: Content-experiment</h3>
+        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
+      </div>
+    </div>
   </section>
 
   <section id="education">
@@ -292,24 +305,6 @@
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projekt & Case</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Paid Social: Sänkt CPA med 30%</h3>
-        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
-      </div>
-      <div class="card">
-        <h3>CRO: A/B-test av landningssida</h3>
-        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
-      </div>
-      <div class="card">
-        <h3>SEO: Content-experiment</h3>
-        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="contact">
     <h2>Kontakt</h2>
     <p><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
@@ -339,3 +334,4 @@
   </script>
 </body>
 </html>
+
