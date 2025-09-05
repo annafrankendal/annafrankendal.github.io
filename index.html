@@ -3,11 +3,11 @@
 <head>
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W3X7V655');
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W3X7V655');
   </script>
   <!-- End Google Tag Manager -->
 
@@ -41,6 +41,35 @@
       line-height: 1.6;
     }
 
+    /* 🔝 Kontaktfält högst upp */
+    .contact-bar {
+      background-color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 2000;
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .contact-bar a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .contact-bar a:hover {
+      text-decoration: underline;
+    }
+
     header {
       padding: 4rem 2rem;
       text-align: center;
@@ -72,8 +101,9 @@
       justify-content: center;
       gap: 2rem;
       position: sticky;
-      top: 0;
+      top: 70px; /* justerat för att undvika överlapp */
       border-bottom: 1px solid #eee;
+      z-index: 1500;
     }
 
     nav a {
@@ -122,6 +152,7 @@
     .course-item {
       margin-bottom: 1rem;
     }
+
     .course-title {
       width: 100%;
       background: #fff;
@@ -133,9 +164,11 @@
       border-radius: 8px;
       transition: background 0.2s;
     }
+
     .course-title:hover {
       background: #f0f0f0;
     }
+
     .course-description {
       display: none;
       padding: 1rem;
@@ -144,16 +177,17 @@
       border-radius: 8px;
     }
 
-    /* Kontakt */
     #contact p {
       font-size: 1.1rem;
       margin: 0.5rem 0;
     }
+
     #contact a {
       color: var(--link-color);
       text-decoration: none;
       font-weight: 500;
     }
+
     #contact a:hover {
       text-decoration: underline;
     }
@@ -174,6 +208,13 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- 🔝 DINA KONTAKTUPPGIFTER -->
+  <div class="contact-bar">
+    <div><a href="mailto:afrankendal@gmail.com">📧 afrankendal@gmail.com</a></div>
+    <div><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">🔗 LinkedIn</a></div>
+    <div><a href="tel:+46707595554">📞 +46 707 595 554</a></div>
+  </div>
 
   <header>
     <h1>
@@ -209,45 +250,31 @@
 
     <div class="course-item">
       <button class="course-title">Communication According to Berghs (CAB)</button>
-      <div class="course-description">
-        Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.
-      </div>
+      <div class="course-description">Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.</div>
     </div>
     <div class="course-item">
       <button class="course-title">Growth Marketing x You</button>
-      <div class="course-description">
-        Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.
-      </div>
+      <div class="course-description">Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.</div>
     </div>
     <div class="course-item">
       <button class="course-title">Growth Toolbox</button>
-      <div class="course-description">
-        Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.
-      </div>
+      <div class="course-description">Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.</div>
     </div>
     <div class="course-item">
       <button class="course-title">Performance Marketing</button>
-      <div class="course-description">
-        Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.
-      </div>
+      <div class="course-description">Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.</div>
     </div>
     <div class="course-item">
       <button class="course-title">SEO & Content Marketing</button>
-      <div class="course-description">
-        Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.
-      </div>
+      <div class="course-description">Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.</div>
     </div>
     <div class="course-item">
       <button class="course-title">CRO & Analys</button>
-      <div class="course-description">
-        Konverteringsoptimering, A/B-testning och kvantitativ/kvalitativ analys av data.
-      </div>
+      <div class="course-description">Konverteringsoptimering, A/B-testning och kvantitativ/kvalitativ analys av data.</div>
     </div>
     <div class="course-item">
       <button class="course-title">Explore Sustainability</button>
-      <div class="course-description">
-        Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.
-      </div>
+      <div class="course-description">Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.</div>
     </div>
   </section>
 
@@ -273,7 +300,7 @@
     <h2>Kontakt</h2>
     <p>📧 <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
     <p>🔗 <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a></p>
+    <p>📞 <a href="tel:+46707595554">+46 707 595 554</a></p>
   </section>
 
   <footer>
