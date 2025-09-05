@@ -39,6 +39,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     /* Kontaktfält högst upp */
@@ -63,20 +64,23 @@
     .contact-bar a {
       color: #000;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     .contact-bar a:hover {
+      color: var(--link-color);
       text-decoration: underline;
     }
 
     header {
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 2rem 2rem;
       text-align: center;
     }
 
     header h1 a {
       color: var(--text);
       text-decoration: none;
+      font-weight: 700;
     }
 
     header h1 a:hover {
@@ -100,46 +104,102 @@
       justify-content: center;
       gap: 2rem;
       position: sticky;
-      top: 0;
+      top: 70px; /* under contact bar */
       border-bottom: 1px solid #eee;
       z-index: 1500;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s;
+      transition: color 0.3s;
     }
 
     nav a:hover {
+      color: var(--link-color);
       text-decoration: underline;
     }
 
     section {
       padding: 4rem 2rem;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
     }
 
     section h2 {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       text-align: center;
+      font-weight: 700;
+      color: var(--text);
     }
 
+    /* About */
+    #about p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* CV */
+    #cv p {
+      max-width: 700px;
+      margin: 0.8rem auto;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    #cv strong {
+      color: var(--text);
+    }
+
+    /* Skills */
+    .skills-list {
+      max-width: 700px;
+      margin: 1rem auto 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .skill {
+      background: var(--card-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+
+    .skill:hover {
+      background: var(--link-color);
+      color: #fff;
+      cursor: default;
+    }
+
+    /* Projects */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
     .card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.8rem 2rem;
       box-shadow: 0 4px 12px var(--hover-shadow);
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
@@ -147,19 +207,36 @@
       box-shadow: 0 6px 20px var(--hover-shadow);
     }
 
-    /* Accordion CSS */
+    .card h3 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+      flex-grow: 1;
+    }
+
+    /* Accordion CSS for education */
     .course-item {
       margin-bottom: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .course-title {
       width: 100%;
       background: #fff;
       border: 1px solid #ddd;
-      padding: 1rem;
-      font-size: 1rem;
+      padding: 1rem 1.2rem;
+      font-size: 1.1rem;
       text-align: left;
       cursor: pointer;
       border-radius: 8px;
+      font-weight: 600;
       transition: background 0.2s;
     }
     .course-title:hover {
@@ -167,24 +244,30 @@
     }
     .course-description {
       display: none;
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       margin-top: 0.5rem;
       background: #f4f4f4;
       border-radius: 8px;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
     }
 
-    /* Kontakt */
+    /* Contact */
     #contact p {
       font-size: 1.1rem;
       margin: 0.5rem 0;
+      text-align: center;
     }
     #contact a {
       color: var(--link-color);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      transition: color 0.3s;
     }
     #contact a:hover {
       text-decoration: underline;
+      color: #1558d6;
     }
 
     footer {
@@ -193,6 +276,27 @@
       background: var(--bg);
       color: #777;
       font-size: 0.9rem;
+      margin-top: 4rem;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .contact-bar {
+        gap: 20px;
+        font-size: 14px;
+        padding: 12px 20px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
     }
   </style>
 </head>
@@ -223,21 +327,31 @@
   <nav>
     <a href="#about">Om mig</a>
     <a href="#cv">CV</a>
-    <a href="#projects">Projekt</a>
+    <a href="#projects">Projekt & Case</a>
     <a href="#education">Utbildning</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
   <section id="about">
     <h2>Om mig</h2>
-    <p>Hej! Jag är Anna Frankendal, student på Berghs inom Growth Marketing. Här samlar jag mina projekt, case och erfarenheter inom digital marknadsföring, strategi och tillväxt.</p>
+    <p>Hej! Jag är Anna Frankendal, en passionerad och datadriven Growth Marketing-student på Berghs. Jag brinner för att kombinera kreativitet med analys för att skapa tillväxt och resultat i digitala kanaler. Här kan du ta del av mina projekt, case och erfarenheter inom digital marknadsföring och strategi.</p>
   </section>
 
   <section id="cv">
     <h2>CV</h2>
     <p><strong>Utbildning:</strong> Growth Marketing @ Berghs</p>
     <p><strong>Erfarenhet:</strong> Praktik, case-studier och projekt inom marknadsföring, analys och tillväxtstrategi.</p>
-    <p><strong>Skills:</strong> SEO, SEM, Paid Social, Analytics, Conversion Optimization</p>
+    <p><strong>Skills & verktyg:</strong></p>
+    <div class="skills-list">
+      <div class="skill">SEO</div>
+      <div class="skill">SEM</div>
+      <div class="skill">Paid Social</div>
+      <div class="skill">Google Analytics</div>
+      <div class="skill">Conversion Optimization</div>
+      <div class="skill">A/B Testing</div>
+      <div class="skill">Google Ads</div>
+      <div class="skill">Facebook Ads</div>
+    </div>
   </section>
 
   <section id="projects">
@@ -245,19 +359,19 @@
     <div class="projects">
       <div class="card">
         <h3>Paid Social: Sänkt CPA med 30%</h3>
-        <p>Hypotesdriven kreativitets-testning och segmentering. Resultat: CTR +45%, CPA -30%, ROAS +1.6x.</p>
+        <p>Genom hypotesdriven kreativitets-testning och noggrann segmentering lyckades jag öka CTR med 45% och minska CPA med 30%, vilket resulterade i en ROAS på 1.6x.</p>
       </div>
       <div class="card">
         <h3>CRO: A/B-test av landningssida</h3>
-        <p>Hypoteser kring hero, CTA och social proof. Resultat: Konverteringsgrad +22%, Bounce -18%.</p>
+        <p>Utförde A/B-test med fokus på hero-sektion, CTA och social proof som ökade konverteringsgraden med 22% och minskade bounce rate med 18%.</p>
       </div>
       <div class="card">
         <h3>SEO: Content-experiment</h3>
-        <p>Sökordsanalys, content clusters. Resultat: Organisk trafik +38%, nya topp 3-placeringar: +12.</p>
+        <p>Genom sökordsanalys och skapande av content clusters ökade organisk trafik med 38% och fick 12 nya topp 3-placeringar.</p>
       </div>
       <div class="card">
         <h3>Fotografiska X Roblox</h3>
-        <p>Sammanförde digital konst och gaming för att skapa en innovativ, interaktiv utställning i Roblox-miljö.</p>
+        <p>Sammanförde digital konst och gaming för att skapa en innovativ, interaktiv utställning i Roblox-miljö, vilket engagerade en ny målgrupp.</p>
       </div>
     </div>
   </section>
@@ -266,44 +380,44 @@
     <h2>Utbildning @ Berghs</h2>
 
     <div class="course-item">
-      <button class="course-title">Communication According to Berghs (CAB)</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-cab">Communication According to Berghs (CAB)</button>
+      <div class="course-description" id="desc-cab">
         Kursen ger en samsyn på kommunikation, kreativitet, processer och strategi med praktiska övningar.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">Growth Marketing x You</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-growth-you">Growth Marketing x You</button>
+      <div class="course-description" id="desc-growth-you">
         Digital design, styrkor i yrkesrollen och förståelse för tillväxt och innovation ur ett affärsperspektiv.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">Growth Toolbox</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-toolbox">Growth Toolbox</button>
+      <div class="course-description" id="desc-toolbox">
         Datadrivet arbetssätt med fokus på mätning, spårning, analys och hantering av data.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">Performance Marketing</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-performance">Performance Marketing</button>
+      <div class="course-description" id="desc-performance">
         Praktisk och strategisk kunskap om SEM, sociala annonser och optimering av kampanjer.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">SEO & Content Marketing</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-seo-content">SEO & Content Marketing</button>
+      <div class="course-description" id="desc-seo-content">
         Contentstrategi och SEO för organisk tillväxt samt arbete i sociala medier.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">CRO & Analys</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-cro">CRO & Analys</button>
+      <div class="course-description" id="desc-cro">
         Konverteringsoptimering, A/B-testning och kvantitativ/kvalitativ analys av data.
       </div>
     </div>
     <div class="course-item">
-      <button class="course-title">Explore Sustainability</button>
-      <div class="course-description">
+      <button class="course-title" aria-expanded="false" aria-controls="desc-sustainability">Explore Sustainability</button>
+      <div class="course-description" id="desc-sustainability">
         Förstå näringslivets roll i sociala lösningar, baskunskaper och hållbarhetsterminologi.
       </div>
     </div>
@@ -312,30 +426,4 @@
   <section id="contact">
     <h2>Kontakt</h2>
     <p><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-    <p><a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Anna Frankendal | Portfolio
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Accordion för kurser
-    const courseButtons = document.querySelectorAll(".course-title");
-    courseButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const desc = button.nextElementSibling;
-        if (desc.style.display === "block") {
-          desc.style.display = "none";
-        } else {
-          desc.style.display = "block";
-        }
-      });
-    });
-  </script>
-</body>
-</html>
-
+    <p><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener
