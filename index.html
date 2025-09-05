@@ -60,6 +60,11 @@
       flex-wrap: wrap;
     }
 
+    /* Ta bort eventuella emojis som sätts med ::before */
+    .contact-bar div::before {
+      content: none !important;
+    }
+
     .contact-bar a {
       color: #000;
       text-decoration: none;
