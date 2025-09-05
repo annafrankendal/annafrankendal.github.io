@@ -343,7 +343,6 @@
 
   <section id="about">
     <h2>About me</h2>
-    <!-- Replace the src below with your own image when ready -->
     <img src="https://via.placeholder.com/200" alt="Portrait of Anna Frankendal" />
     <p>Hello! I'm Anna Frankendal, a passionate and data-driven Growth Marketing student at Berghs. I enjoy combining creativity with analysis to create growth and results in digital channels. Here, you can explore my projects, case studies, and experience within digital marketing and strategy.</p>
   </section>
@@ -426,5 +425,35 @@
         Conversion optimization, A/B testing, and quantitative/qualitative data analysis.
       </div>
     </div>
-    <div class="course-item">
-      <button class="course-title" aria-expanded="false" aria-controls="desc
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out via email or LinkedIn!</p>
+    <p><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Anna Frankendal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Accordion functionality for education section
+    const courseTitles = document.querySelectorAll('.course-title');
+
+    courseTitles.forEach(title => {
+      title.addEventListener('click', () => {
+        const expanded = title.getAttribute('aria-expanded') === 'true';
+        title.setAttribute('aria-expanded', !expanded);
+        const description = document.getElementById(title.getAttribute('aria-controls'));
+        if (!expanded) {
+          description.style.display = 'block';
+        } else {
+          description.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
