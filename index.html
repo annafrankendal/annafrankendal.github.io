@@ -103,7 +103,7 @@
 
    header p {
      font-size: 1.2rem;
-     opacity: 0.8;
+     opacity: 0.9;
    }
 
    nav {
@@ -151,6 +151,7 @@
      font-size: 1.15rem;
      color: #333;
      line-height: 1.7;
+     text-align: center;
    }
 
    #cv p {
@@ -190,34 +191,33 @@
      cursor: default;
    }
 
-   /* Projects as bubbles */
    .projects {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     display: flex;
+     flex-direction: column;
      gap: 2rem;
    }
 
-   .project-bubble {
+   .bubble {
      background: var(--card-bg);
-     border-radius: 25px;
+     border-radius: 16px;
      padding: 2rem;
-     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+     box-shadow: 0 4px 12px var(--hover-shadow);
      transition: transform 0.3s, box-shadow 0.3s;
    }
 
-   .project-bubble:hover {
+   .bubble:hover {
      transform: translateY(-5px);
-     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+     box-shadow: 0 6px 20px var(--hover-shadow);
    }
 
-   .project-bubble h3 {
+   .bubble h3 {
      margin-bottom: 1rem;
      font-weight: 700;
-     font-size: 1.3rem;
+     font-size: 1.2rem;
      color: var(--text);
    }
 
-   .project-bubble p {
+   .bubble p {
      font-size: 1rem;
      color: #444;
      line-height: 1.5;
@@ -324,8 +324,10 @@
        Anna Frankendal
      </a>
    </h1>
+
    <img src="https://via.placeholder.com/200" alt="Portrait of Anna Frankendal" />
-   <p>I turn insights about people and behavior into data-driven strategies that deliver growth.</p>
+
+   <p>Growth Marketing student @ Berghs</p>
  </header>
 
  <nav>
@@ -343,8 +345,16 @@
 
  <section id="cv">
    <h2>CV</h2>
-   <p><strong>Education:</strong> Growth Marketing @ Berghs</p>
+   <p><strong>Education:</strong></p>
+   <ul>
+     <li>Growth Marketing @ Berghs School of Communication</li>
+     <li>MSc in Human Resources, Sociology @ Lund University</li>
+     <li>Exchange @ University of Zurich</li>
+     <li>BSc in Sociology @ Lund University</li>
+   </ul>
+
    <p><strong>Experience:</strong> Employer branding and social media content that builds engagement, audience insight, and growth.</p>
+
    <p><strong>Skills & tools:</strong></p>
    <div class="skills-list">
      <div class="skill">GA4</div>
@@ -363,19 +373,19 @@
  <section id="projects">
    <h2>Projects & Cases</h2>
    <div class="projects">
-     <div class="project-bubble">
+     <div class="bubble">
        <h3>Paid Social: Reduced CPA by 30%</h3>
        <p>Through hypothesis-driven creative testing and precise segmentation, I increased CTR by 45% and lowered CPA by 30%, resulting in a ROAS of 1.6x.</p>
      </div>
-     <div class="project-bubble">
+     <div class="bubble">
        <h3>CRO: Landing Page A/B Test</h3>
        <p>Conducted A/B tests focusing on hero section, CTA, and social proof that increased conversion rate by 22% and reduced bounce rate by 18%.</p>
      </div>
-     <div class="project-bubble">
+     <div class="bubble">
        <h3>SEO: Content Experiment</h3>
        <p>Using keyword analysis and content clusters, organic traffic increased by 38% and achieved 12 new top 3 rankings.</p>
      </div>
-     <div class="project-bubble">
+     <div class="bubble">
        <h3>Fotografiska X Roblox</h3>
        <p>Merged digital art and gaming to create an innovative, interactive exhibition in a Roblox environment, engaging a new audience.</p>
      </div>
@@ -384,36 +394,42 @@
 
  <section id="education">
    <h2>Education @ Berghs</h2>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-cab">Communication According to Berghs (CAB)</button>
      <div class="course-description" id="desc-cab">
        The course provides a shared perspective on communication, creativity, processes, and strategy with practical exercises.
      </div>
    </div>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-growth-you">Growth Marketing x You</button>
      <div class="course-description" id="desc-growth-you">
        Digital design, professional strengths, and understanding growth and innovation from a business perspective.
      </div>
    </div>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-toolbox">Growth Toolbox</button>
      <div class="course-description" id="desc-toolbox">
        Data-driven approach focusing on measurement, tracking, analysis, and data management.
      </div>
    </div>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-performance">Performance Marketing</button>
      <div class="course-description" id="desc-performance">
        Practical and strategic knowledge of SEM, social ads, and campaign optimization.
      </div>
    </div>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-seo-content">SEO & Content Marketing</button>
      <div class="course-description" id="desc-seo-content">
        Content strategy and SEO for organic growth and social media.
      </div>
    </div>
+
    <div class="course-item">
      <button class="course-title" aria-expanded="false" aria-controls="desc-cro">CRO & Analysis</button>
      <div class="course-description" id="desc-cro">
@@ -435,6 +451,7 @@
 
  <script>
    const courseTitles = document.querySelectorAll('.course-title');
+
    courseTitles.forEach(title => {
      title.addEventListener('click', () => {
        const expanded = title.getAttribute('aria-expanded') === 'true';
