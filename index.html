@@ -154,32 +154,41 @@
       text-align: center;
     }
 
-    #cv p {
+    /* --- CV STYLING --- */
+    #cv {
       max-width: 700px;
-      margin: 0.8rem auto;
+      margin: auto;
+    }
+
+    #cv h3 {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    #cv ul {
+      margin: 0.5rem 0 1.5rem 1.2rem;
       font-size: 1.1rem;
       color: #444;
-      text-align: center;
+      list-style: disc;
+    }
+
+    #cv p {
+      font-size: 1.1rem;
+      color: #444;
+      margin: 0.5rem 0 1.5rem 0;
     }
 
     #cv strong {
       color: var(--text);
     }
 
-    #cv ul {
-      max-width: 700px;
-      margin: 0 auto 1.5rem auto;
-      padding-left: 1.2rem;
-      font-size: 1.1rem;
-      color: #444;
-    }
-
     .skills-list {
       max-width: 700px;
-      margin: 1rem auto 0 auto;
+      margin: 1rem 0 0 0;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 1rem;
     }
 
@@ -202,19 +211,17 @@
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
 
     .card {
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 1.8rem 2rem;
+      border-radius: 16px;
+      padding: 2rem;
       box-shadow: 0 4px 12px var(--hover-shadow);
       transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      text-align: center;
     }
 
     .card:hover {
@@ -232,7 +239,6 @@
     .card p {
       font-size: 1rem;
       color: #444;
-      flex-grow: 1;
     }
 
     .course-item {
@@ -299,6 +305,9 @@
     }
 
     @media (max-width: 600px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
       .contact-bar {
         gap: 20px;
         font-size: 14px;
@@ -355,7 +364,8 @@
 
   <section id="cv">
     <h2>CV</h2>
-    <p><strong>Education:</strong></p>
+
+    <h3>Education:</h3>
     <ul>
       <li>Growth Marketing @ Berghs School of Communication</li>
       <li>MSc in Human Resources, Sociology @ Lund University</li>
@@ -363,9 +373,10 @@
       <li>BSc in Sociology @ Lund University</li>
     </ul>
 
-    <p><strong>Experience:</strong> Employer branding and social media content that builds engagement, audience insight, and growth.</p>
+    <h3>Experience:</h3>
+    <p>Employer branding and social media content that builds engagement, audience insight, and growth.</p>
 
-    <p><strong>Skills & tools:</strong></p>
+    <h3>Skills & tools:</h3>
     <div class="skills-list">
       <div class="skill">GA4</div>
       <div class="skill">GTM</div>
@@ -471,3 +482,4 @@
   </script>
 </body>
 </html>
+
