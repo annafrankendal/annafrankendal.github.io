@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <!-- Google Tag Manager -->
+ <script>
+ (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-W3X7V655');
+ </script>
+ <!-- End Google Tag Manager -->
+
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <title>Anna Frankendal – Growth Marketing Portfolio</title>
  <meta name="description" content="Portfolio for Anna Frankendal, Growth Marketing student at Berghs. Cases, skills, and contact." />
+
+ <!-- Google Fonts: Poppins -->
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
  <style>
@@ -178,6 +190,94 @@
      cursor: default;
    }
 
+   .projects {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 2rem;
+   }
+
+   .card {
+     background: var(--card-bg);
+     border-radius: 12px;
+     padding: 1.8rem 2rem;
+     box-shadow: 0 4px 12px var(--hover-shadow);
+     transition: transform 0.3s, box-shadow 0.3s;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+
+   .card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 6px 20px var(--hover-shadow);
+   }
+
+   .card h3 {
+     margin-bottom: 1rem;
+     font-weight: 700;
+     font-size: 1.2rem;
+     color: var(--text);
+   }
+
+   .card p {
+     font-size: 1rem;
+     color: #444;
+     flex-grow: 1;
+   }
+
+   .course-item {
+     margin-bottom: 1rem;
+     max-width: 700px;
+     margin-left: auto;
+     margin-right: auto;
+   }
+
+   .course-title {
+     width: 100%;
+     background: #fff;
+     border: 1px solid #ddd;
+     padding: 1rem 1.2rem;
+     font-size: 1.1rem;
+     text-align: left;
+     cursor: pointer;
+     border-radius: 8px;
+     font-weight: 600;
+     transition: background 0.2s;
+   }
+
+   .course-title:hover {
+     background: #f0f0f0;
+   }
+
+   .course-description {
+     display: none;
+     padding: 1rem 1.2rem;
+     margin-top: 0.5rem;
+     background: #f4f4f4;
+     border-radius: 8px;
+     font-size: 1rem;
+     color: #444;
+     line-height: 1.5;
+   }
+
+   #contact p {
+     font-size: 1.1rem;
+     margin: 0.5rem 0;
+     text-align: center;
+   }
+
+   #contact a {
+     color: var(--link-color);
+     text-decoration: none;
+     font-weight: 600;
+     transition: color 0.3s;
+   }
+
+   #contact a:hover {
+     text-decoration: underline;
+     color: #1558d6;
+   }
+
    footer {
      text-align: center;
      padding: 2rem;
@@ -208,6 +308,12 @@
  </style>
 </head>
 <body>
+ <noscript>
+   <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3X7V655"
+   height="0" width="0" style="display:none;visibility:hidden"></iframe>
+ </noscript>
+
+ <!-- Header Contact Bar -->
  <div class="contact-bar">
    <div><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></div>
    <div><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
@@ -221,7 +327,7 @@
      </a>
    </h1>
    <img src="https://via.placeholder.com/200" alt="Portrait of Anna Frankendal" />
-   <p>I turn insights about people and behavior into data-driven strategies that drive growth.</p>
+   <p>I turn insights about people and behavior into data-driven strategies that deliver growth.</p>
  </header>
 
  <nav>
@@ -234,23 +340,14 @@
 
  <section id="about">
    <h2>About me</h2>
-   <p>I turn insights about people and behavior into data-driven strategies that drive growth.</p>
+   <p>I turn insights about people and behavior into data-driven strategies that deliver growth.</p>
  </section>
 
  <section id="cv">
    <h2>CV</h2>
-   <p><strong>Education:</strong></p>
-   <ul>
-     <li>Growth Marketing @ Berghs School of Communication</li>
-     <li>MSc in Human Resources, Sociology @ Lund University</li>
-     <li>Exchange @ University of Zurich</li>
-     <li>BSc in Sociology @ Lund University</li>
-   </ul>
-
+   <p><strong>Education:</strong> Growth Marketing @ Berghs</p>
    <p><strong>Experience:</strong> Employer branding and social media content that builds engagement, audience insight, and growth.</p>
-
    <p><strong>Skills & tools:</strong></p>
-   <p style="text-align:center; max-width:700px; margin:0 auto;">Applying these tools through real client projects at Berghs, with focus on growth marketing and data-driven results.</p>
    <div class="skills-list">
      <div class="skill">GA4</div>
      <div class="skill">GTM</div>
