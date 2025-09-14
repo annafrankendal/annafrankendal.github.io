@@ -190,39 +190,37 @@
      cursor: default;
    }
 
+   /* Projects as bubbles */
    .projects {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
      gap: 2rem;
    }
 
-   .card {
+   .project-bubble {
      background: var(--card-bg);
-     border-radius: 12px;
-     padding: 1.8rem 2rem;
-     box-shadow: 0 4px 12px var(--hover-shadow);
+     border-radius: 25px;
+     padding: 2rem;
+     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
      transition: transform 0.3s, box-shadow 0.3s;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
    }
 
-   .card:hover {
+   .project-bubble:hover {
      transform: translateY(-5px);
-     box-shadow: 0 6px 20px var(--hover-shadow);
+     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
    }
 
-   .card h3 {
+   .project-bubble h3 {
      margin-bottom: 1rem;
      font-weight: 700;
-     font-size: 1.2rem;
+     font-size: 1.3rem;
      color: var(--text);
    }
 
-   .card p {
+   .project-bubble p {
      font-size: 1rem;
      color: #444;
-     flex-grow: 1;
+     line-height: 1.5;
    }
 
    .course-item {
@@ -365,19 +363,19 @@
  <section id="projects">
    <h2>Projects & Cases</h2>
    <div class="projects">
-     <div class="card">
+     <div class="project-bubble">
        <h3>Paid Social: Reduced CPA by 30%</h3>
        <p>Through hypothesis-driven creative testing and precise segmentation, I increased CTR by 45% and lowered CPA by 30%, resulting in a ROAS of 1.6x.</p>
      </div>
-     <div class="card">
+     <div class="project-bubble">
        <h3>CRO: Landing Page A/B Test</h3>
        <p>Conducted A/B tests focusing on hero section, CTA, and social proof that increased conversion rate by 22% and reduced bounce rate by 18%.</p>
      </div>
-     <div class="card">
+     <div class="project-bubble">
        <h3>SEO: Content Experiment</h3>
        <p>Using keyword analysis and content clusters, organic traffic increased by 38% and achieved 12 new top 3 rankings.</p>
      </div>
-     <div class="card">
+     <div class="project-bubble">
        <h3>Fotografiska X Roblox</h3>
        <p>Merged digital art and gaming to create an innovative, interactive exhibition in a Roblox environment, engaging a new audience.</p>
      </div>
