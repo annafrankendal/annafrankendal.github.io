@@ -231,6 +231,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .course-title {
       width: 100%;
       background: #fff;
@@ -243,9 +244,11 @@
       font-weight: 600;
       transition: background 0.2s;
     }
+
     .course-title:hover {
       background: #f0f0f0;
     }
+
     .course-description {
       display: none;
       padding: 1rem 1.2rem;
@@ -262,12 +265,14 @@
       margin: 0.5rem 0;
       text-align: center;
     }
+
     #contact a {
       color: var(--link-color);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
+
     #contact a:hover {
       text-decoration: underline;
       color: #1558d6;
@@ -308,6 +313,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
+  <!-- Header Contact Bar -->
   <div class="contact-bar">
     <div><a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a></div>
     <div><a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
@@ -316,7 +322,7 @@
 
   <header>
     <h1>
-      <a id="linkedin-link" href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer">
         Anna Frankendal
       </a>
     </h1>
@@ -336,13 +342,13 @@
 
   <section id="about">
     <h2>About me</h2>
-    <p>Hello! I'm Anna Frankendal, a passionate and data-driven Growth Marketing student at Berghs. I enjoy combining creativity with analysis to create growth and results in digital channels. Here, you can explore my projects, case studies, and experience within digital marketing and strategy.</p>
+    <p>Hello! I'm Anna Frankendal, a passionate and data-driven Growth Marketing student at Berghs. I enjoy combining creativity with analysis to create growth and results in digital channels.</p>
   </section>
 
   <section id="cv">
     <h2>CV</h2>
     <p><strong>Education:</strong> Growth Marketing @ Berghs</p>
-    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analysis, and growth strategy. Also worked as a Social Media Assistant.</p>
+    <p><strong>Experience:</strong> Internships, case studies, and projects within marketing, analysis, and growth strategy.</p>
     <p><strong>Skills & tools:</strong></p>
     <div class="skills-list">
       <div class="skill">SEO</div>
@@ -387,30 +393,35 @@
         The course provides a shared perspective on communication, creativity, processes, and strategy with practical exercises.
       </div>
     </div>
+
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-growth-you">Growth Marketing x You</button>
       <div class="course-description" id="desc-growth-you">
         Digital design, professional strengths, and understanding growth and innovation from a business perspective.
       </div>
     </div>
+
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-toolbox">Growth Toolbox</button>
       <div class="course-description" id="desc-toolbox">
         Data-driven approach focusing on measurement, tracking, analysis, and data management.
       </div>
     </div>
+
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-performance">Performance Marketing</button>
       <div class="course-description" id="desc-performance">
         Practical and strategic knowledge of SEM, social ads, and campaign optimization.
       </div>
     </div>
+
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-seo-content">SEO & Content Marketing</button>
       <div class="course-description" id="desc-seo-content">
-        Content strategy and SEO for organic growth and work with social media.
+        Content strategy and SEO for organic growth and social media.
       </div>
     </div>
+
     <div class="course-item">
       <button class="course-title" aria-expanded="false" aria-controls="desc-cro">CRO & Analysis</button>
       <div class="course-description" id="desc-cro">
@@ -438,11 +449,7 @@
         const expanded = title.getAttribute('aria-expanded') === 'true';
         title.setAttribute('aria-expanded', !expanded);
         const description = document.getElementById(title.getAttribute('aria-controls'));
-        if (!expanded) {
-          description.style.display = 'block';
-        } else {
-          description.style.display = 'none';
-        }
+        description.style.display = !expanded ? 'block' : 'none';
       });
     });
   </script>
