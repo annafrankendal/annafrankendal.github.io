@@ -225,39 +225,22 @@
      flex-grow: 1;
    }
 
-   .course-item {
-     margin-bottom: 1rem;
+   /* ---- New Education Styles ---- */
+   .education-list {
+     list-style: none;
+     padding: 0;
      max-width: 700px;
-     margin-left: auto;
-     margin-right: auto;
+     margin: 0 auto;
    }
 
-   .course-title {
-     width: 100%;
-     background: #fff;
-     border: 1px solid #ddd;
-     padding: 1rem 1.2rem;
+   .education-list li {
+     background: #f8f8f8;
+     padding: 12px 18px;
+     margin-bottom: 10px;
+     border-radius: 8px;
      font-size: 1.1rem;
-     text-align: left;
-     cursor: pointer;
-     border-radius: 8px;
-     font-weight: 600;
-     transition: background 0.2s;
-   }
-
-   .course-title:hover {
-     background: #f0f0f0;
-   }
-
-   .course-description {
-     display: none;
-     padding: 1rem 1.2rem;
-     margin-top: 0.5rem;
-     background: #f4f4f4;
-     border-radius: 8px;
-     font-size: 1rem;
-     color: #444;
-     line-height: 1.5;
+     color: #333;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
    }
 
    #contact p {
@@ -384,50 +367,16 @@
    </div>
  </section>
 
+ <!-- New Education Section -->
  <section id="education">
-   <h2>Education @ Berghs</h2>
+   <h2>Education</h2>
 
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-cab">Communication According to Berghs (CAB)</button>
-     <div class="course-description" id="desc-cab">
-       The course provides a shared perspective on communication, creativity, processes, and strategy with practical exercises.
-     </div>
-   </div>
-
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-growth-you">Growth Marketing x You</button>
-     <div class="course-description" id="desc-growth-you">
-       Digital design, professional strengths, and understanding growth and innovation from a business perspective.
-     </div>
-   </div>
-
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-toolbox">Growth Toolbox</button>
-     <div class="course-description" id="desc-toolbox">
-       Data-driven approach focusing on measurement, tracking, analysis, and data management.
-     </div>
-   </div>
-
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-performance">Performance Marketing</button>
-     <div class="course-description" id="desc-performance">
-       Practical and strategic knowledge of SEM, social ads, and campaign optimization.
-     </div>
-   </div>
-
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-seo-content">SEO & Content Marketing</button>
-     <div class="course-description" id="desc-seo-content">
-       Content strategy and SEO for organic growth and social media.
-     </div>
-   </div>
-
-   <div class="course-item">
-     <button class="course-title" aria-expanded="false" aria-controls="desc-cro">CRO & Analysis</button>
-     <div class="course-description" id="desc-cro">
-       Conversion optimization, A/B testing, and quantitative/qualitative data analysis.
-     </div>
-   </div>
+   <ul class="education-list">
+     <li><strong>Berghs School of Communication</strong> — Growth Marketing</li>
+     <li><strong>Lunds universitet</strong> — MSc in Human Resources</li>
+     <li><strong>University of Zurich</strong> — Exchange Program</li>
+     <li><strong>Lunds universitet</strong> — BSc in Sociology</li>
+   </ul>
  </section>
 
  <section id="contact">
