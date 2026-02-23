@@ -11,21 +11,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Om Anna | Varmt välkommen</title>
+  <title>Om Anna | Anna Frankendal</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fffcf2; /* Solig och varm creme/gul */
-      --ink: #1e3a8a; /* Smart marinblå */
-      --accent: #f28482; /* Snäll korallrosa */
-      --soft-blue: #dbedff;
-      --border: 1.5px solid #1e3a8a;
+      --bg: #fdfaf6;
+      --ink: #000000;
+      --blue: #3498db;
+      --navy: #1e3a8a;
+      --yellow: #f1c40f;
+      --border: 3px solid #000;
+      --shadow: 8px 8px 0px #000;
       --font-sans: 'Inter', sans-serif;
-      --font-serif: 'Playfair Display', serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,60 +35,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAV --- */
     nav { 
-      padding: 2rem 0; display: flex; justify-content: center; align-items: center; gap: 3rem;
-      border-bottom: 1px solid rgba(30, 58, 138, 0.1); margin-bottom: 4rem; position: sticky; top: 0; background: rgba(255, 252, 242, 0.8); backdrop-filter: blur(10px); z-index: 1000;
+      background: #fff; padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 0; 
+      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 12px; font-weight: 900;
     }
-    nav a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s; }
-    nav a:hover { opacity: 0.5; }
-    nav .active { color: var(--accent); }
+    nav a { color: var(--ink); text-decoration: none; }
+    nav .active { color: var(--blue); text-decoration: underline; text-underline-offset: 8px; }
 
     /* --- HERO --- */
-    .hero { padding: 4rem 0 6rem; text-align: center; }
-    .hero h1 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 6rem); font-weight: 400; line-height: 1; margin-bottom: 3rem; }
+    .hero { padding: 8rem 0 6rem; text-align: center; }
+    .hero h1 { font-size: clamp(4rem, 12vw, 9rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 4rem; }
     
-    .hero-image-wrap { position: relative; width: 160px; margin: 0 auto 3rem; }
-    .hero-image { border-radius: 20px; overflow: hidden; border: var(--border); aspect-ratio: 1; box-shadow: 8px 8px 0px var(--soft-blue); }
-    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .hero-intro { max-width: 600px; margin: 0 auto; font-size: 1.4rem; font-family: var(--font-serif); font-style: italic; color: #333; }
+    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); box-shadow: var(--shadow); background: var(--yellow); overflow: hidden; }
+    .hero-image-wrap img { width: 100%; display: block; filter: contrast(110%); }
 
     /* --- BENTO GRID --- */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 8rem; }
-    .box { border: var(--border); padding: 3rem; background: #fff; display: flex; flex-direction: column; justify-content: center; }
-    .box h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 1.5rem; }
-    .box p { font-size: 1rem; color: #444; }
-    .box.highlight { background: var(--soft-blue); border: none; }
-    .box.warm { background: #fff5f5; border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; margin-bottom: 8rem; }
+    
+    .box { border: var(--border); padding: 3rem; background: #fff; box-shadow: var(--shadow); position: relative; }
+    .box h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; color: var(--navy); }
+    .box p { font-size: 1.05rem; font-weight: 600; color: #333; }
+    .box .label { position: absolute; top: -15px; left: 20px; background: #000; color: #fff; padding: 4px 12px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 8rem; }
-    .stat-item { text-align: center; padding: 2rem; background: #fff; border: 1px solid rgba(30, 58, 138, 0.1); border-radius: 12px; }
-    .stat-item span { display: block; font-family: var(--font-serif); font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .stat-item p { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; opacity: 0.6; }
+    .box-who { grid-column: span 12; background: var(--bg); }
+    .box-want { grid-column: span 7; background: #fff; }
+    .box-can { grid-column: span 5; background: var(--blue); color: #fff; }
+    .box-can h2 { color: #fff; }
+    .box-can p { color: #fff; }
+
+    /* --- STATS BAR --- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 8rem; }
+    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; box-shadow: 6px 6px 0px #000; }
+    .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; }
 
     /* --- FOOTER --- */
-    footer { padding: 8rem 0 4rem; text-align: center; border-top: 1px solid rgba(30, 58, 138, 0.1); }
-    footer .koka { font-family: var(--font-serif); font-size: 2.5rem; font-style: italic; margin-bottom: 3rem; }
+    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; background: #000; color: #fff; }
+    footer h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; font-style: italic; margin-bottom: 4rem; }
     
-    .lurking { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 1.5rem; display: block; text-transform: uppercase; letter-spacing: 1px; }
-    .footer-links { display: flex; justify-content: center; gap: 2.5rem; }
-    .footer-links a { color: var(--ink); font-size: 1.8rem; transition: transform 0.3s; }
-    .footer-links a:hover { transform: scale(1.2) translateY(-5px); color: var(--accent); }
+    .lurking { font-size: 12px; font-weight: 900; color: var(--yellow); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 2px; }
+    .footer-links { display: flex; justify-content: center; gap: 3rem; }
+    .footer-links a { color: #fff; font-size: 2.5rem; transition: transform 0.2s; }
+    .footer-links a:hover { transform: scale(1.2) rotate(5deg); color: var(--blue); }
     
-    .copy { margin-top: 6rem; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; }
+    .copy { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
 
-    @media (max-width: 800px) {
-      .grid, .stats { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 3.5rem; }
-      nav { gap: 1.5rem; }
+    @media (max-width: 900px) {
+      .grid, .stats { display: flex; flex-direction: column; }
+      .hero h1 { font-size: 4.5rem; }
+      nav { gap: 1.5rem; font-size: 10px; flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -104,59 +108,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <main>
       <section class="hero">
+        <h1>ANNA.</h1>
         <div class="hero-image-wrap">
-          <div class="hero-image">
-            <img src="annabild.JPG" alt="Anna Frankendal">
-          </div>
-        </div>
-        <h1>Hej! Jag är Anna.</h1>
-        <div class="hero-intro">
-          En Growth Marketer som drivs av en outtröttlig nyfikenhet på människor, digital tillväxt och konsten att laga den perfekta pastan.
+          <img src="annabild.JPG" alt="Anna Frankendal">
         </div>
       </section>
 
       <div class="grid">
-        <div class="box warm">
-          <h2>Nyfikenhet som kompass.</h2>
-          <p>Varför klickar vi på just den knappen? Vad får oss att känna förtroende för ett varumärke? Min Master i sociologi är min superkraft för att förstå drivkrafterna bakom siffrorna. Jag älskar att dyka ner i beteenden för att skapa strategier som faktiskt känns mänskliga.</p>
+        <div class="box box-who">
+          <div class="label">Vem jag är</div>
+          <h2>Sociolog med en algoritm i huvudet.</h2>
+          <p>Jag är varm, nyfiken och genuint intresserad av människor. Min Master i sociologi är min superkraft – den gör att jag ser drivkrafterna bakom datan. Jag är en Growth Marketer som kombinerar hjärta med knivskarp analys för att skapa digital magi.</p>
         </div>
-        <div class="box highlight">
-          <h2>Growth med ett leende.</h2>
-          <p>Jag tror på marknadsföring som tillför värde snarare än att bara ta plats. Från strategiska kampanjer till rörligt innehåll – jag vill bygga relationer som håller över tid. För mig är professionalitet och värme inte motsatser, de är varandras bästa vänner.</p>
+
+        <div class="box box-want">
+          <div class="label">Vad jag vill</div>
+          <h2>Bygga relationer som håller.</h2>
+          <p>Jag vill skapa marknadsföring som inte bara genererar klick, utan som faktiskt tillför ett värde. Mitt mål är att hjälpa varumärken växa genom autentiskt berättande och smarta kundresor där människan alltid står i centrum.</p>
         </div>
-        <div class="box">
-          <h2>@frankisfood</h2>
-          <p>När jag inte analyserar kundresor hittar du mig förmodligen i köket. Min passion för matlagning är min kreativa ventil. Det är där jag experimenterar med format, färger och smaker – precis som jag gör med marknadsföring.</p>
-        </div>
-        <div class="box">
-          <h2>Positiv kraft.</h2>
-          <p>Jag tror på att allt går att lösa med rätt inställning, en bra analys och kanske en riktigt god kopp kaffe. Jag ser fram emot att träffa nya människor och se vad vi kan skapa tillsammans!</p>
+
+        <div class="box box-can">
+          <div class="label">Vad jag kan</div>
+          <h2>Strategi & Hantverk.</h2>
+          <p>Från pricksäker SEO och Paid Social till rörligt innehåll för TikTok som stannar i minnet. Jag behärskar hela kedjan: från djup målgruppsanalys till den slutgiltiga produktionen.</p>
         </div>
       </div>
 
       <section class="stats">
-        <div class="stat-item">
+        <div class="stat-box">
           <span>150+</span>
           <p>Beteendeanalyser</p>
         </div>
-        <div class="stat-item">
+        <div class="stat-box">
           <span>2x</span>
-          <p>Organisk tillväxt</p>
+          <p>Följartillväxt</p>
         </div>
-        <div class="stat-item">
+        <div class="stat-box">
           <span>∞</span>
           <p>Matglädje</p>
         </div>
-        <div class="stat-item">
+        <div class="stat-box" style="background: var(--yellow);">
           <span>100%</span>
-          <p>Positivitet</p>
+          <p>Snäll & Smart</p>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="koka">Ska vi koka ihop något bra?</div>
-      <span class="lurking">Bara nyfiken? Kom och säg hej:</span>
+      <h2>Ska vi koka ihop något bra?</h2>
+      <span class="lurking">Just lurking? Kom och säg hej:</span>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
