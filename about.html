@@ -19,13 +19,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root {
-      --bg: #fdfaf6;
+      --bg: #ffffff;
       --ink: #000000;
-      --blue: #3498db;
-      --navy: #1e3a8a;
-      --yellow: #f1c40f;
-      --border: 3px solid #000;
-      --shadow: 8px 8px 0px #000;
+      --accent: #0047AB; /* Royal Blue */
+      --border: 2px solid #000000;
       --font-sans: 'Inter', sans-serif;
     }
 
@@ -35,7 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.4;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -43,55 +40,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* --- NAV --- */
     nav { 
-      background: #fff; padding: 1.5rem 2rem; display: flex; 
+      padding: 2rem 0; display: flex; 
       justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 0; 
-      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 12px; font-weight: 900;
+      border-bottom: var(--border); background: #fff; z-index: 1500; text-transform: uppercase; font-size: 12px; font-weight: 900;
     }
-    nav a { color: var(--ink); text-decoration: none; }
-    nav .active { color: var(--blue); text-decoration: underline; text-underline-offset: 8px; }
+    nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+    nav a:hover { color: var(--accent); }
+    nav .active { color: var(--accent); }
 
     /* --- HERO --- */
-    .hero { padding: 8rem 0 6rem; text-align: center; }
-    .hero h1 { font-size: clamp(4rem, 12vw, 9rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 4rem; }
+    .hero { padding: 10rem 0 6rem; text-align: center; }
+    .hero h1 { font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -6px; margin-bottom: 4rem; }
     
-    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); box-shadow: var(--shadow); background: var(--yellow); overflow: hidden; }
-    .hero-image-wrap img { width: 100%; display: block; filter: contrast(110%); }
+    .hero-image-wrap { width: 160px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
+    .hero-image-wrap img { width: 100%; display: block; filter: grayscale(100%); }
 
-    /* --- BENTO GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; margin-bottom: 8rem; }
+    /* --- CONTENT GRID --- */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
     
-    .box { border: var(--border); padding: 3rem; background: #fff; box-shadow: var(--shadow); position: relative; }
-    .box h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; color: var(--navy); }
-    .box p { font-size: 1.05rem; font-weight: 600; color: #333; }
-    .box .label { position: absolute; top: -15px; left: 20px; background: #000; color: #fff; padding: 4px 12px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+    .box { border: var(--border); padding: 3rem; background: #fff; display: flex; flex-direction: column; justify-content: center; }
+    .box h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; }
+    .box p { font-size: 1.1rem; font-weight: 600; color: #333; }
 
-    .box-who { grid-column: span 12; background: var(--bg); }
-    .box-want { grid-column: span 7; background: #fff; }
-    .box-can { grid-column: span 5; background: var(--blue); color: #fff; }
-    .box-can h2 { color: #fff; }
-    .box-can p { color: #fff; }
+    .box-who { grid-column: span 12; background: var(--bg); border-color: var(--accent); }
+    .box-who h2 { color: var(--accent); }
+    
+    .box-want { grid-column: span 7; }
+    .box-can { grid-column: span 5; background: var(--ink); color: #fff; }
+    .box-can p { color: #ccc; }
 
-    /* --- STATS BAR --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 8rem; }
-    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; box-shadow: 6px 6px 0px #000; }
-    .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 0.5rem; }
-    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; }
+    /* --- STATS --- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
+    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; }
+    .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
     /* --- FOOTER --- */
-    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; background: #000; color: #fff; }
+    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; background: #fff; }
     footer h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; font-style: italic; margin-bottom: 4rem; }
     
-    .lurking { font-size: 12px; font-weight: 900; color: var(--yellow); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 2px; }
-    .footer-links { display: flex; justify-content: center; gap: 3rem; }
-    .footer-links a { color: #fff; font-size: 2.5rem; transition: transform 0.2s; }
-    .footer-links a:hover { transform: scale(1.2) rotate(5deg); color: var(--blue); }
+    .lurking { font-size: 12px; font-weight: 900; color: var(--accent); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 2px; }
+    .footer-links { display: flex; justify-content: center; gap: 3.5rem; }
+    .footer-links a { color: var(--ink); font-size: 2.5rem; transition: transform 0.2s, color 0.3s; }
+    .footer-links a:hover { transform: translateY(-5px); color: var(--accent); }
     
     .copy { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
 
     @media (max-width: 900px) {
       .grid, .stats { display: flex; flex-direction: column; }
-      .hero h1 { font-size: 4.5rem; }
-      nav { gap: 1.5rem; font-size: 10px; flex-wrap: wrap; }
+      .hero h1 { font-size: 5rem; letter-spacing: -4px; }
+      .box { padding: 2rem; }
+      nav { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -116,21 +115,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <div class="grid">
         <div class="box box-who">
-          <div class="label">Vem jag är</div>
-          <h2>Sociolog med en algoritm i huvudet.</h2>
-          <p>Jag är varm, nyfiken och genuint intresserad av människor. Min Master i sociologi är min superkraft – den gör att jag ser drivkrafterna bakom datan. Jag är en Growth Marketer som kombinerar hjärta med knivskarp analys för att skapa digital magi.</p>
+          <h2>Vem jag är</h2>
+          <p>Jag är varm, nyfiken och har en osviklig tro på att allt går att lösa. Min Master i sociologi är grunden i allt jag gör – den ger mig de analytiska verktygen för att förstå varför människor gör som de gör. Jag är en Growth Marketer som bryr sig om både siffror och själen bakom dem.</p>
         </div>
 
         <div class="box box-want">
-          <div class="label">Vad jag vill</div>
-          <h2>Bygga relationer som håller.</h2>
-          <p>Jag vill skapa marknadsföring som inte bara genererar klick, utan som faktiskt tillför ett värde. Mitt mål är att hjälpa varumärken växa genom autentiskt berättande och smarta kundresor där människan alltid står i centrum.</p>
+          <h2>Vad jag vill</h2>
+          <p>Jag vill bygga marknadsföring som faktiskt betyder något. Mitt mål är att skapa smarta kundresor och autentiskt innehåll som tillför värde i vardagen, snarare än att bara störa i flödet. Jag vill växa tillsammans med varumärken som vågar vara mänskliga.</p>
         </div>
 
         <div class="box box-can">
-          <div class="label">Vad jag kan</div>
-          <h2>Strategi & Hantverk.</h2>
-          <p>Från pricksäker SEO och Paid Social till rörligt innehåll för TikTok som stannar i minnet. Jag behärskar hela kedjan: från djup målgruppsanalys till den slutgiltiga produktionen.</p>
+          <h2>Vad jag kan</h2>
+          <p>Strategisk analys parad med kreativ produktion. Jag behärskar allt från SEO och CRM till att bygga TikTok-koncept som stannar kvar. Jag förvandlar insikter om mänskligt beteende till mätbar tillväxt.</p>
         </div>
       </div>
 
@@ -145,24 +141,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="stat-box">
           <span>∞</span>
-          <p>Matglädje</p>
+          <p>Positiv energi</p>
         </div>
-        <div class="stat-box" style="background: var(--yellow);">
+        <div class="stat-box">
           <span>100%</span>
-          <p>Snäll & Smart</p>
+          <p>Pricksäkerhet</p>
         </div>
       </section>
     </main>
 
     <footer>
       <h2>Ska vi koka ihop något bra?</h2>
-      <span class="lurking">Just lurking? Kom och säg hej:</span>
+      <span class="lurking">Bara nyfiken? Kom och säg hej:</span>
       <div class="footer-links">
-        <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
       <div class="copy">© 2025 Anna Frankendal • Sociologi + Strategi + Värme</div>
     </footer>
