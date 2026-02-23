@@ -94,6 +94,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 80px 60px;
       box-shadow: 0 40px 100px rgba(0,0,0,0.05);
       border: 1px solid var(--line);
+      position: relative; /* Tillagt för att kunna positionera knappen */
+    }
+
+    .download-cv-btn {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      padding: 8px 16px;
+      font-size: 11px;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .download-cv-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
     }
 
     .cv-header { text-align: center; margin-bottom: 5rem; }
@@ -183,14 +209,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="experience">
     <div class="container">
       <div class="cv-paper">
+        <a href="Anna Frankendal CV - BERGHS  .pdf" download="Anna Frankendal CV.pdf" class="download-cv-btn">
+          <i class="fas fa-download"></i> Ladda ner (PDF)
+        </a>
         <div class="cv-header">
           <h1>Anna Frankendal</h1>
           <p>CV</p>
-          <div style="margin-top: 2rem;">
-            <a href="Anna Frankendal CV - BERGHS  .pdf" download="Anna Frankendal CV.pdf" class="btn-accent" style="padding: 12px 24px; font-size: 12px; display: inline-flex; align-items: center; gap: 10px;">
-              <i class="fas fa-download"></i> Ladda ner CV (PDF)
-            </a>
-          </div>
         </div>
         
         <div class="cv-grid">
