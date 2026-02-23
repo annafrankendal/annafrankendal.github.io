@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAV --- */
     nav { 
@@ -55,23 +55,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-image-wrap { width: 160px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
     .hero-image-wrap img { width: 100%; display: block; filter: grayscale(100%); }
 
-    /* --- CONTENT GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
+    /* --- THREE COLUMN GRID --- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
     
-    .box { border: var(--border); padding: 3rem; background: #fff; display: flex; flex-direction: column; justify-content: center; }
-    .box h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; }
-    .box p { font-size: 1.1rem; font-weight: 600; color: #333; }
+    .box { border: var(--border); padding: 3rem; background: #fff; display: flex; flex-direction: column; height: 100%; }
+    .box h2 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; min-height: 3.6rem; display: flex; align-items: flex-end; }
+    .box p { font-size: 1rem; font-weight: 600; color: #333; }
 
-    .box-who { grid-column: span 12; background: var(--bg); border-color: var(--accent); }
-    .box-who h2 { color: var(--accent); }
-    
-    .box-want { grid-column: span 7; }
-    .box-can { grid-column: span 5; background: var(--ink); color: #fff; }
+    .box-who { border-top: 8px solid var(--accent); }
+    .box-can { background: var(--ink); color: #fff; }
     .box-can p { color: #ccc; }
 
     /* --- STATS --- */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
-    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; }
+    .stat-box { border: var(--border); padding: 2.5rem 1rem; text-align: center; background: #fff; }
     .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
     .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
@@ -86,10 +83,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .copy { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
 
-    @media (max-width: 900px) {
-      .grid, .stats { display: flex; flex-direction: column; }
+    @media (max-width: 950px) {
+      .grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
       .hero h1 { font-size: 5rem; letter-spacing: -4px; }
-      .box { padding: 2rem; }
       nav { gap: 1.5rem; }
     }
   </style>
@@ -114,19 +111,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </section>
 
       <div class="grid">
+        <!-- Box 1 -->
         <div class="box box-who">
           <h2>Vem jag är</h2>
-          <p>Jag är varm, nyfiken och har en osviklig tro på att allt går att lösa. Min Master i sociologi är grunden i allt jag gör – den ger mig de analytiska verktygen för att förstå varför människor gör som de gör. Jag är en Growth Marketer som bryr sig om både siffror och själen bakom dem.</p>
+          <p>Jag är varm, nyfiken och genuint intresserad av människor. Min Master i sociologi är grunden i allt jag gör – den ger mig verktygen för att förstå varför vi agerar som vi gör. Som Growth Marketer ser jag själen bakom siffrorna.</p>
         </div>
 
-        <div class="box box-want">
+        <!-- Box 2 -->
+        <div class="box">
           <h2>Vad jag vill</h2>
-          <p>Jag vill bygga marknadsföring som faktiskt betyder något. Mitt mål är att skapa smarta kundresor och autentiskt innehåll som tillför värde i vardagen, snarare än att bara störa i flödet. Jag vill växa tillsammans med varumärken som vågar vara mänskliga.</p>
+          <p>Jag vill bygga marknadsföring som faktiskt betyder något. Mitt mål är att skapa smarta kundresor och innehåll som tillför värde, snarare än att bara störa. Jag vill växa tillsammans med varumärken som vågar vara mänskliga.</p>
         </div>
 
+        <!-- Box 3 -->
         <div class="box box-can">
           <h2>Vad jag kan</h2>
-          <p>Strategisk analys parad med kreativ produktion. Jag behärskar allt från SEO och CRM till att bygga TikTok-koncept som stannar kvar. Jag förvandlar insikter om mänskligt beteende till mätbar tillväxt.</p>
+          <p>Strategisk analys parad med kreativ produktion. Jag behärskar allt från SEO och CRM till TikTok-koncept som stannar kvar. Jag förvandlar djupa insikter om mänskligt beteende till mätbar tillväxt.</p>
         </div>
       </div>
 
@@ -145,7 +145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="stat-box">
           <span>100%</span>
-          <p>Pricksäkerhet</p>
+          <p>Hjärta & Hjärna</p>
         </div>
       </section>
     </main>
