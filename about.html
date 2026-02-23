@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anna Frankendal | Strategi & Substans</title>
+  <title>Om Anna | Anna Frankendal</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,28 +20,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <style>
     :root {
       --bg: #fdfaf6;
-      --card: #ffffff;
       --ink: #1a1a1a;
-      --muted: #5f6368;
-      --line: #e7e5e2;
-      --shadow: 0 12px 30px rgba(0,0,0,.06);
-      
-      /* Brand Accent - Professional Dark Blue */
-      --accent: #003366;
-      --accent-soft: #f0f4f8;
-      
-      --radius: 12px;
-      
-      --radius-pill: 999px;
-      
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Inter', sans-serif;
-      
-      --container: 1200px;
-
       --burgundy: #630d16;
+      --navy: #1b263b;
       --lightblue: #d1e8ff;
-      --border-thick: 1.5px solid #1a1a1a;
+      --beige: #f2ede4;
+      --border: 1.5px solid #1a1a1a;
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
     }
@@ -60,86 +44,59 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* --- CONTACT BAR --- */
     .contact-bar {
-      background: #000;
-      color: #fff;
-      padding: 12px 30px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 2000;
+      background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
       flex-wrap: wrap;
     }
     .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
-    .contact-bar a:hover { opacity: 0.7; }
 
     /* --- NAVIGATION --- */
     nav { 
-      background: rgba(255,255,255,0.9); 
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center;
-      gap: 3rem; 
-      position: sticky; 
-      top: 39px; 
-      border-bottom: 1px solid var(--line); 
-      z-index: 1500; 
-      text-transform: uppercase; 
-      font-size: 11px; 
-      letter-spacing: 2px; 
-      font-weight: 600; 
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
+      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    nav a:hover { color: #999; }
-    .nav-cta {
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-    }
-    nav .nav-cta:hover { color: #fff; }
-    .btn-accent { background: var(--accent); color: #fff; }
+    nav a:hover { color: var(--burgundy); }
+    nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
+    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
     /* --- HERO --- */
     .hero { padding: 8rem 0 6rem; text-align: center; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(5rem, 20vw, 12rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 4rem; color: var(--burgundy); }
     
-    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border-thick); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
+    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
 
     .hero-intro { max-width: 600px; margin: 0 auto; font-size: 1.4rem; font-family: var(--font-display); font-weight: 700; font-style: italic; line-height: 1.3; }
 
     /* --- THE THREE BOXES --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border-thick); border-left: var(--border-thick); margin-bottom: 10rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 10rem; }
     
-    .box { border-right: var(--border-thick); border-bottom: var(--border-thick); padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 3.5rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
     
     .box h2 { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.8; letter-spacing: -3px; }
-    .box p { font-size: 1.25rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.2px; }
+    .box p { font-size: 1.3rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.5px; }
 
-    /* Box Colors */
+    /* Box Colors (Consistent with index.html) */
     .box-1 { background: var(--burgundy); color: #fff; }
     .box-1 p { color: var(--lightblue); }
+    
     .box-2 { background: var(--lightblue); color: var(--burgundy); }
     .box-2 p { color: #1b4332; }
-    .box-3 { background: #f2ede4; color: #1b4332; }
+    
+    .box-3 { background: var(--beige); color: #1b4332; }
     .box-3 p { color: var(--burgundy); }
 
     /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border-thick); margin-bottom: 10rem; }
-    .stat-box { border-right: var(--border-thick); border-bottom: var(--border-thick); padding: 4rem 2rem; text-align: center; background: #fff; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); margin-bottom: 10rem; }
+    .stat-box { border-right: var(--border); border-bottom: var(--border); padding: 4rem 2rem; text-align: center; background: #fff; }
     .stat-box:last-child { border-right: none; }
     .stat-box span { display: block; font-family: var(--font-display); font-size: 4.5rem; font-weight: 900; color: var(--burgundy); line-height: 1; margin-bottom: 1rem; }
     .stat-box p { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; }
 
     /* --- FOOTER --- */
-    footer { padding: 12rem 0 6rem; text-align: center; background: #fff; border-top: var(--border-thick); }
+    footer { padding: 12rem 0 6rem; text-align: center; background: #fff; border-top: var(--border); }
     footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 4rem; line-height: 0.8; letter-spacing: -1px; color: var(--burgundy); text-transform: uppercase; }
     
     .lurking { font-size: 13px; font-weight: 700; color: var(--burgundy); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 4px; }
@@ -161,21 +118,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
  
-  <div class="contact-bar">
-    <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
-    <a href="tel:+46707595554">070-759 55 54</a>
-    <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
-  </div>
-
-  <nav>
-    <a href="index.html">Hem</a>
-    <a href="about.html" style="color: var(--accent); font-weight: 800;">Om mig</a>
-    <a href="projects.html">Projekt</a>
-    <a href="experience.html">Erfarenhet</a>
-    <a href="match.html" class="nav-cta btn btn-accent">Är vi en match?</a>
-  </nav>
+  <div class="container">
+    <nav>
+      <a href="index.html">Hem</a>
+      <a href="about.html" class="active">Om mig</a>
+      <a href="projects.html">Projekt</a>
+      <a href="experience.html">CV</a>
+      <a href="match.html" class="nav-cta">Är vi en match?</a>
+    </nav>
 
     <main>
       <section class="hero">
