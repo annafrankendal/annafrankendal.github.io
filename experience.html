@@ -101,20 +101,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-header p { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
 
     /* Symmetrisk Grid Layout */
-    .cv-grid {
-      display: flex;
-      flex-direction: column;
+    .cv-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      column-gap: 5rem; 
+      align-items: start;
     }
 
-    .cv-titles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 2.5rem;
-    }
-    .cv-titles h3 {
-      font-size: 1.3rem;
-      border-bottom: 1.5px solid var(--ink);
+    .cv-column-title h3 { 
+      font-size: 1.3rem; 
+      margin-bottom: 2.5rem; 
+      border-bottom: 1.5px solid var(--ink); 
       padding-bottom: 12px;
       font-family: var(--font-serif);
       text-transform: uppercase;
@@ -122,19 +119,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 1px;
     }
 
-    .cv-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: stretch;
-    }
-
-    /* Original dots layout med linje till vänster i båda kolumnerna */
+    /* Rad-baserad grid inuti huvudgrid för att tvinga horisontell alignment */
     .cv-item { 
       border-left: 1px solid var(--line); 
       padding-left: 1.5rem; 
       position: relative; 
-      padding-bottom: 3rem; 
+      padding-bottom: 3.5rem; 
+      height: 100%;
     }
     .cv-item::before { 
       content: ''; 
@@ -151,21 +142,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-item span { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
     .cv-item p { font-size: 0.85rem; color: #333; line-height: 1.6; }
 
-    /* Skills & Verktyg symmetriskt undertill */
+    /* Skills & Verktyg */
     .skills-section {
       margin-top: 2rem;
       padding-top: 4rem;
       border-top: 1px solid var(--line);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
     }
     .skill-tag { border: 1px solid var(--line); padding: 6px 12px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
 
     @media (max-width: 850px) {
       .cv-paper { padding: 40px 25px; }
-      .cv-titles, .cv-row, .skills-section { grid-template-columns: 1fr; gap: 0; }
-      .cv-titles h3:last-child { margin-top: 3rem; }
+      .cv-grid, .skills-section { grid-template-columns: 1fr; gap: 0; }
+      .cv-column-title:last-of-type { margin-top: 3rem; }
       .skills-section { gap: 2.5rem; }
       nav { gap: 1rem; font-size: 9px; }
     }
@@ -194,70 +185,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="cv-paper">
         <div class="cv-header">
           <h1>Anna Frankendal</h1>
-          <p>Erfarenhet</p>
+          <p>Curriculum Vitae</p>
         </div>
         
         <div class="cv-grid">
-          <!-- Rubriker -->
-          <div class="cv-titles">
-            <h3>Arbetslivserfarenhet</h3>
-            <h3>Utbildning</h3>
-          </div>
+          <!-- Kolumnrubriker -->
+          <div class="cv-column-title"><h3>Arbetslivserfarenhet</h3></div>
+          <div class="cv-column-title"><h3>Utbildning</h3></div>
 
-          <!-- Rad 1 (Symmetriskt inriktad) -->
-          <div class="cv-row">
-            <div class="cv-item">
-              <h4>Social Media Content Intern</h4>
-              <span>Restaurang Eld</span>
-              <p>Fokus på organisk marknadsföring och att skapa engagerande och långsiktigt innehåll som bygger lojalitet.</p>
-            </div>
-            <div class="cv-item">
-              <h4>Growth Marketing</h4>
-              <span>Berghs School of Communication</span>
-              <p>Praktisk utbildning i digital strategi, kreativ kommunikation och mätbara resultat.</p>
-            </div>
+          <!-- Rad 1 -->
+          <div class="cv-item">
+            <h4>Social Media Content Intern</h4>
+            <span>Restaurang Eld</span>
+            <p>Fokus på organisk marknadsföring och att skapa engagerande och långsiktigt innehåll som bygger lojalitet.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Growth Marketing</h4>
+            <span>Berghs School of Communication</span>
+            <p>Praktisk utbildning i digital strategi, kreativ kommunikation och mätbara resultat.</p>
           </div>
 
           <!-- Rad 2 -->
-          <div class="cv-row">
-            <div class="cv-item">
-              <h4>TikTok Content Creator</h4>
-              <span>Drypops</span>
-              <p>Framtagande av rörligt innehåll för TikTok under varumärkets awareness-fas inför lansering.</p>
-            </div>
-            <div class="cv-item">
-              <h4>Masterexamen i HR & Sociologi</h4>
-              <span>Lunds universitet</span>
-              <p>Fördjupning i ledarskap, organisation och beteenden i arbetslivet.</p>
-            </div>
+          <div class="cv-item">
+            <h4>TikTok Content Creator</h4>
+            <span>Drypops</span>
+            <p>Framtagande av rörligt innehåll för TikTok under varumärkets awareness-fas inför lansering.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Masterexamen i HR & Sociologi</h4>
+            <span>Lunds universitet</span>
+            <p>Fördjupning i ledarskap, organisation och beteenden i arbetslivet.</p>
           </div>
 
           <!-- Rad 3 -->
-          <div class="cv-row">
-            <div class="cv-item">
-              <h4>Employer Branding och Rekrytering</h4>
-              <span>Northridge</span>
-              <p>Självständigt skapade och genomförde strategier för employer branding på LinkedIn från idé till publicering.</p>
-            </div>
-            <div class="cv-item">
-              <h4>Utbytestermin: Sociologi & HR</h4>
-              <span>University of Zurich</span>
-              <p>Studier inom organisationsbeteende och internationell management med ett globalt perspektiv.</p>
-            </div>
+          <div class="cv-item">
+            <h4>Employer Branding och Rekrytering</h4>
+            <span>Northridge</span>
+            <p>Självständigt skapade och genomförde strategier för employer branding på LinkedIn från idé till publicering.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Utbytestermin: Sociologi & HR</h4>
+            <span>University of Zurich</span>
+            <p>Studier inom organisationsbeteende och internationell management med ett globalt perspektiv.</p>
           </div>
 
           <!-- Rad 4 -->
-          <div class="cv-row">
-            <div class="cv-item">
-              <h4>Sociala medier-assistent</h4>
-              <span>CoKreativ</span>
-              <p>Skrev copy, filmade och redigerade innehåll för kunder till deras kanaler på Instagram, TikTok och LinkedIn.</p>
-            </div>
-            <div class="cv-item">
-              <h4>Kandidatexamen i Sociologi</h4>
-              <span>Lunds universitet</span>
-              <p>Studier av mänskligt beteende och gruppdynamik.</p>
-            </div>
+          <div class="cv-item">
+            <h4>Sociala medier-assistent</h4>
+            <span>CoKreativ</span>
+            <p>Skrev copy, filmade och redigerade innehåll för kunder till deras kanaler på Instagram, TikTok och LinkedIn.</p>
+          </div>
+          <div class="cv-item">
+            <h4>Kandidatexamen i Sociologi</h4>
+            <span>Lunds universitet</span>
+            <p>Studier av mänskligt beteende och gruppdynamik.</p>
           </div>
         </div>
 
