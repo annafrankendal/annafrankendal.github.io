@@ -63,8 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* --- HERO --- */
     .hero { padding: 8rem 0 6rem; text-align: center; }
-    .hero span { font-size: 12px; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; color: var(--burgundy); display: block; margin-bottom: 2rem; }
-    .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 4rem; color: var(--burgundy); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 4rem; color: var(--burgundy); }
     
     .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
@@ -76,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-right: var(--border); border-bottom: var(--border); padding: 5rem 3rem; 
       display: flex; flex-direction: column; justify-content: center; text-align: left;
       text-decoration: none; color: inherit; transition: background 0.3s ease;
-      min-height: 450px;
+      min-height: 400px;
     }
     
     .box h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.8; letter-spacing: -3px; }
@@ -91,11 +90,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .box:hover { filter: brightness(1.05); }
 
-    /* --- MATCH SECTION --- */
-    .match-cta { padding: 8rem 0; text-align: center; border-bottom: var(--border); }
-    .match-cta h2 { font-family: var(--font-display); font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 3rem; letter-spacing: -2px; }
-    .btn-big { display: inline-block; padding: 20px 50px; background: var(--burgundy); color: #fff; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: var(--border); transition: all 0.3s; }
+    /* --- QUIZ SPECIFIC STYLES --- */
+    #match .box { min-height: auto; cursor: default; }
+    .q-text { font-family: var(--font-body) !important; font-size: 1.8rem; font-weight: 600; margin-bottom: 2rem; }
+    .chip {
+      width: 60px; height: 60px; border: var(--border); display: flex; align-items: center; justify-content: center;
+      font-weight: 900; cursor: pointer; transition: 0.2s; background: #fff; font-family: var(--font-body); font-size: 1.2rem;
+    }
+    .chip:hover { background: var(--lightblue); }
+    .chip.selected { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .result-reward .pct { font-family: var(--font-display); font-size: 8rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 1rem; }
+    .result-reward h2 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1rem; }
+    
+    .btn-big { display: inline-block; padding: 20px 50px; background: var(--burgundy); color: #fff; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: var(--border); transition: all 0.3s; cursor:pointer; }
     .btn-big:hover { background: #fff; color: var(--burgundy); transform: translateY(-5px); }
+    .btn-big:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; border-left: none; }
@@ -154,7 +163,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </a>
     </div>
 
-    <section id="match" style="margin-bottom: 8rem;">
+    <!-- MATCH SECTION -->
+    <section id="match" style="margin-bottom: 10rem;">
+      <!-- Entry State -->
       <div id="quizEntry" class="box" style="background: var(--burgundy); color: #fff; text-align: center; cursor: pointer;">
         <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; color: var(--lightblue); margin-bottom: 1rem; display: block;">Kompabilitetstest</span>
         <h2 style="color: #fff; margin-bottom: 1.5rem;">Är vi en match?</h2>
@@ -162,140 +173,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button id="startQuizBtn" class="btn-big" style="background: #fff; color: var(--burgundy); border: none;">Starta testet</button>
       </div>
 
+      <!-- Quiz State -->
       <div id="quizCard" class="box" style="display: none; background: #fff;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
           <span id="kicker" style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: var(--navy);">Fråga 1 av 4</span>
-          <div style="width: 200px; height: 4px; background: var(--lightblue);"><div id="matchBarFill" style="height: 100%; background: var(--navy); width: 0%;"></div></div>
+          <div style="width: 200px; height: 4px; background: var(--lightblue);"><div id="matchBarFill" style="height: 100%; background: var(--navy); width: 25%;"></div></div>
         </div>
 
-        <form id="matchForm" novalidate>
-          <div class="quiz-body">
-            <!-- Steps -->
-            <div class="step active" data-step="1">
-              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</h2>
-              <div class="scale" data-q="q1" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+        <div id="quizBody">
+          <!-- Step 1 -->
+          <div class="step" data-step="1">
+            <p class="q-text">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</p>
+            <div class="scale" data-q="q1" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
             </div>
-
-            <div class="step" data-step="2" style="display:none;">
-              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</h2>
-              <div class="scale" data-q="q2" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-            </div>
-
-            <div class="step" data-step="3" style="display:none;">
-              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi arbetar mot tydliga mål och följer upp det vi skapar.</h2>
-              <div class="scale" data-q="q3" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-            </div>
-
-            <div class="step" data-step="4" style="display:none;">
-              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi prioriterar att bygga relationer med vår målgrupp över tid.</h2>
-              <div class="scale" data-q="q4" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999; margin-bottom: 3rem;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-              
-              <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); font-family:var(--font-body); font-weight: 600;" required>
-              <div style="display:flex; gap:10px; margin-top:1rem; align-items:center; font-size:0.8rem; font-weight:600;">
-                <input id="matchConsent" type="checkbox" required><span>Godkänn återkoppling.</span>
-              </div>
-            </div>
-
-            <div id="matchResult" style="display:none; text-align:center;"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
           </div>
 
-          <div class="quiz-nav" style="display: flex; justify-content: space-between; margin-top: 4rem;">
-            <button id="matchPrevBtn" type="button" style="background:none; border:none; font-weight:900; text-transform:uppercase; cursor:pointer; visibility:hidden;">Bakåt</button>
-            <button id="matchNextBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px;" disabled>Nästa</button>
-            <button id="matchSubmitBtn" type="submit" class="btn-big" style="padding: 10px 30px; font-size: 12px; display:none;">Visa resultat</button>
+          <!-- Step 2 -->
+          <div class="step" data-step="2" style="display:none;">
+            <p class="q-text">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</p>
+            <div class="scale" data-q="q2" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
           </div>
-        </form>
+
+          <!-- Step 3 -->
+          <div class="step" data-step="3" style="display:none;">
+            <p class="q-text">Vi arbetar mot tydliga mål och följer upp det vi skapar.</p>
+            <div class="scale" data-q="q3" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step" data-step="4" style="display:none;">
+            <p class="q-text">Vi prioriterar att bygga relationer med vår målgrupp över tid.</p>
+            <div class="scale" data-q="q4" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999; margin-bottom: 3rem;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+            
+            <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); font-family:var(--font-body); font-weight: 600; outline: none;" required>
+            <div style="display:flex; gap:10px; margin-top:1rem; align-items:center; font-size:0.8rem; font-weight:600;">
+              <input id="matchConsent" type="checkbox" required><span>Godkänn återkoppling via mail.</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="matchResult" style="display:none; text-align:center;"></div>
+
+        <div id="quizNav" style="display: flex; justify-content: space-between; margin-top: 4rem;">
+          <button id="matchPrevBtn" type="button" style="background:none; border:none; font-weight:900; text-transform:uppercase; cursor:pointer; visibility:hidden;">Bakåt</button>
+          <button id="matchNextBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px;" disabled>Nästa</button>
+          <button id="matchSubmitBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px; display:none;">Visa resultat</button>
+        </div>
       </div>
     </section>
   </main>
-
-  <style>
-    .chip {
-      width: 50px; height: 50px; border: var(--border); display: flex; align-items: center; justify-content: center;
-      font-weight: 900; cursor: pointer; transition: 0.2s;
-    }
-    .chip:hover { background: var(--lightblue); }
-    .chip.selected { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .result-reward .pct { font-size: 6rem; font-weight: 900; color: var(--navy); }
-  </style>
-
-  <script>
-    const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
-    let matchStep = 1;
-    const matchTotalSteps = 4;
-
-    function showMatchStep(n){
-      matchStep = n;
-      document.querySelectorAll('.step').forEach((s, idx) => {
-        s.style.display = (idx + 1 === matchStep) ? 'block' : 'none';
-      });
-      document.getElementById('kicker').textContent = `Fråga ${matchStep} av ${matchTotalSteps}`;
-      document.getElementById('matchBarFill').style.width = (matchStep / matchTotalSteps * 100) + '%';
-      document.getElementById('matchPrevBtn').style.visibility = matchStep > 1 ? 'visible' : 'hidden';
-      
-      if (matchStep === matchTotalSteps){
-        document.getElementById('matchNextBtn').style.display = 'none';
-        document.getElementById('matchSubmitBtn').style.display = 'inline-block';
-      } else {
-        document.getElementById('matchNextBtn').style.display = 'inline-block';
-        document.getElementById('matchSubmitBtn').style.display = 'none';
-        document.getElementById('matchNextBtn').disabled = !matchAnswers['q'+matchStep];
-      }
-    }
-
-    document.querySelectorAll('.chip').forEach(c => {
-      c.addEventListener('click', () => {
-        const q = c.parentElement.dataset.q;
-        matchAnswers[q] = Number(c.dataset.value);
-        c.parentElement.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
-        c.classList.add('selected');
-        if (matchStep < matchTotalSteps) {
-          setTimeout(() => showMatchStep(matchStep + 1), 300);
-        } else {
-          document.getElementById('matchSubmitBtn').disabled = false;
-        }
-      });
-    });
-
-    document.getElementById('startQuizBtn').addEventListener('click', () => {
-      document.getElementById('quizEntry').style.display = 'none';
-      document.getElementById('quizCard').style.display = 'block';
-      showMatchStep(1);
-    });
-
-    document.getElementById('matchPrevBtn').addEventListener('click', () => showMatchStep(matchStep - 1));
-    document.getElementById('matchNextBtn').addEventListener('click', () => showMatchStep(matchStep + 1));
-
-    document.getElementById('matchForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
-      const pct = Math.round((total / 20) * 100);
-      document.querySelector('.quiz-body').style.display = 'none';
-      document.querySelector('.quiz-nav').style.display = 'none';
-      const res = document.getElementById('matchResult');
-      res.style.display = 'block';
-      res.innerHTML = `
-        <div class="result-reward">
-          <div class="pct">${pct}%</div>
-          <h2 style="margin: 1rem 0;">Matchning klar</h2>
-          <p style="font-weight:700; margin-bottom:2rem;">Det här ser spännande ut. Vi borde höras!</p>
-          <a href="mailto:afrankendal@gmail.com" class="btn-big" style="text-decoration:none;">Kontakta mig</a>
-        </div>
-      `;
-    });
-  </script>
 
   <footer>
     <div class="container">
@@ -311,5 +248,97 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
+  <script>
+    const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
+    let matchStep = 1;
+    const matchTotalSteps = 4;
+
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const quizEntry = document.getElementById('quizEntry');
+    const quizCard = document.getElementById('quizCard');
+    const quizNav = document.getElementById('quizNav');
+    const quizBody = document.getElementById('quizBody');
+    const nextBtn = document.getElementById('matchNextBtn');
+    const prevBtn = document.getElementById('matchPrevBtn');
+    const submitBtn = document.getElementById('matchSubmitBtn');
+    const resultBox = document.getElementById('matchResult');
+    const emailInput = document.getElementById('matchEmail');
+    const consentInput = document.getElementById('matchConsent');
+
+    function updateSubmitState() {
+      const allAnswered = Object.values(matchAnswers).every(v => v !== null);
+      const emailOk = emailInput.checkValidity() && emailInput.value.length > 3;
+      const consentOk = consentInput.checked;
+      submitBtn.disabled = !(allAnswered && emailOk && consentOk);
+    }
+
+    function showStep(n) {
+      matchStep = n;
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((s, i) => {
+        s.style.display = (i + 1 === matchStep) ? 'block' : 'none';
+      });
+      
+      document.getElementById('kicker').textContent = `Fråga ${matchStep} av ${matchTotalSteps}`;
+      document.getElementById('matchBarFill').style.width = (matchStep / matchTotalSteps * 100) + '%';
+      
+      prevBtn.style.visibility = matchStep > 1 ? 'visible' : 'hidden';
+      
+      if (matchStep === matchTotalSteps) {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'inline-block';
+        updateSubmitState();
+      } else {
+        nextBtn.style.display = 'inline-block';
+        submitBtn.style.display = 'none';
+        nextBtn.disabled = !matchAnswers['q' + matchStep];
+      }
+    }
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const q = this.parentElement.dataset.q;
+        matchAnswers[q] = Number(this.dataset.value);
+        
+        this.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        
+        if (matchStep < matchTotalSteps) {
+          setTimeout(() => showStep(matchStep + 1), 300);
+        } else {
+          updateSubmitState();
+        }
+      });
+    });
+
+    startQuizBtn.addEventListener('click', () => {
+      quizEntry.style.display = 'none';
+      quizCard.style.display = 'block';
+      showStep(1);
+    });
+
+    prevBtn.addEventListener('click', () => showStep(matchStep - 1));
+    nextBtn.addEventListener('click', () => showStep(matchStep + 1));
+    emailInput.addEventListener('input', updateSubmitState);
+    consentInput.addEventListener('change', updateSubmitState);
+
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const total = Object.values(matchAnswers).reduce((a, b) => a + b, 0);
+      const pct = Math.round((total / 20) * 100);
+      
+      quizBody.style.display = 'none';
+      quizNav.style.display = 'none';
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <div class="result-reward">
+          <div class="pct">${pct}%</div>
+          <h2 style="font-size:2.5rem; margin:1rem 0; text-transform:uppercase;">Matchning klar</h2>
+          <p style="font-weight:700; margin-bottom:2rem; font-size:1.2rem;">Det här ser spännande ut. Vi borde höras!</p>
+          <a href="mailto:afrankendal@gmail.com" class="btn-big" style="text-decoration:none;">Kontakta mig</a>
+        </div>
+      `;
+    });
+  </script>
 </body>
 </html>
