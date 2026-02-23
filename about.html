@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --bg: #ffffff;
       --ink: #000000;
       --accent: #0047AB; /* Royal Blue */
-      --border: 2px solid #000000;
+      --border: 3px solid #000000;
       --font-sans: 'Inter', sans-serif;
     }
 
@@ -55,22 +55,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-image-wrap { width: 160px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
     .hero-image-wrap img { width: 100%; display: block; filter: grayscale(100%); }
 
-    /* --- THREE COLUMN GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
+    /* --- CONTENT GRID (COOL RECTANGLES) --- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 8rem; border: var(--border); }
     
-    .box { border: var(--border); padding: 3rem; background: #fff; display: flex; flex-direction: column; height: 100%; }
-    .box h2 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1; min-height: 3.6rem; display: flex; align-items: flex-end; }
-    .box p { font-size: 1rem; font-weight: 600; color: #333; }
+    .box { padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%; justify-content: center; }
+    
+    .box h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 0.95; letter-spacing: -1px; }
+    .box p { font-size: 1.1rem; font-weight: 600; line-height: 1.6; }
 
-    .box-who { border-top: 8px solid var(--accent); }
-    .box-can { background: var(--ink); color: #fff; }
-    .box-can p { color: #ccc; }
+    /* Box 1: Blue BG, White Text */
+    .box-who { background: var(--accent); color: #fff; border-right: var(--border); }
+    
+    /* Box 2: Black BG, White Text */
+    .box-want { background: var(--ink); color: #fff; border-right: var(--border); }
+    
+    /* Box 3: White BG, Blue Text */
+    .box-can { background: #fff; color: var(--accent); }
+    .box-can p { color: var(--ink); }
 
     /* --- STATS --- */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
-    .stat-box { border: var(--border); padding: 2.5rem 1rem; text-align: center; background: #fff; }
+    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; }
     .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); }
 
     /* --- FOOTER --- */
     footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; background: #fff; }
@@ -84,9 +91,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .copy { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
 
     @media (max-width: 950px) {
-      .grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr; border: none; gap: 1.5rem; }
+      .box { border: var(--border); }
+      .box-who, .box-want, .box-can { border-right: var(--border); }
+      
+      .stats { display: flex; flex-direction: column; }
       .hero h1 { font-size: 5rem; letter-spacing: -4px; }
+      .box { padding: 3rem 2rem; }
       nav { gap: 1.5rem; }
     }
   </style>
@@ -111,19 +122,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </section>
 
       <div class="grid">
-        <!-- Box 1 -->
+        <!-- Box 1: Blue -->
         <div class="box box-who">
           <h2>Vem är jag?</h2>
           <p>Jag är varm, nyfiken och genuint intresserad av människor. Min Master i sociologi är grunden i allt jag gör – den ger mig verktygen för att förstå varför vi agerar som vi gör. Som Growth Marketer ser jag själen bakom siffrorna.</p>
         </div>
 
-        <!-- Box 2 -->
-        <div class="box">
+        <!-- Box 2: Black -->
+        <div class="box box-want">
           <h2>Vad vill jag?</h2>
           <p>Jag vill bygga marknadsföring som faktiskt betyder något. Mitt mål är att skapa smarta kundresor och innehåll som tillför värde, snarare än att bara störa. Jag vill växa tillsammans med varumärken som vågar vara mänskliga.</p>
         </div>
 
-        <!-- Box 3 -->
+        <!-- Box 3: White -->
         <div class="box box-can">
           <h2>Vad kan jag?</h2>
           <p>Strategisk analys parad med kreativ produktion. Jag behärskar allt från SEO och CRM till TikTok-koncept som stannar kvar. Jag förvandlar djupa insikter om mänskligt beteende till mätbar tillväxt.</p>
@@ -145,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="stat-box">
           <span>100%</span>
-          <p>Hjärta & Hjärna</p>
+          <p>Pricksäkerhet</p>
         </div>
       </section>
     </main>
