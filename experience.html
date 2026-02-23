@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Erfarenhet | Anna Frankendal</title>
+  <title>CV | Anna Frankendal</title>
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root {
-      --bg: #fbfaf8;
+      --bg: #f5f3f0;
       --card: #ffffff;
       --ink: #1a1a1a;
       --muted: #5f6368;
@@ -27,7 +27,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --accent: #003366;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', sans-serif;
-      --container: 1200px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,14 +35,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 2rem;
     }
 
     /* --- NAVIGATION --- */
@@ -84,15 +77,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav a { color: var(--ink); text-decoration: none; }
     .btn-accent { background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; }
 
-    /* --- EXPERIENCE STYLE (ORIGINAL) --- */
-    #experience { padding: 100px 0; }
-    h2 { font-family: var(--font-serif); font-size: 3.5rem; text-align: center; margin-bottom: 4rem; letter-spacing: -1px; text-transform: uppercase; font-weight: 400; }
+    /* --- CV PAPER STYLE --- */
+    #experience { padding: 60px 20px; }
     
-    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; }
-    
+    .cv-paper {
+      background: #fff;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 60px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .cv-header { text-align: center; margin-bottom: 5rem; }
+    .cv-header h1 { font-family: var(--font-serif); font-size: 3.5rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .cv-header p { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+
+    /* Symmetrisk Grid */
+    .cv-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 4rem; 
+      align-items: start;
+    }
+
     .cv-column h3 { 
-      font-size: 1.5rem; 
-      margin-bottom: 2rem; 
+      font-size: 1.3rem; 
+      margin-bottom: 2.5rem; 
       border-bottom: 1px solid var(--ink); 
       padding-bottom: 10px;
       font-family: var(--font-serif);
@@ -100,11 +112,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 400;
     }
 
+    /* Original dots-layout inuti grid */
     .cv-item { 
       border-left: 1px solid var(--line); 
-      padding-left: 2rem; 
+      padding-left: 1.5rem; 
       position: relative; 
-      margin-bottom: 3rem; 
+      margin-bottom: 2.5rem; 
     }
     .cv-item::before { 
       content: ''; 
@@ -117,20 +130,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 50%; 
     }
     
-    .cv-item h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.3rem; font-weight: 700; }
-    .cv-item span { font-size: 0.85rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.8rem; display: block; }
-    .cv-item p { font-size: 1rem; color: #333; }
+    .cv-item h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.4rem; font-weight: 700; }
+    .cv-item span { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+    .cv-item p { font-size: 0.85rem; color: #333; line-height: 1.6; }
 
-    .skill-tag { border: 1px solid var(--line); padding: 8px 15px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: inline-block; border-radius: 4px; }
+    /* Skills & Verktyg under */
+    .skills-section {
+      margin-top: 5rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .skill-tag { border: 1px solid var(--line); padding: 6px 12px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
 
-    @media (max-width: 900px) {
-      .cv-grid { display: flex; flex-direction: column; gap: 0; }
-      .cv-cat-2 { margin-top: 3rem; }
-      h2 { font-size: 2.5rem; }
-      nav { gap: 1.5rem; font-size: 9px; padding: 1rem; }
+    @media (max-width: 850px) {
+      .cv-paper { padding: 40px 25px; }
+      .cv-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .skills-section { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav { gap: 1rem; font-size: 9px; }
     }
 
-    footer { text-align: center; padding: 8rem 2rem; border-top: 1px solid var(--line); background: #fff; margin-top: 60px; }
+    footer { text-align: center; padding: 6rem 2rem; background: #fff; border-top: 1px solid var(--line); margin-top: 60px; }
     footer h2 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; }
   </style>
 </head>
@@ -151,98 +173,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <section id="experience">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 5rem;">
-        <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -1px;">Anna Frankendal</h1>
-        <p style="font-family: var(--font-serif); font-size: 1.5rem; font-style: italic; color: var(--muted); letter-spacing: 2px; text-transform: uppercase;">Erfarenhet</p>
-      </div>
-      
-      <div class="cv-grid">
-        <!-- Vänster kolumn: Arbetsliv -->
-        <div class="cv-column">
-          <h3>Arbetslivserfarenhet</h3>
-          
-          <div class="cv-item">
-            <h4>Social Media Content Intern</h4>
-            <span>Restaurang Eld</span>
-            <p>Fokus på organisk marknadsföring och att skapa engagerande och långsiktigt innehåll som bygger lojalitet.</p>
+      <div class="cv-paper">
+        <div class="cv-header">
+          <h1>Anna Frankendal</h1>
+          <p>Curriculum Vitae</p>
+        </div>
+        
+        <div class="cv-grid">
+          <!-- Vänster: Arbetsliv -->
+          <div class="cv-column">
+            <h3>Arbetslivserfarenhet</h3>
+            
+            <div class="cv-item">
+              <h4>Social Media Content Intern</h4>
+              <span>Restaurang Eld</span>
+              <p>Fokus på organisk marknadsföring och att skapa engagerande och långsiktigt innehåll som bygger lojalitet.</p>
+            </div>
+
+            <div class="cv-item">
+              <h4>TikTok Content Creator</h4>
+              <span>Drypops</span>
+              <p>Framtagande av rörligt innehåll för TikTok under varumärkets awareness-fas inför lansering.</p>
+            </div>
+
+            <div class="cv-item">
+              <h4>Employer Branding och Rekrytering</h4>
+              <span>Northridge</span>
+              <p>Självständigt skapade och genomförde strategier för employer branding på LinkedIn från idé till publicering.</p>
+            </div>
+
+            <div class="cv-item">
+              <h4>Sociala medier-assistent</h4>
+              <span>CoKreativ</span>
+              <p>Skrev copy, filmade och redigerade innehåll för kunder till deras kanaler på Instagram, TikTok och LinkedIn.</p>
+            </div>
           </div>
 
-          <div class="cv-item">
-            <h4>TikTok Content Creator</h4>
-            <span>Drypops</span>
-            <p>Framtagande av rörligt innehåll för TikTok under varumärkets awareness-fas inför lansering.</p>
-          </div>
+          <!-- Höger: Utbildning -->
+          <div class="cv-column">
+            <h3>Utbildning</h3>
+            
+            <div class="cv-item">
+              <h4>Growth Marketing</h4>
+              <span>Berghs School of Communication</span>
+              <p>Praktisk utbildning i digital strategi, kreativ kommunikation och mätbara resultat.</p>
+            </div>
 
-          <div class="cv-item">
-            <h4>Employer Branding och Rekrytering</h4>
-            <span>Northridge</span>
-            <p>Självständigt skapade och genomförde strategier för employer branding på LinkedIn från idé till publicering.</p>
-          </div>
+            <div class="cv-item">
+              <h4>Masterexamen i HR & Sociologi</h4>
+              <span>Lunds universitet</span>
+              <p>Fördjupning i ledarskap, organisation och beteenden i arbetslivet.</p>
+            </div>
 
-          <div class="cv-item">
-            <h4>Sociala medier-assistent</h4>
-            <span>CoKreativ</span>
-            <p>Skrev copy, filmade och redigerade innehåll för kunder till deras kanaler på Instagram, TikTok och LinkedIn.</p>
+            <div class="cv-item">
+              <h4>Utbytestermin: Sociologi & HR</h4>
+              <span>University of Zurich</span>
+              <p>Studier inom organisationsbeteende och internationell management med ett globalt perspektiv.</p>
+            </div>
+
+            <div class="cv-item">
+              <h4>Kandidatexamen i Sociologi</h4>
+              <span>Lunds universitet</span>
+              <p>Studier av mänskligt beteende och gruppdynamik.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Höger kolumn: Utbildning -->
-        <div class="cv-column cv-cat-2">
-          <h3>Utbildning</h3>
-          
-          <div class="cv-item">
-            <h4>Growth Marketing</h4>
-            <span>Berghs School of Communication</span>
-            <p>Praktisk utbildning i digital strategi, kreativ kommunikation och mätbara resultat.</p>
+        <div class="skills-section">
+          <div>
+            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 1.5rem; color: var(--muted); font-weight: 700;">Expertis</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div class="skill-tag">Innehållsproduktion</div>
+              <div class="skill-tag">Sociala medier</div>
+              <div class="skill-tag">Copywriting</div>
+              <div class="skill-tag">Strategi & planering</div>
+              <div class="skill-tag">Målgruppsanalys</div>
+              <div class="skill-tag">SEO</div>
+              <div class="skill-tag">Dataanalys</div>
+              <div class="skill-tag">Community</div>
+              <div class="skill-tag">CRO</div>
+              <div class="skill-tag">CRM</div>
+            </div>
           </div>
-
-          <div class="cv-item">
-            <h4>Masterexamen i HR & Sociologi</h4>
-            <span>Lunds universitet</span>
-            <p>Fördjupning i ledarskap, organisation och beteenden i arbetslivet.</p>
-          </div>
-
-          <div class="cv-item">
-            <h4>Utbytestermin: Sociologi & HR</h4>
-            <span>University of Zurich</span>
-            <p>Studier inom organisationsbeteende och internationell management med ett globalt perspektiv.</p>
-          </div>
-
-          <div class="cv-item">
-            <h4>Kandidatexamen i Sociologi</h4>
-            <span>Lunds universitet</span>
-            <p>Studier av mänskligt beteende och gruppdynamik.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 6rem; border-top: 1px solid var(--line); padding-top: 4rem;">
-        <div>
-          <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 2rem; color: var(--muted); font-weight: 700;">Expertis</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <div class="skill-tag">Innehållsproduktion</div>
-            <div class="skill-tag">Sociala medier</div>
-            <div class="skill-tag">Copywriting</div>
-            <div class="skill-tag">Strategi & planering</div>
-            <div class="skill-tag">Målgruppsanalys</div>
-            <div class="skill-tag">SEO</div>
-            <div class="skill-tag">Dataanalys</div>
-            <div class="skill-tag">Community</div>
-            <div class="skill-tag">CRO</div>
-            <div class="skill-tag">CRM</div>
-          </div>
-        </div>
-        <div>
-          <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 2rem; color: var(--muted); font-weight: 700;">Verktyg</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <div class="skill-tag">GA4</div>
-            <div class="skill-tag">GTM</div>
-            <div class="skill-tag">Canva</div>
-            <div class="skill-tag">CapCut</div>
-            <div class="skill-tag">Meta Ads</div>
-            <div class="skill-tag">Google Ads</div>
-            <div class="skill-tag">Looker Studio</div>
-            <div class="skill-tag">Shopify</div>
+          <div>
+            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 1.5rem; color: var(--muted); font-weight: 700;">Verktyg</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div class="skill-tag">GA4</div>
+              <div class="skill-tag">GTM</div>
+              <div class="skill-tag">Canva</div>
+              <div class="skill-tag">CapCut</div>
+              <div class="skill-tag">Meta Ads</div>
+              <div class="skill-tag">Google Ads</div>
+              <div class="skill-tag">Looker Studio</div>
+              <div class="skill-tag">Shopify</div>
+            </div>
           </div>
         </div>
       </div>
