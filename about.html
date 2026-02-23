@@ -15,17 +15,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f0f0f0;
-      --ink: #000000;
-      --accent-cool: #2979ff; /* Electric Blue */
-      --accent-vibe: #ccff00; /* Lime Green */
-      --accent-pop: #b388ff;  /* Soft Purple */
-      --chunky-border: 4px solid #000;
-      --hard-shadow: 8px 8px 0px #000;
+      --bg: #f9f8f6; /* Varm off-white */
+      --ink: #1a1a1a;
+      --muted: #7a7a7a;
+      --line: #e5e2df;
+      --accent: #4a5d6e; /* Dämpad skandinavisk blågrå */
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', sans-serif;
     }
@@ -36,94 +34,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAVIGATION --- */
     .contact-bar {
-      background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
-      font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
-      border-bottom: var(--chunky-border);
+      background: #000; color: #fff; padding: 10px 30px; display: flex; justify-content: center; gap: 30px;
+      font-size: 9px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
     }
-    .contact-bar a { color: #fff; text-decoration: none; font-weight: 700; }
+    .contact-bar a { color: #fff; text-decoration: none; transition: opacity 0.3s; }
+    .contact-bar a:hover { opacity: 0.6; }
 
     nav { 
-      background: #fff; padding: 1.2rem 2rem; display: flex; 
-      justify-content: center; align-items: center; gap: 2rem; position: sticky; top: 43px; 
-      border-bottom: var(--chunky-border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 900; 
+      background: rgba(249, 248, 246, 0.8); backdrop-filter: blur(15px); padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 4rem; position: sticky; top: 35px; 
+      border-bottom: 1px solid var(--line); z-index: 1500; text-transform: uppercase; font-size: 10px; letter-spacing: 2px; font-weight: 600; 
     }
-    nav a { color: var(--ink); text-decoration: none; border-bottom: 3px solid transparent; transition: all 0.2s; }
-    nav a:hover { border-bottom: 3px solid var(--accent-cool); }
-    nav .active { background: var(--accent-vibe); padding: 6px 15px; border: var(--chunky-border); box-shadow: 4px 4px 0px #000; }
+    nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+    nav a:hover { color: var(--muted); }
+    nav .active { border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
 
     /* --- HERO --- */
-    .about-hero { padding: 8rem 0 4rem; text-align: center; }
-    .about-hero h1 { font-family: var(--font-serif); font-size: clamp(3.5rem, 10vw, 7rem); line-height: 0.85; margin-bottom: 3rem; font-weight: 400; text-transform: uppercase; }
+    .about-hero { padding: 10rem 0 6rem; text-align: center; }
+    .about-hero h1 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 6rem); font-weight: 400; line-height: 1; margin-bottom: 4rem; letter-spacing: -2px; }
     
-    .profile-wrap { position: relative; width: 280px; height: 280px; margin: 0 auto 4rem; }
-    .profile-frame {
-      width: 100%; height: 100%; border-radius: 20px; overflow: hidden;
-      border: var(--chunky-border); box-shadow: var(--hard-shadow); background: #fff;
-    }
-    .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .profile-badge {
-      position: absolute; bottom: -20px; right: -20px; background: var(--accent-pop);
-      border: var(--chunky-border); padding: 10px 20px; font-weight: 900; text-transform: uppercase;
-      font-size: 12px; transform: rotate(5deg); box-shadow: 4px 4px 0px #000;
+    .hero-image-wrap { max-width: 600px; margin: 0 auto 6rem; position: relative; }
+    .hero-image-wrap img { width: 100%; border-radius: 4px; filter: grayscale(10%); }
+    .hero-image-wrap::after { 
+      content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; 
+      border: 1px solid var(--line); z-index: -1; 
     }
 
-    .intro-card {
-      background: #fff; border: var(--chunky-border); padding: 3rem; border-radius: 4px;
-      box-shadow: var(--hard-shadow); max-width: 850px; margin: 0 auto 8rem; text-align: left;
-    }
-    .intro-card p { font-size: 1.6rem; font-family: var(--font-serif); font-style: italic; color: #000; line-height: 1.4; }
-
-    /* --- GRID SECTIONS --- */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 8rem; }
-    .bento-card { border: var(--chunky-border); padding: 3rem; border-radius: 4px; box-shadow: var(--hard-shadow); background: #fff; }
-    .bento-card.blue { background: #e3f2fd; }
-    .bento-card.purple { background: #f3e5f5; }
+    /* --- REDAKTIONELL LAYOUT --- */
+    .content-section { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; margin-bottom: 10rem; align-items: start; }
+    .content-section h2 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+    .content-section p { font-size: 1.1rem; color: #333; margin-bottom: 2rem; }
     
-    .bento-card h2 { font-family: var(--font-sans); font-weight: 900; font-size: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; line-height: 1; }
-    .bento-card p { font-size: 1rem; color: #000; font-weight: 500; }
-
-    /* --- STATS --- */
-    .fact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
-    .fact-card { 
-      background: #fff; border: var(--chunky-border); border-radius: 4px; padding: 1.5rem; text-align: center;
-      box-shadow: 6px 6px 0px #000;
+    .editorial-quote { 
+      grid-column: 1 / -1; font-family: var(--font-serif); font-size: 2.2rem; font-style: italic; 
+      text-align: center; padding: 6rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      margin-bottom: 10rem; color: var(--accent);
     }
-    .fact-card span { display: block; font-size: 2.5rem; font-weight: 900; color: var(--accent-cool); margin-bottom: 0.5rem; }
-    .fact-card p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; line-height: 1.2; }
 
-    /* --- PASSION --- */
-    .bubbles { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 8rem; }
-    .bubble { 
-      padding: 15px 30px; border: var(--chunky-border); border-radius: 4px; background: #fff; 
-      font-size: 1rem; font-weight: 800; box-shadow: 5px 5px 0px #000;
-      transition: all 0.1s; text-transform: uppercase;
-    }
-    .bubble:nth-child(even) { background: var(--accent-vibe); }
-    .bubble:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0px #000; }
+    /* --- STATS (Minimalist) --- */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 10rem; border-bottom: 1px solid var(--line); padding-bottom: 6rem; }
+    .stat-item { text-align: center; }
+    .stat-item span { display: block; font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 0.5rem; font-weight: 400; }
+    .stat-item p { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-weight: 600; }
 
-    footer { text-align: center; padding: 8rem 2rem; border-top: var(--chunky-border); background: #000; color: #fff; }
-    footer h2 { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 3rem; font-weight: 400; font-style: italic; }
-    .footer-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 4rem; }
-    .footer-links a { 
-      width: 70px; height: 70px; background: #fff; border: var(--chunky-border); border-radius: 4px;
-      display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #000;
-      box-shadow: 6px 6px 0px var(--accent-cool); text-decoration: none; transition: all 0.1s;
-    }
-    .footer-links a:hover { transform: translate(3px, 3px); box-shadow: 3px 3px 0px var(--accent-cool); }
+    /* --- PASSION TAGS --- */
+    .tags-container { text-align: center; margin-bottom: 10rem; }
+    .tags-label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--muted); margin-bottom: 3rem; display: block; }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .tag { padding: 10px 24px; border: 1px solid var(--line); border-radius: 100px; font-size: 0.9rem; transition: all 0.3s; background: #fff; }
+    .tag:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    footer { text-align: center; padding: 10rem 2rem; background: #fff; border-top: 1px solid var(--line); }
+    footer h2 { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 3rem; font-weight: 400; text-transform: none; }
+    .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 4rem; }
+    .footer-links a { color: var(--ink); font-size: 1.5rem; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 0.5; }
 
     @media (max-width: 900px) {
-      .about-grid, .fact-grid { grid-template-columns: 1fr; }
-      .about-hero h1 { font-size: 3.5rem; }
-      nav { gap: 1rem; font-size: 9px; flex-wrap: wrap; top: 0; }
-      .contact-bar { position: relative; }
+      .content-section { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-hero { padding: 6rem 0; }
+      nav { gap: 1.5rem; font-size: 9px; }
     }
   </style>
 </head>
@@ -142,86 +121,96 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="about.html" class="active">Om mig</a>
     <a href="projects.html">Projekt</a>
     <a href="experience.html">Erfarenhet</a>
-    <a href="match.html" style="background: var(--ink); color: #fff; padding: 8px 20px; border-radius: 4px; text-decoration: none; border: 2px solid #fff; box-shadow: 4px 4px 0px var(--accent-cool);">Match?</a>
+    <a href="match.html" style="color: var(--accent); font-weight: 700;">Matchning</a>
   </nav>
 
   <main class="container">
     <section class="about-hero">
-      <div class="profile-wrap">
-        <div class="profile-frame">
-          <img src="annabild.JPG" alt="Anna Frankendal">
-        </div>
-        <div class="profile-badge">Sociologi + Growth</div>
-      </div>
-      <h1>Det är jag som är Anna.</h1>
-      
-      <div class="intro-card">
-        <p>En Growth Marketer med en Master i sociologi och en osviklig tro på att den bästa datan alltid kommer från att förstå människor.</p>
+      <h1>Anna Frankendal</h1>
+      <div class="hero-image-wrap">
+        <img src="annabild.JPG" alt="Anna Frankendal">
       </div>
     </section>
 
-    <section class="about-grid">
-      <div class="bento-card blue">
-        <h2>Data är bara beteenden i siffror</h2>
+    <div class="content-section">
+      <h2>Strategi med ett mänskligt ansikte.</h2>
+      <div>
         <p>
-          Bakom varje klick finns en människa med ett behov, en osäkerhet eller en dröm. 
-          Min bakgrund inom sociologi gör att jag inte bara ser <em>vad</em> som händer i dina kanaler, utan också förstår <em>varför</em>. 
-          Det är i glappet mellan siffror och psykologi som den riktiga magin (och tillväxten) sker.
+          Jag är en Growth Marketer som vägrar se data som bara siffror. Med en Master i sociologi i ryggen är min drivkraft alltid att förstå människan bakom skärmen. Varför klickar vi? Vad får oss att känna tillit?
         </p>
-      </div>
-      <div class="bento-card purple">
-        <h2>Passion för recept</h2>
         <p>
-          När jag inte bygger TikTok-strategier hittar du mig förmodligen i köket. 
-          Under namnet <strong>@frankisfood</strong> experimenterar jag med råvaror precis som jag gör med marknadsföring. 
-          Du behöver rätt ingredienser, en tydlig struktur och modet att våga misslyckas för att skapa något som folk faktiskt vill ha mer av.
+          Min filosofi är enkel: Den mest effektiva marknadsföringen är den som inte känns som marknadsföring. Det handlar om att bygga relationer, inte bara räckvidd.
         </p>
-      </div>
-    </section>
-
-    <div class="fact-grid">
-      <div class="fact-card">
-        <span>150+</span>
-        <p>Beteendeanalyser</p>
-      </div>
-      <div class="fact-card">
-        <span>2x</span>
-        <p>Följartillväxt</p>
-      </div>
-      <div class="fact-card">
-        <span>∞</span>
-        <p>Pasta-timmar</p>
-      </div>
-      <div class="fact-card">
-        <span>100%</span>
-        <p>Engagemang</p>
       </div>
     </div>
 
-    <section class="passion-section">
-      <div class="bubbles">
-        <div class="bubble">Organisk tillväxt</div>
-        <div class="bubble">Målgruppsanalys</div>
-        <div class="bubble">Narrative Storytelling</div>
-        <div class="bubble">Retention</div>
-        <div class="bubble">CapCut-magi</div>
-        <div class="bubble">Beteendevetenskap</div>
-        <div class="bubble">Riktigt bra kaffe</div>
+    <div class="editorial-quote">
+      "Growth Marketing handlar inte om att skrika högst, utan om att förstå vem man pratar med."
+    </div>
+
+    <div class="content-section" style="grid-template-columns: 1.2fr 1fr;">
+      <div style="order: 2;">
+        <h2>Receptet för framgång.</h2>
+        <p>
+          När jag inte analyserar kundresor eller optimerar konvertering, hittar du mig förmodligen i köket. Under namnet <strong>@frankisfood</strong> delar jag min passion för matlagning. 
+        </p>
+        <p>
+          Att bygga ett varumärke är precis som att laga en perfekt risotto – det kräver tålamod, de bästa råvarorna och en fingertoppskänsla för när det är dags att röra om.
+        </p>
+      </div>
+      <div style="order: 1; border-left: 1px solid var(--line); padding-left: 3rem;">
+        <p style="font-style: italic; color: var(--muted);">
+          Baserad i Stockholm.<br>
+          Sociolog från Lunds Universitet.<br>
+          Growth Marketer från Berghs.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span>150+</span>
+        <p>Analys-respondenter</p>
+      </div>
+      <div class="stat-item">
+        <span>2x</span>
+        <p>Organisk tillväxt</p>
+      </div>
+      <div class="stat-item">
+        <span>∞</span>
+        <p>Pasta-timmar</p>
+      </div>
+      <div class="stat-item">
+        <span>100%</span>
+        <p>Passion</p>
+      </div>
+    </div>
+
+    <section class="tags-container">
+      <span class="tags-label">Expertis & Intressen</span>
+      <div class="tags">
+        <div class="tag">Organisk tillväxt</div>
+        <div class="tag">Målgruppsanalys</div>
+        <div class="tag">Narrative Storytelling</div>
+        <div class="tag">Retention</div>
+        <div class="tag">CapCut</div>
+        <div class="tag">Beteendevetenskap</div>
+        <div class="tag">Gastronomi</div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <h2>"Ska vi koka ihop något?"</h2>
+      <h2>Ska vi koka ihop något?</h2>
       <div class="footer-links">
-        <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p style="font-size: 11px; text-transform: uppercase; font-weight: 900; letter-spacing: 2px;">© 2025 Anna Frankendal. Strategi + Empati.</p>
+      <p style="font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted);">© 2025 Anna Frankendal. Strategi + Sociologi.</p>
     </div>
   </footer>
 
