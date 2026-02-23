@@ -29,7 +29,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --line: #e7e5e2;
       --shadow: 0 12px 30px rgba(0,0,0,.06);
       --accent: #003366;
-      --accent-soft: #f0f4f8;
       --radius: 12px;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', sans-serif;
@@ -42,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -94,47 +93,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; }
 
     /* --- PROJECTS GRID --- */
-    header { padding: 6rem 0 4rem; text-align: center; }
-    header h1 { font-family: var(--font-serif); font-size: 4rem; text-transform: uppercase; font-weight: 400; margin-bottom: 1rem; }
-    header p { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; color: var(--muted); }
+    header { padding: 5rem 0 3rem; text-align: center; }
+    header h1 { font-family: var(--font-serif); font-size: 3rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; }
+    header p { font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--muted); }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 3rem;
-      margin-bottom: 8rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mindre kort */
+      gap: 2rem;
+      margin-bottom: 6rem;
     }
 
     .project-card {
       background: #fff;
-      border: 1px solid transparent;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1rem;
+      padding: 0.8rem; /* Mindre padding */
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       display: flex;
       flex-direction: column;
     }
-    .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: var(--line); }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
 
     .video-preview { 
       width: 100%; 
       aspect-ratio: 16 / 9; 
       background: #f0f0f0; 
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       overflow: hidden;
-      border-radius: calc(var(--radius) - 4px);
+      border-radius: calc(var(--radius) - 6px);
       position: relative;
     }
     .video-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
 
-    .project-info { padding: 1rem; }
-    .project-info .cat { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; display: block; }
-    .project-info h3 { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 0.5rem; text-transform: none; line-height: 1.2; font-weight: 400; }
-    .project-info p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.5; }
+    .project-info { padding: 0.5rem; }
+    .project-info .cat { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; margin-bottom: 0.4rem; display: block; }
+    .project-info h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.4rem; text-transform: none; line-height: 1.2; font-weight: 400; }
+    .project-info p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-    .project-tag { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-weight: 600; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+    .project-tag { font-size: 8px; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-weight: 600; }
 
     /* --- MODAL --- */
     .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: #fff; overflow-y: auto; }
@@ -146,12 +145,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 900px) {
-      header h1 { font-size: 3rem; }
-      nav { gap: 1.5rem; font-size: 9px; }
-      .project-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 2.5rem; }
+      nav { gap: 1rem; font-size: 9px; padding: 1rem; }
+      .project-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
     }
 
-    footer { text-align: center; padding: 8rem 2rem; border-top: 1px solid var(--line); background: #fff; }
+    footer { text-align: center; padding: 6rem 2rem; border-top: 1px solid var(--line); background: #fff; }
     footer h2 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; }
     .footer-links { display: flex; justify-content: center; gap: 30px; align-items: center; }
     .footer-links a { color: #000; font-size: 1.8rem; transition: opacity 0.3s; }
@@ -192,12 +191,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">Paid Social</span>
-            <h3>DryPops – Paid Social</h3>
-            <p>Planerade och analyserade A/B-tester över målgrupper, budskap och format för att identifiera kostnadseffektivt engagemang.</p>
+            <h3>DryPops</h3>
+            <p>A/B-tester över målgrupper och format för att identifiera engagemang.</p>
             <div class="project-tags">
               <span class="project-tag">Meta Ads</span>
-              <span class="project-tag">A/B-testning</span>
-              <span class="project-tag">Performance</span>
+              <span class="project-tag">A/B-test</span>
             </div>
           </div>
         </div>
@@ -209,12 +207,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">SEO & Content</span>
-            <h3>Akademibokhandeln – SEO</h3>
-            <p>Analyserade organisk synlighet och kartlade sökintention genom kundresans olika stadier för att stärka synligheten.</p>
+            <h3>Akademibokhandeln</h3>
+            <p>Kartläggning av sökintention för att stärka organisk synlighet.</p>
             <div class="project-tags">
-              <span class="project-tag">Sökintention</span>
-              <span class="project-tag">Innehållsstrategi</span>
-              <span class="project-tag">IA Analysis</span>
+              <span class="project-tag">SEO</span>
+              <span class="project-tag">Content</span>
             </div>
           </div>
         </div>
@@ -226,12 +223,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">CRO</span>
-            <h3>Under Your Skin – CRO</h3>
-            <p>Identifierade friktion på produktsidor och prioriterade hypoteser enligt PIE-modellen för att öka konverteringsgraden.</p>
+            <h3>Under Your Skin</h3>
+            <p>Identifiering av friktion på produktsidor för ökad konvertering.</p>
             <div class="project-tags">
-              <span class="project-tag">Beteendeanalys</span>
-              <span class="project-tag">UX-optimering</span>
-              <span class="project-tag">PIE-modellen</span>
+              <span class="project-tag">Optimering</span>
+              <span class="project-tag">UX</span>
             </div>
           </div>
         </div>
@@ -243,12 +239,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">CRM & Retention</span>
-            <h3>Stadium – CRM & Lojalitet</h3>
-            <p>Designade aktiverings- och återaktiveringsresor för att förtydliga medlemsvärde och stärka lojaliteten.</p>
+            <h3>Stadium</h3>
+            <p>Design av livscykelflöden för att stärka medlemsvärde och lojalitet.</p>
             <div class="project-tags">
-              <span class="project-tag">Lifecycle Marketing</span>
-              <span class="project-tag">Triggerflöden</span>
-              <span class="project-tag">Customer Experience</span>
+              <span class="project-tag">CRM</span>
+              <span class="project-tag">Lifecycle</span>
             </div>
           </div>
         </div>
@@ -260,12 +255,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">E-commerce</span>
-            <h3>ROOM 48 – E-handel</h3>
-            <p>Utvecklade en nischad event- och community-baserad affärsmodell med tydlig marginal-logik och skalbarhet.</p>
+            <h3>ROOM 48</h3>
+            <p>Event- och community-baserad affärsmodell med tydlig skalbarhet.</p>
             <div class="project-tags">
-              <span class="project-tag">Business Modeling</span>
-              <span class="project-tag">Shopify Automation</span>
-              <span class="project-tag">Growth Strategy</span>
+              <span class="project-tag">E-com</span>
+              <span class="project-tag">Growth</span>
             </div>
           </div>
         </div>
@@ -277,12 +271,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div class="project-info">
             <span class="cat">Growth & Strategy</span>
-            <h3>eComID – TikTok-strategi</h3>
-            <p>Genomförde marknads- och beteendeanalys som låg till grund för organisk TikTok-strategi och fördubblat följarantal.</p>
+            <h3>eComID</h3>
+            <p>Beteendeanalys och organisk TikTok-strategi för tillväxt.</p>
             <div class="project-tags">
-              <span class="project-tag">Market Analysis</span>
-              <span class="project-tag">TikTok Organic</span>
-              <span class="project-tag">SaaS Growth</span>
+              <span class="project-tag">TikTok</span>
+              <span class="project-tag">Strategy</span>
             </div>
           </div>
         </div>
@@ -419,7 +412,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       body.innerHTML = `
         <div style="margin-bottom: 2rem;">
           <span style="text-transform:uppercase; letter-spacing:2px; font-size:10px; color:#999; display:block; margin-bottom:0.5rem;">${data.category} // ${data.tags}</span>
-          <h2 style="font-family:var(--font-serif); font-size:3.5rem; line-height:1.1; margin-bottom:1rem; text-transform:none;">${data.title}</h2>
+          <h2 style="font-family:var(--font-serif); font-size:2.5rem; line-height:1.1; margin-bottom:1rem; text-transform:none;">${data.title}</h2>
           <p style="font-family:var(--font-serif); font-style:italic; font-size:1.4rem; color:#666;">${data.course}</p>
         </div>
         
