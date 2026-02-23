@@ -57,29 +57,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
 
-    /* --- BENTO POWER GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); }
+    /* --- THE THREE BOXES --- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 10rem; }
     
-    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
     
-    .box h2 { font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.85; letter-spacing: -2px; }
-    .box p { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
+    .box h2 { font-size: clamp(2rem, 3vw, 3rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.85; letter-spacing: -2px; }
+    .box p { font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
 
-    /* Box Variations */
-    .box-who { grid-column: span 12; background: var(--burgundy); color: #fff; text-align: center; }
-    .box-who h2 { font-family: var(--font-serif); font-style: italic; font-weight: 400; text-transform: none; }
-    .box-who p { max-width: 700px; margin: 0 auto; font-size: 1.4rem; opacity: 0.9; }
-
-    .box-can { grid-column: span 6; background: var(--lightblue); color: var(--burgundy); }
-    .box-want { grid-column: span 6; background: #fff; color: var(--ink); }
-
-    .box-philosophy { grid-column: span 8; background: #fff; }
-    .box-food { grid-column: span 4; background: var(--burgundy); color: #fff; }
-    .box-food h2 { color: var(--lightblue); }
+    .box-1 { background: var(--burgundy); color: #fff; }
+    .box-2 { background: var(--lightblue); color: var(--burgundy); }
+    .box-3 { background: #fff; color: var(--ink); }
 
     /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); margin-bottom: 10rem; }
     .stat-box { border-right: var(--border); border-bottom: var(--border); padding: 4rem 2rem; text-align: center; background: #fff; }
+    .stat-box:last-child { border-right: none; }
     .stat-box span { display: block; font-size: 4.5rem; font-weight: 900; color: var(--burgundy); line-height: 1; margin-bottom: 1rem; }
     .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; }
 
@@ -96,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; border-left: none; }
-      .box { grid-column: span 1; border-right: none; padding: 4rem 2rem; min-height: auto; }
+      .box { border-right: none; padding: 4rem 2rem; min-height: auto; }
       .stats { grid-template-columns: 1fr 1fr; border-left: none; }
       .stat-box:nth-child(even) { border-right: none; }
       .hero h1 { font-size: 6rem; letter-spacing: -5px; }
@@ -124,34 +117,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </section>
 
       <div class="grid">
-        <!-- VEM ÄR JAG? -->
-        <div class="box box-who">
+        <!-- Box 1: VEM ÄR JAG? -->
+        <div class="box box-1">
           <h2>Vem är jag?</h2>
-          <p>En sociolog som råkar älska algoritmer. Jag navigerar i glappet mellan mänsklig psykologi och digital tillväxt. Varm i bemötandet, analytisk i tanken och alltid nyfiken på nästa "varför".</p>
+          <p>En sociolog som råkar älska algoritmer. Jag navigerar i glappet mellan mänsklig psykologi och digital tillväxt. Analytisk i tanken, men alltid med hjärtat i processen.</p>
         </div>
 
-        <!-- VAD KAN JAG? -->
-        <div class="box box-can">
+        <!-- Box 2: VAD KAN JAG? -->
+        <div class="box box-2">
           <h2>Vad kan jag?</h2>
-          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok som folk faktiskt vill se. Mitt hantverk är att översätta mänskliga behov till mätbara resultat.</p>
+          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok. Mitt hantverk är att översätta beteenden till resultat.</p>
         </div>
 
-        <!-- VAD VILL JAG? -->
-        <div class="box box-want">
+        <!-- Box 3: VAD VILL JAG? -->
+        <div class="box box-3">
           <h2>Vad vill jag?</h2>
-          <p>Skapa marknadsföring som känns som en tjänst, inte ett avbrott. Jag vill hjälpa varumärken att hitta sin röst, bygga lojalitet och växa hållbart genom att alltid sätta människan framför klicket.</p>
-        </div>
-
-        <!-- PHILOSOPHY -->
-        <div class="box box-philosophy">
-          <h2>Filosofi</h2>
-          <p>Data utan empati är bara brus. Varje klick är ett mänskligt beslut. Mitt hantverk är att översätta dessa beslut till tillväxt genom att förstå drivkrafterna bakom skärmen.</p>
-        </div>
-
-        <!-- FOOD -->
-        <div class="box box-food">
-          <h2>@frankisfood</h2>
-          <p>Kreativitet kräver recept. I köket experimenterar jag med råvaror precis som jag gör med marknadsföring: rätt ingredienser och en tydlig struktur.</p>
+          <p>Skapa marknadsföring som tillför värde, inte bara räckvidd. Jag vill hjälpa varumärken att bygga äkta lojalitet genom att alltid sätta människan framför klicket.</p>
         </div>
       </div>
 
