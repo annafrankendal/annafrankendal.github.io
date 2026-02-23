@@ -52,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 12px 30px;
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 30px;
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -60,8 +60,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       top: 0;
       width: 100%;
       z-index: 2000;
+      flex-wrap: wrap;
     }
-    .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; }
+    .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
+    .contact-bar a:hover { opacity: 0.7; }
 
     nav { 
       background: rgba(255,255,255,0.9); 
@@ -94,8 +96,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 80px 60px;
       box-shadow: 0 40px 100px rgba(0,0,0,0.05);
       border: 1px solid var(--line);
-      position: relative; /* Tillagt för att kunna positionera knappen */
+      position: relative;
     }
+
+    .cv-header { text-align: center; margin-bottom: 5rem; }
+    .cv-header h1 { font-family: var(--font-serif); font-size: 3.5rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .cv-header p { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
 
     .download-cv-btn {
       position: absolute;
@@ -116,15 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 600;
       letter-spacing: 1px;
     }
-    .download-cv-btn:hover {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .cv-header { text-align: center; margin-bottom: 5rem; }
-    .cv-header h1 { font-family: var(--font-serif); font-size: 3.5rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -1px; }
-    .cv-header p { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+    .download-cv-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
     /* Symmetrisk Grid Layout */
     .cv-grid { 
@@ -145,7 +143,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 1px;
     }
 
-    /* Rad-baserad grid inuti huvudgrid för att tvinga horisontell alignment */
     .cv-item { 
       border-left: 1px solid var(--line); 
       padding-left: 1.5rem; 
@@ -187,8 +184,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       nav { gap: 1rem; font-size: 9px; }
     }
 
-    footer { text-align: center; padding: 6rem 2rem; background: #fff; border-top: 1px solid var(--line); margin-top: 60px; }
+    footer { text-align: center; padding: 8rem 2rem; background: #fff; border-top: 1px solid var(--line); margin-top: 60px; }
     footer h2 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .footer-links { display: flex; justify-content: center; gap: 30px; align-items: center; }
+    .footer-links a { color: #000; font-size: 1.8rem; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 0.6; }
   </style>
 </head>
 <body>
@@ -197,6 +197,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
     <a href="tel:+46707595554">070-759 55 54</a>
     <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
   </div>
 
   <nav>
@@ -212,6 +214,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="Anna Frankendal CV - BERGHS  .pdf" download="Anna Frankendal CV.pdf" class="download-cv-btn">
           <i class="fas fa-download"></i> Ladda ner (PDF)
         </a>
+
         <div class="cv-header">
           <h1>Anna Frankendal</h1>
           <p>CV</p>
@@ -317,10 +320,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container">
       <h2>Anna Frankendal</h2>
       <p style="font-family: var(--font-serif); font-size: 1.8rem; font-style: italic; margin-bottom: 3rem; color: #000; text-transform: none;">"Hör av dig så tar vi en kaffe!"</p>
-      <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
-        <a href="mailto:afrankendal@gmail.com" style="color: #000; font-size: 2rem;"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554" style="color: #000; font-size: 2rem;"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" style="color: #000; font-size: 2rem;"><i class="fab fa-linkedin"></i></a>
+      <div class="footer-links">
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
   </footer>
