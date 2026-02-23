@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anna Frankendal | Strategi & Beteende</title>
+  <title>Anna Frankendal | Strategi & Substans</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,11 +19,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root {
-      --bg: #ffffff;
-      --ink: #000000;
-      --accent: #0047AB; /* Royal Blue */
-      --border: 3px solid #000000;
+      --bg: #fdfaf6;
+      --ink: #1a1a1a;
+      --burgundy: #630d16;
+      --lightblue: #d1e8ff;
+      --border: 1.5px solid #1a1a1a;
       --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,66 +34,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.3;
+      line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAV --- */
     nav { 
       padding: 2.5rem 0; display: flex; 
-      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 0; 
-      border-bottom: var(--border); background: #fff; z-index: 1500; text-transform: uppercase; font-size: 13px; font-weight: 900;
+      justify-content: center; align-items: center; gap: 4rem; position: sticky; top: 0; 
+      border-bottom: var(--border); background: rgba(253, 250, 246, 0.9); backdrop-filter: blur(10px); z-index: 1500; 
+      text-transform: uppercase; font-size: 11px; font-weight: 900; letter-spacing: 2px;
     }
-    nav a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    nav .active { color: var(--accent); text-decoration: underline; text-underline-offset: 10px; }
+    nav a { color: var(--ink); text-decoration: none; }
+    nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
 
     /* --- HERO --- */
-    .hero { padding: 10rem 0 8rem; text-align: center; border-bottom: var(--border); }
-    .hero h1 { font-size: clamp(5rem, 20vw, 15rem); font-weight: 900; line-height: 0.75; text-transform: uppercase; letter-spacing: -10px; margin-bottom: 6rem; }
+    .hero { padding: 8rem 0 6rem; text-align: center; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(5rem, 20vw, 12rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 4rem; color: var(--burgundy); }
     
-    .hero-image-wrap { width: 200px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
-    .hero-image-wrap img { width: 100%; display: block; filter: grayscale(100%); }
+    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
+    .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
 
-    /* --- BENTO GRID (MORE RECTANGLES) --- */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; border-left: var(--border); border-top: var(--border); }
+    /* --- BENTO POWER GRID --- */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); }
     
-    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 3.5rem; display: flex; flex-direction: column; justify-content: center; min-height: 400px; }
+    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
     
     .box h2 { font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.85; letter-spacing: -2px; }
     .box p { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
 
-    /* Box Positioning */
-    .box-1 { grid-column: span 8; background: var(--accent); color: #fff; }
-    .box-2 { grid-column: span 4; background: #fff; color: var(--ink); }
-    .box-3 { grid-column: span 4; background: var(--ink); color: #fff; }
-    .box-4 { grid-column: span 8; background: #fff; color: var(--accent); }
-    .box-5 { grid-column: span 6; background: #fff; color: var(--ink); }
-    .box-6 { grid-column: span 6; background: var(--accent); color: #fff; }
+    /* Box Variations */
+    .box-who { grid-column: span 12; background: var(--burgundy); color: #fff; text-align: center; }
+    .box-who h2 { font-family: var(--font-serif); font-style: italic; font-weight: 400; text-transform: none; }
+    .box-who p { max-width: 700px; margin: 0 auto; font-size: 1.4rem; opacity: 0.9; }
+
+    .box-can { grid-column: span 6; background: var(--lightblue); color: var(--burgundy); }
+    .box-want { grid-column: span 6; background: #fff; color: var(--ink); }
+
+    .box-philosophy { grid-column: span 8; background: #fff; }
+    .box-food { grid-column: span 4; background: var(--burgundy); color: #fff; }
+    .box-food h2 { color: var(--lightblue); }
 
     /* --- STATS --- */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); }
     .stat-box { border-right: var(--border); border-bottom: var(--border); padding: 4rem 2rem; text-align: center; background: #fff; }
-    .stat-box span { display: block; font-size: 5rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 1rem; }
-    .stat-box p { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+    .stat-box span { display: block; font-size: 4.5rem; font-weight: 900; color: var(--burgundy); line-height: 1; margin-bottom: 1rem; }
+    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; }
 
     /* --- FOOTER --- */
-    footer { padding: 12rem 0 6rem; border-top: none; text-align: center; background: #000; color: #fff; }
-    footer h2 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; font-style: italic; margin-bottom: 6rem; line-height: 0.8; letter-spacing: -3px; }
+    footer { padding: 12rem 0 6rem; text-align: center; background: #fff; border-top: var(--border); }
+    footer h2 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; font-style: italic; margin-bottom: 6rem; line-height: 0.8; letter-spacing: -3px; color: var(--burgundy); }
     
-    .lurking { font-size: 14px; font-weight: 900; color: var(--accent); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 4px; }
+    .lurking { font-size: 13px; font-weight: 900; color: var(--burgundy); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 4px; }
     .footer-links { display: flex; justify-content: center; gap: 4rem; }
-    .footer-links a { color: #fff; font-size: 3.5rem; transition: 0.2s; }
-    .footer-links a:hover { transform: scale(1.2) rotate(-5deg); color: var(--accent); }
+    .footer-links a { color: var(--ink); font-size: 2.5rem; transition: transform 0.3s ease; }
+    .footer-links a:hover { transform: translateY(-10px); color: var(--burgundy); }
     
-    .copy { margin-top: 10rem; font-size: 11px; text-transform: uppercase; letter-spacing: 4px; opacity: 0.4; }
+    .copy { margin-top: 10rem; font-size: 10px; text-transform: uppercase; letter-spacing: 4px; opacity: 0.3; }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; border-left: none; }
       .box { grid-column: span 1; border-right: none; padding: 4rem 2rem; min-height: auto; }
-      .stats { grid-template-columns: 1fr 1fr; border-left: none; border-top: var(--border); }
+      .stats { grid-template-columns: 1fr 1fr; border-left: none; }
       .stat-box:nth-child(even) { border-right: none; }
       .hero h1 { font-size: 6rem; letter-spacing: -5px; }
       nav { gap: 1.5rem; }
@@ -106,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="about.html" class="active">Om mig</a>
       <a href="projects.html">Projekt</a>
       <a href="experience.html">CV</a>
-      <a href="match.html">Matchning</a>
+      <a href="match.html" style="color: var(--burgundy);">Matchning</a>
     </nav>
 
     <main>
@@ -118,47 +124,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </section>
 
       <div class="grid">
-        <!-- Box 1 -->
-        <div class="box box-1">
+        <!-- VEM ÄR JAG? -->
+        <div class="box box-who">
           <h2>Vem är jag?</h2>
           <p>En sociolog som råkar älska algoritmer. Jag navigerar i glappet mellan mänsklig psykologi och digital tillväxt. Varm i bemötandet, analytisk i tanken och alltid nyfiken på nästa "varför".</p>
         </div>
 
-        <!-- Box 2 -->
-        <div class="box box-2">
+        <!-- VAD KAN JAG? -->
+        <div class="box box-can">
           <h2>Vad kan jag?</h2>
-          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok som folk faktiskt vill se.</p>
+          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok som folk faktiskt vill se. Mitt hantverk är att översätta mänskliga behov till mätbara resultat.</p>
         </div>
 
-        <!-- Box 3 -->
-        <div class="box box-3">
+        <!-- VAD VILL JAG? -->
+        <div class="box box-want">
           <h2>Vad vill jag?</h2>
-          <p>Skapa marknadsföring som känns som en tjänst, inte ett avbrott. Jag vill hjälpa varumärken att hitta sin röst och bygga lojalitet.</p>
+          <p>Skapa marknadsföring som känns som en tjänst, inte ett avbrott. Jag vill hjälpa varumärken att hitta sin röst, bygga lojalitet och växa hållbart genom att alltid sätta människan framför klicket.</p>
         </div>
 
-        <!-- Box 4 -->
-        <div class="box box-4">
-          <h2>Min filosofi</h2>
-          <p>Data utan empati är bara brus. Varje klick är ett mänskligt beslut. Mitt hantverk är att översätta dessa beslut till mätbar tillväxt genom att alltid sätta människan framför klicket.</p>
+        <!-- PHILOSOPHY -->
+        <div class="box box-philosophy">
+          <h2>Filosofi</h2>
+          <p>Data utan empati är bara brus. Varje klick är ett mänskligt beslut. Mitt hantverk är att översätta dessa beslut till tillväxt genom att förstå drivkrafterna bakom skärmen.</p>
         </div>
 
-        <!-- Box 5 -->
-        <div class="box box-5">
+        <!-- FOOD -->
+        <div class="box box-food">
           <h2>@frankisfood</h2>
-          <p>Min passion för matlagning är min kreativa ventil. Här experimenterar jag med råvaror precis som jag gör med marknadsföring: rätt ingredienser och en tydlig struktur.</p>
-        </div>
-
-        <!-- Box 6 -->
-        <div class="box box-6">
-          <h2>Status</h2>
-          <p>Just nu fokuserar jag på att förena strategisk analys med Narrative Storytelling för att skapa innehåll som stannar i minnet.</p>
+          <p>Kreativitet kräver recept. I köket experimenterar jag med råvaror precis som jag gör med marknadsföring: rätt ingredienser och en tydlig struktur.</p>
         </div>
       </div>
 
       <section class="stats">
         <div class="stat-box">
           <span>150+</span>
-          <p>Analys-respondenter</p>
+          <p>Beteendeanalyser</p>
         </div>
         <div class="stat-box">
           <span>2x</span>
@@ -168,7 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span>∞</span>
           <p>Pasta-timmar</p>
         </div>
-        <div class="stat-box">
+        <div class="stat-box" style="background: var(--lightblue);">
           <span>100%</span>
           <p>Pricksäkerhet</p>
         </div>
@@ -177,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <footer>
       <h2>Ska vi koka ihop något bra?</h2>
-      <span class="lurking">Just lurking? Kom och säg hej:</span>
+      <span class="lurking">Just lurking? Come say hi:</span>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
