@@ -11,19 +11,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anna Frankendal | The Strategy Menu</title>
+  <title>Anna Frankendal | Strategi med substans</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=Playfair+Display:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f4f1ea; /* Warm Menu Paper */
-      --ink: #1a1a1a;
-      --signal: #ff3e00;
-      --border: 1px solid #1a1a1a;
-      --dotted: 1px dashed #1a1a1a;
+      --bg: #f4f1ea; /* Warm Gallery Paper */
+      --ink: #0a0a0a;
+      --signal: #ff3e00; /* The "Truth" Red */
+      --border: 1px solid #0a0a0a;
       --font-sans: 'Inter', sans-serif;
       --font-serif: 'Playfair Display', serif;
     }
@@ -34,66 +33,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
 
-    /* --- MENU NAV --- */
+    /* --- MINIMAL NAV --- */
     nav { 
-      padding: 3rem 0; display: flex; justify-content: center; align-items: center;
-      border-bottom: var(--border); margin-bottom: 6rem;
+      padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: var(--border); margin-bottom: 4rem; position: sticky; top: 0; background: var(--bg); z-index: 1000;
     }
-    .nav-links { display: flex; gap: 3rem; text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
-    .nav-links a { color: var(--ink); text-decoration: none; transition: opacity 0.3s; }
-    .nav-links a:hover { opacity: 0.5; }
-    .nav-links .active { border-bottom: 1px solid var(--signal); }
+    .nav-brand { font-family: var(--font-serif); font-weight: 900; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
+    .nav-links { display: flex; gap: 3.5rem; text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+    .nav-links a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--signal); }
+    .nav-links .active { color: var(--signal); }
 
-    /* --- MENU HEADER --- */
-    .menu-header { text-align: center; margin-bottom: 8rem; }
-    .menu-header span { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 1rem; opacity: 0.6; }
-    .menu-header h1 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 5rem); font-weight: 400; font-style: italic; margin-bottom: 3rem; }
+    /* --- HERO --- */
+    .hero { padding: 4rem 0 10rem; text-align: center; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(4rem, 18vw, 14rem); line-height: 0.75; letter-spacing: -8px; margin-bottom: 4rem; }
     
-    .profile-wrap { position: relative; width: 180px; margin: 0 auto 3rem; }
-    .profile-image { border-radius: 50%; overflow: hidden; border: var(--border); aspect-ratio: 1; }
-    .profile-image img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
+    .hero-image-wrap { position: relative; width: 200px; margin: 0 auto 4rem; }
+    .hero-image { border: var(--border); filter: grayscale(100%); transition: filter 0.5s; aspect-ratio: 0.85; overflow: hidden; }
+    .hero-image:hover { filter: grayscale(0%); }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .hero-intro { max-width: 600px; margin: 0 auto; font-size: 1.4rem; font-family: var(--font-serif); font-style: italic; line-height: 1.4; }
 
-    /* --- MENU SECTIONS --- */
-    .menu-section { margin-bottom: 8rem; }
-    .menu-category { 
-      display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; 
-      text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 3px; 
+    /* --- THE MENU CARD (A LA CARTE) --- */
+    .menu-card { 
+      background: #fff; border: var(--border); padding: 4rem; max-width: 500px; margin: 8rem auto;
+      box-shadow: 20px 20px 0px var(--ink); position: relative;
     }
-    .menu-category::after { content: ''; flex: 1; height: 1px; background: var(--ink); opacity: 0.2; }
+    .menu-card span { font-size: 10px; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; display: block; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+    .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
+    .menu-item h4 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; }
+    .menu-item .dots { flex: 1; border-bottom: 1px dotted #ccc; margin: 0 10px; }
+    .menu-item .price { font-family: var(--font-serif); font-style: italic; color: var(--signal); }
 
-    .menu-item { display: grid; grid-template-columns: 1fr auto; gap: 2rem; margin-bottom: 4rem; align-items: baseline; }
-    .item-info h3 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.5rem; }
-    .item-info p { font-size: 1rem; color: #444; max-width: 600px; }
-    .item-tag { font-family: var(--font-serif); font-style: italic; color: var(--signal); font-size: 1.2rem; }
+    /* --- SECTIONS --- */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; margin-bottom: 15rem; }
+    .grid-item h2 { font-family: var(--font-serif); font-size: 3rem; font-weight: 400; line-height: 1; margin-bottom: 2rem; }
+    .grid-item p { font-size: 1.1rem; color: #333; margin-bottom: 2rem; }
+    .grid-item label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; color: var(--signal); display: block; margin-bottom: 1rem; }
 
-    .dotted-spacer { border-bottom: var(--dotted); margin: 4rem 0; opacity: 0.3; }
+    /* --- STATS --- */
+    .stats { display: flex; justify-content: space-between; border-top: var(--border); border-bottom: var(--border); padding: 4rem 0; margin-bottom: 15rem; }
+    .stat-item { text-align: center; flex: 1; }
+    .stat-item h4 { font-family: var(--font-serif); font-size: 4rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .stat-item p { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
 
-    /* --- PHILOSOPHY BOX --- */
-    .philosophy { 
-      background: #fff; border: var(--border); padding: 4rem; text-align: center; 
-      margin-bottom: 8rem; position: relative;
-    }
-    .philosophy h2 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; font-style: italic; margin-bottom: 1.5rem; }
-    .philosophy p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; }
+    footer h2 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 8rem); letter-spacing: -4px; line-height: 0.8; margin-bottom: 6rem; }
+    .footer-links { display: flex; justify-content: center; gap: 4rem; margin-bottom: 6rem; }
+    .footer-links a { color: var(--ink); font-size: 2rem; transition: transform 0.3s; }
+    .footer-links a:hover { transform: scale(1.2) color: var(--signal); }
 
-    /* --- FOOTER --- */
-    footer { padding: 8rem 0 4rem; border-top: var(--border); text-align: center; }
-    footer h2 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; margin-bottom: 3rem; }
-    .footer-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 4rem; }
-    .footer-links a { color: var(--ink); font-size: 1.5rem; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--signal); }
-    .footer-meta { font-size: 9px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
-
-    @media (max-width: 700px) {
-      .menu-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .item-tag { order: -1; }
-      .nav-links { gap: 1.5rem; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; gap: 4rem; }
+      .hero h1 { font-size: 6rem; }
+      .nav-links { display: none; }
+      .stats { flex-direction: column; gap: 4rem; }
     }
   </style>
 </head>
@@ -101,74 +102,89 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  
   <div class="container">
     <nav>
+      <div class="nav-brand">Anna Frankendal</div>
       <div class="nav-links">
-        <a href="index.html">Hem</a>
-        <a href="about.html" class="active">Om mig</a>
-        <a href="projects.html">Projekt</a>
-        <a href="experience.html">CV</a>
-        <a href="match.html">Matchning</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">Philosophie</a>
+        <a href="projects.html">Works</a>
+        <a href="experience.html">Curriculum</a>
+        <a href="match.html">Match?</a>
       </div>
     </nav>
 
     <main>
-      <header class="menu-header">
-        <span>EST. 1998 — STOCKHOLM</span>
-        <h1>Anna Frankendal</h1>
-        <div class="profile-wrap">
-          <div class="profile-image">
+      <section class="hero">
+        <h1>ANNA.</h1>
+        <div class="hero-image-wrap">
+          <div class="hero-image">
             <img src="annabild.JPG" alt="Anna Frankendal">
           </div>
         </div>
-        <p style="font-family: var(--font-serif); font-size: 1.4rem; max-width: 600px; margin: 0 auto; opacity: 0.8;">
-          Growth Marketer med en förkärlek för sociologi, mänskliga beteenden och riktigt god mat.
-        </p>
-      </header>
-
-      <section class="menu-section">
-        <div class="menu-category">Ingredienser</div>
-        
-        <div class="menu-item">
-          <div class="item-info">
-            <h3>Sociologisk Grund</h3>
-            <p>Att förstå varför vi gör som vi gör är basen i allt mitt arbete. Min Master är inte bara ett betyg, det är min kompass för att skapa äkta engagemang.</p>
-          </div>
-          <div class="item-tag">Lund / Zurich</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <h3>Growth Marketing</h3>
-            <p>Strategisk analys parad med kreativt berättande. Jag tror på tillväxt som känns mänsklig och som bygger på förtroende, inte bara algoritmer.</p>
-          </div>
-          <div class="item-tag">Berghs '25</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <h3>@frankisfood</h3>
-            <p>Min passion för gastronomi är min kreativa ventil. Här experimenterar jag med hooks och format på samma sätt som jag gör med råvaror.</p>
-          </div>
-          <div class="item-tag">Kreativitet</div>
+        <div class="hero-intro">
+          De flesta gissar. Jag har en Master i varför människor faktiskt gör som de gör. Det är skillnaden mellan räckvidd och resultat.
         </div>
       </section>
 
-      <section class="philosophy">
-        <h2>"Receptet är enkelt: Data utan empati är bara brus."</h2>
-        <p>Jag strävar efter att skapa marknadsföring som tillför värde i människors liv, snarare än att bara ta plats i deras flöden.</p>
+      <!-- THE MINI MENU ELEMENT -->
+      <section class="menu-card">
+        <span>A La Carte / Skills</span>
+        <div class="menu-item">
+          <h4>Sociologi</h4>
+          <div class="dots"></div>
+          <div class="price">Master</div>
+        </div>
+        <div class="menu-item">
+          <h4>Growth Marketing</h4>
+          <div class="dots"></div>
+          <div class="price">Strategy</div>
+        </div>
+        <div class="menu-item">
+          <h4>TikTok / Reels</h4>
+          <div class="dots"></div>
+          <div class="price">Hooks</div>
+        </div>
+        <div class="menu-item">
+          <h4>@frankisfood</h4>
+          <div class="dots"></div>
+          <div class="price">Creative</div>
+        </div>
       </section>
 
-      <div class="dotted-spacer"></div>
+      <section class="grid">
+        <div class="grid-item">
+          <label>The Approach</label>
+          <h2>Data utan empati är bara brus.</h2>
+          <p>Varje klick i GA4 är ett mänskligt beslut. Min bakgrund i sociologi gör att jag kan dekonstruera dessa beslut. Jag ser mönstren där andra bara ser siffror.</p>
+        </div>
+        <div class="grid-item">
+          <label>The Passion</label>
+          <h2>Kreativitet kräver ett recept.</h2>
+          <p>När jag inte analyserar kundresor hittar du mig i köket. Att skala upp ett varumärke är precis som att laga den perfekta pastan: du behöver rätt råvaror, en tydlig struktur och modet att experimentera.</p>
+        </div>
+      </section>
 
-      <section class="menu-section" style="text-align: center;">
-        <div class="menu-category">Smakprov</div>
-        <p style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 4rem;">
-          150+ Beteendeanalyser • 2x Organisk räckvidd • ∞ Pasta-timmar
-        </p>
+      <section class="stats">
+        <div class="stat-item">
+          <h4>150+</h4>
+          <p>Respondenter</p>
+        </div>
+        <div class="stat-item">
+          <h4>2x</h4>
+          <p>Följartillväxt</p>
+        </div>
+        <div class="stat-item">
+          <h4>∞</h4>
+          <p>Koppar kaffe</p>
+        </div>
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Människofokus</p>
+        </div>
       </section>
     </main>
 
     <footer>
-      <h2>Ska vi ses på en kaffe?</h2>
+      <h2>Ska vi koka ihop något?</h2>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
@@ -176,7 +192,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://www.instagram.com/frankisfood/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@frankisfood" target="_blank"><i class="fab fa-tiktok"></i></a>
       </div>
-      <div class="footer-meta">© 2025 Anna Frankendal • Strategi med hjärta och smak</div>
+      <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4;">© 2025 Anna Frankendal • Sociologi + Strategi</div>
     </footer>
   </div>
 
