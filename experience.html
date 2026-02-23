@@ -12,12 +12,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Curriculum Vitae | Anna Frankendal</title>
-  <meta name="description" content="Anna Frankendals CV - Arbetslivserfarenhet och utbildning." />
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Google Fonts: Playfair Display (Editorial) & Inter (Modern Sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
@@ -27,11 +24,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --ink: #1a1a1a;
       --muted: #5f6368;
       --line: #e7e5e2;
-      --shadow: 0 40px 100px rgba(0,0,0,0.05);
       --accent: #003366;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', sans-serif;
-      --container: 1200px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,14 +35,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 2rem;
     }
 
     /* --- NAVIGATION --- */
@@ -89,62 +78,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .btn-accent { background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; }
 
     /* --- CV PAPER STYLE --- */
-    #experience { padding: 80px 0; }
+    #experience { padding: 60px 20px; }
     
     .cv-paper {
       background: #fff;
-      max-width: 1000px;
+      width: 100%;
+      max-width: 1100px; /* Breddade för att få plats sida vid sida */
       margin: 0 auto;
-      padding: 80px;
-      box-shadow: var(--shadow);
+      padding: 80px 60px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.05);
       border: 1px solid var(--line);
     }
 
     .cv-header { text-align: center; margin-bottom: 5rem; }
-    .cv-header h1 { font-family: var(--font-serif); font-size: 3rem; text-transform: uppercase; font-weight: 400; }
+    .cv-header h1 { font-family: var(--font-serif); font-size: 3rem; text-transform: uppercase; font-weight: 400; letter-spacing: -1px; }
 
+    /* Grid för symmetri */
     .cv-grid { 
       display: grid; 
       grid-template-columns: 1fr 1px 1fr; 
-      gap: 4rem; 
+      gap: 3.5rem; 
+      align-items: start;
     }
     
-    .cv-divider { background: var(--line); width: 1px; height: 100%; }
+    .cv-divider { background: var(--line); width: 1px; height: 100%; min-height: 500px; }
 
     .cv-column h3 { 
       font-family: var(--font-serif); 
-      font-size: 1.4rem; 
+      font-size: 1.3rem; 
       margin-bottom: 2.5rem; 
-      border-bottom: 1px solid var(--ink); 
-      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--ink); 
+      padding-bottom: 12px;
       text-transform: uppercase;
       font-weight: 400;
+      letter-spacing: 1px;
     }
 
-    .cv-item { margin-bottom: 3rem; }
-    .cv-item h4 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.3rem; font-weight: 700; }
-    .cv-item span { font-size: 0.8rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.8rem; display: block; }
-    .cv-item p { font-size: 0.9rem; color: #333; line-height: 1.6; }
+    .cv-item { margin-bottom: 2.5rem; }
+    .cv-item h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3; }
+    .cv-item span { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+    .cv-item p { font-size: 0.85rem; color: #444; line-height: 1.6; }
 
+    /* Sektion för Expertis/Verktyg längst ner */
     .skills-section {
       margin-top: 5rem;
       padding-top: 4rem;
       border-top: 1px solid var(--line);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 3.5rem;
     }
-    .skill-tag { border: 1px solid var(--line); padding: 6px 12px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
+    .skill-tag { border: 1px solid var(--line); padding: 6px 10px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
 
-    @media (max-width: 900px) {
-      .cv-paper { padding: 40px 20px; }
-      .cv-grid { grid-template-columns: 1fr; }
+    @media (max-width: 800px) {
+      .cv-paper { padding: 40px 25px; }
+      .cv-grid { grid-template-columns: 1fr; gap: 3rem; }
       .cv-divider { display: none; }
-      .skills-section { grid-template-columns: 1fr; gap: 2.5rem; }
-      nav { gap: 1.5rem; font-size: 9px; }
+      .skills-section { grid-template-columns: 1fr; gap: 2rem; }
+      nav { gap: 1rem; font-size: 9px; padding: 1rem 0.5rem; }
     }
 
-    footer { text-align: center; padding: 6rem 2rem; background: #fff; border-top: 1px solid var(--line); margin-top: 80px; }
+    footer { text-align: center; padding: 6rem 2rem; background: #fff; border-top: 1px solid var(--line); margin-top: 60px; }
     footer h2 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; }
   </style>
 </head>
@@ -200,7 +194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
 
-          <!-- Divider -->
+          <!-- Divider (Vertikal linje) -->
           <div class="cv-divider"></div>
 
           <!-- Höger: Utbildning -->
