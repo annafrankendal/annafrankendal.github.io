@@ -15,18 +15,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #ffffff;
-      --ink: #000000;
-      /* Refined but Bold Palette */
-      --blue: #2563eb;
-      --terra: #e2725b;
-      --mustard: #eab308;
-      --sage: #84a59d;
-      --border: 3px solid #000000;
+      --bg: #fcfaf7; /* Mycket ljus varmgrå/beige bas */
+      --ink: #1a1a1a;
+      /* Color Theory Palette: Deep Navy, Clay & Sage */
+      --navy: #1d3557;
+      --clay: #cb997e;
+      --sage: #a3b18a;
+      --sand: #eddcd2;
+      --border: 2px solid #1a1a1a;
       --font-sans: 'Inter', sans-serif;
       --font-serif: 'Playfair Display', serif;
     }
@@ -37,11 +37,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.4;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAVIGATION --- */
     .contact-bar {
@@ -51,72 +51,72 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .contact-bar a { color: #fff; text-decoration: none; font-weight: 700; }
 
     nav { 
-      background: #fff; padding: 1.5rem 2rem; display: flex; 
-      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
-      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 12px; font-weight: 900;
+      background: rgba(252, 250, 247, 0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 3.5rem; position: sticky; top: 39px; 
+      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 900;
     }
-    nav a { color: var(--ink); text-decoration: none; }
-    nav .active { background: var(--mustard); padding: 8px 15px; border: var(--border); }
+    nav a { color: var(--ink); text-decoration: none; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.6; }
+    nav .active { color: var(--clay); }
 
     /* --- HERO --- */
-    .hero { padding: 8rem 0 4rem; display: grid; grid-template-columns: 1.2fr 1fr; border-bottom: var(--border); }
-    .hero-content { padding-right: 4rem; border-right: var(--border); display: flex; flex-direction: column; justify-content: center; }
-    .hero h1 { font-size: clamp(4rem, 8vw, 8rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 2rem; }
+    .hero { padding: 10rem 0 8rem; text-align: left; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 400; line-height: 0.9; margin-bottom: 4rem; letter-spacing: -2px; }
     
-    .hero-image { width: 100%; height: 100%; overflow: hidden; background: var(--sage); }
-    .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(110%); }
-
-    /* --- BENTO GRID (SQUARE BOXES) --- */
-    .bento { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: var(--border); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
     
-    .box { border-right: var(--border); padding: 4rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
-    .box:last-child { border-right: none; }
-    .box h2 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; line-height: 0.9; margin-bottom: 2rem; letter-spacing: -1px; }
-    .box p { font-size: 1.1rem; font-weight: 700; }
-
-    .box-1 { grid-column: span 7; background: var(--blue); color: #fff; }
-    .box-2 { grid-column: span 5; background: var(--terra); color: #000; }
-    .box-3 { grid-column: span 5; background: var(--mustard); color: #000; }
-    .box-4 { grid-column: span 7; background: #fff; color: #000; }
-
-    /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
-    .stat-box { border-right: var(--border); padding: 3rem; text-align: center; background: #fff; }
-    .stat-box:last-child { border-right: none; }
-    .stat-box span { display: block; font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; }
-    .stat-box p { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
-
-    /* --- TAGS --- */
-    .tags-section { padding: 6rem 0; text-align: center; border-bottom: var(--border); }
-    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
-    .tag { 
-      padding: 20px 40px; border: var(--border); margin: -1.5px;
-      font-size: 1.2rem; font-weight: 900; text-transform: uppercase; background: #fff; 
-      transition: all 0.1s; cursor: default;
+    .hero-image { 
+      width: 100%; aspect-ratio: 0.8; border: var(--border); overflow: hidden; background: var(--sand);
     }
-    .tag:hover { background: #000; color: #fff; z-index: 2; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-intro { font-size: 1.5rem; font-family: var(--font-serif); font-style: italic; line-height: 1.4; color: var(--navy); padding-top: 2rem; }
+
+    /* --- BENTO SECTION (AIRY & SQUARE) --- */
+    .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-bottom: 10rem; }
+    
+    .box { border: var(--border); padding: 4.5rem; display: flex; flex-direction: column; justify-content: flex-start; background: #fff; }
+    .box h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; line-height: 1; margin-bottom: 2rem; letter-spacing: -1px; }
+    .box p { font-size: 1.05rem; color: #333; font-weight: 400; }
+
+    .box.navy { background: var(--navy); color: #fff; }
+    .box.navy p { color: #e0e0e0; }
+    .box.clay { background: var(--clay); color: #fff; }
+    .box.sage { background: var(--sage); color: #fff; }
+
+    /* --- STATS SECTION --- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 10rem; border: var(--border); background: var(--ink); }
+    .stat-box { padding: 4rem 2rem; text-align: center; background: #fff; border-right: var(--border); }
+    .stat-box:last-child { border-right: none; }
+    .stat-box span { display: block; font-family: var(--font-serif); font-size: 4rem; font-weight: 400; line-height: 1; margin-bottom: 1rem; color: var(--clay); }
+    .stat-box p { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+
+    /* --- PASSION TAGS --- */
+    .tags-section { text-align: center; margin-bottom: 10rem; }
+    .tags-label { font-size: 10px; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; margin-bottom: 4rem; display: block; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .tag { 
+      padding: 14px 32px; border: var(--border); 
+      font-size: 0.95rem; font-weight: 700; text-transform: uppercase; background: #fff; 
+      transition: all 0.3s; cursor: default;
+    }
+    .tag:hover { background: var(--navy); color: #fff; transform: translateY(-3px); }
 
     /* --- FOOTER --- */
-    footer { background: #000; color: #fff; padding: 10rem 2rem; text-align: center; }
-    footer h2 { font-family: var(--font-serif); font-size: 5rem; font-weight: 900; margin-bottom: 4rem; line-height: 0.8; }
-    .footer-links { display: flex; justify-content: center; gap: 0; }
-    .footer-links a { 
-      width: 100px; height: 100px; background: #fff; border: var(--border);
-      display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #000;
-      text-decoration: none; transition: 0.1s; margin: -1.5px;
-    }
-    .footer-links a:hover { background: var(--mustard); transform: scale(1.1); z-index: 5; }
+    footer { background: #000; color: #fff; padding: 12rem 2rem; text-align: center; }
+    footer h2 { font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; font-style: italic; margin-bottom: 4rem; text-transform: none; }
+    .footer-links { display: flex; justify-content: center; gap: 4rem; margin-bottom: 5rem; }
+    .footer-links a { color: #fff; font-size: 2.5rem; transition: transform 0.3s; text-decoration: none; }
+    .footer-links a:hover { transform: scale(1.2); color: var(--clay); }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-content { padding: 4rem 2rem; border-right: none; border-bottom: var(--border); }
-      .hero-image { height: 400px; }
-      .bento { display: flex; flex-direction: column; }
-      .box { border-right: none; border-bottom: var(--border); padding: 3rem 2rem; min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .bento { grid-template-columns: 1fr; gap: 2rem; }
       .stats { grid-template-columns: 1fr 1fr; }
-      .stat-box { border-bottom: var(--border); }
-      .stat-box:nth-child(even) { border-right: none; }
-      nav { gap: 1rem; font-size: 10px; flex-wrap: wrap; }
+      .stat-box:nth-child(2) { border-right: none; }
+      .stat-box:nth-child(1), .stat-box:nth-child(2) { border-bottom: var(--border); }
+      .box { padding: 3rem 2rem; }
+      nav { gap: 1.5rem; font-size: 9px; }
     }
   </style>
 </head>
@@ -135,81 +135,87 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="about.html" class="active">Om mig</a>
     <a href="projects.html">Projekt</a>
     <a href="experience.html">Erfarenhet</a>
-    <a href="match.html" style="background: #000; color: #fff; padding: 8px 20px; text-decoration: none;">Matchtest</a>
+    <a href="match.html" style="background: #000; color: #fff; padding: 10px 25px; text-decoration: none; border-radius: 0;">Matchtest</a>
   </nav>
 
   <main>
     <section class="hero container">
-      <div class="hero-content">
-        <h1>Anna Frankendal</h1>
-        <p style="font-size: 1.5rem; font-weight: 900; text-transform: uppercase; color: var(--blue);">Growth Marketer + Sociolog</p>
-      </div>
-      <div class="hero-image">
-        <img src="annabild.JPG" alt="Anna Frankendal">
+      <h1>Anna Frankendal</h1>
+      <div class="hero-grid">
+        <div class="hero-image">
+          <img src="annabild.JPG" alt="Anna Frankendal">
+        </div>
+        <div class="hero-intro">
+          En Growth Marketer med en Master i sociologi som drivs av en enkel men sann övertygelse: Bakom varje datapunkt finns en mänsklig drivkraft värd att förstå.
+        </div>
       </div>
     </section>
 
-    <div class="bento">
-      <div class="box box-1">
-        <h2>Data är beteende</h2>
-        <p>Bakom varje klick finns en människa. Min bakgrund inom sociologi gör att jag inte bara ser VAD som händer, utan också förstår VARFÖR. Det är i glappet mellan siffror och psykologi som tillväxt sker.</p>
-      </div>
-      <div class="box box-2">
-        <h2>Strategi</h2>
-        <p>Jag kombinerar strategisk analys med kreativt berättande för att bygga relationer som faktiskt håller över tid.</p>
-      </div>
-      <div class="box box-3">
-        <h2>@frankisfood</h2>
-        <p>Under namnet @frankisfood experimenterar jag med råvaror precis som jag gör med marknadsföring. Rätt ingredienser och struktur är nyckeln.</p>
-      </div>
-      <div class="box box-4">
-        <h2>Min filosofi</h2>
-        <p>Den bästa marknadsföringen är den som inte känns som marknadsföring. Det handlar om förtroende, relevans och att tillföra värde.</p>
+    <div class="container">
+      <div class="bento">
+        <div class="box navy">
+          <h2>Strategi möter empati</h2>
+          <p>Många ser siffror när de tittar på GA4 eller Meta Ads. Jag ser beteenden. Min bakgrund inom sociologi gör att jag inte bara analyserar vad som händer i dina kanaler, utan också förstår varför. Det är i mötet mellan hårda siffror och mänsklig psykologi som den verkliga tillväxten sker.</p>
+        </div>
+        <div class="box">
+          <h2>Growth Marketing</h2>
+          <p>Jag kombinerar strategisk analys med ett genuint rörligt berättande. Mitt mål är att skapa kommunikation som inte bara når fram, utan som stannar kvar och bygger lojalitet över tid.</p>
+        </div>
+        <div class="box sage">
+          <h2>@frankisfood</h2>
+          <p>Min passion för matlagning är mer än bara en hobby – det är min kreativa verkstad. Under namnet @frankisfood experimenterar jag med råvaror på samma sätt som jag gör med marknadsföring: med fokus på rätt ingredienser, en tydlig struktur och modet att våga testa nytt.</p>
+        </div>
+        <div class="box clay">
+          <h2>Min filosofi</h2>
+          <p>Jag tror på marknadsföring som tillför värde snarare än stör. Den bästa kommunikationen är den som känns relevant, mänsklig och som bygger på ett ömsesidigt förtroende mellan varumärke och målgrupp.</p>
+        </div>
       </div>
     </div>
 
     <div class="stats">
       <div class="stat-box">
-        <span style="color: var(--blue);">150+</span>
+        <span>150+</span>
         <p>Beteendeanalyser</p>
       </div>
       <div class="stat-box">
-        <span style="color: var(--terra);">2x</span>
-        <p>Följartillväxt</p>
+        <span>2x</span>
+        <p>Organisk tillväxt</p>
       </div>
       <div class="stat-box">
-        <span style="color: var(--mustard);">∞</span>
+        <span>∞</span>
         <p>Pasta-timmar</p>
       </div>
       <div class="stat-box">
-        <span style="color: var(--sage);">100%</span>
-        <p>Engagemang</p>
+        <span>100%</span>
+        <p>Människofokus</p>
       </div>
     </div>
 
-    <section class="tags-section">
+    <section class="tags-section container">
+      <span class="tags-label">Expertis & Intressen</span>
       <div class="tags">
         <div class="tag">Paid Social</div>
         <div class="tag">SEO</div>
         <div class="tag">Sociologi</div>
         <div class="tag">CRM</div>
         <div class="tag">TikTok</div>
-        <div class="tag">Retention</div>
+        <div class="tag">Storytelling</div>
+        <div class="tag">Gastronomi</div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <h2>Ska vi koka ihop något?</h2>
+      <h2>"Ska vi koka ihop något bra?"</h2>
       <div class="footer-links">
-        <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p style="margin-top: 4rem; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">© 2025 Anna Frankendal</p>
+      <p style="font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6;">© 2025 Anna Frankendal. Strategi + Empati.</p>
     </div>
   </footer>
 
