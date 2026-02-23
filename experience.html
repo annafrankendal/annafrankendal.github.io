@@ -94,25 +94,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-header h1 { font-family: var(--font-serif); font-size: 3.5rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -1px; }
     .cv-header p { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
 
-    /* Symmetrisk Grid */
+    /* Symmetrisk Grid med mittlinje */
     .cv-grid { 
       display: grid; 
-      grid-template-columns: 1fr 1fr; 
+      grid-template-columns: 1fr 1px 1fr; 
       gap: 4rem; 
       align-items: start;
+    }
+    
+    .cv-divider { 
+      background: var(--line); 
+      width: 1px; 
+      height: 100%; 
+      min-height: 600px;
     }
 
     .cv-column h3 { 
       font-size: 1.3rem; 
       margin-bottom: 2.5rem; 
-      border-bottom: 1px solid var(--ink); 
-      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--ink); 
+      padding-bottom: 12px;
       font-family: var(--font-serif);
       text-transform: uppercase;
       font-weight: 400;
+      letter-spacing: 1px;
     }
 
-    /* Original dots-layout inuti grid */
+    /* Prickar och linjer (Original dots layout) */
     .cv-item { 
       border-left: 1px solid var(--line); 
       padding-left: 1.5rem; 
@@ -130,11 +138,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 50%; 
     }
     
-    .cv-item h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.4rem; font-weight: 700; }
+    .cv-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.4rem; font-weight: 700; line-height: 1.3; }
     .cv-item span { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
     .cv-item p { font-size: 0.85rem; color: #333; line-height: 1.6; }
 
-    /* Skills & Verktyg under */
+    /* Skills & Verktyg i botten */
     .skills-section {
       margin-top: 5rem;
       padding-top: 4rem;
@@ -145,9 +153,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .skill-tag { border: 1px solid var(--line); padding: 6px 12px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       .cv-paper { padding: 40px 25px; }
       .cv-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .cv-divider { display: none; }
       .skills-section { grid-template-columns: 1fr; gap: 2.5rem; }
       nav { gap: 1rem; font-size: 9px; }
     }
@@ -209,6 +218,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
 
+          <!-- Divider (Vertikal mittlinje) -->
+          <div class="cv-divider"></div>
+
           <!-- Höger: Utbildning -->
           <div class="cv-column">
             <h3>Utbildning</h3>
@@ -239,6 +251,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
 
+        <!-- Skills & Verktyg symmetriskt undertill -->
         <div class="skills-section">
           <div>
             <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 1.5rem; color: var(--muted); font-weight: 700;">Expertis</h3>
