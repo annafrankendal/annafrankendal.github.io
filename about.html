@@ -11,11 +11,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Om Anna | Anna Frankendal</title>
+  <title>Anna Frankendal | Strategi & Beteende</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -32,72 +32,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- NAV --- */
     nav { 
-      padding: 2rem 0; display: flex; 
+      padding: 2.5rem 0; display: flex; 
       justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 0; 
-      border-bottom: var(--border); background: #fff; z-index: 1500; text-transform: uppercase; font-size: 12px; font-weight: 900;
+      border-bottom: var(--border); background: #fff; z-index: 1500; text-transform: uppercase; font-size: 13px; font-weight: 900;
     }
-    nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+    nav a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
     nav a:hover { color: var(--accent); }
-    nav .active { color: var(--accent); }
+    nav .active { color: var(--accent); text-decoration: underline; text-underline-offset: 10px; }
 
     /* --- HERO --- */
-    .hero { padding: 10rem 0 6rem; text-align: center; }
-    .hero h1 { font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -6px; margin-bottom: 4rem; }
+    .hero { padding: 10rem 0 8rem; text-align: center; border-bottom: var(--border); }
+    .hero h1 { font-size: clamp(5rem, 20vw, 15rem); font-weight: 900; line-height: 0.75; text-transform: uppercase; letter-spacing: -10px; margin-bottom: 6rem; }
     
-    .hero-image-wrap { width: 160px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
+    .hero-image-wrap { width: 200px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 1; }
     .hero-image-wrap img { width: 100%; display: block; filter: grayscale(100%); }
 
-    /* --- CONTENT GRID (COOL RECTANGLES) --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 8rem; border: var(--border); }
+    /* --- BENTO GRID (MORE RECTANGLES) --- */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; border-left: var(--border); border-top: var(--border); }
     
-    .box { padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%; justify-content: center; }
+    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 3.5rem; display: flex; flex-direction: column; justify-content: center; min-height: 400px; }
     
-    .box h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; line-height: 0.95; letter-spacing: -1px; }
-    .box p { font-size: 1.1rem; font-weight: 600; line-height: 1.6; }
+    .box h2 { font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.85; letter-spacing: -2px; }
+    .box p { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
 
-    /* Box 1: Blue BG, White Text */
-    .box-who { background: var(--accent); color: #fff; border-right: var(--border); }
-    
-    /* Box 2: Black BG, White Text */
-    .box-want { background: var(--ink); color: #fff; border-right: var(--border); }
-    
-    /* Box 3: White BG, Blue Text */
-    .box-can { background: #fff; color: var(--accent); }
-    .box-can p { color: var(--ink); }
+    /* Box Positioning */
+    .box-1 { grid-column: span 8; background: var(--accent); color: #fff; }
+    .box-2 { grid-column: span 4; background: #fff; color: var(--ink); }
+    .box-3 { grid-column: span 4; background: var(--ink); color: #fff; }
+    .box-4 { grid-column: span 8; background: #fff; color: var(--accent); }
+    .box-5 { grid-column: span 6; background: #fff; color: var(--ink); }
+    .box-6 { grid-column: span 6; background: var(--accent); color: #fff; }
 
     /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 8rem; }
-    .stat-box { border: var(--border); padding: 2rem; text-align: center; background: #fff; }
-    .stat-box span { display: block; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-    .stat-box p { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); }
+    .stat-box { border-right: var(--border); border-bottom: var(--border); padding: 4rem 2rem; text-align: center; background: #fff; }
+    .stat-box span { display: block; font-size: 5rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 1rem; }
+    .stat-box p { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
 
     /* --- FOOTER --- */
-    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; background: #fff; }
-    footer h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; font-style: italic; margin-bottom: 4rem; }
+    footer { padding: 12rem 0 6rem; border-top: none; text-align: center; background: #000; color: #fff; }
+    footer h2 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; font-style: italic; margin-bottom: 6rem; line-height: 0.8; letter-spacing: -3px; }
     
-    .lurking { font-size: 12px; font-weight: 900; color: var(--accent); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 2px; }
-    .footer-links { display: flex; justify-content: center; gap: 3.5rem; }
-    .footer-links a { color: var(--ink); font-size: 2.5rem; transition: transform 0.2s, color 0.3s; }
-    .footer-links a:hover { transform: translateY(-5px); color: var(--accent); }
+    .lurking { font-size: 14px; font-weight: 900; color: var(--accent); margin-bottom: 2rem; display: block; text-transform: uppercase; letter-spacing: 4px; }
+    .footer-links { display: flex; justify-content: center; gap: 4rem; }
+    .footer-links a { color: #fff; font-size: 3.5rem; transition: 0.2s; }
+    .footer-links a:hover { transform: scale(1.2) rotate(-5deg); color: var(--accent); }
     
-    .copy { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
+    .copy { margin-top: 10rem; font-size: 11px; text-transform: uppercase; letter-spacing: 4px; opacity: 0.4; }
 
-    @media (max-width: 950px) {
-      .grid { grid-template-columns: 1fr; border: none; gap: 1.5rem; }
-      .box { border: var(--border); }
-      .box-who, .box-want, .box-can { border-right: var(--border); }
-      
-      .stats { display: flex; flex-direction: column; }
-      .hero h1 { font-size: 5rem; letter-spacing: -4px; }
-      .box { padding: 3rem 2rem; }
+    @media (max-width: 1000px) {
+      .grid { grid-template-columns: 1fr; border-left: none; }
+      .box { grid-column: span 1; border-right: none; padding: 4rem 2rem; min-height: auto; }
+      .stats { grid-template-columns: 1fr 1fr; border-left: none; border-top: var(--border); }
+      .stat-box:nth-child(even) { border-right: none; }
+      .hero h1 { font-size: 6rem; letter-spacing: -5px; }
       nav { gap: 1.5rem; }
     }
   </style>
@@ -122,37 +118,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </section>
 
       <div class="grid">
-        <!-- Box 1: Vem är jag? (Blue) -->
-        <div class="box box-who">
+        <!-- Box 1 -->
+        <div class="box box-1">
           <h2>Vem är jag?</h2>
           <p>En sociolog som råkar älska algoritmer. Jag navigerar i glappet mellan mänsklig psykologi och digital tillväxt. Varm i bemötandet, analytisk i tanken och alltid nyfiken på nästa "varför".</p>
         </div>
 
-        <!-- Box 2: Vad kan jag? (Black) -->
-        <div class="box box-want">
+        <!-- Box 2 -->
+        <div class="box box-2">
           <h2>Vad kan jag?</h2>
-          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok som folk faktiskt vill se. Mitt hantverk är att översätta mänskliga behov till mätbara resultat.</p>
+          <p>Jag bygger strategier som faktiskt landar. Från datadriven SEO och CRM till rörligt innehåll för TikTok som folk faktiskt vill se.</p>
         </div>
 
-        <!-- Box 3: Vad vill jag? (White) -->
-        <div class="box box-can">
+        <!-- Box 3 -->
+        <div class="box box-3">
           <h2>Vad vill jag?</h2>
-          <p>Skapa marknadsföring som känns som en tjänst, inte ett avbrott. Jag vill hjälpa varumärken att hitta sin röst, bygga lojalitet och växa hållbart genom att alltid sätta människan framför klicket.</p>
+          <p>Skapa marknadsföring som känns som en tjänst, inte ett avbrott. Jag vill hjälpa varumärken att hitta sin röst och bygga lojalitet.</p>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="box box-4">
+          <h2>Min filosofi</h2>
+          <p>Data utan empati är bara brus. Varje klick är ett mänskligt beslut. Mitt hantverk är att översätta dessa beslut till mätbar tillväxt genom att alltid sätta människan framför klicket.</p>
+        </div>
+
+        <!-- Box 5 -->
+        <div class="box box-5">
+          <h2>@frankisfood</h2>
+          <p>Min passion för matlagning är min kreativa ventil. Här experimenterar jag med råvaror precis som jag gör med marknadsföring: rätt ingredienser och en tydlig struktur.</p>
+        </div>
+
+        <!-- Box 6 -->
+        <div class="box box-6">
+          <h2>Status</h2>
+          <p>Just nu fokuserar jag på att förena strategisk analys med Narrative Storytelling för att skapa innehåll som stannar i minnet.</p>
         </div>
       </div>
 
       <section class="stats">
         <div class="stat-box">
           <span>150+</span>
-          <p>Beteendeanalyser</p>
+          <p>Analys-respondenter</p>
         </div>
         <div class="stat-box">
           <span>2x</span>
-          <p>Följartillväxt</p>
+          <p>Organisk tillväxt</p>
         </div>
         <div class="stat-box">
           <span>∞</span>
-          <p>Positiv energi</p>
+          <p>Pasta-timmar</p>
         </div>
         <div class="stat-box">
           <span>100%</span>
@@ -163,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <footer>
       <h2>Ska vi koka ihop något bra?</h2>
-      <span class="lurking">Bara nyfiken? Kom och säg hej:</span>
+      <span class="lurking">Just lurking? Kom och säg hej:</span>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
@@ -171,7 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
-      <div class="copy">© 2025 Anna Frankendal • Sociologi + Strategi + Värme</div>
+      <div class="copy">© 2025 Anna Frankendal • Sociologi + Strategi = Sanning</div>
     </footer>
   </div>
 
