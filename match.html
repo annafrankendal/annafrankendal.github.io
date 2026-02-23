@@ -11,36 +11,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Är vi en match? | Anna Frankendal</title>
-  <meta name="description" content="Gör mitt matchtest och se hur väl våra arbetssätt matchar varandra." />
+  <title>Matchningstest | Anna Frankendal</title>
 
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Google Fonts: Playfair Display (Editorial) & Inter (Modern Sans) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fbfaf8;
-      --card: #ffffff;
+      --bg: #fdfaf6;
       --ink: #1a1a1a;
-      --muted: #5f6368;
-      --line: #e7e5e2;
-      --shadow: 0 12px 30px rgba(0,0,0,.06);
-      
-      /* Brand Accent - Professional Dark Blue */
-      --accent: #003366;
-      --accent-soft: #f0f4f8;
-      
+      --navy: #1b263b;
+      --lightblue: #d1e8ff;
+      --border: 1.5px solid #1a1a1a;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Space Grotesk', sans-serif;
       --radius: 12px;
-      
-      --radius-pill: 999px;
-      
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Inter', sans-serif;
-      
-      --container: 1200px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,201 +34,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: var(--font-sans);
-      line-height: 1.7;
-      scroll-behavior: smooth;
+      font-family: var(--font-body);
+      line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* --- TYPOGRAPHY --- */
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; }
-    h1 { font-size: clamp(3rem, 10vw, 6rem); line-height: 0.85; letter-spacing: -2px; }
-    h2 { font-size: 3.5rem; text-align: center; margin-bottom: 4rem; letter-spacing: -1px; }
-
-    /* --- BUTTONS --- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      border: none;
-      font-family: var(--font-sans);
-    }
-
-    .btn-primary { background: var(--ink); color: #fff; }
-    .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-    
-    .btn-secondary { background: #fff; color: var(--ink); border: 1px solid var(--line); }
-    .btn-secondary:hover { border-color: var(--ink); transform: translateY(-2px); }
-
-    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .btn-ghost:hover { background: #fff; border-color: var(--ink); transform: translateY(-2px); }
-
-    .btn-accent { background: var(--accent); color: #fff; }
-    .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,51,102,0.1); }
-
-    .btn-sm { padding: 10px 20px; font-size: 11px; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- CONTACT BAR --- */
     .contact-bar {
-      background: #000;
-      color: #fff;
-      padding: 12px 30px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 2000;
+      background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
+      flex-wrap: wrap;
     }
-    .contact-bar a { color: #fff; text-decoration: none; transition: opacity 0.3s; font-weight: 600; }
-    .contact-bar a:hover { opacity: 0.6; }
+    .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; }
 
     /* --- NAVIGATION --- */
     nav { 
-      background: rgba(255,255,255,0.9); 
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center;
-      gap: 3rem; 
-      position: sticky; 
-      top: 39px; 
-      border-bottom: 1px solid var(--border); 
-      z-index: 1500; 
-      text-transform: uppercase; 
-      font-size: 11px; 
-      letter-spacing: 2px; 
-      font-weight: 600; 
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
+      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    nav a:hover { color: #999; }
-    .nav-cta {
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-    }
-    nav .nav-cta:hover { color: #fff; }
+    nav .active { color: var(--navy); border-bottom: 2px solid var(--navy); padding-bottom: 4px; }
+    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--navy); color: #fff !important; }
 
-    /* --- MATCH QUIZ --- */
-    #match { background: #fff; padding: 120px 0; border-top: 1px solid var(--line); }
-    
+    /* --- MATCH HEADER --- */
+    header { padding: 8rem 0 4rem; text-align: center; }
+    header h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 2rem; color: var(--navy); }
+    header p { font-size: 1.5rem; font-family: var(--font-display); font-weight: 700; font-style: italic; color: var(--ink); }
+
+    /* --- QUIZ CARD (OLD LAYOUT) --- */
     .quiz-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      max-width: 760px;
-      margin: 60px auto 0;
-      overflow:hidden;
-      display: none;
+      background: #fff; border: var(--border); border-radius: var(--radius);
+      max-width: 760px; margin: 0 auto 10rem; overflow: hidden;
     }
-    .topbar { padding: 30px 40px 20px; border-bottom: 1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
-    .match-bar { height: 6px; width: 200px; background: var(--accent-soft); border-radius: 999px; overflow:hidden; }
-    .match-fill { height:100%; width:0%; background: var(--accent); transition: width .3s ease; }
+    
+    .topbar { 
+      padding: 30px 40px 20px; border-bottom: 1px solid var(--border); 
+      display: flex; justify-content: space-between; align-items: center; background: #fff;
+    }
+    
+    .match-bar { height: 6px; width: 200px; background: var(--lightblue); border-radius: 999px; overflow: hidden; }
+    .match-fill { height: 100%; width: 0%; background: var(--navy); transition: width .3s ease; }
+    
     .quiz-body { padding: 60px 40px; }
-    .step { display: none; animation: fadeIn .2s ease; }
-    .step.active { display: block; }
-    .q-text { 
-      font-family: var(--font-serif); 
-      font-size: 1.8rem; 
-      line-height: 1.3; 
-      margin-bottom: 40px; 
-      font-weight: 400; 
-      color: var(--ink);
-    }
+    .q-text { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.3; margin-bottom: 40px; font-weight: 400; color: var(--ink); }
     
-    .scale { display:flex; gap:12px; flex-wrap:nowrap; margin-bottom: 15px; width: 408px; max-width: 100%; }
-    
+    .scale { display: flex; gap: 12px; margin-bottom: 15px; }
     .chip {
       width: 72px; height: 72px; border-radius: 50%; border: 1px solid #dcdad6;
-      background:#fff; color: #000; font-weight: 600; cursor:pointer;
-      transition: all 0.2s ease; font-family: var(--font-sans); font-size: 22px;
-      flex: 0 0 72px;
+      background: #fff; color: #000; font-weight: 600; cursor: pointer;
+      transition: all 0.2s ease; font-family: var(--font-body); font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
     }
-    .chip:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 8px 15px var(--accent-soft); }
+    .chip:hover { border-color: var(--navy); transform: translateY(-2px); }
+    .chip.selected { background: var(--navy); border-color: var(--navy); color: #fff; }
 
-    .scaleLegend { display:flex; justify-content:space-between; color: #999; font-size: 11px; margin-top: 8px; width: 408px; max-width: 100%; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .scaleLegend span { width: 80px; line-height: 1.3; }
-    .scaleLegend span:last-child { text-align: right; }
+    .scaleLegend { display: flex; justify-content: space-between; color: #999; font-size: 11px; margin-top: 8px; font-weight: 600; text-transform: uppercase; }
 
-    .quiz-nav { display:flex; gap:15px; justify-content: space-between; padding: 0 40px 40px; }
-    .btn-xs { padding: 8px 16px; font-size: 10px; min-width: 100px; }
+    .quiz-nav { display: flex; justify-content: space-between; padding: 0 40px 40px; }
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: var(--border); cursor: pointer; transition: 0.2s; font-family: var(--font-body); }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--ink); }
+    .btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-    .field { margin-top: 25px; display:grid; gap: 10px; }
-    .field input { padding: 16px; border: 1px solid #dcdad6; border-radius: 12px; font-size: 16px; outline: none; transition: all 0.2s ease; }
-    .field input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,51,102,0.05); }
+    /* --- RESULT --- */
+    .result-reward { text-align: center; padding: 40px; }
+    .result-reward .pct { font-family: var(--font-display); font-size: 6rem; font-weight: 900; color: var(--navy); }
+    .result-reward .title { font-size: 2rem; font-weight: 900; margin: 1rem 0; text-transform: uppercase; }
 
-    .trust-box { 
-      margin-top: 20px; display:flex; gap:12px; align-items:flex-start; 
-      color: var(--muted); font-size: 13px; line-height:1.5; background: #f0f4f8; 
-      padding: 20px; border-radius: var(--radius); border: 1px solid var(--accent-soft);
-    }
+    footer { padding: 8rem 0 4rem; text-align: center; border-top: var(--border); }
+    footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 4rem; line-height: 0.8; color: var(--navy); text-transform: uppercase; }
+    .footer-links { display: flex; justify-content: center; gap: 4rem; }
+    .footer-links a { color: var(--ink); font-size: 2.5rem; transition: transform 0.3s ease; }
+    .footer-links a:hover { transform: translateY(-10px); color: var(--navy); }
 
-    .result-reward { 
-      margin-top: 30px; padding: 40px; border: 1px solid #000; background: #fbfbfb; text-align: center;
-      animation: fadeIn 0.5s ease;
-    }
-    .result-reward .pct { font-size: 5rem; font-family: var(--font-serif); margin-bottom: 10px; line-height: 1; }
-    .result-reward .title { font-weight: 700; font-size: 1.5rem; margin-bottom: 10px; }
-    .result-reward .text { color: #555; line-height: 1.6; }
-
-    .video-card { 
-      background: #fff; 
-      border-radius: var(--radius);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--line);
-    }
-    .video-preview { 
-      width: 100%; 
-      aspect-ratio: 16 / 9; 
-      background: #f0f0f0; 
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      border-radius: calc(var(--radius) - 4px);
-      position: relative;
-    }
-    .video-info h3 { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 0.5rem; line-height: 1.2; text-transform: none; }
-    .video-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.5rem; }
-    .card-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .project-tag { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-weight: 600; }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 900px) {
-      nav { gap: 1.5rem; font-size: 9px; padding: 1rem; }
+    @media (max-width: 700px) {
+      .quiz-body { padding: 40px 20px; }
+      .chip { width: 50px; height: 50px; font-size: 1.2rem; }
       .match-bar { width: 120px; }
     }
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD8Z8J5B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
  
   <div class="contact-bar">
     <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
@@ -253,332 +128,183 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <nav>
-    <a href="index.html#about">Om mig</a>
+    <a href="index.html">Hem</a>
+    <a href="about.html">Om mig</a>
     <a href="projects.html">Projekt</a>
-    <a href="experience.html">Erfarenhet</a>
-    <a href="match.html" class="nav-cta btn btn-accent">Är vi en match?</a>
+    <a href="experience.html">CV</a>
+    <a href="match.html" class="nav-cta active">Är vi en match?</a>
   </nav>
 
-  <section id="match">
+  <header>
     <div class="container">
-      <!-- QUIZ ENTRY CARD -->
-      <div id="quizEntry" class="video-card" style="max-width: 760px; margin: 0 auto; cursor: pointer; text-align: left; border: 1px solid var(--line);">
-        <div class="video-preview" style="background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; height: 300px; position: relative; flex-direction: column;">
-          <div style="text-align: center; position: relative; z-index: 1;">
-            <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; opacity: 0.8;">Kompabilitetstest</span>
-            <h2 style="font-size: 2.5rem; color: #fff; margin-top: 10px; margin-bottom: 20px;">Är vi en match?</h2>
-            <div class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.3);">Starta test</div>
-          </div>
-        </div>
-        <div class="video-info" style="padding: 2.5rem;">
-          <h3 style="font-size: 1.8rem; text-transform: none; margin-bottom: 1rem;">Hitta rätt samarbetsform</h3>
-          <p style="font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem;">
-            Svara på fyra korta påståenden om hur ni arbetar idag. Det tar mindre än en minut och ger en tydlig bild av hur våra arbetssätt matchar. Ett enkelt sätt att avgöra om ett samtal är rätt nästa steg.
-          </p>
-          <div class="card-footer" style="border-top: 1px solid var(--line); padding-top: 1.5rem;">
-            <div class="project-tags">
-              <span class="project-tag">4 frågor</span>
-              <span class="project-tag">&lt; 1 min</span>
-              <span class="project-tag">Direkt resultat</span>
-            </div>
-            <button id="startQuizBtn" class="btn btn-accent" type="button">Starta test</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="quizCard" class="quiz-card" style="margin-top: 0;">
-        <div class="topbar">
-          <div class="left">
-            <div class="kicker" id="kicker">Fråga 1 av 4</div>
-            <div class="remaining" id="remaining">3 frågor kvar</div>
-          </div>
-          <div class="match-bar">
-            <div id="matchBarFill" class="match-fill"></div>
-          </div>
-        </div>
-
-        <form id="matchForm" novalidate>
-          <div class="quiz-body">
-            <!-- Step 1 -->
-            <div class="step active" data-step="1">
-              <p class="q-text"><b>1.</b> Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</p>
-              <div class="scale" data-q="q1">
-                <button type="button" class="chip" data-value="1">1</button>
-                <button type="button" class="chip" data-value="2">2</button>
-                <button type="button" class="chip" data-value="3">3</button>
-                <button type="button" class="chip" data-value="4">4</button>
-                <button type="button" class="chip" data-value="5">5</button>
-              </div>
-              <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step" data-step="2">
-              <p class="q-text"><b>2.</b> Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</p>
-              <div class="scale" data-q="q2">
-                <button type="button" class="chip" data-value="1">1</button>
-                <button type="button" class="chip" data-value="2">2</button>
-                <button type="button" class="chip" data-value="3">3</button>
-                <button type="button" class="chip" data-value="4">4</button>
-                <button type="button" class="chip" data-value="5">5</button>
-              </div>
-              <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step" data-step="3">
-              <p class="q-text"><b>3.</b> Vi arbetar mot tydliga mål och följer upp det vi skapar.</p>
-              <div class="scale" data-q="q3">
-                <button type="button" class="chip" data-value="1">1</button>
-                <button type="button" class="chip" data-value="2">2</button>
-                <button type="button" class="chip" data-value="3">3</button>
-                <button type="button" class="chip" data-value="4">4</button>
-                <button type="button" class="chip" data-value="5">5</button>
-              </div>
-              <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="step" data-step="4">
-              <p class="q-text"><b>4.</b> Vi prioriterar att bygga relationer med vår målgrupp över tid.</p>
-              <div class="scale" data-q="q4">
-                <button type="button" class="chip" data-value="1">1</button>
-                <button type="button" class="chip" data-value="2">2</button>
-                <button type="button" class="chip" data-value="3">3</button>
-                <button type="button" class="chip" data-value="4">4</button>
-                <button type="button" class="chip" data-value="5">5</button>
-              </div>
-              <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
-
-              <div class="field">
-                <label><b>Mailadress för att få resultatet</b></label>
-                <input id="matchEmail" type="email" placeholder="namn@foretag.se" required>
-              </div>
-
-              <div class="trust-box">
-                <input id="matchConsent" type="checkbox" required style="margin-top: 3px;">
-                <div>Jag godkänner att min mail sparas för återkoppling kring resultatet.</div>
-              </div>
-              <p id="matchError" style="color:#b00020; font-size:13px; margin-top:10px; display:none;"></p>
-            </div>
-
-            <div id="matchResult" style="display:none;"></div>
-          </div>
-
-          <div class="quiz-nav">
-            <button id="matchPrevBtn" class="btn btn-ghost btn-xs" type="button" style="visibility:hidden;">
-              <i class="fas fa-chevron-left" style="margin-right: 8px;"></i>Föregående
-            </button>
-            <button id="matchNextBtn" class="btn btn-primary btn-xs" type="button" disabled>
-              Fortsätt<i class="fas fa-chevron-right" style="margin-left: 8px;"></i>
-            </button>
-            <button id="matchSubmitBtn" class="btn btn-accent btn-xs" type="submit" style="display:none;">
-              Visa resultat<i class="fas fa-chevron-right" style="margin-left: 8px;"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+      <h1>Match.</h1>
+      <p>Hitta rätt samarbetsform</p>
     </div>
-  </section>
+  </header>
 
-  <footer style="text-align: center; padding: 8rem 2rem; border-top: 1px solid var(--line); background: #fff;">
-    <div class="container">
-      <h2 style="margin-bottom: 1.5rem;">Anna Frankendal</h2>
-      <p style="font-family: var(--font-serif); font-size: 1.8rem; font-style: italic; margin-bottom: 3rem; color: #000; text-transform: none;">"Hör av dig så tar vi en kaffe!"</p>
-      <div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
-        <a href="mailto:afrankendal@gmail.com" style="color: #000; font-size: 2rem; transition: opacity 0.3s;" title="Maila mig"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554" style="color: #000; font-size: 2rem; transition: opacity 0.3s;" title="Ring mig"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" rel="noopener noreferrer" style="color: #000; font-size: 2rem; transition: opacity 0.3s;" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank" rel="noopener noreferrer" style="color: #000; font-size: 2rem; transition: opacity 0.3s;" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank" rel="noopener noreferrer" style="color: #000; font-size: 2rem; transition: opacity 0.3s;" title="TikTok"><i class="fab fa-tiktok"></i></a>
+  <main class="container">
+    <!-- ENTRY CARD -->
+    <div id="quizEntry" class="quiz-card" style="padding: 80px 60px; text-align: center;">
+      <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Är vi en match?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Svara på fyra korta frågor om hur ni arbetar idag. Det tar mindre än en minut och ger en tydlig bild av hur våra arbetssätt matchar.</p>
+      <button id="startQuizBtn" class="btn btn-primary" style="padding: 20px 40px;">Starta testet</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="quizCard" class="quiz-card" style="display: none;">
+      <div class="topbar">
+        <div class="kicker" id="kicker" style="margin-bottom:0;">Fråga 1 av 4</div>
+        <div class="match-bar"><div id="matchBarFill" class="match-fill"></div></div>
       </div>
-      <p style="margin-top: 6rem; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #999;">© 2025 Anna Frankendal. Social Media Strategy & Narrative Storytelling.</p>
+
+      <form id="matchForm" novalidate>
+        <div class="quiz-body">
+          <!-- Steps -->
+          <div class="step active" data-step="1">
+            <p class="q-text">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</p>
+            <div class="scale" data-q="q1">
+              <div class="chip" data-value="1">1</div>
+              <div class="chip" data-value="2">2</div>
+              <div class="chip" data-value="3">3</div>
+              <div class="chip" data-value="4">4</div>
+              <div class="chip" data-value="5">5</div>
+            </div>
+            <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
+          </div>
+
+          <div class="step" data-step="2" style="display:none;">
+            <p class="q-text">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</p>
+            <div class="scale" data-q="q2">
+              <div class="chip" data-value="1">1</div>
+              <div class="chip" data-value="2">2</div>
+              <div class="chip" data-value="3">3</div>
+              <div class="chip" data-value="4">4</div>
+              <div class="chip" data-value="5">5</div>
+            </div>
+            <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
+          </div>
+
+          <div class="step" data-step="3" style="display:none;">
+            <p class="q-text">Vi arbetar mot tydliga mål och följer upp det vi skapar.</p>
+            <div class="scale" data-q="q3">
+              <div class="chip" data-value="1">1</div>
+              <div class="chip" data-value="2">2</div>
+              <div class="chip" data-value="3">3</div>
+              <div class="chip" data-value="4">4</div>
+              <div class="chip" data-value="5">5</div>
+            </div>
+            <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
+          </div>
+
+          <div class="step" data-step="4" style="display:none;">
+            <p class="q-text">Vi prioriterar att bygga relationer med vår målgrupp över tid.</p>
+            <div class="scale" data-q="q4">
+              <div class="chip" data-value="1">1</div>
+              <div class="chip" data-value="2">2</div>
+              <div class="chip" data-value="3">3</div>
+              <div class="chip" data-value="4">4</div>
+              <div class="chip" data-value="5">5</div>
+            </div>
+            <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
+            
+            <div style="margin-top: 3rem;">
+              <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); border-radius:8px; font-family:var(--font-body); font-size:1.1rem;" required>
+              <div style="display:flex; gap:10px; margin-top:1.5rem; align-items:center; font-size:0.9rem;">
+                <input id="matchConsent" type="checkbox" required>
+                <span>Godkänn återkoppling via mail.</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="matchResult" style="display:none;"></div>
+        </div>
+
+        <div class="quiz-nav">
+          <button id="matchPrevBtn" class="btn btn-ghost" type="button" style="visibility:hidden;">Bakåt</button>
+          <button id="matchNextBtn" class="btn btn-primary" type="button" disabled>Nästa</button>
+          <button id="matchSubmitBtn" class="btn btn-primary" type="submit" style="display:none;">Visa resultat</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h2>Ska vi koka ihop något bra?</h2>
+      <div class="footer-links">
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // --- MATCH QUIZ LOGIC (CRO Optimized) ---
     const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
     let matchStep = 1;
     const matchTotalSteps = 4;
 
-    const matchSteps = [...document.querySelectorAll('#match .step')];
-    const kicker = document.getElementById('kicker');
-    const remaining = document.getElementById('remaining');
-    const matchBarFill = document.getElementById('matchBarFill');
-
-    const matchPrevBtn = document.getElementById('matchPrevBtn');
-    const matchNextBtn = document.getElementById('matchNextBtn');
-    const matchSubmitBtn = document.getElementById('matchSubmitBtn');
-    const startQuizBtn = document.getElementById('startQuizBtn');
-    const quizCard = document.getElementById('quizCard');
-
-    const matchEmailEl = document.getElementById('matchEmail');
-    const matchConsentEl = document.getElementById('matchConsent');
-    const matchResultBox = document.getElementById('matchResult');
-    const matchErrorEl = document.getElementById('matchError');
-
-    const SUPABASE_URL = "YOUR_SUPABASE_URL";
-    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
-
-    function updateMatchProgress(){
-      kicker.textContent = `Fråga ${matchStep} av ${matchTotalSteps}`;
-      const left = matchTotalSteps - matchStep;
-      remaining.textContent = left === 0 ? 'Sista steget' : `${left} ${left === 1 ? 'fråga' : 'frågor'} kvar`;
-      matchBarFill.style.width = (matchStep / matchTotalSteps * 100) + '%';
-    }
-
     function showMatchStep(n){
       matchStep = n;
+      document.querySelectorAll('.step').forEach((s, idx) => {
+        s.style.display = (idx + 1 === matchStep) ? 'block' : 'none';
+      });
+      document.getElementById('kicker').textContent = `Fråga ${matchStep} av ${matchTotalSteps}`;
+      document.getElementById('matchBarFill').style.width = (matchStep / matchTotalSteps * 100) + '%';
+      document.getElementById('matchPrevBtn').style.visibility = matchStep > 1 ? 'visible' : 'hidden';
+      
+      if (matchStep === matchTotalSteps){
+        document.getElementById('matchNextBtn').style.display = 'none';
+        document.getElementById('matchSubmitBtn').style.display = 'inline-block';
+      } else {
+        document.getElementById('matchNextBtn').style.display = 'inline-block';
+        document.getElementById('matchSubmitBtn').style.display = 'none';
+        document.getElementById('matchNextBtn').disabled = !matchAnswers['q'+matchStep];
+      }
+    }
 
-      matchSteps.forEach(s => {
-        s.classList.remove('active');
-        if (Number(s.dataset.step) === matchStep) {
-          s.classList.add('active');
+    document.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => {
+        const q = c.parentElement.dataset.q;
+        matchAnswers[q] = Number(c.dataset.value);
+        c.parentElement.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
+        c.classList.add('selected');
+        if (matchStep < matchTotalSteps) {
+          setTimeout(() => showMatchStep(matchStep + 1), 300);
+        } else {
+          document.getElementById('matchSubmitBtn').disabled = false;
         }
       });
-
-      updateMatchProgress();
-
-      // Always show the previous button
-      matchPrevBtn.style.visibility = 'visible';
-
-      if (matchStep === matchTotalSteps){
-        matchNextBtn.style.display = 'none';
-        matchSubmitBtn.style.display = 'inline-block';
-        matchSubmitBtn.disabled = !canMatchSubmit();
-      } else {
-        matchNextBtn.style.display = 'inline-block';
-        matchNextBtn.disabled = !hasMatchAnswer(matchStep);
-        matchSubmitBtn.style.display = 'none';
-      }
-
-      // Smooth scroll back to quiz top when changing steps
-      if (quizCard.style.display === 'block') {
-        quizCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    function hasMatchAnswer(n){ return matchAnswers['q'+n] !== null; }
-
-    function canMatchSubmit(){
-      const allAnswered = Object.values(matchAnswers).every(v => v !== null);
-      const emailOk = (matchEmailEl.value || '').trim().length > 3 && matchEmailEl.checkValidity();
-      const consentOk = matchConsentEl.checked;
-      return allAnswered && emailOk && consentOk;
-    }
-
-    // Handle scale selection
-    document.querySelectorAll('#match .scale').forEach(scale => {
-      const key = scale.dataset.q;
-
-      scale.querySelectorAll('.chip').forEach(btn => {
-        btn.addEventListener('click', () => {
-
-          matchAnswers[key] = Number(btn.dataset.value);
-
-          scale.querySelectorAll('.chip').forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
-
-          if (matchStep < matchTotalSteps){
-            setTimeout(() => {
-              showMatchStep(matchStep + 1);
-            }, 200);
-          } else {
-            matchSubmitBtn.disabled = !canMatchSubmit();
-          }
-        });
-      });
     });
 
-    matchPrevBtn.addEventListener('click', () => { 
-      if (matchStep > 1) {
-        showMatchStep(matchStep - 1);
-      } else {
-        // Go back to entry card
-        quizCard.style.display = 'none';
-        quizEntry.style.display = 'block';
-      }
+    document.getElementById('startQuizBtn').addEventListener('click', () => {
+      document.getElementById('quizEntry').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      showMatchStep(1);
     });
-    matchNextBtn.addEventListener('click', () => { if (hasMatchAnswer(matchStep)) showMatchStep(matchStep + 1); });
 
-    matchEmailEl.addEventListener('input', () => { if (matchStep === matchTotalSteps) matchSubmitBtn.disabled = !canMatchSubmit(); });
-    matchConsentEl.addEventListener('change', () => { if (matchStep === matchTotalSteps) matchSubmitBtn.disabled = !canMatchSubmit(); });
+    document.getElementById('matchPrevBtn').addEventListener('click', () => showMatchStep(matchStep - 1));
+    document.getElementById('matchNextBtn').addEventListener('click', () => showMatchStep(matchStep + 1));
 
-    function getMatchResultLabel(pct){
-      if (pct >= 90) return { title:'Stark matchning', text:'Det här ser lovande ut. Våra arbetssätt verkar ligga nära varandra. Ett samtal känns som ett rimligt nästa steg.' };
-      if (pct >= 70) return { title:'Tydlig potential', text:'Mycket stämmer. Det finns bra förutsättningar att hitta en bra matchning och sätta rätt förväntningar tidigt.' };
-      if (pct >= 50) return { title:'Blandad matchning', text:'Vissa delar matchar, andra skiljer sig. Det kan vara en bra grund för en kort avstämning om ni är nyfikna.' };
-      return { title:'Begränsad matchning', text:'Just nu verkar våra arbetssätt skilja sig en del. Tack för att ni svarade.' };
-    }
-
-    document.getElementById('matchForm').addEventListener('submit', async (e) => {
+    document.getElementById('matchForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      if (!canMatchSubmit()) {
-        matchErrorEl.textContent = 'Vänligen fyll i en giltig mail och godkänn villkoren.';
-        matchErrorEl.style.display = 'block';
-        return;
-      }
-
       const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
       const pct = Math.round((total / 20) * 100);
-      const msg = getMatchResultLabel(pct);
-
-      matchSubmitBtn.textContent = 'Sparar...';
-      
-      if (typeof supabase !== 'undefined' && SUPABASE_URL !== "YOUR_SUPABASE_URL") {
-        const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        const { error } = await client
-          .from("leads")
-          .insert([{
-            email: matchEmailEl.value.trim(),
-            score: total,
-            percentage: pct,
-            source: "portfolio-match"
-          }]);
-
-        if (error) {
-          console.error("Supabase insert error:", error);
-        }
-      }
-
-      setTimeout(() => {
-        document.querySelector('.quiz-body').style.display = 'none';
-        document.querySelector('.quiz-nav').style.display = 'none';
-        matchResultBox.style.display = 'block';
-        matchResultBox.innerHTML = `
-          <div class="result-reward">
-            <div class="meta">Er kompatibilitet</div>
-            <div class="pct">${pct}%</div>
-            <div class="title">${msg.title}</div>
-            <p class="text">${msg.text}</p>
-            <div style="margin-top:25px; border-top:1px solid #eee; padding-top:20px;">
-              <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Kontakta mig</a>
-            </div>
-          </div>
-        `;
-      }, 600);
+      document.querySelector('.quiz-body').style.display = 'none';
+      document.querySelector('.quiz-nav').style.display = 'none';
+      const res = document.getElementById('matchResult');
+      res.style.display = 'block';
+      res.innerHTML = `
+        <div class="result-reward">
+          <div class="pct">${pct}%</div>
+          <div class="title">Matchning klar</div>
+          <p>Det här ser spännande ut. Vi borde höras!</p>
+          <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
+        </div>
+      `;
     });
-
-    const quizEntry = document.getElementById('quizEntry');
-
-    startQuizBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      quizEntry.style.display = 'none';
-      quizCard.style.display = 'block';
-      showMatchStep(1);
-    });
-
-    quizEntry.addEventListener('click', () => {
-      quizEntry.style.display = 'none';
-      quizCard.style.display = 'block';
-      showMatchStep(1);
-    });
-
-    updateMatchProgress();
-    showMatchStep(1);
   </script>
 </body>
 </html>

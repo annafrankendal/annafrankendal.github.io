@@ -154,11 +154,148 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </a>
     </div>
 
-    <section class="match-cta">
-      <h2>Vill du veta om vi matchar?</h2>
-      <a href="match.html" class="btn-big">Gör testet nu</a>
+    <section id="match" style="margin-bottom: 8rem;">
+      <div id="quizEntry" class="box" style="background: var(--burgundy); color: #fff; text-align: center; cursor: pointer;">
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; color: var(--lightblue); margin-bottom: 1rem; display: block;">Kompabilitetstest</span>
+        <h2 style="color: #fff; margin-bottom: 1.5rem;">Är vi en match?</h2>
+        <p style="color: var(--lightblue); max-width: 600px; margin: 0 auto 3rem;">Svara på fyra korta frågor om hur ni arbetar idag. Det tar mindre än en minut och ger en tydlig bild av hur våra arbetssätt matchar.</p>
+        <button id="startQuizBtn" class="btn-big" style="background: #fff; color: var(--burgundy); border: none;">Starta testet</button>
+      </div>
+
+      <div id="quizCard" class="box" style="display: none; background: #fff;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+          <span id="kicker" style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: var(--navy);">Fråga 1 av 4</span>
+          <div style="width: 200px; height: 4px; background: var(--lightblue);"><div id="matchBarFill" style="height: 100%; background: var(--navy); width: 0%;"></div></div>
+        </div>
+
+        <form id="matchForm" novalidate>
+          <div class="quiz-body">
+            <!-- Steps -->
+            <div class="step active" data-step="1">
+              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</h2>
+              <div class="scale" data-q="q1" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+            </div>
+
+            <div class="step" data-step="2" style="display:none;">
+              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</h2>
+              <div class="scale" data-q="q2" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+            </div>
+
+            <div class="step" data-step="3" style="display:none;">
+              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi arbetar mot tydliga mål och följer upp det vi skapar.</h2>
+              <div class="scale" data-q="q3" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+            </div>
+
+            <div class="step" data-step="4" style="display:none;">
+              <h2 style="font-size: 2rem; margin-bottom: 2rem;">Vi prioriterar att bygga relationer med vår målgrupp över tid.</h2>
+              <div class="scale" data-q="q4" style="display: flex; gap: 10px; margin-bottom: 1rem;">
+                <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999; margin-bottom: 3rem;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
+              
+              <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); font-family:var(--font-body); font-weight: 600;" required>
+              <div style="display:flex; gap:10px; margin-top:1rem; align-items:center; font-size:0.8rem; font-weight:600;">
+                <input id="matchConsent" type="checkbox" required><span>Godkänn återkoppling.</span>
+              </div>
+            </div>
+
+            <div id="matchResult" style="display:none; text-align:center;"></div>
+          </div>
+
+          <div class="quiz-nav" style="display: flex; justify-content: space-between; margin-top: 4rem;">
+            <button id="matchPrevBtn" type="button" style="background:none; border:none; font-weight:900; text-transform:uppercase; cursor:pointer; visibility:hidden;">Bakåt</button>
+            <button id="matchNextBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px;" disabled>Nästa</button>
+            <button id="matchSubmitBtn" type="submit" class="btn-big" style="padding: 10px 30px; font-size: 12px; display:none;">Visa resultat</button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
+
+  <style>
+    .chip {
+      width: 50px; height: 50px; border: var(--border); display: flex; align-items: center; justify-content: center;
+      font-weight: 900; cursor: pointer; transition: 0.2s;
+    }
+    .chip:hover { background: var(--lightblue); }
+    .chip.selected { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .result-reward .pct { font-size: 6rem; font-weight: 900; color: var(--navy); }
+  </style>
+
+  <script>
+    const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
+    let matchStep = 1;
+    const matchTotalSteps = 4;
+
+    function showMatchStep(n){
+      matchStep = n;
+      document.querySelectorAll('.step').forEach((s, idx) => {
+        s.style.display = (idx + 1 === matchStep) ? 'block' : 'none';
+      });
+      document.getElementById('kicker').textContent = `Fråga ${matchStep} av ${matchTotalSteps}`;
+      document.getElementById('matchBarFill').style.width = (matchStep / matchTotalSteps * 100) + '%';
+      document.getElementById('matchPrevBtn').style.visibility = matchStep > 1 ? 'visible' : 'hidden';
+      
+      if (matchStep === matchTotalSteps){
+        document.getElementById('matchNextBtn').style.display = 'none';
+        document.getElementById('matchSubmitBtn').style.display = 'inline-block';
+      } else {
+        document.getElementById('matchNextBtn').style.display = 'inline-block';
+        document.getElementById('matchSubmitBtn').style.display = 'none';
+        document.getElementById('matchNextBtn').disabled = !matchAnswers['q'+matchStep];
+      }
+    }
+
+    document.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => {
+        const q = c.parentElement.dataset.q;
+        matchAnswers[q] = Number(c.dataset.value);
+        c.parentElement.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
+        c.classList.add('selected');
+        if (matchStep < matchTotalSteps) {
+          setTimeout(() => showMatchStep(matchStep + 1), 300);
+        } else {
+          document.getElementById('matchSubmitBtn').disabled = false;
+        }
+      });
+    });
+
+    document.getElementById('startQuizBtn').addEventListener('click', () => {
+      document.getElementById('quizEntry').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      showMatchStep(1);
+    });
+
+    document.getElementById('matchPrevBtn').addEventListener('click', () => showMatchStep(matchStep - 1));
+    document.getElementById('matchNextBtn').addEventListener('click', () => showMatchStep(matchStep + 1));
+
+    document.getElementById('matchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
+      const pct = Math.round((total / 20) * 100);
+      document.querySelector('.quiz-body').style.display = 'none';
+      document.querySelector('.quiz-nav').style.display = 'none';
+      const res = document.getElementById('matchResult');
+      res.style.display = 'block';
+      res.innerHTML = `
+        <div class="result-reward">
+          <div class="pct">${pct}%</div>
+          <h2 style="margin: 1rem 0;">Matchning klar</h2>
+          <p style="font-weight:700; margin-bottom:2rem;">Det här ser spännande ut. Vi borde höras!</p>
+          <a href="mailto:afrankendal@gmail.com" class="btn-big" style="text-decoration:none;">Kontakta mig</a>
+        </div>
+      `;
+    });
+  </script>
 
   <footer>
     <div class="container">
