@@ -11,18 +11,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anna Frankendal | Strategi med substans</title>
+  <title>Anna Frankendal | The Strategy Menu</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=Playfair+Display:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f4f1ea; /* Warm Gallery Paper */
-      --ink: #0a0a0a;
-      --signal: #ff3e00; /* The "Truth" Red */
-      --border: 1px solid #0a0a0a;
+      --bg: #f4f1ea; /* Warm Menu Paper */
+      --ink: #1a1a1a;
+      --signal: #ff3e00;
+      --border: 1px solid #1a1a1a;
+      --dotted: 1px dashed #1a1a1a;
       --font-sans: 'Inter', sans-serif;
       --font-serif: 'Playfair Display', serif;
     }
@@ -33,70 +34,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
-      line-height: 1.5;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
-    /* --- MINIMAL NAV --- */
+    /* --- MENU NAV --- */
     nav { 
-      padding: 2rem 0; display: flex; justify-content: space-between; align-items: center;
-      border-bottom: var(--border); margin-bottom: 4rem; position: sticky; top: 0; background: var(--bg); z-index: 1000;
+      padding: 3rem 0; display: flex; justify-content: center; align-items: center;
+      border-bottom: var(--border); margin-bottom: 6rem;
     }
-    .nav-brand { font-family: var(--font-serif); font-weight: 900; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
     .nav-links { display: flex; gap: 3rem; text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
-    .nav-links a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--signal); }
-    .nav-links .active { color: var(--signal); }
+    .nav-links a { color: var(--ink); text-decoration: none; transition: opacity 0.3s; }
+    .nav-links a:hover { opacity: 0.5; }
+    .nav-links .active { border-bottom: 1px solid var(--signal); }
 
-    /* --- HERO: CENTERED & REDUCED --- */
-    .hero { padding: 6rem 0 10rem; text-align: center; }
-    .hero h1 { font-family: var(--font-serif); font-size: clamp(4rem, 18vw, 14rem); line-height: 0.75; letter-spacing: -8px; margin-bottom: 4rem; }
+    /* --- MENU HEADER --- */
+    .menu-header { text-align: center; margin-bottom: 8rem; }
+    .menu-header span { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 1rem; opacity: 0.6; }
+    .menu-header h1 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 5rem); font-weight: 400; font-style: italic; margin-bottom: 3rem; }
     
-    .hero-image-wrap { position: relative; width: 220px; margin: 0 auto 4rem; }
-    .hero-image { border: var(--border); filter: grayscale(100%); transition: filter 0.5s; aspect-ratio: 0.85; overflow: hidden; }
-    .hero-image:hover { filter: grayscale(0%); }
-    .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-label { 
-      position: absolute; top: -15px; right: -40px; background: var(--signal); color: #fff; 
-      padding: 8px 16px; font-weight: 900; text-transform: uppercase; font-size: 10px; 
-      letter-spacing: 2px; transform: rotate(5deg); white-space: nowrap;
+    .profile-wrap { position: relative; width: 180px; margin: 0 auto 3rem; }
+    .profile-image { border-radius: 50%; overflow: hidden; border: var(--border); aspect-ratio: 1; }
+    .profile-image img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
+
+    /* --- MENU SECTIONS --- */
+    .menu-section { margin-bottom: 8rem; }
+    .menu-category { 
+      display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; 
+      text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 3px; 
     }
+    .menu-category::after { content: ''; flex: 1; height: 1px; background: var(--ink); opacity: 0.2; }
 
-    .hero-text { max-width: 500px; margin: 0 auto; font-size: 1.25rem; font-weight: 400; color: #333; line-height: 1.4; }
+    .menu-item { display: grid; grid-template-columns: 1fr auto; gap: 2rem; margin-bottom: 4rem; align-items: baseline; }
+    .item-info h3 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .item-info p { font-size: 1rem; color: #444; max-width: 600px; }
+    .item-tag { font-family: var(--font-serif); font-style: italic; color: var(--signal); font-size: 1.2rem; }
 
-    /* --- SECTION: THE TRUTH --- */
-    .statement { border-top: var(--border); border-bottom: var(--border); padding: 8rem 0; margin-bottom: 10rem; }
-    .statement h2 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; max-width: 900px; margin: 0 auto; text-align: center; }
-    .statement h2 span { color: var(--signal); font-style: italic; }
+    .dotted-spacer { border-bottom: var(--dotted); margin: 4rem 0; opacity: 0.3; }
 
-    /* --- GRID: THE SCIENCE & THE ART --- */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10rem; margin-bottom: 15rem; }
-    .grid-item span { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; color: var(--signal); display: block; margin-bottom: 2rem; }
-    .grid-item h3 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 2rem; font-weight: 400; line-height: 1; }
-    .grid-item p { font-size: 1.1rem; color: #333; margin-bottom: 2rem; }
+    /* --- PHILOSOPHY BOX --- */
+    .philosophy { 
+      background: #fff; border: var(--border); padding: 4rem; text-align: center; 
+      margin-bottom: 8rem; position: relative;
+    }
+    .philosophy h2 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; font-style: italic; margin-bottom: 1.5rem; }
+    .philosophy p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
 
-    /* --- FUN FACTS: NO FLUFF --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--border); background: var(--ink); color: #fff; margin-bottom: 15rem; }
-    .stat-item { padding: 4rem 2rem; text-align: center; border-right: 1px solid #333; }
-    .stat-item:last-child { border-right: none; }
-    .stat-item h4 { font-family: var(--font-serif); font-size: 4rem; font-weight: 400; margin-bottom: 0.5rem; }
-    .stat-item p { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+    /* --- FOOTER --- */
+    footer { padding: 8rem 0 4rem; border-top: var(--border); text-align: center; }
+    footer h2 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; margin-bottom: 3rem; }
+    .footer-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 4rem; }
+    .footer-links a { color: var(--ink); font-size: 1.5rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--signal); }
+    .footer-meta { font-size: 9px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
 
-    /* --- FOOTER: THE CLOSER --- */
-    footer { padding: 10rem 0 5rem; border-top: var(--border); text-align: center; }
-    footer h2 { font-family: var(--font-serif); font-size: clamp(3rem, 10vw, 8rem); letter-spacing: -4px; line-height: 0.8; margin-bottom: 6rem; }
-    .footer-links { display: flex; justify-content: center; gap: 4rem; margin-bottom: 6rem; }
-    .footer-links a { color: var(--ink); font-size: 2rem; transition: transform 0.3s; }
-    .footer-links a:hover { transform: scale(1.3); color: var(--signal); }
-    .footer-meta { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; opacity: 0.4; }
-
-    @media (max-width: 900px) {
-      .grid, .stats { grid-template-columns: 1fr; gap: 4rem; }
-      .hero h1 { font-size: 5rem; letter-spacing: -4px; }
-      .nav-links { display: none; }
-      .stat-item { border-right: none; border-bottom: 1px solid #333; }
+    @media (max-width: 700px) {
+      .menu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .item-tag { order: -1; }
+      .nav-links { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -104,71 +101,74 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  
   <div class="container">
     <nav>
-      <div class="nav-brand">Anna Frankendal</div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">Philosophy</a>
-        <a href="projects.html">Works</a>
-        <a href="experience.html">Curriculum</a>
-        <a href="match.html">Match?</a>
+        <a href="index.html">Hem</a>
+        <a href="about.html" class="active">Om mig</a>
+        <a href="projects.html">Projekt</a>
+        <a href="experience.html">CV</a>
+        <a href="match.html">Matchning</a>
       </div>
     </nav>
 
     <main>
-      <section class="hero">
-        <h1>ANNA.</h1>
-        <div class="hero-image-wrap">
-          <div class="hero-image">
+      <header class="menu-header">
+        <span>EST. 1998 — STOCKHOLM</span>
+        <h1>Anna Frankendal</h1>
+        <div class="profile-wrap">
+          <div class="profile-image">
             <img src="annabild.JPG" alt="Anna Frankendal">
           </div>
-          <div class="hero-label">Growth + Sociology</div>
         </div>
-        <div class="hero-text">
-          <p>De flesta gissar. Jag har en Master i varför människor faktiskt gör som de gör. Det är skillnaden mellan räckvidd och resultat.</p>
+        <p style="font-family: var(--font-serif); font-size: 1.4rem; max-width: 600px; margin: 0 auto; opacity: 0.8;">
+          Growth Marketer med en förkärlek för sociologi, mänskliga beteenden och riktigt god mat.
+        </p>
+      </header>
+
+      <section class="menu-section">
+        <div class="menu-category">Ingredienser</div>
+        
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Sociologisk Grund</h3>
+            <p>Att förstå varför vi gör som vi gör är basen i allt mitt arbete. Min Master är inte bara ett betyg, det är min kompass för att skapa äkta engagemang.</p>
+          </div>
+          <div class="item-tag">Lund / Zurich</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Growth Marketing</h3>
+            <p>Strategisk analys parad med kreativt berättande. Jag tror på tillväxt som känns mänsklig och som bygger på förtroende, inte bara algoritmer.</p>
+          </div>
+          <div class="item-tag">Berghs '25</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>@frankisfood</h3>
+            <p>Min passion för gastronomi är min kreativa ventil. Här experimenterar jag med hooks och format på samma sätt som jag gör med råvaror.</p>
+          </div>
+          <div class="item-tag">Kreativitet</div>
         </div>
       </section>
 
-      <section class="statement">
-        <h2>
-          Marknadsföring är inte en tävling i vem som skriker högst. Det är en <span>beteendevetenskap</span> applicerad på digitala plattformar.
-        </h2>
+      <section class="philosophy">
+        <h2>"Receptet är enkelt: Data utan empati är bara brus."</h2>
+        <p>Jag strävar efter att skapa marknadsföring som tillför värde i människors liv, snarare än att bara ta plats i deras flöden.</p>
       </section>
 
-      <section class="grid">
-        <div class="grid-item">
-          <span>The Science</span>
-          <h3>Data utan empati är bara brus.</h3>
-          <p>Varje klick i GA4 är ett mänskligt beslut. Min bakgrund i sociologi gör att jag kan dekonstruera dessa beslut. Jag ser mönstren där andra ser siffror.</p>
-        </div>
-        <div class="grid-item">
-          <span>The Art</span>
-          <h3>Kreativitet kräver ett recept.</h3>
-          <p>Under namnet <strong>@frankisfood</strong> experimenterar jag med råvaror precis som jag gör med algoritmer. Rätt ingredienser, en tydlig struktur och modet att våga misslyckas tills receptet sitter perfekt.</p>
-        </div>
-      </section>
+      <div class="dotted-spacer"></div>
 
-      <section class="stats">
-        <div class="stat-item">
-          <h4>150+</h4>
-          <p>Analys-respondenter</p>
-        </div>
-        <div class="stat-item">
-          <h4>2x</h4>
-          <p>Organisk räckvidd</p>
-        </div>
-        <div class="stat-item">
-          <h4>∞</h4>
-          <p>Koppar kaffe</p>
-        </div>
-        <div class="stat-item" style="background: var(--signal);">
-          <h4>100%</h4>
-          <p style="color: #fff; opacity: 1;">Pricksäkerhet</p>
-        </div>
+      <section class="menu-section" style="text-align: center;">
+        <div class="menu-category">Smakprov</div>
+        <p style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 4rem;">
+          150+ Beteendeanalyser • 2x Organisk räckvidd • ∞ Pasta-timmar
+        </p>
       </section>
     </main>
 
     <footer>
-      <h2>Ska vi koka ihop något?</h2>
+      <h2>Ska vi ses på en kaffe?</h2>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554"><i class="fas fa-mobile-alt"></i></a>
@@ -176,7 +176,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://www.instagram.com/frankisfood/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@frankisfood" target="_blank"><i class="fab fa-tiktok"></i></a>
       </div>
-      <div class="footer-meta">© 2025 Anna Frankendal • Sociologi + Strategi = Sanning</div>
+      <div class="footer-meta">© 2025 Anna Frankendal • Strategi med hjärta och smak</div>
     </footer>
   </div>
 
