@@ -12,27 +12,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projekt | Anna Frankendal</title>
-  <meta name="description" content="Utvalda projekt inom Growth Marketing, SEO, CRO och Sociala Medier." />
 
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Google Fonts: Playfair Display (Editorial) & Inter (Modern Sans) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fbfaf8;
-      --card: #ffffff;
+      --bg: #fdfaf6;
       --ink: #1a1a1a;
-      --muted: #5f6368;
-      --line: #e7e5e2;
-      --shadow: 0 12px 30px rgba(0,0,0,.06);
-      --accent: #003366;
-      --radius: 12px;
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Inter', sans-serif;
-      --container: 1200px;
+      --burgundy: #630d16;
+      --lightblue: #d1e8ff;
+      --beige: #f2ede4;
+      --border: 1.5px solid #1a1a1a;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Space Grotesk', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,121 +34,82 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: var(--font-sans);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    /* --- NAVIGATION --- */
+    /* --- CONTACT BAR --- */
     .contact-bar {
-      background: #000;
-      color: #fff;
-      padding: 12px 30px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 2000;
+      background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
       flex-wrap: wrap;
     }
     .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
-    .contact-bar a:hover { opacity: 0.7; }
 
+    /* --- NAVIGATION --- */
     nav { 
-      background: rgba(255,255,255,0.9); 
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center;
-      gap: 3rem; 
-      position: sticky; 
-      top: 39px; 
-      border-bottom: 1px solid var(--line); 
-      z-index: 1500; 
-      text-transform: uppercase; 
-      font-size: 11px; 
-      letter-spacing: 2px; 
-      font-weight: 600; 
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
+      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
+      border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    nav a:hover { color: #999; }
-    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; }
+    nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
+    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
-    /* --- PROJECTS GRID --- */
-    header { padding: 5rem 0 3rem; text-align: center; }
-    header h1 { font-family: var(--font-serif); font-size: 3rem; text-transform: uppercase; font-weight: 400; margin-bottom: 0.5rem; }
-    header p { font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--muted); }
+    /* --- HEADER --- */
+    header { padding: 8rem 0 6rem; text-align: center; border-bottom: var(--border); }
+    header h1 { font-family: var(--font-display); font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 2rem; color: var(--burgundy); }
+    header p { font-size: 1.5rem; font-family: var(--font-display); font-weight: 700; font-style: italic; color: var(--ink); }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mindre kort */
-      gap: 2rem;
-      margin-bottom: 6rem;
+    /* --- PROJECT GRID --- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 8rem; }
+    
+    .project-card { 
+      border-right: var(--border); border-bottom: var(--border); padding: 2rem; 
+      display: flex; flex-direction: column; cursor: pointer; transition: background 0.3s ease;
+      background: #fff; min-height: 450px;
     }
-
-    .project-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 0.8rem; /* Mindre padding */
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .project-card:hover { background: var(--lightblue); }
+    .project-card:nth-child(even):hover { background: var(--beige); }
 
     .video-preview { 
-      width: 100%; 
-      aspect-ratio: 16 / 9; 
-      background: #f0f0f0; 
-      margin-bottom: 1rem;
-      overflow: hidden;
-      border-radius: calc(var(--radius) - 6px);
-      position: relative;
+      width: 100%; aspect-ratio: 16 / 9; background: var(--ink); margin-bottom: 2rem;
+      border: 1px solid var(--ink); overflow: hidden;
     }
     .video-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
 
-    .project-info { padding: 0.5rem; }
-    .project-info .cat { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; margin-bottom: 0.4rem; display: block; }
-    .project-info h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.4rem; text-transform: none; line-height: 1.2; font-weight: 400; }
-    .project-info p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .cat { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: var(--burgundy); margin-bottom: 1rem; display: block; }
+    .project-card h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
+    .project-card p { font-size: 0.95rem; font-weight: 500; color: #333; margin-bottom: 2rem; line-height: 1.4; }
 
-    .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
-    .project-tag { font-size: 8px; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-weight: 600; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border: 1px solid var(--ink); font-weight: 700; }
 
     /* --- MODAL --- */
     .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: #fff; overflow-y: auto; }
     .modal-content { max-width: 900px; margin: 100px auto; padding: 0 40px; animation: fadeIn 0.6s ease; }
     .close-modal { position: fixed; top: 40px; right: 40px; font-size: 40px; cursor: pointer; z-index: 3001; }
-    .pdf-container { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 4px; overflow: hidden; margin-bottom: 3rem; position: relative; }
+    .pdf-container { width: 100%; aspect-ratio: 16 / 9; background: #000; border: var(--border); overflow: hidden; margin-bottom: 3rem; position: relative; }
     .pdf-viewer { width: 100%; height: 100%; border: none; }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    @media (max-width: 900px) {
-      header h1 { font-size: 2.5rem; }
-      nav { gap: 1rem; font-size: 9px; padding: 1rem; }
-      .project-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    @media (max-width: 1000px) {
+      .grid { grid-template-columns: 1fr; border-left: none; }
+      .project-card { border-right: none; min-height: auto; }
+      header h1 { font-size: 6rem; letter-spacing: -5px; }
+      nav { gap: 1.5rem; font-size: 10px; }
     }
 
-    footer { text-align: center; padding: 6rem 2rem; border-top: 1px solid var(--line); background: #fff; }
-    footer h2 { font-family: var(--font-serif); font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .footer-links { display: flex; justify-content: center; gap: 30px; align-items: center; }
-    .footer-links a { color: #000; font-size: 1.8rem; transition: opacity 0.3s; }
-    .footer-links a:hover { opacity: 0.6; }
+    footer { padding: 8rem 0 4rem; text-align: center; }
+    footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 4rem; line-height: 0.8; letter-spacing: -1px; color: var(--burgundy); text-transform: uppercase; }
+    .footer-links { display: flex; justify-content: center; gap: 4rem; }
+    .footer-links a { color: var(--ink); font-size: 2.5rem; transition: transform 0.3s ease; }
+    .footer-links a:hover { transform: translateY(-10px); color: var(--burgundy); }
+    .footer-meta { margin-top: 8rem; font-size: 10px; text-transform: uppercase; letter-spacing: 4px; opacity: 0.3; }
   </style>
 </head>
 <body>
@@ -168,120 +123,107 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 
   <nav>
-    <a href="index.html#about">Om mig</a>
-    <a href="projects.html" style="color: var(--accent); font-weight: 800;">Projekt</a>
+    <a href="index.html">Hem</a>
+    <a href="about.html">Om mig</a>
+    <a href="projects.html" class="active">Projekt</a>
     <a href="experience.html">Erfarenhet</a>
-    <a href="match.html" class="nav-cta btn btn-accent">Är vi en match?</a>
+    <a href="match.html" class="nav-cta">Är vi en match?</a>
   </nav>
 
   <header>
     <div class="container">
-      <h1>Projekt</h1>
-      <p>Utvalda arbeten inom digital marknadsföring</p>
+      <h1>Projekt.</h1>
+      <p>Strategiska case & kreativa lösningar</p>
     </div>
   </header>
 
-  <section id="projects-list">
-    <div class="container">
-      <div class="project-grid">
-        <!-- Project 1 -->
-        <div class="project-card" onclick="openCase('drypops')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">Paid Social</span>
-            <h3>DryPops</h3>
-            <p>A/B-tester över målgrupper och format för att identifiera engagemang.</p>
-            <div class="project-tags">
-              <span class="project-tag">Meta Ads</span>
-              <span class="project-tag">A/B-test</span>
-            </div>
-          </div>
+  <main class="container">
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="project-card" onclick="openCase('drypops')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed" loading="lazy"></iframe>
         </div>
-
-        <!-- Project 2 -->
-        <div class="project-card" onclick="openCase('seo')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view?embed" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">SEO & Content</span>
-            <h3>Akademibokhandeln</h3>
-            <p>Kartläggning av sökintention för att stärka organisk synlighet.</p>
-            <div class="project-tags">
-              <span class="project-tag">SEO</span>
-              <span class="project-tag">Content</span>
-            </div>
-          </div>
+        <span class="cat">Paid Social</span>
+        <h3>DryPops</h3>
+        <p>A/B-tester över målgrupper och format för att identifiera engagemang.</p>
+        <div class="tags">
+          <span class="tag">Meta Ads</span>
+          <span class="tag">Performance</span>
         </div>
+      </div>
 
-        <!-- Project 3 -->
-        <div class="project-card" onclick="openCase('cro')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">CRO</span>
-            <h3>Under Your Skin</h3>
-            <p>Identifiering av friktion på produktsidor för ökad konvertering.</p>
-            <div class="project-tags">
-              <span class="project-tag">Optimering</span>
-              <span class="project-tag">UX</span>
-            </div>
-          </div>
+      <!-- Project 2 -->
+      <div class="project-card" onclick="openCase('seo')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view?embed" loading="lazy"></iframe>
         </div>
-
-        <!-- Project 4 -->
-        <div class="project-card" onclick="openCase('stadium')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view?embed" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">CRM & Retention</span>
-            <h3>Stadium</h3>
-            <p>Design av livscykelflöden för att stärka medlemsvärde och lojalitet.</p>
-            <div class="project-tags">
-              <span class="project-tag">CRM</span>
-              <span class="project-tag">Lifecycle</span>
-            </div>
-          </div>
+        <span class="cat">SEO & Content</span>
+        <h3>Akademibokhandeln</h3>
+        <p>Kartläggning av sökintention för att stärka organisk synlighet.</p>
+        <div class="tags">
+          <span class="tag">SEO</span>
+          <span class="tag">Strategy</span>
         </div>
+      </div>
 
-        <!-- Project 5 -->
-        <div class="project-card" onclick="openCase('ecom')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">E-commerce</span>
-            <h3>ROOM 48</h3>
-            <p>Event- och community-baserad affärsmodell med tydlig skalbarhet.</p>
-            <div class="project-tags">
-              <span class="project-tag">E-com</span>
-              <span class="project-tag">Growth</span>
-            </div>
-          </div>
+      <!-- Project 3 -->
+      <div class="project-card" onclick="openCase('cro')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed" loading="lazy"></iframe>
         </div>
+        <span class="cat">CRO</span>
+        <h3>Under Your Skin</h3>
+        <p>Identifiering av friktion på produktsidor för ökad konvertering.</p>
+        <div class="tags">
+          <span class="tag">UX</span>
+          <span class="tag">Optimering</span>
+        </div>
+      </div>
 
-        <!-- Project 6 -->
-        <div class="project-card" onclick="openCase('ecomid')">
-          <div class="video-preview">
-            <iframe src="https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3" loading="lazy"></iframe>
-          </div>
-          <div class="project-info">
-            <span class="cat">Growth & Strategy</span>
-            <h3>eComID</h3>
-            <p>Beteendeanalys och organisk TikTok-strategi för tillväxt.</p>
-            <div class="project-tags">
-              <span class="project-tag">TikTok</span>
-              <span class="project-tag">Strategy</span>
-            </div>
-          </div>
+      <!-- Project 4 -->
+      <div class="project-card" onclick="openCase('stadium')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view?embed" loading="lazy"></iframe>
+        </div>
+        <span class="cat">CRM & Retention</span>
+        <h3>Stadium</h3>
+        <p>Design av livscykelflöden för att stärka medlemsvärde och lojalitet.</p>
+        <div class="tags">
+          <span class="tag">CRM</span>
+          <span class="tag">Lifecycle</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card" onclick="openCase('ecom')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed" loading="lazy"></iframe>
+        </div>
+        <span class="cat">E-commerce</span>
+        <h3>ROOM 48</h3>
+        <p>Event- och community-baserad affärsmodell med tydlig skalbarhet.</p>
+        <div class="tags">
+          <span class="tag">Business</span>
+          <span class="tag">Growth</span>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card" onclick="openCase('ecomid')">
+        <div class="video-preview">
+          <iframe src="https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3" loading="lazy"></iframe>
+        </div>
+        <span class="cat">Growth & Strategy</span>
+        <h3>eComID</h3>
+        <p>Beteendeanalys och organisk TikTok-strategi för tillväxt.</p>
+        <div class="tags">
+          <span class="tag">TikTok</span>
+          <span class="tag">SaaS</span>
         </div>
       </div>
     </div>
-  </section>
+  </main>
 
   <div id="caseModal" class="modal">
     <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -290,8 +232,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <footer>
     <div class="container">
-      <h2>Anna Frankendal</h2>
-      <p style="font-family: var(--font-serif); font-size: 1.8rem; font-style: italic; margin-bottom: 3rem; color: #000; text-transform: none;">"Hör av dig så tar vi en kaffe!"</p>
+      <h2>Ska vi koka ihop något bra?</h2>
       <div class="footer-links">
         <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
         <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
@@ -299,7 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p style="margin-top: 6rem; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #999;">© 2025 Anna Frankendal. Social Media Strategy & Narrative Storytelling.</p>
+      <p class="footer-meta">© 2025 Anna Frankendal • Strategi + Berättande</p>
     </div>
   </footer>
 
@@ -313,10 +254,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         tags: 'Meta Ads, A/B-testning, CTR, CPC, Reels',
         canvaLink: 'https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed',
         summary: 'Planerade och analyserade A/B-tester över målgrupper, budskap och format för att identifiera kostnadseffektivt engagemang.',
-        description: 'Byggde en varumärkeskännedomskampanj inför lansering och testade två kärnmålgrupper genom strukturerad A/B-testning. Mätte CTR, CPC, räckvidd och engagemang för att utvärdera prestation per målgrupp, budskap och format.',
-        whatIDid: ['Definierade mål, KPI:er och kampanjstruktur', 'Utvecklade målgruppssegmentering och budskapsvariationer', 'Analyserade prestationsdata och översatte insikter till strategiska rekommendationer'],
-        tools: 'Meta Ads Manager, Kreativ testning, KPI-analys',
-        kpi: 'Högre CTR i föräldrasegmentet. Reels levererade starkast engagemang och lägst CPC.',
+        description: 'Byggde en varumärkeskännedomskampanj inför lansering och testade två kärnmålgrupper genom strukturerad A/B-testning.',
+        whatIDid: ['Definierade mål, KPI:er och kampanjstruktur', 'Utvecklade målgruppssegmentering', 'Analyserade prestationsdata'],
+        tools: 'Meta Ads Manager, Kreativ testning',
+        kpi: 'Högre CTR i föräldrasegmentet. Reels levererade starkast engagemang.',
         link: 'Final_presentation.pdf'
       },
       'seo': {
@@ -327,10 +268,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         tags: 'Sökintention, Innehållsstruktur, Organisk tillväxt',
         canvaLink: 'https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view?embed',
         summary: 'Optimerade innehållsstruktur och sökintention för att stärka den organiska synligheten.',
-        description: 'Analyserade organisk synlighet och kartlade sökintention genom kundresans olika stadier. Utvecklade rekommendationer för innehållshierarki, kategoristruktur och internlänkning.',
-         whatIDid: ['Genomförde analys av sökintention', 'Granskade informationsarkitektur och innehållsgap', 'Föreslog strukturerade innehållsförbättringar kopplade till konvertering'],
-        tools: 'Ramverk för SEO-analys, Innehållsplanering, IA-strategi',
-        kpi: 'Mål: Ökad organisk synlighet och förbättrad konvertering från söktrafik.',
+        description: 'Analyserade organisk synlighet och kartlade sökintention genom kundresans olika stadier.',
+        whatIDid: ['Genomförde analys av sökintention', 'Granskade informationsarkitektur', 'Föreslog innehållsförbättringar'],
+        tools: 'Ramverk för SEO-analys, Innehållsplanering',
+        kpi: 'Mål: Ökad organisk synlighet och förbättrad konvertering.',
         link: 'Arvid, Alexander, Anna, Ellen & Tova (1).pdf'
       },
       'cro': {
@@ -340,11 +281,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         category: 'CRO',
         tags: 'Beteendeanalys, Hypotestestning, PIE-modellen, UX',
         canvaLink: 'https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed',
-        summary: 'Identifierade friktion på produktsidor och prioriterade CRO-hypoteser för att öka konverteringsgraden.',
-        description: 'Analyserade beteendedata för att upptäcka drop-off-punkter och friktion i köpresan. Utvecklade sex prioriterade hypoteser med hjälp av PIE-ramverket.',
-        whatIDid: ['Identifierade friktionspunkter genom datatolkning', 'Prioriterade hypoteser med PIE-poängsättning', 'Föreslog förbättringar av UX och struktur, inklusive koncept för produktguide'],
-        tools: 'Analys av beteendedata, PIE-prioriteringsmodell, UX-resonemang',
-        kpi: 'Mål: Ökad konverteringsgrad genom minskad friktion och tydligare vägledning.',
+        summary: 'Identifierade friktion på produktsidor och prioriterade CRO-hypoteser.',
+        description: 'Analyserade beteendedata för att upptäcka drop-off-punkter och friktion i köpresan.',
+        whatIDid: ['Identifierade friktionspunkter', 'Prioriterade hypoteser med PIE', 'Föreslog förbättringar av UX'],
+        tools: 'Analys av beteendedata, PIE-modellen',
+        kpi: 'Mål: Ökad konverteringsgrad genom minskad friktion.',
         link: 'UNDER YOUR SKIN.pdf'
       },
       'stadium': {
@@ -352,13 +293,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         course: 'CRM & Customer Experience',
         client: 'Stadium',
         category: 'CRM',
-        tags: 'Livscykelmarknadsföring, Personalisering, Lojalitet, Trigger-flöden',
+        tags: 'Livscykelmarknadsföring, Personalisering, Lojalitet',
         canvaLink: 'https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view?embed',
-        summary: 'Designade aktiverings- och återaktiveringsresor för att förtydliga medlemsvärde och stärka lojaliteten.',
-        description: 'Analyserade kundrecensioner som avslöjade friktion kring bonus-synlighet och föreningsstöd. Utvecklade CRM-livscykelflöden som gjorde värdet synligt.',
-        whatIDid: ['Genomförde insiktsanalys baserat på kundrecensioner', 'Definierade CRM-mål och kommunikationsprinciper', 'Designade e-post- och SMS-flöden för aktivering och återaktivering'],
-        tools: 'CRM-strategi, Livscykelramverk, Triggerbaserad kommunikation',
-        kpi: 'Förväntad effekt: Ökad lojalitet, högre köpfrekvens, starkare emotionell koppling till varumärket.',
+        summary: 'Designade aktiverings- och återaktiveringsresor för att stärka lojaliteten.',
+        description: 'Analyserade kundrecensioner som avslöjade friktion kring bonus-synlighet.',
+        whatIDid: ['Genomförde insiktsanalys', 'Definierade CRM-mål', 'Designade e-post- och SMS-flöden'],
+        tools: 'CRM-strategi, Livscykelramverk',
+        kpi: 'Förväntad effekt: Ökad lojalitet, högre köpfrekvens.',
         link: 'StadiumxCRM.pdf'
       },
       'ecom': {
@@ -366,13 +307,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         course: 'E-commerce & Digital affärsutveckling',
         client: 'ROOM 48',
         category: 'E-commerce',
-        tags: 'Affärmodell, GM1–GM3, Shopify-automation, Community-tillväxt',
+        tags: 'Affärsmodell, Shopify-automation, Community-tillväxt',
         canvaLink: 'https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed',
-        summary: 'Utvecklade en nischad event- och community-baserad e-handelsmodell med tydlig marginal-logik och skalbarhet.',
-        description: 'Identifierade ett marknadsgap mellan studenter och nätverksformat inom branschen. Byggde ett exklusivt eventkoncept stöttat av en strukturerad affärsmodell.',
-        whatIDid: ['Definierade positionering, målgrupp och värdeerbjudande', 'Strukturerade marginal-logik och skalbarhetsmodell', 'Designade automatiserade arbetsflöden för kommunikation under hela eventets livscykel'],
-        tools: 'Shopify-arbetsflöden, Affärsmodellering, Ramverk för growth-strategi',
-        kpi: 'Mål: Skalbar community-driven tillväxt med en hållbar marginalstruktur.',
+        summary: 'Utvecklade en nischad event- och community-baserad e-handelsmodell.',
+        description: 'Identifierade ett marknadsgap mellan studenter och nätverksformat.',
+        whatIDid: ['Definierade positionering', 'Strukturerade marginal-logik', 'Designade automatiserade flöden'],
+        tools: 'Shopify-arbetsflöden, Affärsmodellering',
+        kpi: 'Mål: Skalbar community-driven tillväxt.',
         link: 'E-com presentation.pdf'
       },
       'ecomid': {
@@ -380,20 +321,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         course: 'Marknads- och beteendeanalys',
         client: 'eComID',
         category: 'Growth & Strategy',
-        tags: 'Marknadsanalys, TikTok-strategi, SaaS, Growth',
+        tags: 'Marknadsanalys, TikTok-strategi, SaaS',
         canvaLink: 'https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3',
-        summary: 'Genomförde marknads- och beteendeanalys som låg till grund för organisk TikTok-strategi och fördubblat följarantal.',
-        description: 'I projektet för EComID analyserade vi både konkurrerande size-finder-lösningar och slutkundens beteende. Insikterna omsattes i en organisk TikTok-strategi som byggde varumärkeskännedom genom att adressera verkliga konsumentproblem.',
-        whatIDid: [
-          'Genomförde strukturerad konkurrentanalys av size-finder-lösningar och AI-assistenter inom e-handel',
-          'Planerade, distribuerade och analyserade enkät med 150 respondenter för att kartlägga orsaker till returer och osäkerhet kring passform',
-          'Identifierade centrala insikter: passform viktigare än storlek, hög returångest, behov av bättre förutsägbarhet',
-          'Översatte insikterna till tydlig positionering av SaaS-lösningens värde för både varumärken och slutkonsument',
-          'Utvecklade och producerade organiskt TikTok-innehåll baserat på verkliga kundproblem',
-          'Anpassade hooks, format och storytelling efter plattformens beteende'
-        ],
-        tools: 'Konkurrentanalys, CapCut, enkätanalys, growth-ramverk, organisk TikTok-strategi',
-        kpi: 'Följarantalet fördubblades organiskt under projektperioden. Högt engagemang utan betald distribution. Starkare relevans i budskap.',
+        summary: 'Genomförde marknadsanalys som låg till grund för organisk TikTok-strategi.',
+        description: 'Analyserade både konkurrerande size-finder-lösningar och slutkundens beteende.',
+        whatIDid: ['Genomförde konkurrentanalys', 'Analyserade enkät med 150 respondenter', 'Utvecklade TikTok-innehåll'],
+        tools: 'Konkurrentanalys, CapCut, enkätanalys',
+        kpi: 'Följarantalet fördubblades organiskt under projektperioden.',
         link: '#'
       }
     };
@@ -412,8 +346,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       body.innerHTML = `
         <div style="margin-bottom: 2rem;">
           <span style="text-transform:uppercase; letter-spacing:2px; font-size:10px; color:#999; display:block; margin-bottom:0.5rem;">${data.category} // ${data.tags}</span>
-          <h2 style="font-family:var(--font-serif); font-size:2.5rem; line-height:1.1; margin-bottom:1rem; text-transform:none;">${data.title}</h2>
-          <p style="font-family:var(--font-serif); font-style:italic; font-size:1.4rem; color:#666;">${data.course}</p>
+          <h2 style="font-family:var(--font-display); font-size:2.5rem; line-height:1.1; margin-bottom:1rem; text-transform:uppercase; font-weight:900; letter-spacing:-1px;">${data.title}</h2>
+          <p style="font-family:var(--font-display); font-style:italic; font-size:1.4rem; color:#666;">${data.course}</p>
         </div>
         
         <div class="pdf-container" style="background:#000; position:relative; overflow:hidden;">
@@ -422,12 +356,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <div style="border-top: 1px solid #eee; padding-top: 2rem;">
           <p style="font-size:1.3rem; font-weight:600; line-height:1.5; margin-bottom:2rem;">${data.summary}</p>
-          <div style="font-size:1.1rem; line-height:1.7; color:#333; margin-bottom:3rem;">
+          <div style="font-size:1.1rem; line-height:1.7; color:#333; margin-bottom:3rem; font-family:var(--font-body);">
             ${data.description}
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom:4rem;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom:4rem; font-family:var(--font-body);">
           <div>
             <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000; padding-bottom:5px;">Vad jag gjorde</h4>
             <ul style="padding-left:1.5rem; font-size:1rem; line-height:1.8;">${whatIDidHtml}</ul>
@@ -440,7 +374,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee;">
-          <a href="${data.link}" target="_blank" class="btn btn-primary">Ladda ner som PDF</a>
+          <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">Ladda ner som PDF</a>
         </div>
       `;
       
