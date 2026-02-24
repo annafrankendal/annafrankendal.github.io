@@ -69,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
 
     /* --- ENTRANCE GRID --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 8rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 8rem; }
     
     .box { 
       border-right: var(--border); border-bottom: var(--border); padding: 5rem 3rem; 
@@ -87,24 +87,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .box-about p { color: #1b4332; }
     .box-experience { background: var(--beige); color: #1b4332; }
     .box-experience p { color: var(--burgundy); }
+    .box-match { background: var(--lightblue); color: var(--burgundy); }
+    .box-match p { color: #1b4332; }
 
     .box:hover { filter: brightness(1.05); }
-
-    /* --- QUIZ SPECIFIC STYLES --- */
-    #match .box { min-height: auto; cursor: default; }
-    .q-text { font-family: var(--font-body) !important; font-size: 1.8rem; font-weight: 600; margin-bottom: 2rem; }
-    .chip {
-      width: 60px; height: 60px; border: var(--border); display: flex; align-items: center; justify-content: center;
-      font-weight: 900; cursor: pointer; transition: 0.2s; background: #fff; font-family: var(--font-body); font-size: 1.2rem;
-    }
-    .chip:hover { background: var(--lightblue); }
-    .chip.selected { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .result-reward .pct { font-family: var(--font-display); font-size: 8rem; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 1rem; }
-    .result-reward h2 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1rem; }
-    
-    .btn-big { display: inline-block; padding: 20px 50px; background: var(--burgundy); color: #fff; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: var(--border); transition: all 0.3s; cursor:pointer; }
-    .btn-big:hover { background: #fff; color: var(--burgundy); transform: translateY(-5px); }
-    .btn-big:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; border-left: none; }
@@ -161,77 +147,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h2>CV.</h2>
         <p>Se min samlade erfarenhet, mina utbildningar och verktygen jag behärskar på djupet.</p>
       </a>
+      <a href="match.html" class="box box-match">
+        <h2>Match.</h2>
+        <p>Är vi en match? Svara på fyra korta frågor och se hur våra arbetssätt passar ihop.</p>
+      </a>
     </div>
-
-    <!-- MATCH SECTION -->
-    <section id="match" style="margin-bottom: 10rem;">
-      <!-- Entry State -->
-      <div id="quizEntry" class="box" style="background: var(--burgundy); color: #fff; text-align: center; cursor: pointer;">
-        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; color: var(--lightblue); margin-bottom: 1rem; display: block;">Kompabilitetstest</span>
-        <h2 style="color: #fff; margin-bottom: 1.5rem;">Är vi en match?</h2>
-        <p style="color: var(--lightblue); max-width: 600px; margin: 0 auto 3rem;">Svara på fyra korta frågor om hur ni arbetar idag. Det tar mindre än en minut och ger en tydlig bild av hur våra arbetssätt matchar.</p>
-        <button id="startQuizBtn" class="btn-big" style="background: #fff; color: var(--burgundy); border: none;">Starta testet</button>
-      </div>
-
-      <!-- Quiz State -->
-      <div id="quizCard" class="box" style="display: none; background: #fff;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-          <span id="kicker" style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: var(--navy);">Fråga 1 av 4</span>
-          <div style="width: 200px; height: 4px; background: var(--lightblue);"><div id="matchBarFill" style="height: 100%; background: var(--navy); width: 25%;"></div></div>
-        </div>
-
-        <div id="quizBody">
-          <!-- Step 1 -->
-          <div class="step" data-step="1">
-            <p class="q-text">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</p>
-            <div class="scale" data-q="q1" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step" data-step="2" style="display:none;">
-            <p class="q-text">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</p>
-            <div class="scale" data-q="q2" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step" data-step="3" style="display:none;">
-            <p class="q-text">Vi arbetar mot tydliga mål och följer upp det vi skapar.</p>
-            <div class="scale" data-q="q3" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="step" data-step="4" style="display:none;">
-            <p class="q-text">Vi prioriterar att bygga relationer med vår målgrupp över tid.</p>
-            <div class="scale" data-q="q4" style="display: flex; gap: 10px; margin-bottom: 1rem;">
-              <div class="chip" data-value="1">1</div><div class="chip" data-value="2">2</div><div class="chip" data-value="3">3</div><div class="chip" data-value="4">4</div><div class="chip" data-value="5">5</div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; text-transform: uppercase; color: #999; margin-bottom: 3rem;"><span>Stämmer inte</span><span>Stämmer helt</span></div>
-            
-            <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); font-family:var(--font-body); font-weight: 600; outline: none;" required>
-            <div style="display:flex; gap:10px; margin-top:1rem; align-items:center; font-size:0.8rem; font-weight:600;">
-              <input id="matchConsent" type="checkbox" required><span>Godkänn återkoppling via mail.</span>
-            </div>
-          </div>
-        </div>
-
-        <div id="matchResult" style="display:none; text-align:center;"></div>
-
-        <div id="quizNav" style="display: flex; justify-content: space-between; margin-top: 4rem;">
-          <button id="matchPrevBtn" type="button" style="background:none; border:none; font-weight:900; text-transform:uppercase; cursor:pointer; visibility:hidden;">Bakåt</button>
-          <button id="matchNextBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px;" disabled>Nästa</button>
-          <button id="matchSubmitBtn" type="button" class="btn-big" style="padding: 10px 30px; font-size: 12px; display:none;">Visa resultat</button>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
