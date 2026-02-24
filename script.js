@@ -2,13 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('send-btn');
-    const chatInput = document.getElementById('chat-input');
+    const chatInput = document.getElementById('chat-input') || document.getElementById('user-input');
     
     if (sendBtn) {
         sendBtn.addEventListener('click', askAI);
         console.log("Systemet är redo! Knappen hittades.");
-    } else {
-        console.error("Kunde inte hitta knappen 'send-btn'. Kolla din index.html!");
     }
 
     // Allow pressing 'Enter' to send messages
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         suggestionsContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('chip')) {
                 const suggestionText = e.target.textContent;
-                const input = document.getElementById('chat-input');
+                const input = document.getElementById('chat-input') || document.getElementById('user-input');
                 if (input) {
                     input.value = suggestionText;
                     askAI();
@@ -37,48 +35,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function askAI() {
-    const input = document.getElementById('chat-input');
-    const display = document.getElementById('chat-display');
-    const userText = input.value.trim();
+    // Vi letar efter både chat-input (index) och user-input (projects) för att den ska funka överallt
+    const inputField = document.getElementById('chat-input') || document.getElementById('user-input');
+    const display = document.getElementById('chat-display') || document.getElementById('chat-box');
+    
+    if (!inputField || !inputField.value.trim()) return;
 
-    if (!userText) return;
+    const userText = inputField.value.trim();
 
-    // Display user message
+    // 1. Visa ditt meddelande direkt
     display.innerHTML += `<div class="message user"><b>Du:</b> ${userText}</div>`;
-    input.value = ""; 
+    inputField.value = ""; 
     display.scrollTop = display.scrollHeight;
 
     try {
-        // Send request to our local backend proxy
+        // 2. Skicka meddelandet till din lokala server
         const response = await fetch("http://localhost:3000/api/chat", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                messages: [
-                    { 
-                        role: "system", 
-                        content: "Du är en AI-assistent för Anna Frankendal. Svara på svenska. Du är expert på Annas projekt och hennes erfarenhet från Berghs. Var glad och professionell." 
-                    },
-                    { role: "user", content: userText }
-                ]
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: userText }) // VIKTIGT: Här skickar vi bara "message"
         });
+
+        if (!response.ok) throw new Error('Servern svarade inte korrekt');
 
         const data = await response.json();
         
-        if (data.choices && data.choices[0]) {
-            const aiAnswer = data.choices[0].message.content;
-            display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${aiAnswer}</div>`;
+        // 3. Visa Annas strategiska svar
+        if (data.reply) {
+            display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${data.reply}</div>`;
         } else {
-            console.error('API Error:', data);
-            display.innerHTML += `<p style="color:red;"><b>System:</b> Något gick fel med AI-svaret.</p>`;
+            display.innerHTML += `<div class="message system" style="color:red;">Kunde inte tolka svaret från AI:n.</div>`;
         }
 
     } catch (error) {
         console.error("Fel:", error);
-        display.innerHTML += `<p style="color:red;"><b>System:</b> Kunde inte kontakta servern. Se till att backend körs.</p>`;
+        display.innerHTML += `<div class="message system" style="color:red;"><b>System:</b> Servern sover. Kör 'npm start' i terminalen!</div>`;
     }
 
     display.scrollTop = display.scrollHeight;
