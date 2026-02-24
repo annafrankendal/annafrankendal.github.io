@@ -88,13 +88,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .box-3 { background: var(--beige); color: #1b4332; }
     .box-3 p { color: var(--burgundy); }
 
-    /* --- STATS --- */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-left: var(--border); margin-bottom: 10rem; }
-    .stat-box { border-right: var(--border); border-bottom: var(--border); padding: 4rem 2rem; text-align: center; background: #fff; }
-    .stat-box:last-child { border-right: none; }
-    .stat-box span { display: block; font-family: var(--font-display); font-size: 4.5rem; font-weight: 900; color: var(--burgundy); line-height: 1; margin-bottom: 1rem; }
-    .stat-box p { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; }
-
     /* --- FOOTER --- */
     footer { padding: 12rem 0 6rem; text-align: center; background: #fff; border-top: var(--border); }
     footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 4rem; line-height: 0.8; letter-spacing: -1px; color: var(--burgundy); text-transform: uppercase; }
@@ -109,8 +102,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; border-left: none; }
       .box { border-right: none; padding: 4rem 2rem; min-height: auto; }
-      .stats { grid-template-columns: 1fr 1fr; border-left: none; }
-      .stat-box:nth-child(even) { border-right: none; }
       .hero h1 { font-size: 6rem; letter-spacing: -5px; }
       nav { gap: 1.5rem; }
     }
@@ -157,25 +148,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <p>Skapa marknadsföring som tillför värde, inte bara räckvidd. Jag vill hjälpa varumärken att bygga äkta lojalitet genom att alltid sätta människan framför klicket.</p>
         </div>
       </div>
-
-      <section class="stats">
-        <div class="stat-box">
-          <span>150+</span>
-          <p>Beteendeanalyser</p>
-        </div>
-        <div class="stat-box">
-          <span>2x</span>
-          <p>Organisk tillväxt</p>
-        </div>
-        <div class="stat-box">
-          <span>∞</span>
-          <p>Pasta-timmar</p>
-        </div>
-        <div class="stat-box" style="background: var(--lightblue);">
-          <span>100%</span>
-          <p>Pricksäkerhet</p>
-        </div>
-      </section>
     </main>
 
     <footer>
