@@ -96,3 +96,29 @@
   max-width: 65ch;
   margin: 0 auto;
 }
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #fdfaf6;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-suggestions .chip {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  border-radius: 999px;
+  font-size: 11px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.chat-suggestions .chip:hover {
+  background: var(--lightblue);
+  transform: translateY(-1px);
+}

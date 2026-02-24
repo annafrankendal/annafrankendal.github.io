@@ -19,6 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Handle suggestion chips
+    const suggestionsContainer = document.querySelector('.chat-suggestions');
+    if (suggestionsContainer) {
+        suggestionsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('chip')) {
+                const suggestionText = e.target.textContent;
+                const input = document.getElementById('chat-input');
+                if (input) {
+                    input.value = suggestionText;
+                    askAI();
+                }
+            }
+        });
+    }
 });
 
 async function askAI() {
