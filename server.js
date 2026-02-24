@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.')); // Denna rad gör att servern kan visa dina filer
 
 app.post('/api/chat', async (req, res) => {
     const { messages } = req.body;
