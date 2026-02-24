@@ -216,7 +216,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="experience">
     <div class="container">
       <div class="cv-paper">
-        <a href="Anna Frankendal CV - BERGHS  .pdf" download="Anna Frankendal CV.pdf" class="download-cv-btn">
+        <a href="javascript:void(0)" onclick="generatePDF()" class="download-cv-btn">
           <i class="fas fa-download"></i> Ladda ner (PDF)
         </a>
 
@@ -356,6 +356,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button id="send-btn">Se hur jag tänker</button>
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function generatePDF() {
+      const element = document.querySelector('.cv-paper');
+      
+      // Vi döljer knappen tillfälligt så den inte kommer med i PDF:en
+      const btn = document.querySelector('.download-cv-btn');
+      btn.style.display = 'none';
+
+      const opt = {
+        margin:       [10, 10, 10, 10],
+        filename:     'Anna_Frankendal_CV.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      // Kör genereringen
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Visa knappen igen efteråt
+        btn.style.display = 'inline-flex';
+      });
+    }
+  </script>
 
   <link rel="stylesheet" href="chat-style.css">
   <script src="script.js"></script>
