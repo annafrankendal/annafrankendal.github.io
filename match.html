@@ -246,6 +246,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
+  <!-- Floating Chat Interface -->
+  <button class="chat-trigger" onclick="toggleChat()">💬</button>
+  
+  <div id="ai-chat-container">
+    <div class="ai-chat-hero">
+      <h2>Testa hur jag tänker</h2>
+      <p>Vad står i vägen för er digitala tillväxt? Beskriv det och se hur jag skulle arbeta med det.</p>
+    </div>
+    <div id="chat-display"></div>
+    <div class="chat-suggestions">
+      <button type="button" class="chip">Vi rankar högt men får låg CTR</button>
+      <button type="button" class="chip">Vi har trafik men låg konvertering</button>
+      <button type="button" class="chip">Hur bygger man community kring en produkt?</button>
+    </div>    
+    <div class="chat-controls">
+      <input type="text" id="chat-input" placeholder="Beskriv ett problem...">
+      <button id="send-btn">Fråga</button>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="chat-style.css">
+  <script src="script.js"></script>
+
   <script>
     const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
     let matchStep = 1;

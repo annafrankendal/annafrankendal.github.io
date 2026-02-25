@@ -284,6 +284,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
+  <!-- Floating Chat Interface -->
+  <button class="chat-trigger" onclick="toggleChat()">💬</button>
+  
+  <div id="ai-chat-container">
+    <div class="ai-chat-hero">
+      <h2>Testa hur jag tänker</h2>
+      <p>Vad står i vägen för er digitala tillväxt? Beskriv det och se hur jag skulle arbeta med det.</p>
+    </div>
+    <div id="chat-display"></div>
+    <div class="chat-suggestions">
+      <button type="button" class="chip">Vi rankar högt men får låg CTR</button>
+      <button type="button" class="chip">Vi har trafik men låg konvertering</button>
+      <button type="button" class="chip">Hur bygger man community kring en produkt?</button>
+    </div>    
+    <div class="chat-controls">
+      <input type="text" id="chat-input" placeholder="Beskriv ett problem...">
+      <button id="send-btn">Fråga</button>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="chat-style.css">
+  <script src="script.js"></script>
+
   <script>
     const caseData = {
       'drypops': {
@@ -310,7 +333,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             ]
           },
           {
-            title: 'Vad vi mätte',
+            title: 'Vad we mätte',
             list: [
               'CTR för att förstå vilket budskap som skapade intresse.',
               'CPC för att bedöma kostnadseffektivitet.',
@@ -485,13 +508,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       } else {
         // Fallback for older data structure
         let whatIDidHtml = '';
-        data.whatIDid.forEach(item => { whatIDidHtml += `<li>${item}</li>`; });
+        if (data.whatIDid) {
+            data.whatIDid.forEach(item => { whatIDidHtml += `<li>${item}</li>`; });
+        }
         
         detailContent = `
           <div style="border-top: 1px solid #eee; padding-top: 2rem;">
             <p style="font-size:1.3rem; font-weight:600; line-height:1.5; margin-bottom:2rem;">${data.summary}</p>
             <div style="font-size:1.1rem; line-height:1.7; color:#333; margin-bottom:3rem; font-family:var(--font-body);">
-              ${data.description}
+              ${data.description || ''}
             </div>
           </div>
 
@@ -502,8 +527,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div>
               <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000; padding-bottom:5px;">Verktyg & Effekt</h4>
-              <p style="font-size:1rem; margin-bottom:1.5rem;"><strong>Verktyg:</strong> ${data.tools}</p>
-              <p style="font-size:1.1rem; font-style:italic; color:#000;"><strong>KPI/Effekt:</strong> ${data.kpi}</p>
+              <p style="font-size:1rem; margin-bottom:1.5rem;"><strong>Verktyg:</strong> ${data.tools || ''}</p>
+              <p style="font-size:1.1rem; font-style:italic; color:#000;"><strong>KPI/Effekt:</strong> ${data.kpi || ''}</p>
             </div>
           </div>
         `;
@@ -538,24 +563,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     window.onclick = function(event) { if (event.target == document.getElementById('caseModal')) closeModal(); }
   </script>
-  <div id="ai-chat-container">
-    <div class="ai-chat-hero">
-      <h2>Testa hur jag tänker</h2>
-      <p>Vad står i vägen för er digitala tillväxt? Beskriv det och se hur jag skulle arbeta med det.</p>
-    </div>
-    <div id="chat-display"></div>
-    <div class="chat-suggestions">
-      <button type="button" class="chip">Vi rankar högt men får låg CTR</button>
-      <button type="button" class="chip">Vi har trafik men låg konvertering</button>
-      <button type="button" class="chip">Hur bygger man community kring en produkt?</button>
-    </div>    <div class="chat-controls">
-      <input type="text" id="chat-input" placeholder="Vi har trafik men låg konvertering...">
-      <button id="send-btn">Se hur jag tänker</button>
-    </div>
-  </div>
-
-  <link rel="stylesheet" href="chat-style.css">
-  <script src="script.js"></script>
 </body>
 </html>
-

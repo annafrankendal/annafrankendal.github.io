@@ -163,6 +163,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </footer>
   </div>
 
+  <!-- Floating Chat Interface -->
+  <button class="chat-trigger" onclick="toggleChat()">💬</button>
+  
   <div id="ai-chat-container">
     <div class="ai-chat-hero">
       <h2>Testa hur jag tänker</h2>
@@ -173,9 +176,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button type="button" class="chip">Vi rankar högt men får låg CTR</button>
       <button type="button" class="chip">Vi har trafik men låg konvertering</button>
       <button type="button" class="chip">Hur bygger man community kring en produkt?</button>
-    </div>    <div class="chat-controls">
-      <input type="text" id="chat-input" placeholder="Vi har trafik men låg konvertering...">
-      <button id="send-btn">Se hur jag tänker</button>
+    </div>    
+    <div class="chat-controls">
+      <input type="text" id="chat-input" placeholder="Beskriv ett problem...">
+      <button id="send-btn">Fråga</button>
     </div>
   </div>
 
@@ -183,3 +187,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="script.js"></script>
 </body>
 </html>
+
