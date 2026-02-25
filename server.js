@@ -59,7 +59,7 @@ app.post("/api/chat", async (req, res) => {
           { role: "system", content: KNOWLEDGE_BLOCK },
           { role: "user", content: message },
         ],
-        temperature: 0.35,
+        temperature: 0.15,
         max_tokens: 320,
       }),
     });
