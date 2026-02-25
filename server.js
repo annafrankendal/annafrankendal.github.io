@@ -18,10 +18,22 @@ function finalizeReply(text, maxChars = 520, maxSentences = 4) {
   if (!normalized) return "";
 
   const sentenceParts = normalized.match(/[^.!?]+[.!?]+/g) || [];
+  const uniqueSentences = [];
+  const seen = new Set();
+  for (const sentence of sentenceParts) {
+    const key = sentence
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s]/gu, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    uniqueSentences.push(sentence.trim());
+  }
   let candidate = normalized;
 
-  if (sentenceParts.length > 0) {
-    candidate = sentenceParts.slice(0, maxSentences).join(" ").trim();
+  if (uniqueSentences.length > 0) {
+    candidate = uniqueSentences.slice(0, maxSentences).join(" ").trim();
   }
 
   if (candidate.length > maxChars) {
