@@ -52,6 +52,23 @@ function toggleChat() {
     }
 }
 
+function toggleLoading(show) {
+    const display = document.getElementById('chat-display') || document.getElementById('chat-box');
+    if (!display) return;
+    
+    if (show) {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'loading-indicator';
+        loadingDiv.className = 'message system';
+        loadingDiv.innerHTML = '<p style="font-style: italic; color: #630d16;">Anna tänker...</p>';
+        display.appendChild(loadingDiv);
+        display.scrollTop = display.scrollHeight;
+    } else {
+        const loadingDiv = document.getElementById('loading-indicator');
+        if (loadingDiv) loadingDiv.remove();
+    }
+}
+
 async function askAI() {
     const inputField = document.getElementById('chat-input') || document.getElementById('user-input');
     const display = document.getElementById('chat-display') || document.getElementById('chat-box');
@@ -68,8 +85,11 @@ async function askAI() {
     
     inputField.value = ""; 
 
+    // 2. Visa laddningsindikator
+    toggleLoading(true);
+
     try {
-        // 2. Skicka meddelandet till backend
+        // 3. Skicka meddelandet till backend
         // Vi använder en relativ sökväg /api/chat så att den fungerar både lokalt och på nätet
         const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
             ? "http://localhost:3000/api/chat" 
@@ -85,7 +105,10 @@ async function askAI() {
 
         const data = await response.json();
         
-        // 3. Visa Annas strategiska svar
+        // 4. Ta bort laddningsindikator
+        toggleLoading(false);
+
+        // 5. Visa Annas strategiska svar
         if (data.reply && display) {
             display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${data.reply}</div>`;
         } else if (display) {
@@ -93,6 +116,8 @@ async function askAI() {
         }
 
     } catch (error) {
+        // Ta bort laddningsindikator även vid fel
+        toggleLoading(false);
         console.error("Fel:", error);
         if (display) {
             display.innerHTML += `<div class="message system" style="color:red;"><b>System:</b> Servern sover. Kör 'npm start' i terminalen!</div>`;
