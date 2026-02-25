@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const fetch = require("node-fetch");
 const { SYSTEM_PROMPT, KNOWLEDGE_BLOCK } = require("./prompts");
 
 dotenv.config();
