@@ -11,6 +11,33 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("."));
 
+function finalizeReply(text, maxChars = 520, maxSentences = 4) {
+  if (!text || typeof text !== "string") return "";
+
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (!normalized) return "";
+
+  const sentenceParts = normalized.match(/[^.!?]+[.!?]+/g) || [];
+  let candidate = normalized;
+
+  if (sentenceParts.length > 0) {
+    candidate = sentenceParts.slice(0, maxSentences).join(" ").trim();
+  }
+
+  if (candidate.length > maxChars) {
+    const short = candidate.slice(0, maxChars);
+    const lastStop = Math.max(short.lastIndexOf("."), short.lastIndexOf("!"), short.lastIndexOf("?"));
+    candidate = (lastStop > 40 ? short.slice(0, lastStop + 1) : short).trim();
+  }
+
+  if (!/[.!?]$/.test(candidate)) {
+    const lastStop = Math.max(candidate.lastIndexOf("."), candidate.lastIndexOf("!"), candidate.lastIndexOf("?"));
+    candidate = (lastStop > 0 ? candidate.slice(0, lastStop + 1) : `${candidate}.`).trim();
+  }
+
+  return candidate;
+}
+
 // --- API ENDPOINT ---
 
 app.post("/api/chat", async (req, res) => {
@@ -32,13 +59,14 @@ app.post("/api/chat", async (req, res) => {
           { role: "system", content: KNOWLEDGE_BLOCK },
           { role: "user", content: message },
         ],
-        temperature: 0.25,
-        max_tokens: 250,
+        temperature: 0.35,
+        max_tokens: 320,
       }),
     });
 
     const data = await groqRes.json();
-    const reply = data?.choices?.[0]?.message?.content;
+    const rawReply = data?.choices?.[0]?.message?.content || "";
+    const reply = finalizeReply(rawReply);
     res.json({ reply });
   } catch (error) {
     console.error("API-fel:", error);
