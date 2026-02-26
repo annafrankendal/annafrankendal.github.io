@@ -322,16 +322,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     function updateSubmitState() {
     }
 
+    function getResultCopy(pct) {
+      if (pct >= 80) {
+        return {
+          title: 'Stark match',
+          text: 'Ni har en tydlig strategisk grund och det finns bra förutsättningar för att skapa långsiktig tillväxt tillsammans.'
+        };
+      }
+      if (pct >= 55) {
+        return {
+          title: 'Bra potential',
+          text: 'Ni har mycket på plats, och med rätt prioriteringar kan vi snabbt skapa tydligare riktning och starkare effekt.'
+        };
+      }
+      return {
+        title: 'Utvecklingsläge',
+        text: 'Det finns flera viktiga pusselbitar att sätta. Med rätt struktur kan vi bygga en hållbar grund för bättre resultat.'
+      };
+    }
+
     function showMatchResult(pct) {
-      document.querySelector('.quiz-body').style.display = 'none';
+      const copy = getResultCopy(pct);
+      document.querySelectorAll('.step').forEach((s) => {
+        s.style.display = 'none';
+      });
       document.querySelector('.quiz-nav').style.display = 'none';
+      document.getElementById('kicker').textContent = 'Resultat';
+      document.getElementById('matchBarFill').style.width = '100%';
       const res = document.getElementById('matchResult');
       res.style.display = 'block';
       res.innerHTML = `
         <div class="result-reward">
           <div class="pct">${pct}%</div>
-          <div class="title">Matchning klar</div>
-          <p>Det här ser spännande ut. Vi borde höras!</p>
+          <div class="title">${copy.title}</div>
+          <p>${copy.text}</p>
           <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
         </div>
       `;
