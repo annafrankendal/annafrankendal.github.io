@@ -95,26 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden; border-radius: calc(var(--radius) - 4px); position: relative; border: 1px solid var(--ink);
     }
     .video-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
-    .plugin-preview {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-    .plugin-preview i { font-size: 2rem; }
-    .plugin-preview span {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.95;
-    }
-
+    .project-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .video-info { padding: 0.5rem; }
     .video-info h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; line-height: 1.2; text-transform: uppercase; letter-spacing: -1px; }
     .video-info p { font-size: 0.95rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem; }
@@ -129,6 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .close-modal { position: fixed; top: 40px; right: 40px; font-size: 40px; cursor: pointer; z-index: 3001; }
     .pdf-container { width: 100%; aspect-ratio: 16 / 9; background: #000; border: var(--border); overflow: hidden; margin-bottom: 3rem; position: relative; }
     .pdf-viewer { width: 100%; height: 100%; border: none; }
+    .case-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -176,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Slide 1 -->
       <div class="video-card" onclick="openCase('drypops')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed" loading="lazy"></iframe>
+          <img src="assets/project-covers/drypops.svg" alt="DryPops projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Performance Marketing</span>
@@ -194,7 +176,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Slide 2 -->
       <div class="video-card" onclick="openCase('seo')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view?embed" loading="lazy"></iframe>
+          <img src="assets/project-covers/akademibokhandeln.svg" alt="Akademibokhandeln projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">SEO & Content</span>
@@ -212,7 +194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Slide 3 -->
       <div class="video-card" onclick="openCase('cro')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed" loading="lazy"></iframe>
+          <img src="assets/project-covers/under-your-skin.svg" alt="Under Your Skin projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">CRO</span>
@@ -230,7 +212,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Slide 4 -->
       <div class="video-card" onclick="openCase('stadium')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view?embed" loading="lazy"></iframe>
+          <img src="assets/project-covers/stadium.svg" alt="Stadium projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">CRM & Retention</span>
@@ -248,7 +230,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Slide 5 -->
       <div class="video-card" onclick="openCase('ecom')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed" loading="lazy"></iframe>
+          <img src="assets/project-covers/room48.svg" alt="ROOM 48 projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">E-commerce</span>
@@ -266,7 +248,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Project 6 -->
       <div class="video-card" onclick="openCase('ecomid')">
         <div class="video-preview">
-          <iframe src="https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3" loading="lazy"></iframe>
+          <img src="assets/project-covers/ecomid.svg" alt="eComID projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Growth & Strategy</span>
@@ -284,10 +266,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Project 7 -->
       <div class="video-card" onclick="openCase('growthtoolbox')">
         <div class="video-preview">
-          <div class="plugin-preview">
-            <i class="fa-solid fa-hourglass-half"></i>
-            <span>Chrome Extension</span>
-          </div>
+          <img src="assets/project-covers/growth-toolbox.svg" alt="Growth Toolbox projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Growth Toolbox</span>
@@ -305,10 +284,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Project 8 -->
       <div class="video-card" onclick="openCase('frankisfood')">
         <div class="video-preview">
-          <div class="plugin-preview">
-            <i class="fa-solid fa-utensils"></i>
-            <span>Work in Progress</span>
-          </div>
+          <img src="assets/project-covers/frankisfood.svg" alt="FRANKISFOOD projektbild" class="project-cover-img" loading="lazy">
         </div>
         <div class="video-info">
           <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Social & Brand</span>
@@ -375,6 +351,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'DryPops',
         category: 'Performance Marketing',
         tags: 'Meta Ads, A/B-testning, CTR, CPC, Reels',
+        coverImage: 'assets/project-covers/drypops.svg',
         canvaLink: 'https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view',
         pdfLink: 'presentations/drypops.pdf',
@@ -415,6 +392,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'Akademibokhandeln',
         category: 'SEO & Content',
         tags: 'Sökintention, Innehållsstruktur, Organisk tillväxt',
+        coverImage: 'assets/project-covers/akademibokhandeln.svg',
         canvaLink: 'https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAG1zEIDjx8/sqGi-F3x43Cqd8Ct_UrLWA/view',
         pdfLink: 'presentations/akademibokhandeln.pdf',
@@ -463,6 +441,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'Under Your Skin',
         category: 'CRO',
         tags: 'Beteendeanalys, Hypotestestning, PIE-modellen, UX',
+        coverImage: 'assets/project-covers/under-your-skin.svg',
         canvaLink: 'https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view',
         pdfLink: 'presentations/under-your-skin.pdf',
@@ -502,6 +481,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'Stadium',
         category: 'CRM & Retention',
         tags: 'Livscykelmarknadsföring, Personalisering, Lojalitet',
+        coverImage: 'assets/project-covers/stadium.svg',
         canvaLink: 'https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAHBzjFp608/TME7_Up95fO_hHIQ4AWzow/view',
         pdfLink: 'presentations/stadium.pdf',
@@ -543,6 +523,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'ROOM 48',
         category: 'E-commerce',
         tags: 'Affärsmodell, Shopify-automation, Community-tillväxt',
+        coverImage: 'assets/project-covers/room48.svg',
         canvaLink: 'https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view',
         pdfLink: 'presentations/room48.pdf',
@@ -583,6 +564,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'eComID',
         category: 'Growth & Strategy',
         tags: 'Marknadsanalys, TikTok-strategi, SaaS',
+        coverImage: 'assets/project-covers/ecomid.svg',
         canvaLink: 'https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3',
         canvaViewLink: 'https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?page=3',
         pdfLink: 'presentations/ecomid.pdf',
@@ -622,6 +604,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'Kursprojekt',
         category: 'Productivity & UX',
         tags: 'Chrome Extension, Fokusdesign, Pausmusik',
+        coverImage: 'assets/project-covers/growth-toolbox.svg',
         summary: 'Byggde en Pomodoro-plugin för Chrome som kombinerar fokuspass med återhämtande pauser och musik.',
         sections: [
           {
@@ -651,6 +634,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         client: 'Under uppbyggnad',
         category: 'Social & Brand',
         tags: 'Content, Community, Creator',
+        coverImage: 'assets/project-covers/frankisfood.svg',
         summary: 'Detta är ett placeholder-case som du kan fylla på med detaljer i nästa steg.',
         sections: [
           {
@@ -683,27 +667,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
-    async function openPdfLink(url) {
-      if (!url || url === '#') return;
-      try {
-        const response = await fetch(url, { method: 'HEAD' });
-        if (!response.ok) throw new Error('missing');
-        window.open(url, '_blank', 'noopener');
-      } catch (error) {
-        alert('PDF-filen saknas just nu. Lägg filen i mappen /presentations och testa igen.');
-      }
-    }
-
     function openCase(id) {
       const modal = document.getElementById('caseModal');
       const body = document.getElementById('modalBody');
       const data = caseData[id];
       
-      const presentationSource = data.canvaLink ? data.canvaLink : data.link;
-      const isCanva = !!data.canvaLink;
       const downloadLabel = data.downloadLabel || 'Ladda ner som PDF';
       const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
-      const pdfLink = data.pdfLink || ((data.link && data.link !== '#') ? data.link : '');
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
       const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
@@ -724,8 +694,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         `
         : `
-          <div class="pdf-container" style="background:#000; position:relative; overflow:hidden;">
-            <iframe src="${presentationSource}" class="pdf-viewer" style="width:100%; height:${isCanva ? '110%' : '100%'}; border:none; ${isCanva ? 'margin-top:-2%;' : ''}" allowfullscreen allow="fullscreen"></iframe>
+          <div class="pdf-container" style="background:var(--beige); position:relative; overflow:hidden;">
+            <img src="${data.coverImage}" alt="${data.title} omslagsbild" class="case-cover-img">
           </div>
         `;
 
