@@ -353,10 +353,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         c.parentElement.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
         c.classList.add('selected');
         if (matchStep < matchTotalSteps) {
-          setTimeout(() => showMatchStep(matchStep + 1), 300);
-        } else {
-          updateSubmitState();
+          document.getElementById('matchNextBtn').disabled = false;
         }
+        updateSubmitState();
       });
     });
 
