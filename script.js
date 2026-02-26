@@ -93,7 +93,7 @@ async function askAI() {
         // Vi använder en relativ sökväg /api/chat så att den fungerar både lokalt och på nätet
         const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
             ? "http://localhost:3000/api/chat" 
-            : "https://anna-backend-f8i9.onrender.com/api/chat";
+            : "https://anna-backend-live.onrender.com/api/chat";
 
         const response = await fetch(apiUrl, {
             method: "POST",

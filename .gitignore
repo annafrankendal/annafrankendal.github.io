@@ -2,3 +2,4 @@ seo.pdf
 .env
 node_modules
 .DS_Store
+data/match-leads.json

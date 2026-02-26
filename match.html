@@ -214,8 +214,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <input id="matchEmail" type="email" placeholder="Din mailadress" style="width:100%; padding:15px; border:var(--border); border-radius:8px; font-family:var(--font-body); font-size:1.1rem;" required>
               <div style="display:flex; gap:10px; margin-top:1.5rem; align-items:center; font-size:0.9rem;">
                 <input id="matchConsent" type="checkbox" required>
-                <span>Godkänn återkoppling via mail.</span>
+                <span>Jag godkänner att min e-post och mina testsvar sparas för återkoppling. <a href="privacy.html">Läs integritetspolicy</a>.</span>
               </div>
+              <p id="matchLeadError" style="display:none; margin-top:0.8rem; color:#9b1c1c; font-size:0.9rem;">Kunde inte spara dina uppgifter just nu. Testa igen.</p>
             </div>
           </div>
 
@@ -273,6 +274,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
     let matchStep = 1;
     const matchTotalSteps = 4;
+    const matchEmailInput = document.getElementById('matchEmail');
+    const matchConsentInput = document.getElementById('matchConsent');
+    const matchSubmitBtn = document.getElementById('matchSubmitBtn');
+    const matchForm = document.getElementById('matchForm');
+    const matchLeadError = document.getElementById('matchLeadError');
+
+    function getApiBase() {
+      return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://localhost:3000'
+        : 'https://anna-backend-live.onrender.com';
+    }
+
+    function isFinalStepValid() {
+      return Boolean(matchAnswers.q4) && matchEmailInput.checkValidity() && matchConsentInput.checked;
+    }
+
+    function updateSubmitState() {
+      matchSubmitBtn.disabled = !isFinalStepValid();
+      matchLeadError.style.display = 'none';
+    }
 
     function showMatchStep(n){
       matchStep = n;
@@ -286,6 +307,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       if (matchStep === matchTotalSteps){
         document.getElementById('matchNextBtn').style.display = 'none';
         document.getElementById('matchSubmitBtn').style.display = 'inline-block';
+        updateSubmitState();
       } else {
         document.getElementById('matchNextBtn').style.display = 'inline-block';
         document.getElementById('matchSubmitBtn').style.display = 'none';
@@ -293,7 +315,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
-    document.querySelectorAll('.chip').forEach(c => {
+    document.querySelectorAll('.scale .chip').forEach(c => {
       c.addEventListener('click', () => {
         const q = c.parentElement.dataset.q;
         matchAnswers[q] = Number(c.dataset.value);
@@ -302,10 +324,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (matchStep < matchTotalSteps) {
           setTimeout(() => showMatchStep(matchStep + 1), 300);
         } else {
-          document.getElementById('matchSubmitBtn').disabled = false;
+          updateSubmitState();
         }
       });
     });
+
+    matchEmailInput.addEventListener('input', updateSubmitState);
+    matchConsentInput.addEventListener('change', updateSubmitState);
 
     document.getElementById('startQuizBtn').addEventListener('click', () => {
       document.getElementById('quizEntry').style.display = 'none';
@@ -316,22 +341,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     document.getElementById('matchPrevBtn').addEventListener('click', () => showMatchStep(matchStep - 1));
     document.getElementById('matchNextBtn').addEventListener('click', () => showMatchStep(matchStep + 1));
 
-    document.getElementById('matchForm').addEventListener('submit', (e) => {
+    matchForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (!isFinalStepValid()) {
+        if (!matchEmailInput.checkValidity()) {
+          matchEmailInput.reportValidity();
+        } else if (!matchConsentInput.checked) {
+          alert('Du behöver godkänna återkoppling via mail för att gå vidare.');
+        }
+        return;
+      }
+      matchSubmitBtn.disabled = true;
+
       const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
       const pct = Math.round((total / 20) * 100);
-      document.querySelector('.quiz-body').style.display = 'none';
-      document.querySelector('.quiz-nav').style.display = 'none';
-      const res = document.getElementById('matchResult');
-      res.style.display = 'block';
-      res.innerHTML = `
-        <div class="result-reward">
-          <div class="pct">${pct}%</div>
-          <div class="title">Matchning klar</div>
-          <p>Det här ser spännande ut. Vi borde höras!</p>
-          <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
-        </div>
-      `;
+
+      fetch(`${getApiBase()}/api/match-lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: matchEmailInput.value.trim(),
+          consent: matchConsentInput.checked,
+          answers: matchAnswers,
+          score: total,
+          percentage: pct
+        })
+      })
+      .then((response) => {
+        if (!response.ok) throw new Error('Lead save failed');
+        document.querySelector('.quiz-body').style.display = 'none';
+        document.querySelector('.quiz-nav').style.display = 'none';
+        const res = document.getElementById('matchResult');
+        res.style.display = 'block';
+        res.innerHTML = `
+          <div class="result-reward">
+            <div class="pct">${pct}%</div>
+            <div class="title">Matchning klar</div>
+            <p>Det här ser spännande ut. Vi borde höras!</p>
+            <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
+          </div>
+        `;
+      })
+      .catch(() => {
+        matchLeadError.style.display = 'block';
+        matchSubmitBtn.disabled = false;
+      });
     });
   </script>
 </body>
