@@ -245,7 +245,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <input id="matchConsent" type="checkbox" required>
                 <span>Jag godkänner att min e-post och mina testsvar sparas för återkoppling. <a href="privacy.html">Läs integritetspolicy</a>.</span>
               </div>
-              <p id="matchLeadError" style="display:none; margin-top:0.8rem; color:#9b1c1c; font-size:0.9rem;">Kunde inte spara dina uppgifter just nu. Testa igen.</p>
               <p class="form-note">Du behöver välja ett svar, fylla i mail och godkänna återkoppling för att visa resultat.</p>
             </div>
           </div>
@@ -308,8 +307,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const matchConsentInput = document.getElementById('matchConsent');
     const matchSubmitBtn = document.getElementById('matchSubmitBtn');
     const matchForm = document.getElementById('matchForm');
-    const matchLeadError = document.getElementById('matchLeadError');
-    const defaultSubmitLabel = 'Visa resultat';
     let autoAdvanceTimer = null;
 
     function getApiBase() {
@@ -323,7 +320,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     function updateSubmitState() {
-      matchLeadError.style.display = 'none';
+    }
+
+    function showMatchResult(pct) {
+      document.querySelector('.quiz-body').style.display = 'none';
+      document.querySelector('.quiz-nav').style.display = 'none';
+      const res = document.getElementById('matchResult');
+      res.style.display = 'block';
+      res.innerHTML = `
+        <div class="result-reward">
+          <div class="pct">${pct}%</div>
+          <div class="title">Matchning klar</div>
+          <p>Det här ser spännande ut. Vi borde höras!</p>
+          <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
+        </div>
+      `;
+    }
+
+    async function saveLeadInBackground(payload) {
+      const endpoint = `${getApiBase()}/api/match-lead`;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (response.ok) return true;
+        } catch (error) {
+          // Silent fallback for user; we only retry once.
+        }
+      }
+      return false;
     }
 
     function showMatchStep(n){
@@ -398,44 +426,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
       const pct = Math.round((total / 20) * 100);
+      const payload = {
+        email: matchEmailInput.value.trim(),
+        consent: matchConsentInput.checked,
+        answers: matchAnswers,
+        score: total,
+        percentage: pct
+      };
 
-      fetch(`${getApiBase()}/api/match-lead`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: matchEmailInput.value.trim(),
-          consent: matchConsentInput.checked,
-          answers: matchAnswers,
-          score: total,
-          percentage: pct
-        })
-      })
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then((body) => {
-            throw new Error(body?.error || 'Lead save failed');
-          }).catch(() => {
-            throw new Error('Lead save failed');
-          });
-        }
-        document.querySelector('.quiz-body').style.display = 'none';
-        document.querySelector('.quiz-nav').style.display = 'none';
-        const res = document.getElementById('matchResult');
-        res.style.display = 'block';
-        res.innerHTML = `
-          <div class="result-reward">
-            <div class="pct">${pct}%</div>
-            <div class="title">Matchning klar</div>
-            <p>Det här ser spännande ut. Vi borde höras!</p>
-            <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
-          </div>
-        `;
-      })
-      .catch(() => {
-        matchLeadError.style.display = 'block';
-        matchSubmitBtn.disabled = false;
-        matchSubmitBtn.textContent = defaultSubmitLabel;
-      });
+      showMatchResult(pct);
+      saveLeadInBackground(payload);
     });
   </script>
 </body>
