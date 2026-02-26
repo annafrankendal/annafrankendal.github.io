@@ -704,14 +704,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const downloadLabel = data.downloadLabel || 'Ladda ner som PDF';
       const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
       const pdfLink = data.pdfLink || ((data.link && data.link !== '#') ? data.link : '');
-      const hasPdfCta = !!pdfLink && !data.hideCta;
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
       const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
-          ${hasPdfCta ? `<button type="button" class="nav-cta" onclick="openPdfLink('${pdfLink}')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; border:none; cursor:pointer;">${downloadLabel}</button>` : ''}
-          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Öppna i Canva</button>` : ''}
+          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva)</button>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
