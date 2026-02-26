@@ -310,6 +310,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const matchForm = document.getElementById('matchForm');
     const matchLeadError = document.getElementById('matchLeadError');
     const defaultSubmitLabel = 'Visa resultat';
+    let autoAdvanceTimer = null;
 
     function getApiBase() {
       return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
@@ -326,6 +327,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     function showMatchStep(n){
+      if (autoAdvanceTimer) {
+        clearTimeout(autoAdvanceTimer);
+        autoAdvanceTimer = null;
+      }
       matchStep = n;
       document.querySelectorAll('.step').forEach((s, idx) => {
         s.style.display = (idx + 1 === matchStep) ? 'block' : 'none';
@@ -354,6 +359,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         c.classList.add('selected');
         if (matchStep < matchTotalSteps) {
           document.getElementById('matchNextBtn').disabled = false;
+          autoAdvanceTimer = setTimeout(() => {
+            if (matchStep < matchTotalSteps && matchAnswers['q' + matchStep]) {
+              showMatchStep(matchStep + 1);
+            }
+          }, 500);
         }
         updateSubmitState();
       });
