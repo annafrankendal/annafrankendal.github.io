@@ -660,6 +660,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     };
 
+    function getCanvaViewUrl(url) {
+      if (!url) return '';
+      try {
+        const parsed = new URL(url);
+        parsed.searchParams.delete('embed');
+        return parsed.toString();
+      } catch (error) {
+        return url.replace('?embed', '').replace('&embed', '');
+      }
+    }
+
     function openCase(id) {
       const modal = document.getElementById('caseModal');
       const body = document.getElementById('modalBody');
@@ -668,11 +679,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const presentationSource = data.canvaLink ? data.canvaLink : data.link;
       const isCanva = !!data.canvaLink;
       const downloadLabel = data.downloadLabel || 'Ladda ner som PDF';
-      const ctaBlock = data.hideCta
+      const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
+      const pdfLink = data.pdfLink
+        || (canvaViewLink ? `${canvaViewLink}${canvaViewLink.includes('?') ? '&' : '?'}download=pdf` : '')
+        || ((data.link && data.link !== '#') ? data.link : '');
+      const hasPdfCta = !!pdfLink && !data.hideCta;
+      const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
+      const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
-          <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
+          ${hasPdfCta ? `<a href="${pdfLink}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
+          ${hasCanvaCta ? `<a href="${canvaViewLink}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy);">Öppna i Canva</a>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
