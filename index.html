@@ -151,19 +151,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden;
       border-radius: 18px;
     }
-    .box::after {
-      content: attr(data-index);
-      position: absolute;
-      right: 12px;
-      top: 10px;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: clamp(2.3rem, 5vw, 3.3rem);
-      line-height: 1;
-      color: var(--index-tint, rgba(0,0,0,0.12));
-      pointer-events: none;
-      opacity: 0.85;
-    }
     .box small {
       font-size: 0.66rem;
       text-transform: uppercase;
@@ -174,13 +161,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .box h2 {
       font-family: var(--font-body);
-      font-size: clamp(1.52rem, 2.1vw, 2rem);
+      font-size: clamp(1.75rem, 2.4vw, 2.25rem);
       line-height: 1;
       letter-spacing: 0.4px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--card-title, #171515);
-      margin: 0.62rem 0 0.54rem;
+      margin: 0.48rem 0 0.62rem;
       max-width: 11ch;
       z-index: 1;
     }
@@ -260,7 +247,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .box { padding: 1.35rem 1.15rem; border-radius: 14px; }
       .box h2 { font-size: clamp(1.45rem, 8vw, 1.8rem); }
-      .box::after { font-size: 2.3rem; }
       nav { gap: 1.5rem; font-size: 10px; }
     }
 
@@ -312,25 +298,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </section>
 
     <div class="grid">
-      <a href="projects.html" class="box box-projects" data-index="01">
+      <a href="projects.html" class="box box-projects">
         <small>Case</small>
         <h2>Projekt.</h2>
         <p>Utvalda case inom SEO, paid social och CRM. Från hypotes till mätbart resultat.</p>
         <span class="box-meta">Öppna case</span>
       </a>
-      <a href="about.html" class="box box-about" data-index="02">
+      <a href="about.html" class="box box-about">
         <small>Profil</small>
         <h2>Filosofi.</h2>
         <p>Strategiskt arbetssätt där beteendeinsikter, psykologi och affärsmål hänger ihop.</p>
         <span class="box-meta">Läs mer</span>
       </a>
-      <a href="experience.html" class="box box-experience" data-index="03">
+      <a href="experience.html" class="box box-experience">
         <small>Erfarenhet</small>
         <h2>CV.</h2>
         <p>Erfarenhet, utbildning och verktygskompetens i ett tydligt och snabbt format.</p>
         <span class="box-meta">Visa CV</span>
       </a>
-      <a href="match.html" class="box box-match" data-index="04">
+      <a href="match.html" class="box box-match">
         <small>Lead Magnet</small>
         <h2>Är vi en match?</h2>
         <p>Svara på fyra frågor och få en snabb indikation på hur våra arbetssätt matchar.</p>
