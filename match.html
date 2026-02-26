@@ -38,6 +38,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: var(--font-body);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(99, 13, 22, 0.13), transparent 45%),
+        radial-gradient(circle at 88% 80%, rgba(27, 38, 59, 0.11), transparent 42%),
+        linear-gradient(180deg, #fdfaf6 0%, #f6f0e8 100%);
+      z-index: -1;
     }
 
     .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
@@ -61,21 +74,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
-    /* --- MATCH HEADER --- */
-    header { padding: 8rem 0 4rem; text-align: center; }
-    header h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -4px; margin-bottom: 2rem; color: var(--navy); }
-    header p { font-size: 1.5rem; font-family: var(--font-display); font-weight: 700; font-style: italic; color: var(--ink); }
+    main.container { padding-top: 4.5rem; padding-bottom: 7rem; }
 
-    /* --- QUIZ CARD (OLD LAYOUT) --- */
+    /* --- QUIZ CARD --- */
     .quiz-card {
-      background: #fff; border: var(--border); border-radius: var(--radius);
-      max-width: 760px; margin: 0 auto 10rem; overflow: hidden;
+      background: #fff; border: var(--border); border-radius: 16px;
+      max-width: 760px; margin: 0 auto; overflow: hidden;
+      box-shadow: 16px 18px 0 rgba(27, 38, 59, 0.09);
     }
 
     .entry-card {
-      padding: 84px 60px;
+      padding: 84px 60px 74px;
       text-align: center;
-      background: linear-gradient(180deg, #ffffff 0%, #f8f7f4 100%);
+      background: linear-gradient(155deg, #ffffff 0%, #f8f7f4 52%, #eef4fd 100%);
     }
     .entry-title {
       font-family: var(--font-display);
@@ -135,6 +146,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .btn { padding: 12px 24px; border-radius: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: var(--border); cursor: pointer; transition: 0.2s; font-family: var(--font-body); }
     .btn-primary { background: var(--navy); color: #fff; }
     .btn-ghost { background: transparent; color: var(--ink); }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    .btn-ghost:hover { background: #f3f4f7; }
     .btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
     /* --- RESULT --- */
@@ -169,6 +182,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
 
     @media (max-width: 700px) {
+      main.container { padding-top: 2.2rem; padding-bottom: 4rem; }
       .entry-card { padding: 56px 22px; }
       .entry-title { letter-spacing: -1px; }
       .entry-sub { font-size: 1.05rem; }
@@ -198,13 +212,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="experience.html">CV</a>
     <a href="match.html" class="nav-cta active">Är vi en match?</a>
   </nav>
-
-  <header>
-    <div class="container">
-      <h1>Match.</h1>
-      <p>Hitta rätt samarbetsform</p>
-    </div>
-  </header>
 
   <main class="container">
     <!-- ENTRY CARD -->
