@@ -701,8 +701,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
-          ${hasPdfCta ? `<a href="${pdfLink}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
-          ${hasCanvaCta ? `<a href="${canvaViewLink}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy);">Öppna i Canva</a>` : ''}
+          ${hasPdfCta ? `<button type="button" class="nav-cta" onclick="window.open('${pdfLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; border:none; cursor:pointer;">${downloadLabel}</button>` : ''}
+          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Öppna i Canva</button>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
