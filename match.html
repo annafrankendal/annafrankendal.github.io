@@ -140,7 +140,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* --- RESULT --- */
     .result-reward { text-align: center; padding: 40px; }
     .result-reward .pct { font-family: var(--font-display); font-size: 6rem; font-weight: 900; color: var(--navy); }
-    .result-reward .title { font-size: 2rem; font-weight: 900; margin: 1rem 0; text-transform: uppercase; }
+    .result-reward .meta { margin-top: -8px; margin-bottom: 14px; color: #666; font-size: 0.95rem; }
+    .result-reward .title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      font-weight: 900;
+      line-height: 0.95;
+      margin: 1rem 0;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: var(--navy);
+    }
+    .result-reward .copy {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+      line-height: 1.32;
+      max-width: 32ch;
+      margin: 0 auto;
+    }
 
     footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); }
     footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 2rem; line-height: 1.15; color: var(--navy); text-transform: uppercase; letter-spacing: 3px; }
@@ -380,9 +397,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       res.innerHTML = `
         <div class="result-reward">
           <div class="pct">${pct}%</div>
-          <p style="margin-top:-8px; margin-bottom:14px; color:#666; font-size:0.95rem;">${total} av 20 poäng</p>
+          <p class="meta">${total} av 20 poäng</p>
           <div class="title">${copy.title}</div>
-          <p>${copy.text}</p>
+          <p class="copy">${copy.text}</p>
           <a href="mailto:afrankendal@gmail.com?subject=Boka%20m%C3%B6te%20-%20Vi%20%C3%A4r%20en%20match" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Boka möte</a>
         </div>
       `;
