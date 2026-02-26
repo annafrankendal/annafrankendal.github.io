@@ -95,6 +95,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden; border-radius: calc(var(--radius) - 4px); position: relative; border: 1px solid var(--ink);
     }
     .video-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
+    .plugin-preview {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    .plugin-preview i { font-size: 2rem; }
+    .plugin-preview span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.95;
+    }
 
     .video-info { padding: 0.5rem; }
     .video-info h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; line-height: 1.2; text-transform: uppercase; letter-spacing: -1px; }
@@ -261,6 +280,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
       </div>
+
+      <!-- Project 7 -->
+      <div class="video-card" onclick="openCase('growthtoolbox')">
+        <div class="video-preview">
+          <div class="plugin-preview">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <span>Chrome Extension</span>
+          </div>
+        </div>
+        <div class="video-info">
+          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Growth Toolbox</span>
+          <h3>Pomodoro Plugin</h3>
+          <p>Kursprojekt: Pomodoro-plugin med musik i pauserna för bättre fokus och hållbar arbetsrytm.</p>
+          <div class="card-footer">
+            <div class="project-tags">
+              <span class="project-tag">Productivity</span>
+              <span class="project-tag">Chrome</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="video-card" onclick="openCase('frankisfood')">
+        <div class="video-preview">
+          <div class="plugin-preview">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Work in Progress</span>
+          </div>
+        </div>
+        <div class="video-info">
+          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Social & Brand</span>
+          <h3>FRANKISFOOD</h3>
+          <p>Projektkort skapat som placeholder. Fylls på med casebeskrivning, mål, metod och resultat.</p>
+          <div class="card-footer">
+            <div class="project-tags">
+              <span class="project-tag">Content</span>
+              <span class="project-tag">Creator</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -399,11 +460,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         category: 'CRO',
         tags: 'Beteendeanalys, Hypotestestning, PIE-modellen, UX',
         canvaLink: 'https://www.canva.com/design/DAG4SQHmODk/I-HXCwE4u0fWql48WnzMrA/view?embed',
-        summary: 'Identifierade friktion på produktsidor och prioriterade CRO-hypoteser.',
-        description: 'Analyserade beteendedata för att upptäcka drop-off-punkter och friktion i köpresan.',
-        whatIDid: ['Identifierade friktionspunkter', 'Prioriterade hypoteser med PIE', 'Föreslog förbättringar av UX'],
-        tools: 'Analys av beteendedata, PIE-modellen',
-        kpi: 'Mål: Ökad konverteringsgrad genom minskad friktion.',
+        summary: 'Identifierade friktion i köpresan och prioriterade CRO-insatser för att öka konverteringen på produktsidor.',
+        sections: [
+          {
+            title: 'Analys och angreppssätt',
+            content: 'Projektet utgick från beteendedata för att hitta var användare tappade momentum i köpprocessen. Fokus låg på att identifiera de största friktionspunkterna och översätta dem till testbara hypoteser.'
+          },
+          {
+            title: 'Vad vi gjorde',
+            list: [
+              'Analyserade användarbeteende och drop-off i köpresan.',
+              'Kartlade friktion på produktsidor och i beslutsmoment.',
+              'Prioriterade förbättringsförslag med PIE-modellen.',
+              'Formulerade tydliga hypoteser för kommande A/B-test.'
+            ]
+          },
+          {
+            title: 'Vad vi mätte',
+            list: [
+              'Konverteringsgrad per produktsida.',
+              'Klickdjup och progression mot checkout.',
+              'Beteendesignaler som indikerar osäkerhet eller avhopp.'
+            ]
+          },
+          {
+            title: 'Insikt',
+            content: 'Små UX-förbättringar på kritiska beslutsytor kan ha stor effekt på konvertering. Datadriven prioritering gjorde att insatserna kunde fokuseras där affärsvärdet var störst.'
+          }
+        ],
         link: 'UNDER YOUR SKIN.pdf'
       },
       'stadium': {
@@ -452,11 +536,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         category: 'E-commerce',
         tags: 'Affärsmodell, Shopify-automation, Community-tillväxt',
         canvaLink: 'https://www.canva.com/design/DAG-eYTizQo/psFeY9uLcdwxI1ow880D2g/view?embed',
-        summary: 'Utvecklade en nischad event- och community-baserad e-handelsmodell.',
-        description: 'Identifierade ett marknadsgap mellan studenter och nätverksformat.',
-        whatIDid: ['Definierade positionering', 'Strukturerade marginal-logik', 'Designade automatiserade flöden'],
-        tools: 'Shopify-arbetsflöden, Affärsmodellering',
-        kpi: 'Mål: Skalbar community-driven tillväxt.',
+        summary: 'Utvecklade ett e-handelskoncept där community, event och innehåll samverkar för att driva både tillväxt och långsiktig lojalitet.',
+        sections: [
+          {
+            title: 'Analys och angreppssätt',
+            content: 'ROOM 48 positionerades i skärningspunkten mellan e-handel och social tillhörighet. Utmaningen var att skapa en modell som både känns kulturellt relevant för målgruppen och fungerar affärsmässigt över tid. Arbetet fokuserade därför på att bygga ett tydligt erbjudande där community-upplevelsen stärker köpbeteendet.'
+          },
+          {
+            title: 'Vad vi gjorde',
+            list: [
+              'Definierade positionering, målgrupp och kärnerbjudande.',
+              'Tog fram en affärsmodell som kombinerar produktförsäljning med eventdrivna intäktsben.',
+              'Skissade struktur för Shopify-flöden och automatisering.',
+              'Utvecklade koncept för innehåll och community-aktivering i sociala kanaler.'
+            ]
+          },
+          {
+            title: 'Vad vi mätte',
+            list: [
+              'Konverteringsgrad från community- och eventtrafik.',
+              'Återköp och retention efter första köp.',
+              'Engagemang i innehåll kopplat till varumärkets nyckelteman.',
+              'Indikation på skalbarhet i marginal och operativt upplägg.'
+            ]
+          },
+          {
+            title: 'Insikt',
+            content: 'E-handel blir starkare när köpet är kopplat till identitet och sammanhang. Genom att bygga en modell där community och commerce förstärker varandra kan varumärket öka både kortsiktig försäljning och långsiktig kundrelation.'
+          }
+        ],
         link: 'E-com presentation.pdf'
       },
       'ecomid': {
@@ -466,11 +574,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         category: 'Growth & Strategy',
         tags: 'Marknadsanalys, TikTok-strategi, SaaS',
         canvaLink: 'https://www.canva.com/design/DAG8s902XJw/90NXkowqn9PEHdSQGFOlFg/view?embed&page=3',
-        summary: 'Genomförde marknadsanalys som låg till grund för organisk TikTok-strategi.',
-        description: 'Analyserade både konkurrerande size-finder-lösningar och slutkundens beteende.',
-        whatIDid: ['Genomförde konkurrentanalys', 'Analyserade enkät med 150 respondenter', 'Utvecklade TikTok-innehåll'],
-        tools: 'Konkurrentanalys, CapCut, enkätanalys',
-        kpi: 'Följarantalet fördubblades organiskt under projektperioden.',
+        summary: 'Genomförde marknads- och beteendeanalys som grund för en organisk TikTok-strategi med tydligare träff i målgruppen.',
+        sections: [
+          {
+            title: 'Analys och angreppssätt',
+            content: 'Uppdraget var att förstå hur eComID kunde differentiera sig på en konkurrensutsatt marknad för size-finder-lösningar. Arbetet kombinerade konkurrentkartläggning med insikter från målgruppen för att skapa en mer relevant innehållsstrategi.'
+          },
+          {
+            title: 'Vad vi gjorde',
+            list: [
+              'Genomförde konkurrentanalys av liknande SaaS-lösningar.',
+              'Analyserade enkätdata från 150 respondenter.',
+              'Översatte insikter till innehållsformat för TikTok.',
+              'Producerade och testade organiskt innehåll utifrån tydliga hypoteser.'
+            ]
+          },
+          {
+            title: 'Vad vi mätte',
+            list: [
+              'Tillväxt i följare under projektperioden.',
+              'Engagemang per innehållsformat.',
+              'Signaler på produktintresse från målgruppen.'
+            ]
+          },
+          {
+            title: 'Insikt',
+            content: 'När innehållet utgår från faktisk målgruppsinsikt istället för generella trender blir tillväxten mer träffsäker. Under perioden fördubblades följarantalet organiskt.'
+          }
+        ],
+        link: '#'
+      },
+      'growthtoolbox': {
+        title: 'Growth Toolbox – Pomodoro Plugin',
+        course: 'Growth Toolbox',
+        client: 'Kursprojekt',
+        category: 'Productivity & UX',
+        tags: 'Chrome Extension, Fokusdesign, Pausmusik',
+        summary: 'Byggde en Pomodoro-plugin för Chrome som kombinerar fokuspass med återhämtande pauser och musik.',
+        sections: [
+          {
+            title: 'Syfte',
+            content: 'Skapa ett enkelt verktyg som hjälper användare att hålla fokus under arbetsblock och samtidigt få en tydlig, återhämtande pausrytm.'
+          },
+          {
+            title: 'Vad jag byggde',
+            list: [
+              'Pomodoro-timer med arbets- och pausintervall.',
+              'Musik i pauser för att signalera skifte mellan fokus och återhämtning.',
+              'Lättviktig Chrome-extension med enkel installation lokalt.'
+            ]
+          },
+          {
+            title: 'Varför det här caset passar här',
+            content: 'Projektet visar praktisk produktutveckling och beteendedesign på samma tema som growth: att minska friktion och skapa hållbara användarbeteenden.'
+          }
+        ],
+        downloadOnly: true,
+        downloadLabel: 'Ladda ner plugin (.zip)',
+        link: 'downloads/PomodoroTimer-extension.zip'
+      },
+      'frankisfood': {
+        title: 'FRANKISFOOD',
+        course: 'Eget projekt',
+        client: 'Under uppbyggnad',
+        category: 'Social & Brand',
+        tags: 'Content, Community, Creator',
+        summary: 'Detta är ett placeholder-case som du kan fylla på med detaljer i nästa steg.',
+        sections: [
+          {
+            title: 'Bakgrund',
+            content: 'Beskriv sammanhanget för FRANKISFOOD: målgrupp, kanal och vilket problem eller möjlighet projektet utgår ifrån.'
+          },
+          {
+            title: 'Vad som ska fyllas på',
+            list: [
+              'Mål och KPI:er.',
+              'Strategi och content-upplägg.',
+              'Genomförande per kanal.',
+              'Resultat, lärdomar och nästa steg.'
+            ]
+          }
+        ],
+        hideCta: true,
         link: '#'
       }
     };
@@ -482,6 +667,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       
       const presentationSource = data.canvaLink ? data.canvaLink : data.link;
       const isCanva = !!data.canvaLink;
+      const downloadLabel = data.downloadLabel || 'Ladda ner som PDF';
+      const ctaBlock = data.hideCta
+        ? ''
+        : `
+        <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
+          <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
+        </div>
+      `;
+      const presentationBlock = data.downloadOnly
+        ? `
+          <div class="pdf-container" style="background:var(--beige); display:flex; align-items:center; justify-content:center; padding:2rem;">
+            <div style="text-align:center; max-width:60ch;">
+              <p style="font-size:1rem; line-height:1.6; margin-bottom:1.4rem; color:#333;">
+                Det här projektet levereras som Chrome-extension. Ladda ner zip-filen, packa upp den och installera via chrome://extensions.
+              </p>
+              <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
+            </div>
+          </div>
+        `
+        : `
+          <div class="pdf-container" style="background:#000; position:relative; overflow:hidden;">
+            <iframe src="${presentationSource}" class="pdf-viewer" style="width:100%; height:${isCanva ? '110%' : '100%'}; border:none; ${isCanva ? 'margin-top:-2%;' : ''}" allowfullscreen allow="fullscreen"></iframe>
+          </div>
+        `;
 
       let detailContent = '';
 
@@ -540,15 +749,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <p style="font-family:var(--font-display); font-style:italic; font-size:1.4rem; color:#666;">${data.course}</p>
         </div>
         
-        <div class="pdf-container" style="background:#000; position:relative; overflow:hidden;">
-          <iframe src="${presentationSource}" class="pdf-viewer" style="width:100%; height:${isCanva ? '110%' : '100%'}; border:none; ${isCanva ? 'margin-top:-2%;' : ''}" allowfullscreen allow="fullscreen"></iframe>
-        </div>
+        ${presentationBlock}
 
         ${detailContent}
 
-        <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
-          <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">Ladda ner som PDF</a>
-        </div>
+        ${ctaBlock}
       `;
       
       modal.style.display = "block";
