@@ -22,6 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --bg: #fdfaf6;
       --ink: #1a1a1a;
       --navy: #1b263b;
+      --burgundy: #630d16;
       --lightblue: #d1e8ff;
       --border: 1.5px solid #1a1a1a;
       --font-display: 'Playfair Display', serif;
@@ -82,7 +83,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .quiz-body { padding: 60px 40px; }
     .q-text { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.3; margin-bottom: 40px; font-weight: 400; color: var(--ink); }
     
-    .scale { display: flex; gap: 12px; margin-bottom: 15px; }
+    .scale-wrap { max-width: 460px; }
+    .scale { display: flex; gap: 12px; margin-bottom: 8px; justify-content: space-between; }
     .chip {
       width: 72px; height: 72px; border-radius: 50%; border: 1px solid #dcdad6;
       background: #fff; color: #000; font-weight: 600; cursor: pointer;
@@ -91,8 +93,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .chip:hover { border-color: var(--navy); transform: translateY(-2px); }
     .chip.selected { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .scale-numbers { display: flex; justify-content: space-between; color: #777; font-size: 12px; margin-bottom: 12px; padding: 0 6px; }
+    .scale-hint { color: #666; font-size: 12px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
     .scaleLegend { display: flex; justify-content: space-between; color: #999; font-size: 11px; margin-top: 8px; font-weight: 600; text-transform: uppercase; }
+    .form-note { font-size: 12px; color: #666; margin-top: 10px; }
 
     .quiz-nav { display: flex; justify-content: space-between; padding: 0 40px 40px; }
     .btn { padding: 12px 24px; border-radius: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: var(--border); cursor: pointer; transition: 0.2s; font-family: var(--font-body); }
@@ -165,48 +170,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <!-- Steps -->
           <div class="step active" data-step="1">
             <p class="q-text">Hos oss får marknadsföring ta ansvar för både idé och strategisk riktning.</p>
-            <div class="scale" data-q="q1">
-              <div class="chip" data-value="1">1</div>
-              <div class="chip" data-value="2">2</div>
-              <div class="chip" data-value="3">3</div>
-              <div class="chip" data-value="4">4</div>
-              <div class="chip" data-value="5">5</div>
+            <div class="scale-wrap">
+              <div class="scale-hint">Skala 1-5</div>
+              <div class="scale" data-q="q1">
+                <div class="chip" data-value="1">1</div>
+                <div class="chip" data-value="2">2</div>
+                <div class="chip" data-value="3">3</div>
+                <div class="chip" data-value="4">4</div>
+                <div class="chip" data-value="5">5</div>
+              </div>
+              <div class="scale-numbers"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
             </div>
             <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
           </div>
 
           <div class="step" data-step="2" style="display:none;">
             <p class="q-text">Vi kan tydligt förklara varför vi gör det vi gör i våra kanaler.</p>
-            <div class="scale" data-q="q2">
-              <div class="chip" data-value="1">1</div>
-              <div class="chip" data-value="2">2</div>
-              <div class="chip" data-value="3">3</div>
-              <div class="chip" data-value="4">4</div>
-              <div class="chip" data-value="5">5</div>
+            <div class="scale-wrap">
+              <div class="scale-hint">Skala 1-5</div>
+              <div class="scale" data-q="q2">
+                <div class="chip" data-value="1">1</div>
+                <div class="chip" data-value="2">2</div>
+                <div class="chip" data-value="3">3</div>
+                <div class="chip" data-value="4">4</div>
+                <div class="chip" data-value="5">5</div>
+              </div>
+              <div class="scale-numbers"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
             </div>
             <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
           </div>
 
           <div class="step" data-step="3" style="display:none;">
             <p class="q-text">Vi arbetar mot tydliga mål och följer upp det vi skapar.</p>
-            <div class="scale" data-q="q3">
-              <div class="chip" data-value="1">1</div>
-              <div class="chip" data-value="2">2</div>
-              <div class="chip" data-value="3">3</div>
-              <div class="chip" data-value="4">4</div>
-              <div class="chip" data-value="5">5</div>
+            <div class="scale-wrap">
+              <div class="scale-hint">Skala 1-5</div>
+              <div class="scale" data-q="q3">
+                <div class="chip" data-value="1">1</div>
+                <div class="chip" data-value="2">2</div>
+                <div class="chip" data-value="3">3</div>
+                <div class="chip" data-value="4">4</div>
+                <div class="chip" data-value="5">5</div>
+              </div>
+              <div class="scale-numbers"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
             </div>
             <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
           </div>
 
           <div class="step" data-step="4" style="display:none;">
             <p class="q-text">Vi prioriterar att bygga relationer med vår målgrupp över tid.</p>
-            <div class="scale" data-q="q4">
-              <div class="chip" data-value="1">1</div>
-              <div class="chip" data-value="2">2</div>
-              <div class="chip" data-value="3">3</div>
-              <div class="chip" data-value="4">4</div>
-              <div class="chip" data-value="5">5</div>
+            <div class="scale-wrap">
+              <div class="scale-hint">Skala 1-5</div>
+              <div class="scale" data-q="q4">
+                <div class="chip" data-value="1">1</div>
+                <div class="chip" data-value="2">2</div>
+                <div class="chip" data-value="3">3</div>
+                <div class="chip" data-value="4">4</div>
+                <div class="chip" data-value="5">5</div>
+              </div>
+              <div class="scale-numbers"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
             </div>
             <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
             
@@ -217,6 +238,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span>Jag godkänner att min e-post och mina testsvar sparas för återkoppling. <a href="privacy.html">Läs integritetspolicy</a>.</span>
               </div>
               <p id="matchLeadError" style="display:none; margin-top:0.8rem; color:#9b1c1c; font-size:0.9rem;">Kunde inte spara dina uppgifter just nu. Testa igen.</p>
+              <p class="form-note">Du behöver välja ett svar, fylla i mail och godkänna återkoppling för att visa resultat.</p>
             </div>
           </div>
 
@@ -279,6 +301,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const matchSubmitBtn = document.getElementById('matchSubmitBtn');
     const matchForm = document.getElementById('matchForm');
     const matchLeadError = document.getElementById('matchLeadError');
+    const defaultSubmitLabel = 'Visa resultat';
 
     function getApiBase() {
       return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
@@ -291,7 +314,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     function updateSubmitState() {
-      matchSubmitBtn.disabled = !isFinalStepValid();
       matchLeadError.style.display = 'none';
     }
 
@@ -307,6 +329,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       if (matchStep === matchTotalSteps){
         document.getElementById('matchNextBtn').style.display = 'none';
         document.getElementById('matchSubmitBtn').style.display = 'inline-block';
+        document.getElementById('matchSubmitBtn').disabled = false;
         updateSubmitState();
       } else {
         document.getElementById('matchNextBtn').style.display = 'inline-block';
@@ -348,10 +371,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           matchEmailInput.reportValidity();
         } else if (!matchConsentInput.checked) {
           alert('Du behöver godkänna återkoppling via mail för att gå vidare.');
+        } else if (!matchAnswers.q4) {
+          alert('Välj ett svar på fråga 4 först.');
         }
         return;
       }
       matchSubmitBtn.disabled = true;
+      matchSubmitBtn.textContent = 'Sparar...';
 
       const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
       const pct = Math.round((total / 20) * 100);
@@ -368,7 +394,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })
       })
       .then((response) => {
-        if (!response.ok) throw new Error('Lead save failed');
+        if (!response.ok) {
+          return response.json().then((body) => {
+            throw new Error(body?.error || 'Lead save failed');
+          }).catch(() => {
+            throw new Error('Lead save failed');
+          });
+        }
         document.querySelector('.quiz-body').style.display = 'none';
         document.querySelector('.quiz-nav').style.display = 'none';
         const res = document.getElementById('matchResult');
@@ -385,6 +417,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .catch(() => {
         matchLeadError.style.display = 'block';
         matchSubmitBtn.disabled = false;
+        matchSubmitBtn.textContent = defaultSubmitLabel;
       });
     });
   </script>
