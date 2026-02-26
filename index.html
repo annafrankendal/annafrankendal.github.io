@@ -38,19 +38,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: var(--font-body);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
-      position: relative;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 14% 10%, rgba(111,17,28,0.12), transparent 36%),
-        radial-gradient(circle at 88% 84%, rgba(23,21,21,0.11), transparent 38%),
-        linear-gradient(180deg, #fdfaf6 0%, #f5ecdf 100%);
     }
 
     .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
@@ -81,19 +68,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1.15fr 0.85fr;
       gap: 1.4rem;
       align-items: stretch;
-      position: relative;
-    }
-    .hero::after {
-      content: "FRENCH EDITION";
-      position: absolute;
-      right: -8px;
-      bottom: 6px;
-      font-size: 0.62rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #6f111c;
-      transform: rotate(-90deg);
-      transform-origin: right bottom;
     }
     .hero-main {
       background: #f7f0e4;
@@ -122,7 +96,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #171515;
       margin-bottom: 1.2rem;
       max-width: 9ch;
-      text-shadow: 6px 6px 0 rgba(111,17,28,0.08);
     }
     .hero-deck {
       font-size: 1.08rem;
@@ -166,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .mood-slot {
       border: var(--border);
-      background: linear-gradient(135deg, #171515 0%, #372127 100%);
+      background: #171515;
       color: #f2ece2;
       padding: 1rem;
       display: flex;
@@ -213,16 +186,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-column: span 6;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       overflow: hidden;
-      isolation: isolate;
-    }
-    .box::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, rgba(255,255,255,0.1), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      z-index: 0;
     }
     .box::after {
       content: attr(data-index);
@@ -278,7 +241,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --index-tint: rgba(255,255,255,0.12);
       grid-column: 1 / span 7;
       min-height: 320px;
-      transform: rotate(-0.45deg);
     }
     .box-about {
       --card-bg: #f5eee2;
@@ -288,7 +250,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --index-tint: rgba(111,17,28,0.11);
       grid-column: 8 / span 5;
       min-height: 320px;
-      transform: rotate(0.3deg);
     }
     .box-experience {
       --card-bg: #e6ded2;
@@ -298,7 +259,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --index-tint: rgba(0,0,0,0.1);
       grid-column: 1 / span 5;
       min-height: 280px;
-      transform: rotate(0.25deg);
     }
     .box-match {
       --card-bg: #6f111c;
@@ -308,10 +268,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --index-tint: rgba(255,255,255,0.12);
       grid-column: 6 / span 7;
       min-height: 280px;
-      transform: rotate(-0.35deg);
     }
     .box:hover { transform: translateY(-4px); box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.16); }
-    .box:hover::before { opacity: 1; }
 
     @media (max-width: 1000px) {
       .hero {
@@ -332,7 +290,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .box-match {
         grid-column: auto;
         min-height: auto;
-        transform: none;
       }
       .box { padding: 1.6rem 1.3rem; }
       .box h2 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
