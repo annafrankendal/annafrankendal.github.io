@@ -163,13 +163,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .box h2 {
       font-family: var(--font-body);
-      font-size: clamp(1.55rem, 2.1vw, 1.95rem);
+      font-size: clamp(1.7rem, 2.4vw, 2.2rem);
       line-height: 1;
       letter-spacing: 0.4px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--card-title, #171515);
-      margin: 0.42rem 0 0.4rem;
+      margin: 0.2rem 0 0;
       max-width: 11ch;
       z-index: 1;
     }
@@ -237,6 +237,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       outline: 3px solid var(--burgundy);
       outline-offset: 3px;
     }
+    .box small,
+    .box p,
+    .box-meta {
+      display: none;
+    }
 
     @media (max-width: 1000px) {
       .hero { padding: 5.3rem 0 3.4rem; }
@@ -252,7 +257,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         min-height: auto;
       }
       .box { padding: 1.35rem 1.15rem; border-radius: 14px; }
-      .box h2 { font-size: clamp(1.3rem, 7vw, 1.6rem); }
+      .box h2 { font-size: clamp(1.35rem, 7vw, 1.8rem); }
       nav { gap: 1.5rem; font-size: 10px; }
     }
 
