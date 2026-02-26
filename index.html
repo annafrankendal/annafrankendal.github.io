@@ -135,6 +135,93 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 700;
       text-align: right;
     }
+    .priority-strip {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .priority-card {
+      border: var(--border);
+      background: #fff;
+      padding: 1.4rem 1.3rem;
+    }
+    .priority-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.8rem);
+      letter-spacing: -0.4px;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--ink);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .stat {
+      border: var(--border);
+      padding: 0.8rem 0.65rem;
+      background: #f8f3eb;
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--burgundy);
+      margin-bottom: 0.3rem;
+    }
+    .stat span {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: #51483f;
+      font-weight: 700;
+    }
+    .offer-list {
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.92rem;
+      color: #3e3630;
+    }
+    .offer-list p { margin: 0; }
+    .cta-panel {
+      border: var(--border);
+      background: #171515;
+      color: #f6efe3;
+      padding: 1.3rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .cta-panel h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .cta-panel p {
+      font-size: 0.95rem;
+      color: #e7dacc;
+      margin-bottom: 1rem;
+      max-width: 60ch;
+    }
+    .cta-main {
+      display: inline-block;
+      border: 1.5px solid #f6efe3;
+      color: #f6efe3;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.7rem 0.85rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .cta-main:hover {
+      background: #f6efe3;
+      color: #171515;
+    }
 
     .grid {
       display: grid;
@@ -244,6 +331,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .home-direction { padding: 1.4rem 0; }
       .home-direction-inner { grid-template-columns: 1fr; gap: 0.9rem; }
       .home-direction-note { text-align: left; }
+      .priority-strip { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; gap: 0.9rem; margin-bottom: 5rem; }
       .box,
       .box-projects,
@@ -302,6 +391,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <p class="home-direction-note">Strategi, berättande och mätbar tillväxt.</p>
       </div>
+    </section>
+
+    <section class="priority-strip">
+      <article class="priority-card">
+        <h3>Utvalda Case</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <strong>2x</strong>
+            <span>Organisk följartillväxt i caseperiod</span>
+          </div>
+          <div class="stat">
+            <strong>150+</strong>
+            <span>Respondenter i målgruppsanalys</span>
+          </div>
+          <div class="stat">
+            <strong>4</strong>
+            <span>Områden: SEO, CRM, Paid, CRO</span>
+          </div>
+        </div>
+      </article>
+      <article class="priority-card">
+        <h3>Vad Du Får</h3>
+        <div class="offer-list">
+          <p>1. Tydlig strategi med prioriterade insatser.</p>
+          <p>2. Kreativ riktning som stärker varumärke och performance.</p>
+          <p>3. Mätbarhet från start med fokus på affärseffekt.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-panel">
+      <h3>Starta med 20 min introduktion.</h3>
+      <p>Om du vill se hur jag skulle angripa er tillväxt i praktiken börjar vi med ett kort, konkret samtal.</p>
+      <a class="cta-main" href="mailto:afrankendal@gmail.com?subject=20%20min%20intro%20-%20Anna%20Frankendal">Boka intro</a>
     </section>
 
     <div class="grid">
