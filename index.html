@@ -61,129 +61,99 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
-    /* --- HERO EDITORIAL --- */
-    .hero {
-      padding: 6.5rem 0 4.8rem;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.4rem;
-      align-items: stretch;
-    }
-    .hero-main {
-      background: #f7f0e4;
-      border: var(--border);
-      padding: 2.8rem 2.4rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 530px;
-    }
-    .hero-kicker {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 2.2px;
-      font-weight: 700;
-      color: #6a5845;
-      margin-bottom: 1.2rem;
-    }
+    /* --- HERO --- */
+    .hero { padding: 8rem 0 5rem; text-align: center; }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(3.4rem, 8.3vw, 7.4rem);
+      font-size: clamp(3.8rem, 10.5vw, 8rem);
       font-weight: 900;
-      line-height: 0.83;
-      letter-spacing: -3.6px;
+      line-height: 0.82;
       text-transform: uppercase;
-      color: #171515;
-      margin-bottom: 1.2rem;
-      max-width: 9ch;
-    }
-    .hero-deck {
-      font-size: 1.08rem;
-      line-height: 1.6;
-      max-width: 47ch;
-      color: #433a32;
-    }
-    .hero-chips {
-      margin-top: 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .hero-chips span {
-      border: var(--border);
-      padding: 0.45rem 0.65rem;
-      font-size: 0.63rem;
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      font-weight: 700;
-      background: #fff;
-    }
-    .hero-side {
-      display: grid;
-      grid-template-rows: 1.45fr 0.85fr;
-      gap: 1rem;
+      letter-spacing: -7px;
+      margin-bottom: 3.6rem;
+      color: var(--burgundy);
     }
     .hero-image-wrap {
+      width: 180px;
+      margin: 0 auto 3.2rem;
       border: var(--border);
       overflow: hidden;
-      background: #d8dde3;
-      min-height: 0;
+      aspect-ratio: 0.85;
+      background: var(--lightblue);
     }
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: grayscale(100%) contrast(1.05);
+      filter: grayscale(100%);
       mix-blend-mode: multiply;
     }
-    .mood-slot {
-      border: var(--border);
-      background: #171515;
-      color: #f2ece2;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .mood-slot small {
-      font-size: 0.6rem;
+    .hero-role {
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-      opacity: 0.8;
-    }
-    .mood-box {
-      border: 1px dashed rgba(242,236,226,0.7);
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 0.67rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      padding: 0.8rem;
+      letter-spacing: 6px;
+      font-weight: 700;
+      color: var(--burgundy);
+      display: block;
     }
 
-    /* --- FOUR PORTALS --- */
+    /* --- WHAT FOLLOWS HERO --- */
+    .home-direction {
+      border-top: var(--border);
+      border-bottom: var(--border);
+      background: #fff;
+      padding: 2.1rem 0;
+      margin-bottom: 1rem;
+    }
+    .home-direction-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.4rem;
+      align-items: end;
+    }
+    .home-direction h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 0.93;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+    }
+    .home-direction p {
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: #4a433b;
+      max-width: 55ch;
+    }
+    .home-direction-note {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--burgundy);
+      font-weight: 700;
+      text-align: right;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      margin-bottom: 7rem;
+      margin-bottom: 6.5rem;
     }
     .box {
       position: relative;
       border: var(--border);
       text-decoration: none;
       color: inherit;
-      padding: 2.25rem 2rem 1.9rem;
-      min-height: 250px;
+      padding: 1.8rem 1.6rem 1.55rem;
+      min-height: 210px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background: var(--card-bg, #fff);
-      grid-column: span 6;
+      grid-column: auto;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       overflow: hidden;
     }
@@ -239,8 +209,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card-copy: #d7cdbd;
       --accent: #f3e6d4;
       --index-tint: rgba(255,255,255,0.12);
-      grid-column: 1 / span 7;
-      min-height: 320px;
+      min-height: 230px;
     }
     .box-about {
       --card-bg: #f5eee2;
@@ -248,8 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card-copy: #453c34;
       --accent: #6f111c;
       --index-tint: rgba(111,17,28,0.11);
-      grid-column: 8 / span 5;
-      min-height: 320px;
+      min-height: 230px;
     }
     .box-experience {
       --card-bg: #e6ded2;
@@ -257,8 +225,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card-copy: #3b342f;
       --accent: #111111;
       --index-tint: rgba(0,0,0,0.1);
-      grid-column: 1 / span 5;
-      min-height: 280px;
+      min-height: 220px;
     }
     .box-match {
       --card-bg: #6f111c;
@@ -266,29 +233,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card-copy: #e4d2c6;
       --accent: #f6ede1;
       --index-tint: rgba(255,255,255,0.12);
-      grid-column: 6 / span 7;
-      min-height: 280px;
+      min-height: 220px;
     }
     .box:hover { transform: translateY(-4px); box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.16); }
 
     @media (max-width: 1000px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 0.9rem;
-        padding: 4rem 0 3rem;
-      }
-      .hero-main { min-height: auto; padding: 1.8rem 1.4rem 1.6rem; }
-      .hero h1 { font-size: clamp(2.7rem, 14vw, 4.3rem); letter-spacing: -2px; }
-      .hero-deck { font-size: 0.98rem; }
-      .hero-side { grid-template-rows: auto auto; }
-      .hero-image-wrap { aspect-ratio: 0.9; }
+      .hero { padding: 5.3rem 0 3.4rem; }
+      .hero h1 { font-size: clamp(3rem, 14vw, 5rem); letter-spacing: -4px; margin-bottom: 2.4rem; }
+      .hero-image-wrap { width: 160px; margin-bottom: 2.2rem; }
+      .home-direction { padding: 1.4rem 0; }
+      .home-direction-inner { grid-template-columns: 1fr; gap: 0.9rem; }
+      .home-direction-note { text-align: left; }
       .grid { grid-template-columns: 1fr; gap: 0.9rem; margin-bottom: 5rem; }
       .box,
       .box-projects,
       .box-about,
       .box-experience,
       .box-match {
-        grid-column: auto;
         min-height: auto;
       }
       .box { padding: 1.6rem 1.3rem; }
@@ -326,28 +287,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <main class="container">
     <section class="hero">
-      <div class="hero-main">
-        <div>
-          <p class="hero-kicker">Portfolio Edition / Paris Mood / 2026</p>
-          <h1>Anna<br>Frankendal</h1>
-          <p class="hero-deck">
-            Growth Marketer med sociologisk precision. Jag kombinerar strategi, kultur och beteendeinsikter för att skapa marknadsföring som känns, syns och konverterar.
-          </p>
-        </div>
-        <div class="hero-chips">
-          <span>Growth Marketer</span>
-          <span>Editorial Thinking</span>
-          <span>Culture + Performance</span>
-        </div>
+      <h1>Anna<br>Frankendal</h1>
+      <div class="hero-image-wrap">
+        <img src="annabild.JPG" alt="Anna Frankendal">
       </div>
-      <div class="hero-side">
-        <div class="hero-image-wrap">
-          <img src="annabild.JPG" alt="Anna Frankendal">
+      <span class="hero-role">Growth Marketer</span>
+    </section>
+
+    <section class="home-direction">
+      <div class="home-direction-inner">
+        <div>
+          <h2>Här börjar det viktiga.</h2>
+          <p>Efter första intrycket ska det vara enkelt att förstå vad jag kan skapa för effekt. Välj den väg som passar ditt syfte: se case, lär känna min metod, få snabb överblick i CV eller testa matchningen direkt.</p>
         </div>
-        <div class="mood-slot">
-          <small>Bildyta för trendkampanj</small>
-          <div class="mood-box">Lägg in hero-bild här senare<br>Format: 1600x900</div>
-        </div>
+        <p class="home-direction-note">Strategi, berättande och mätbar tillväxt.</p>
       </div>
     </section>
 
