@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("."));
 const LEADS_FILE = path.join(__dirname, "data", "match-leads.json");
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "";
 
 function finalizeReply(text, maxChars = 520, maxSentences = 4) {
   if (!text || typeof text !== "string") return "";
@@ -68,6 +69,23 @@ async function saveMatchLead(lead) {
 
   leads.push(lead);
   await fs.writeFile(LEADS_FILE, JSON.stringify(leads, null, 2), "utf8");
+}
+
+async function readMatchLeads() {
+  try {
+    const current = await fs.readFile(LEADS_FILE, "utf8");
+    const parsed = JSON.parse(current);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")));
+  } catch (error) {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+function isAdminAuthorized(req) {
+  const token = String(req.headers["x-admin-token"] || "").trim();
+  return Boolean(ADMIN_TOKEN) && token === ADMIN_TOKEN;
 }
 
 // --- API ENDPOINT ---
@@ -142,6 +160,46 @@ app.post("/api/chat", async (req, res) => {
   } catch (error) {
     console.error("API-fel:", error);
     res.status(500).json({ error: "Internt fel" });
+  }
+});
+
+app.get("/api/admin/leads", async (req, res) => {
+  try {
+    if (!isAdminAuthorized(req)) return res.status(401).json({ error: "Unauthorized" });
+    const leads = await readMatchLeads();
+    res.set("Cache-Control", "no-store");
+    res.json({ leads, count: leads.length });
+  } catch (error) {
+    console.error("Admin leads-fel:", error);
+    res.status(500).json({ error: "Kunde inte läsa leads just nu." });
+  }
+});
+
+app.get("/api/admin/leads.csv", async (req, res) => {
+  try {
+    if (!isAdminAuthorized(req)) return res.status(401).send("Unauthorized");
+    const leads = await readMatchLeads();
+    const lines = ["email,score,percentage,createdAt,q1,q2,q3,q4"];
+    for (const lead of leads) {
+      const row = [
+        String(lead.email || "").replace(/"/g, '""'),
+        Number(lead.score || 0),
+        Number(lead.percentage || 0),
+        String(lead.createdAt || "").replace(/"/g, '""'),
+        Number(lead.answers?.q1 || 0),
+        Number(lead.answers?.q2 || 0),
+        Number(lead.answers?.q3 || 0),
+        Number(lead.answers?.q4 || 0),
+      ];
+      lines.push(`"${row[0]}",${row[1]},${row[2]},"${row[3]}",${row[4]},${row[5]},${row[6]},${row[7]}`);
+    }
+    res.set("Cache-Control", "no-store");
+    res.set("Content-Type", "text/csv; charset=utf-8");
+    res.set("Content-Disposition", "attachment; filename=match-leads.csv");
+    res.send(lines.join("\n"));
+  } catch (error) {
+    console.error("Admin CSV-fel:", error);
+    res.status(500).send("Kunde inte exportera leads just nu.");
   }
 });
 

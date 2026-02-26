@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Leads | Anna Frankendal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 24px; color: #1a1a1a; background: #f6f6f6; }
+    .wrap { max-width: 980px; margin: 0 auto; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 20px; }
+    h1 { margin-top: 0; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    input, button { font-size: 14px; padding: 10px 12px; }
+    input { flex: 1; min-width: 240px; }
+    button { cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #f1f1f1; }
+    .muted { color: #666; font-size: 13px; }
+    .error { color: #9b1c1c; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Leads</h1>
+    <p class="muted">Ange ADMIN_TOKEN för att se inskickade mailadresser.</p>
+    <div class="row">
+      <input id="token" type="password" placeholder="ADMIN_TOKEN" />
+      <button id="loadBtn" type="button">Hämta leads</button>
+      <button id="csvBtn" type="button">Ladda ner CSV</button>
+    </div>
+    <p id="status" class="muted"></p>
+    <p id="error" class="error"></p>
+    <table id="table" style="display:none;">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Score</th>
+          <th>%</th>
+          <th>Datum</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const statusEl = document.getElementById("status");
+    const errorEl = document.getElementById("error");
+    const tableEl = document.getElementById("table");
+    const tbodyEl = document.getElementById("tbody");
+
+    function tokenValue() {
+      return document.getElementById("token").value.trim();
+    }
+
+    async function loadLeads() {
+      errorEl.textContent = "";
+      statusEl.textContent = "Hämtar...";
+      tableEl.style.display = "none";
+
+      const token = tokenValue();
+      if (!token) {
+        statusEl.textContent = "";
+        errorEl.textContent = "Fyll i ADMIN_TOKEN först.";
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/admin/leads", {
+          headers: { "x-admin-token": token }
+        });
+        if (!response.ok) throw new Error(response.status === 401 ? "Fel token." : "Kunde inte hämta leads.");
+        const data = await response.json();
+        const leads = data.leads || [];
+
+        tbodyEl.innerHTML = leads.map((lead) => {
+          const date = lead.createdAt ? new Date(lead.createdAt).toLocaleString("sv-SE") : "-";
+          return `<tr><td>${lead.email || "-"}</td><td>${lead.score || 0}</td><td>${lead.percentage || 0}</td><td>${date}</td></tr>`;
+        }).join("");
+
+        tableEl.style.display = "table";
+        statusEl.textContent = `${data.count || 0} leads hittade.`;
+      } catch (error) {
+        statusEl.textContent = "";
+        errorEl.textContent = error.message;
+      }
+    }
+
+    async function downloadCsv() {
+      errorEl.textContent = "";
+      const token = tokenValue();
+      if (!token) {
+        errorEl.textContent = "Fyll i ADMIN_TOKEN först.";
+        return;
+      }
+      const response = await fetch("/api/admin/leads.csv", {
+        headers: { "x-admin-token": token }
+      });
+      if (!response.ok) {
+        errorEl.textContent = response.status === 401 ? "Fel token." : "Kunde inte ladda ner CSV.";
+        return;
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "match-leads.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById("loadBtn").addEventListener("click", loadLeads);
+    document.getElementById("csvBtn").addEventListener("click", downloadCsv);
+  </script>
+</body>
+</html>
