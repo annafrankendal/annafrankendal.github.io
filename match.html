@@ -92,8 +92,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       max-width: 16ch;
     }
     
-    .scale-wrap { max-width: 560px; }
-    .scale { display: flex; gap: 14px; margin-bottom: 10px; }
+    .scale-wrap { display: inline-block; }
+    .scale { display: flex; gap: 14px; margin-bottom: 10px; width: max-content; }
     .chip {
       width: 76px; height: 76px; border-radius: 50%; border: 1px solid #bfc3cc;
       background: #fff; color: #000; font-weight: 600; cursor: pointer;
@@ -104,7 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .chip.selected { background: var(--navy); border-color: var(--navy); color: #fff; }
     .scale-hint { color: #666; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
-    .scaleLegend { display: flex; justify-content: space-between; color: #8a8a8a; font-size: 11px; margin-top: 6px; font-weight: 700; text-transform: uppercase; max-width: 560px; letter-spacing: 0.6px; }
+    .scaleLegend { display: flex; justify-content: space-between; color: #8a8a8a; font-size: 11px; margin-top: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; width: 100%; }
+    .scaleLegend span:last-child { text-align: right; }
     .form-note { font-size: 12px; color: #666; margin-top: 10px; }
 
     .quiz-nav { display: flex; justify-content: space-between; padding: 0 40px 40px; margin-top: 12px; }
