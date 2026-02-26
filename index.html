@@ -61,128 +61,228 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
-    /* --- HERO --- */
-    .hero { padding: 8rem 0 5rem; text-align: center; }
-    .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 4rem; color: var(--burgundy); }
-    
-    .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
-    .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
+    /* --- HERO EDITORIAL --- */
+    .hero {
+      padding: 6.5rem 0 4.8rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+    .hero-main {
+      background: #f7f0e4;
+      border: var(--border);
+      padding: 2.8rem 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 530px;
+    }
+    .hero-kicker {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2.2px;
+      font-weight: 700;
+      color: #6a5845;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8.3vw, 7.4rem);
+      font-weight: 900;
+      line-height: 0.83;
+      letter-spacing: -3.6px;
+      text-transform: uppercase;
+      color: #171515;
+      margin-bottom: 1.2rem;
+      max-width: 9ch;
+    }
+    .hero-deck {
+      font-size: 1.08rem;
+      line-height: 1.6;
+      max-width: 47ch;
+      color: #433a32;
+    }
+    .hero-chips {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .hero-chips span {
+      border: var(--border);
+      padding: 0.45rem 0.65rem;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-weight: 700;
+      background: #fff;
+    }
+    .hero-side {
+      display: grid;
+      grid-template-rows: 1.45fr 0.85fr;
+      gap: 1rem;
+    }
+    .hero-image-wrap {
+      border: var(--border);
+      overflow: hidden;
+      background: #d8dde3;
+      min-height: 0;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.05);
+      mix-blend-mode: multiply;
+    }
+    .mood-slot {
+      border: var(--border);
+      background: #171515;
+      color: #f2ece2;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mood-slot small {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      opacity: 0.8;
+    }
+    .mood-box {
+      border: 1px dashed rgba(242,236,226,0.7);
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 0.8rem;
+    }
 
-    /* --- ENTRANCE GRID --- */
+    /* --- FOUR PORTALS --- */
     .grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 1rem;
       margin-bottom: 7rem;
     }
-    
-    .box { 
+    .box {
       position: relative;
       border: var(--border);
-      border-radius: 0;
-      padding: 2.7rem 2.3rem 2.2rem;
-      display: flex; flex-direction: column; justify-content: center; text-align: left;
-      text-decoration: none; color: inherit; transition: transform 0.22s ease, box-shadow 0.22s ease;
+      text-decoration: none;
+      color: inherit;
+      padding: 2.25rem 2rem 1.9rem;
       min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: var(--card-bg, #fff);
-      color: var(--card-ink, var(--ink));
-      overflow: hidden;
       grid-column: span 6;
-    }
-    .box::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 8px;
-      background: var(--accent, var(--burgundy));
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
     }
     .box::after {
       content: attr(data-index);
       position: absolute;
       right: 14px;
-      top: 2px;
+      top: 8px;
       font-family: var(--font-display);
-      font-size: clamp(4.4rem, 10vw, 7.2rem);
+      font-size: clamp(3.5rem, 8vw, 5.8rem);
       line-height: 1;
-      color: var(--index-tint, rgba(255,255,255,0.28));
-      letter-spacing: -3px;
+      color: var(--index-tint, rgba(0,0,0,0.12));
       pointer-events: none;
     }
-    
-    .box h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 3.3vw, 3.4rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 0.95rem;
-      line-height: 0.9;
-      letter-spacing: -1.4px;
-      color: var(--card-title, var(--ink));
-      max-width: 12ch;
-    }
-    .box p {
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.55;
-      max-width: 38ch;
-      color: var(--card-copy, #24313f);
-    }
     .box small {
-      display: inline-block;
-      margin-bottom: 0.65rem;
-      font-size: 0.64rem;
+      font-size: 0.62rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 700;
-      color: var(--accent, var(--burgundy));
-      position: relative;
+      color: var(--accent, #171515);
       z-index: 1;
-      opacity: 0.95;
     }
-
+    .box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 2.9vw, 3rem);
+      line-height: 0.9;
+      letter-spacing: -1.2px;
+      text-transform: uppercase;
+      color: var(--card-title, #171515);
+      margin: 0.9rem 0 0.7rem;
+      max-width: 11ch;
+      z-index: 1;
+    }
+    .box p {
+      font-size: 0.98rem;
+      line-height: 1.52;
+      color: var(--card-copy, #3e3831);
+      max-width: 34ch;
+      z-index: 1;
+    }
+    .box-meta {
+      margin-top: 1.1rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      color: var(--accent, #171515);
+      z-index: 1;
+    }
     .box-projects {
-      --accent: #f3ede3;
-      --card-bg: #161616;
-      --card-title: #f8f3ea;
-      --card-copy: #d8cec0;
-      --index-tint: rgba(255,255,255,0.14);
+      --card-bg: #171515;
+      --card-title: #f6eee1;
+      --card-copy: #d7cdbd;
+      --accent: #f3e6d4;
+      --index-tint: rgba(255,255,255,0.12);
       grid-column: 1 / span 7;
-      min-height: 310px;
+      min-height: 320px;
     }
     .box-about {
+      --card-bg: #f5eee2;
+      --card-title: #1e1a17;
+      --card-copy: #453c34;
       --accent: #6f111c;
-      --card-bg: #f4efe6;
-      --card-title: #1c1a18;
-      --card-copy: #463f37;
-      --index-tint: rgba(111,17,28,0.12);
+      --index-tint: rgba(111,17,28,0.11);
       grid-column: 8 / span 5;
-      min-height: 310px;
+      min-height: 320px;
     }
     .box-experience {
-      --accent: #151515;
-      --card-bg: #e4ddd2;
-      --card-title: #1c1b19;
-      --card-copy: #3f3b36;
-      --index-tint: rgba(21,21,21,0.11);
+      --card-bg: #e6ded2;
+      --card-title: #1b1815;
+      --card-copy: #3b342f;
+      --accent: #111111;
+      --index-tint: rgba(0,0,0,0.1);
       grid-column: 1 / span 5;
       min-height: 280px;
     }
     .box-match {
-      --accent: #f6eee2;
       --card-bg: #6f111c;
-      --card-title: #f7efe5;
-      --card-copy: #e8d7cc;
-      --index-tint: rgba(255,255,255,0.16);
+      --card-title: #f6eee2;
+      --card-copy: #e4d2c6;
+      --accent: #f6ede1;
+      --index-tint: rgba(255,255,255,0.12);
       grid-column: 6 / span 7;
       min-height: 280px;
     }
-
-    .box:hover { transform: translateY(-4px); box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.18); }
+    .box:hover { transform: translateY(-4px); box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.16); }
 
     @media (max-width: 1000px) {
-      .grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        padding: 4rem 0 3rem;
+      }
+      .hero-main { min-height: auto; padding: 1.8rem 1.4rem 1.6rem; }
+      .hero h1 { font-size: clamp(2.7rem, 14vw, 4.3rem); letter-spacing: -2px; }
+      .hero-deck { font-size: 0.98rem; }
+      .hero-side { grid-template-rows: auto auto; }
+      .hero-image-wrap { aspect-ratio: 0.9; }
+      .grid { grid-template-columns: 1fr; gap: 0.9rem; margin-bottom: 5rem; }
       .box,
       .box-projects,
       .box-about,
@@ -192,9 +292,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         min-height: auto;
       }
       .box { padding: 1.6rem 1.3rem; }
-      .box h2 { font-size: clamp(1.9rem, 9vw, 2.3rem); }
-      .box::after { font-size: 4.1rem; right: 10px; top: 6px; }
-      .hero h1 { font-size: 6rem; letter-spacing: -5px; }
+      .box h2 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+      .box::after { font-size: 4.2rem; }
       nav { gap: 1.5rem; font-size: 10px; }
     }
 
@@ -227,11 +326,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <main class="container">
     <section class="hero">
-      <h1>Anna<br>Frankendal</h1>
-      <div class="hero-image-wrap">
-        <img src="annabild.JPG" alt="Anna Frankendal">
+      <div class="hero-main">
+        <div>
+          <p class="hero-kicker">Portfolio Edition / Paris Mood / 2026</p>
+          <h1>Anna<br>Frankendal</h1>
+          <p class="hero-deck">
+            Growth Marketer med sociologisk precision. Jag kombinerar strategi, kultur och beteendeinsikter för att skapa marknadsföring som känns, syns och konverterar.
+          </p>
+        </div>
+        <div class="hero-chips">
+          <span>Growth Marketer</span>
+          <span>Editorial Thinking</span>
+          <span>Culture + Performance</span>
+        </div>
       </div>
-      <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; color: var(--burgundy); display: block; margin-top: -2rem; margin-bottom: 4rem;">Growth Marketer</span>
+      <div class="hero-side">
+        <div class="hero-image-wrap">
+          <img src="annabild.JPG" alt="Anna Frankendal">
+        </div>
+        <div class="mood-slot">
+          <small>Bildyta för trendkampanj</small>
+          <div class="mood-box">Lägg in hero-bild här senare<br>Format: 1600x900</div>
+        </div>
+      </div>
     </section>
 
     <div class="grid">
@@ -239,21 +356,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <small>Case</small>
         <h2>Projekt.</h2>
         <p>Utvalda case inom SEO, paid social och CRM. Från hypotes till mätbart resultat.</p>
+        <span class="box-meta">Se utvalda arbeten</span>
       </a>
       <a href="about.html" class="box box-about" data-index="02">
         <small>Profil</small>
         <h2>Filosofi.</h2>
         <p>Strategiskt arbetssätt där beteendeinsikter, psykologi och affärsmål hänger ihop.</p>
+        <span class="box-meta">Bakgrund & synsätt</span>
       </a>
       <a href="experience.html" class="box box-experience" data-index="03">
         <small>Erfarenhet</small>
         <h2>CV.</h2>
         <p>Erfarenhet, utbildning och verktygskompetens i ett tydligt och snabbt format.</p>
+        <span class="box-meta">Roller & kompetens</span>
       </a>
       <a href="match.html" class="box box-match" data-index="04">
         <small>Lead Magnet</small>
         <h2>Är vi en match?</h2>
         <p>Svara på fyra frågor och få en snabb indikation på hur våra arbetssätt matchar.</p>
+        <span class="box-meta">Interaktiv quiz</span>
       </a>
     </div>
   </main>
