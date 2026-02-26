@@ -84,7 +84,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex; flex-direction: column; justify-content: center; text-align: left;
       text-decoration: none; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease;
       min-height: 220px;
-      background: #fff;
+      background: var(--card-bg, #fff);
+      color: var(--card-ink, var(--ink));
       overflow: hidden;
     }
     .box::before {
@@ -105,8 +106,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 0.7rem;
       line-height: 0.95;
       letter-spacing: -0.5px;
+      color: var(--card-title, var(--ink));
     }
-    .box p { font-size: 0.95rem; font-weight: 500; line-height: 1.45; max-width: 38ch; }
+    .box p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.45;
+      max-width: 38ch;
+      color: var(--card-copy, #24313f);
+    }
     .box small {
       display: inline-block;
       margin-bottom: 0.65rem;
@@ -121,14 +129,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 1rem;
       font-weight: 700;
       color: var(--accent, var(--burgundy));
+      letter-spacing: 0.8px;
     }
 
-    .box-projects { --accent: #5b0f17; }
-    .box-about { --accent: #1f4d3a; }
-    .box-experience { --accent: #1b263b; }
-    .box-match { --accent: #7a1824; }
+    .box-projects {
+      --accent: #0f4c6e;
+      --card-bg: #e7f3fa;
+      --card-title: #08364d;
+      --card-copy: #214e62;
+    }
+    .box-about {
+      --accent: #7d5930;
+      --card-bg: #f8f0e4;
+      --card-title: #4f3720;
+      --card-copy: #6a4c2c;
+    }
+    .box-experience {
+      --accent: #2e6357;
+      --card-bg: #eaf5ef;
+      --card-title: #1f4b41;
+      --card-copy: #345f55;
+    }
+    .box-match {
+      --accent: #7a2745;
+      --card-bg: #f7e8ef;
+      --card-title: #561730;
+      --card-copy: #6c2f46;
+    }
 
-    .box:hover { transform: translateY(-3px); box-shadow: 12px 12px 0 rgba(26, 26, 26, 0.08); }
+    .box:hover { transform: translateY(-3px); box-shadow: 12px 12px 0 rgba(19, 35, 48, 0.1); }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; gap: 0.9rem; }
