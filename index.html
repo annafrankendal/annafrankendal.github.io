@@ -129,135 +129,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       to { transform: translateX(-50%); }
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.15rem;
-      margin-bottom: 6.8rem;
-    }
-    .box {
-      position: relative;
-      border: 1.5px solid rgba(15, 15, 15, 0.9);
-      text-decoration: none;
-      color: inherit;
-      padding: 1.5rem 1.4rem 1.3rem;
-      min-height: 175px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: var(--card-bg, #fff);
-      grid-column: auto;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      overflow: hidden;
-      border-radius: 18px;
-      cursor: pointer;
-    }
-    .box * { pointer-events: none; }
-    .box small {
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      font-weight: 700;
-      color: var(--accent, #171515);
-      z-index: 1;
-    }
-    .box h2 {
-      font-family: var(--font-body);
-      font-size: clamp(1.7rem, 2.4vw, 2.2rem);
-      line-height: 1;
-      letter-spacing: 0.4px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--card-title, #171515);
-      margin: 0.2rem 0 0;
-      max-width: 11ch;
-      z-index: 1;
-    }
-    .box p {
-      font-size: 0.82rem;
-      line-height: 1.45;
-      color: var(--card-copy, #3e3831);
-      max-width: 30ch;
-      z-index: 1;
-      opacity: 0.92;
-    }
-    .box-meta {
-      margin-top: 0.7rem;
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 1.35px;
-      font-weight: 700;
-      color: var(--accent, #171515);
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.34rem;
-      padding: 0;
-      width: fit-content;
-      opacity: 0.92;
-    }
-    .box-projects {
-      --card-bg: linear-gradient(140deg, #1a1c20 0%, #161619 100%);
-      --card-title: #f5f0e8;
-      --card-copy: #d5cfc4;
-      --accent: #f2e6d5;
-      --index-tint: rgba(242,230,213,0.3);
-      min-height: 230px;
-    }
-    .box-about {
-      --card-bg: linear-gradient(140deg, #f7efe6 0%, #efe1d2 100%);
-      --card-title: #251f19;
-      --card-copy: #4f453a;
-      --accent: #6f111c;
-      --index-tint: rgba(111,17,28,0.2);
-      min-height: 230px;
-    }
-    .box-experience {
-      --card-bg: linear-gradient(145deg, #dbe7e0 0%, #d0dbd5 100%);
-      --card-title: #1c221f;
-      --card-copy: #3c4943;
-      --accent: #1d3d33;
-      --index-tint: rgba(29,61,51,0.2);
-      min-height: 220px;
-    }
-    .box-match {
-      --card-bg: linear-gradient(145deg, #7a1a2a 0%, #631223 100%);
-      --card-title: #f8efe4;
-      --card-copy: #e8d8ca;
-      --accent: #f8eee2;
-      --index-tint: rgba(248,238,226,0.25);
-      min-height: 220px;
-    }
-    .box:hover {
-      transform: translateY(-5px) scale(1.005);
-      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
-      border-color: rgba(0, 0, 0, 0.28);
-    }
-    .box:focus-visible {
-      outline: 3px solid var(--burgundy);
-      outline-offset: 3px;
-    }
-    .box small,
-    .box p,
-    .box-meta {
-      display: none;
-    }
 
     @media (max-width: 1000px) {
       .hero { padding: 5.3rem 0 3.4rem; }
       .hero h1 { font-size: clamp(3rem, 14vw, 5rem); letter-spacing: -4px; margin-bottom: 2.4rem; }
       .hero-image-wrap { width: 160px; margin-bottom: 2.2rem; }
       .motion-track { animation-duration: 11s; }
-      .grid { grid-template-columns: 1fr; gap: 0.9rem; margin-bottom: 5rem; }
-      .box,
-      .box-projects,
-      .box-about,
-      .box-experience,
-      .box-match {
-        min-height: auto;
-      }
-      .box { padding: 1.35rem 1.15rem; border-radius: 14px; }
-      .box h2 { font-size: clamp(1.35rem, 7vw, 1.8rem); }
       nav { gap: 1.5rem; font-size: 10px; }
     }
 
@@ -308,32 +185,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </section>
 
-    <div class="grid">
-      <a href="projects.html" class="box box-projects">
-        <small>Case</small>
-        <h2>Case Som Levererar</h2>
-        <p>Mina starkaste projekt där strategi blivit mätbart resultat.</p>
-        <span class="box-meta">Se case</span>
-      </a>
-      <a href="about.html" class="box box-about">
-        <small>Profil</small>
-        <h2>Min Metod</h2>
-        <p>Hur jag går från insikt till strategi och mätbar effekt.</p>
-        <span class="box-meta">Läs mer</span>
-      </a>
-      <a href="experience.html" class="box box-experience">
-        <small>Erfarenhet</small>
-        <h2>Min Erfarenhet</h2>
-        <p>Roller, verktyg och kompetens i ett snabbt format.</p>
-        <span class="box-meta">Visa CV</span>
-      </a>
-      <a href="match.html" class="box box-match">
-        <small>Lead Magnet</small>
-        <h2>Jobba Med Mig</h2>
-        <p>Ta quizet och se om våra arbetssätt matchar.</p>
-        <span class="box-meta">Starta quiz</span>
-      </a>
-    </div>
   </main>
 
   <footer>
