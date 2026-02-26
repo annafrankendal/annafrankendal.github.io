@@ -132,104 +132,118 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-bottom: 6.5rem;
+      gap: 1.15rem;
+      margin-bottom: 6.8rem;
     }
     .box {
       position: relative;
-      border: var(--border);
+      border: 1.5px solid rgba(15, 15, 15, 0.9);
       text-decoration: none;
       color: inherit;
-      padding: 1.8rem 1.6rem 1.55rem;
-      min-height: 210px;
+      padding: 1.7rem 1.55rem 1.45rem;
+      min-height: 205px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background: var(--card-bg, #fff);
       grid-column: auto;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       overflow: hidden;
+      border-radius: 18px;
     }
     .box::after {
       content: attr(data-index);
       position: absolute;
-      right: 14px;
-      top: 8px;
-      font-family: var(--font-display);
-      font-size: clamp(3.5rem, 8vw, 5.8rem);
+      right: 12px;
+      top: 10px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: clamp(2.3rem, 5vw, 3.3rem);
       line-height: 1;
       color: var(--index-tint, rgba(0,0,0,0.12));
       pointer-events: none;
+      opacity: 0.85;
     }
     .box small {
-      font-size: 0.62rem;
+      font-size: 0.66rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       font-weight: 700;
       color: var(--accent, #171515);
       z-index: 1;
     }
     .box h2 {
       font-family: var(--font-body);
-      font-size: clamp(1.9rem, 2.6vw, 2.6rem);
-      line-height: 0.95;
-      letter-spacing: 0.6px;
+      font-size: clamp(1.52rem, 2.1vw, 2rem);
+      line-height: 1;
+      letter-spacing: 0.4px;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--card-title, #171515);
-      margin: 0.9rem 0 0.7rem;
+      margin: 0.62rem 0 0.54rem;
       max-width: 11ch;
       z-index: 1;
     }
     .box p {
-      font-size: 0.98rem;
-      line-height: 1.52;
+      font-size: 0.92rem;
+      line-height: 1.5;
       color: var(--card-copy, #3e3831);
       max-width: 34ch;
       z-index: 1;
     }
     .box-meta {
-      margin-top: 1.1rem;
-      font-size: 0.7rem;
+      margin-top: 0.95rem;
+      font-size: 0.66rem;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.5px;
       font-weight: 700;
       color: var(--accent, #171515);
       z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.34rem;
+      padding: 0.32rem 0.58rem;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      width: fit-content;
     }
     .box-projects {
-      --card-bg: #171515;
-      --card-title: #f6eee1;
-      --card-copy: #d7cdbd;
-      --accent: #f3e6d4;
-      --index-tint: rgba(255,255,255,0.12);
+      --card-bg: linear-gradient(140deg, #1a1c20 0%, #161619 100%);
+      --card-title: #f5f0e8;
+      --card-copy: #d5cfc4;
+      --accent: #f2e6d5;
+      --index-tint: rgba(242,230,213,0.3);
       min-height: 230px;
     }
     .box-about {
-      --card-bg: #f5eee2;
-      --card-title: #1e1a17;
-      --card-copy: #453c34;
+      --card-bg: linear-gradient(140deg, #f7efe6 0%, #efe1d2 100%);
+      --card-title: #251f19;
+      --card-copy: #4f453a;
       --accent: #6f111c;
-      --index-tint: rgba(111,17,28,0.11);
+      --index-tint: rgba(111,17,28,0.2);
       min-height: 230px;
     }
     .box-experience {
-      --card-bg: #e6ded2;
-      --card-title: #1b1815;
-      --card-copy: #3b342f;
-      --accent: #111111;
-      --index-tint: rgba(0,0,0,0.1);
+      --card-bg: linear-gradient(145deg, #dbe7e0 0%, #d0dbd5 100%);
+      --card-title: #1c221f;
+      --card-copy: #3c4943;
+      --accent: #1d3d33;
+      --index-tint: rgba(29,61,51,0.2);
       min-height: 220px;
     }
     .box-match {
-      --card-bg: #6f111c;
-      --card-title: #f6eee2;
-      --card-copy: #e4d2c6;
-      --accent: #f6ede1;
-      --index-tint: rgba(255,255,255,0.12);
+      --card-bg: linear-gradient(145deg, #7a1a2a 0%, #631223 100%);
+      --card-title: #f8efe4;
+      --card-copy: #e8d8ca;
+      --accent: #f8eee2;
+      --index-tint: rgba(248,238,226,0.25);
       min-height: 220px;
     }
-    .box:hover { transform: translateY(-4px); box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.16); }
+    .box:hover {
+      transform: translateY(-5px) scale(1.005);
+      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.18);
+      border-color: rgba(0, 0, 0, 0.28);
+    }
 
     @media (max-width: 1000px) {
       .hero { padding: 5.3rem 0 3.4rem; }
@@ -244,9 +258,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .box-match {
         min-height: auto;
       }
-      .box { padding: 1.6rem 1.3rem; }
-      .box h2 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
-      .box::after { font-size: 4.2rem; }
+      .box { padding: 1.35rem 1.15rem; border-radius: 14px; }
+      .box h2 { font-size: clamp(1.45rem, 8vw, 1.8rem); }
+      .box::after { font-size: 2.3rem; }
       nav { gap: 1.5rem; font-size: 10px; }
     }
 
@@ -302,25 +316,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <small>Case</small>
         <h2>Projekt.</h2>
         <p>Utvalda case inom SEO, paid social och CRM. Från hypotes till mätbart resultat.</p>
-        <span class="box-meta">Se utvalda arbeten</span>
+        <span class="box-meta">Öppna case</span>
       </a>
       <a href="about.html" class="box box-about" data-index="02">
         <small>Profil</small>
         <h2>Filosofi.</h2>
         <p>Strategiskt arbetssätt där beteendeinsikter, psykologi och affärsmål hänger ihop.</p>
-        <span class="box-meta">Bakgrund & synsätt</span>
+        <span class="box-meta">Läs mer</span>
       </a>
       <a href="experience.html" class="box box-experience" data-index="03">
         <small>Erfarenhet</small>
         <h2>CV.</h2>
         <p>Erfarenhet, utbildning och verktygskompetens i ett tydligt och snabbt format.</p>
-        <span class="box-meta">Roller & kompetens</span>
+        <span class="box-meta">Visa CV</span>
       </a>
       <a href="match.html" class="box box-match" data-index="04">
         <small>Lead Magnet</small>
         <h2>Är vi en match?</h2>
         <p>Svara på fyra frågor och få en snabb indikation på hur våra arbetssätt matchar.</p>
-        <span class="box-meta">Interaktiv quiz</span>
+        <span class="box-meta">Starta quiz</span>
       </a>
     </div>
   </main>
