@@ -77,12 +77,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     
     .box { 
+      position: relative;
       border: var(--border);
       border-radius: 0;
       padding: 2.1rem 2rem 1.9rem;
       display: flex; flex-direction: column; justify-content: center; text-align: left;
       text-decoration: none; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease;
       min-height: 220px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 6px;
+      background: var(--accent, var(--burgundy));
     }
     
     .box h2 {
@@ -102,19 +114,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-transform: uppercase;
       letter-spacing: 1.6px;
       font-weight: 700;
-      opacity: 0.8;
+      color: var(--accent, var(--burgundy));
+    }
+    .box-arrow {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent, var(--burgundy));
     }
 
-    .box-projects { background: #5b0f17; color: #fff; }
-    .box-projects p, .box-projects small { color: #dcecff; }
-    .box-about { background: #dbeeff; color: #3f0d13; }
-    .box-about p, .box-about small { color: #1f4d3a; }
-    .box-experience { background: #f6efe4; color: #17322a; }
-    .box-experience p, .box-experience small { color: #7a1824; }
-    .box-match { background: #17362a; color: #dcecff; }
-    .box-match p, .box-match small { color: #f7f4ed; }
+    .box-projects { --accent: #5b0f17; }
+    .box-about { --accent: #1f4d3a; }
+    .box-experience { --accent: #1b263b; }
+    .box-match { --accent: #7a1824; }
 
-    .box:hover { transform: translateY(-2px); box-shadow: 8px 8px 0 rgba(26, 26, 26, 0.08); }
+    .box:hover { transform: translateY(-3px); box-shadow: 12px 12px 0 rgba(26, 26, 26, 0.08); }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; gap: 0.9rem; }
@@ -164,21 +178,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <small>Case</small>
         <h2>Projekt.</h2>
         <p>Utvalda case inom SEO, paid social och CRM. Från hypotes till mätbart resultat.</p>
+        <span class="box-arrow">01</span>
       </a>
       <a href="about.html" class="box box-about">
         <small>Profil</small>
         <h2>Filosofi.</h2>
         <p>Strategiskt arbetssätt där beteendeinsikter, psykologi och affärsmål hänger ihop.</p>
+        <span class="box-arrow">02</span>
       </a>
       <a href="experience.html" class="box box-experience">
         <small>Erfarenhet</small>
         <h2>CV.</h2>
         <p>Erfarenhet, utbildning och verktygskompetens i ett tydligt och snabbt format.</p>
+        <span class="box-arrow">03</span>
       </a>
       <a href="match.html" class="box box-match">
         <small>Lead Magnet</small>
         <h2>Är vi en match?</h2>
         <p>Svara på fyra frågor och få en snabb indikation på hur våra arbetssätt matchar.</p>
+        <span class="box-arrow">04</span>
       </a>
     </div>
   </main>
