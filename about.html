@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
 
     /* --- CONTACT BAR --- */
     .contact-bar {
@@ -62,21 +62,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
     /* --- HERO --- */
-    .hero { padding: 8rem 0 6rem; text-align: center; }
+    .hero { padding: 8rem 0 5rem; text-align: center; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(5rem, 20vw, 12rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 4rem; color: var(--burgundy); }
     
     .hero-image-wrap { width: 180px; margin: 0 auto 4rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); mix-blend-mode: multiply; }
 
-    .hero-intro { max-width: 600px; margin: 0 auto; font-size: 1.4rem; font-family: var(--font-display); font-weight: 700; font-style: italic; line-height: 1.3; }
+    .hero-intro { max-width: 640px; margin: 0 auto; font-size: 1.2rem; font-family: var(--font-display); font-weight: 700; font-style: italic; line-height: 1.38; }
 
     /* --- THE THREE BOXES --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--border); border-left: var(--border); margin-bottom: 10rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 8rem;
+    }
     
-    .box { border-right: var(--border); border-bottom: var(--border); padding: 5rem 3.5rem; display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
+    .box {
+      border: var(--border);
+      border-radius: 16px;
+      padding: 2.3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
     
-    .box h2 { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 0.8; letter-spacing: -3px; }
-    .box p { font-size: 1.3rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.5px; }
+    .box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      line-height: 0.9;
+      letter-spacing: -1px;
+    }
+    .box p { font-size: 1rem; font-weight: 500; line-height: 1.45; }
 
     /* Box Colors (Consistent with index.html) */
     .box-1 { background: var(--burgundy); color: #fff; }
@@ -87,6 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .box-3 { background: var(--beige); color: #1b4332; }
     .box-3 p { color: var(--burgundy); }
+    .box:hover { transform: translateY(-3px); box-shadow: 10px 10px 0 rgba(26, 26, 26, 0.08); }
 
     /* --- FOOTER --- */
     footer { padding: 80px 0 40px; text-align: center; background: #fff; border-top: var(--border); }
@@ -99,8 +122,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
-      .grid { grid-template-columns: 1fr; border-left: none; }
-      .box { border-right: none; padding: 4rem 2rem; min-height: auto; }
+      .grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .box { padding: 1.8rem 1.4rem; min-height: auto; }
       .hero h1 { font-size: 6rem; letter-spacing: -5px; }
       nav { gap: 1.5rem; }
     }
@@ -186,4 +209,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="script.js"></script>
 </body>
 </html>
-
