@@ -352,22 +352,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       if (pct >= 80) {
         return {
           title: 'Stark match',
-          text: 'Ni har en tydlig strategisk grund och det finns bra förutsättningar för att skapa långsiktig tillväxt tillsammans.'
+          text: 'Vi matchar väldigt väl i både värderingar och arbetssätt. Jag tror att vi snabbt kan skapa effekt tillsammans, och jag tar gärna ett möte för att visa hur jag skulle ta mig an rollen hos er.'
         };
       }
       if (pct >= 55) {
         return {
-          title: 'Bra potential',
-          text: 'Ni har mycket på plats, och med rätt prioriteringar kan vi snabbt skapa tydligare riktning och starkare effekt.'
+          title: 'Bra match',
+          text: 'Vi har en tydlig grund att bygga vidare på i hur vi tänker kring struktur, ansvar och utveckling. Jag tar gärna ett möte och visar hur jag skulle bidra i teamet från start.'
         };
       }
       return {
-        title: 'Utvecklingsläge',
-        text: 'Det finns flera viktiga pusselbitar att sätta. Med rätt struktur kan vi bygga en hållbar grund för bättre resultat.'
+        title: 'Potential att matcha',
+        text: 'Vi är inte hela vägen fram än, men jag ser tydliga beröringspunkter i synen på utveckling och samarbete. Om ni vill tar jag gärna ett möte för att prata om hur vi kan få en stark match i praktiken.'
       };
     }
 
-    function showMatchResult(pct) {
+    function showMatchResult(pct, total) {
       const copy = getResultCopy(pct);
       document.querySelectorAll('.step').forEach((s) => {
         s.style.display = 'none';
@@ -380,9 +380,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       res.innerHTML = `
         <div class="result-reward">
           <div class="pct">${pct}%</div>
+          <p style="margin-top:-8px; margin-bottom:14px; color:#666; font-size:0.95rem;">${total} av 20 poäng</p>
           <div class="title">${copy.title}</div>
           <p>${copy.text}</p>
-          <a href="mailto:afrankendal@gmail.com" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Kontakta mig</a>
+          <a href="mailto:afrankendal@gmail.com?subject=Boka%20m%C3%B6te%20-%20Vi%20%C3%A4r%20en%20match" class="btn btn-primary" style="text-decoration:none; margin-top:2rem; display:inline-block;">Boka möte</a>
         </div>
       `;
     }
@@ -475,7 +476,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       matchSubmitBtn.textContent = 'Sparar...';
 
       const total = Object.values(matchAnswers).reduce((a,b) => a+b, 0);
-      const pct = Math.round((total / 20) * 100);
+      const pct = Number(((total / 20) * 100).toFixed(0));
       const payload = {
         email: matchEmailInput.value.trim(),
         consent: matchConsentInput.checked,
@@ -484,7 +485,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         percentage: pct
       };
 
-      showMatchResult(pct);
+      showMatchResult(pct, total);
       saveLeadInBackground(payload);
     });
   </script>
