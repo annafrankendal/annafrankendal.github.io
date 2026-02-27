@@ -745,13 +745,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const body = document.getElementById('modalBody');
       const data = caseData[id];
       
-      const downloadLabel = data.downloadLabel || 'Ladda ner som PDF';
+      const downloadLabel = data.downloadLabel || 'Ladda ner (PDF)';
+      const downloadHref = data.pdfLink || data.link;
       const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
+      const hasDownloadCta = !!downloadHref && downloadHref !== '#';
       const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
+          ${hasDownloadCta ? `<a href="${downloadHref}" target="_blank" class="nav-cta" data-track="project-download" data-project-id="${id}" data-project-title="${data.title}" data-download-type="pdf" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
           ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva)</button>` : ''}
         </div>
       `;
@@ -762,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p style="font-size:1rem; line-height:1.6; margin-bottom:1.4rem; color:#333;">
                 Det här projektet levereras som Chrome-extension. Ladda ner zip-filen, packa upp den och installera via chrome://extensions.
               </p>
-              <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
+              <a href="${data.link}" target="_blank" class="nav-cta" data-track="project-download" data-project-id="${id}" data-project-title="${data.title}" data-download-type="zip" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
             </div>
           </div>
         `
@@ -835,6 +838,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         ${ctaBlock}
       `;
+
+      body.querySelectorAll('[data-track="project-download"]').forEach((el) => {
+        el.addEventListener('click', () => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'project_download_click',
+            project_id: el.getAttribute('data-project-id') || '',
+            project_title: el.getAttribute('data-project-title') || '',
+            download_type: el.getAttribute('data-download-type') || '',
+            page_path: window.location.pathname
+          });
+        });
+      });
       
       modal.style.display = "block";
       document.body.style.overflow = "hidden";
