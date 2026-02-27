@@ -1,7 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
-  <title id="t">Akademibokhandeln cover</title><desc id="d">SEO and Content</desc>
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1b4332"/><stop offset="100%" stop-color="#d1e8ff"/></linearGradient></defs>
-  <rect width="1600" height="900" fill="url(#g)"/>
-  <text x="120" y="360" fill="#fdfaf6" font-size="52" font-family="Georgia, serif" font-weight="700" letter-spacing="1">AKADEMIBOKHANDELN</text>
-  <text x="120" y="430" fill="#f2ede4" font-size="30" font-family="Arial, sans-serif" letter-spacing="4">SEO &amp; CONTENT</text>
+  <title id="t">Akademibokhandeln bokklubb cover</title>
+  <desc id="d">Illustration av bokklubb med fokus pa bocker</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#153a2e"/>
+      <stop offset="60%" stop-color="#2a5b4a"/>
+      <stop offset="100%" stop-color="#7ba18f"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9c3a4"/>
+      <stop offset="100%" stop-color="#b7946e"/>
+    </linearGradient>
+    <linearGradient id="bookA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f2e8"/>
+      <stop offset="100%" stop-color="#e3d7c6"/>
+    </linearGradient>
+    <linearGradient id="bookB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9b1e2f"/>
+      <stop offset="100%" stop-color="#6f1220"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <circle cx="220" cy="120" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="1400" cy="170" r="150" fill="#ffffff" opacity="0.07"/>
+  <circle cx="1320" cy="760" r="180" fill="#ffffff" opacity="0.05"/>
+
+  <rect x="140" y="490" width="1320" height="280" rx="26" fill="url(#table)"/>
+  <rect x="140" y="760" width="1320" height="30" rx="12" fill="#8d6d4e" opacity="0.8"/>
+
+  <g transform="translate(250 410)">
+    <ellipse cx="120" cy="160" rx="130" ry="24" fill="#2f2a25" opacity="0.25"/>
+    <path d="M20 40h200v150H20z" fill="url(#bookA)" stroke="#cdbca4" stroke-width="4"/>
+    <path d="M120 40h100v150H120z" fill="#efe6d8"/>
+    <line x1="120" y1="40" x2="120" y2="190" stroke="#c9b59a" stroke-width="3"/>
+    <line x1="45" y1="65" x2="100" y2="65" stroke="#d4c4ae" stroke-width="4"/>
+    <line x1="45" y1="88" x2="105" y2="88" stroke="#d4c4ae" stroke-width="4"/>
+    <line x1="140" y1="65" x2="195" y2="65" stroke="#d4c4ae" stroke-width="4"/>
+    <line x1="140" y1="88" x2="200" y2="88" stroke="#d4c4ae" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(620 380)">
+    <ellipse cx="120" cy="190" rx="135" ry="25" fill="#2f2a25" opacity="0.25"/>
+    <rect x="30" y="60" width="180" height="130" rx="6" fill="url(#bookB)"/>
+    <rect x="30" y="60" width="14" height="130" fill="#5c0c18"/>
+    <line x1="60" y1="94" x2="186" y2="94" stroke="#d899a2" stroke-width="4"/>
+    <line x1="60" y1="118" x2="172" y2="118" stroke="#d899a2" stroke-width="4"/>
+    <line x1="60" y1="142" x2="160" y2="142" stroke="#d899a2" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(980 375)">
+    <ellipse cx="140" cy="205" rx="155" ry="26" fill="#2f2a25" opacity="0.25"/>
+    <rect x="40" y="80" width="210" height="130" rx="8" fill="#1d2832"/>
+    <rect x="54" y="92" width="182" height="106" rx="4" fill="#eef2f5"/>
+    <line x1="72" y1="122" x2="212" y2="122" stroke="#b8c0c8" stroke-width="4"/>
+    <line x1="72" y1="146" x2="198" y2="146" stroke="#b8c0c8" stroke-width="4"/>
+    <line x1="72" y1="170" x2="186" y2="170" stroke="#b8c0c8" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(0 -8)" fill="#f4e8d8">
+    <circle cx="420" cy="445" r="28"/>
+    <rect x="398" y="470" width="44" height="52" rx="18"/>
+    <circle cx="760" cy="435" r="26"/>
+    <rect x="738" y="458" width="44" height="62" rx="18"/>
+    <circle cx="1130" cy="438" r="27"/>
+    <rect x="1108" y="462" width="44" height="58" rx="18"/>
+  </g>
+
+  <text x="120" y="150" fill="#fdfaf6" font-size="60" font-family="Georgia, serif" font-weight="700" letter-spacing="1">AKADEMIBOKHANDELN</text>
+  <text x="120" y="210" fill="#e8dccc" font-size="28" font-family="Arial, sans-serif" letter-spacing="4">BOKKLUBB   •   SEO &amp; CONTENT</text>
 </svg>
