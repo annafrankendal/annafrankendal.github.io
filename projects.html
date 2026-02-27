@@ -90,7 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: var(--border);
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
       overflow: hidden;
-      min-height: 420px;
+      min-height: 500px;
       position: relative;
     }
     .video-card:hover { transform: translateY(-8px); box-shadow: 16px 16px 0 var(--lightblue); border-color: var(--burgundy); }
@@ -117,7 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 1.2rem;
       color: #fff;
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.78) 45%, rgba(0,0,0,0.9) 100%);
+        linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.74) 46%, rgba(0,0,0,0.9) 100%);
       z-index: 1;
     }
     .card-category {
@@ -132,16 +132,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .card-overlay h3 {
       font-family: var(--font-display);
       font-size: 2rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
       line-height: 1;
       text-transform: uppercase;
       letter-spacing: -1px;
       color: #fff;
     }
-    .card-overlay p {
-      font-size: 0.9rem;
-      line-height: 1.45;
-      color: #f0f0f0;
+    .card-client {
+      display: block;
+      font-size: 0.74rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #e7e7e7;
       margin-bottom: 0.9rem;
     }
     .card-meta {
@@ -196,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     @media (max-width: 700px) {
       .project-grid { grid-template-columns: 1fr; }
-      .video-card { min-height: 400px; }
+      .video-card { min-height: 430px; }
       .card-overlay h3 { font-size: 1.75rem; }
       .card-meta { grid-template-columns: 1fr; }
       .meta-chip { min-height: auto; }
@@ -241,7 +243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">Performance Marketing</span>
             <h3>DryPops</h3>
-            <p>Paid social som testlabb för att hitta målgrupp, budskap och format med högst effekt.</p>
+            <span class="card-client">Företag: DryPops</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>Paid Social</span></div>
               <div class="meta-chip"><b>Skills</b><span>A/B-test, CTR</span></div>
@@ -258,7 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">SEO & Content</span>
             <h3>Akademibokhandeln</h3>
-            <p>Kundreseanpassad innehållsstrategi för ökad synlighet, engagemang och återkommande köp.</p>
+            <span class="card-client">Företag: Akademibokhandeln</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>SEO</span></div>
               <div class="meta-chip"><b>Skills</b><span>Strategi, struktur</span></div>
@@ -275,7 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">CRO</span>
             <h3>Under Your Skin</h3>
-            <p>Identifierade friktion i köpresan och prioriterade förbättringar med störst konverteringseffekt.</p>
+            <span class="card-client">Företag: Under Your Skin</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>Konvertering</span></div>
               <div class="meta-chip"><b>Skills</b><span>Hypotes, UX</span></div>
@@ -292,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">CRM & Retention</span>
             <h3>Stadium</h3>
-            <p>Livscykelflöden som synliggör medlemsvärde och stärker lojalitet över tid.</p>
+            <span class="card-client">Företag: Stadium</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>CRM</span></div>
               <div class="meta-chip"><b>Skills</b><span>Retention, copy</span></div>
@@ -309,7 +311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">E-commerce</span>
             <h3>ROOM 48</h3>
-            <p>Community-drivet e-handelskoncept där innehåll, event och affärsmål stöder varandra.</p>
+            <span class="card-client">Företag: ROOM 48</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>E-handel</span></div>
               <div class="meta-chip"><b>Skills</b><span>Affärsmodell</span></div>
@@ -326,7 +328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">Growth & Strategy</span>
             <h3>eComID</h3>
-            <p>Målgruppsinsikter översatta till TikTok-innehåll som skapade tydlig organisk tillväxt.</p>
+            <span class="card-client">Företag: eComID</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>TikTok growth</span></div>
               <div class="meta-chip"><b>Skills</b><span>Analys, innehåll</span></div>
@@ -343,7 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">Growth Toolbox</span>
             <h3>Pomodoro Plugin</h3>
-            <p>Chrome-plugin som kombinerar fokuspass och pausmusik för bättre arbetsrytm.</p>
+            <span class="card-client">Företag: Kursprojekt</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>Produktivitet</span></div>
               <div class="meta-chip"><b>Skills</b><span>UX, prototyp</span></div>
@@ -360,7 +362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="card-overlay">
             <span class="card-category">Social & Brand</span>
             <h3>FRANKISFOOD</h3>
-            <p>Eget varumärkesprojekt med fokus på content, tonalitet och community över tid.</p>
+            <span class="card-client">Företag: FRANKISFOOD</span>
             <div class="card-meta">
               <div class="meta-chip"><b>Ämne</b><span>Creator brand</span></div>
               <div class="meta-chip"><b>Skills</b><span>Content, format</span></div>
