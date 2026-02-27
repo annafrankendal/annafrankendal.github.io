@@ -72,8 +72,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     header h1 { font-family: var(--font-display); font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -8px; margin-bottom: 2rem; color: var(--burgundy); }
     header p { font-size: 1.5rem; font-family: var(--font-display); font-weight: 700; font-style: italic; color: var(--ink); }
 
-    /* --- OLD CARD LAYOUT (RE-STYLED) --- */
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 8rem; }
+    /* --- PROJECT CARDS --- */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; margin-bottom: 8rem; }
 
     @media (max-width: 850px) {
       .modal-content { padding: 0 20px; margin: 60px auto; }
@@ -83,26 +83,94 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .close-modal { top: 20px; right: 20px; font-size: 30px; }
     }
     
-    .video-card { 
-      cursor: pointer; background: #fff; border-radius: var(--radius); padding: 1rem;
-      border: var(--border); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      display: flex; flex-direction: column;
+    .video-card {
+      cursor: pointer;
+      background: #111;
+      border-radius: 14px;
+      border: var(--border);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+      min-height: 420px;
+      position: relative;
     }
-    .video-card:hover { transform: translateY(-10px); box-shadow: 12px 12px 0px var(--lightblue); border-color: var(--burgundy); }
+    .video-card:hover { transform: translateY(-8px); box-shadow: 16px 16px 0 var(--lightblue); border-color: var(--burgundy); }
     
     .video-preview { 
-      width: 100%; aspect-ratio: 16 / 9; background: var(--burgundy); margin-bottom: 1.5rem;
-      overflow: hidden; border-radius: calc(var(--radius) - 4px); position: relative; border: 1px solid var(--ink);
+      width: 100%;
+      height: 100%;
+      background: var(--burgundy);
+      overflow: hidden;
+      position: absolute;
+      inset: 0;
     }
-    .video-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
-    .project-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .video-info { padding: 0.5rem; }
-    .video-info h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; line-height: 1.2; text-transform: uppercase; letter-spacing: -1px; }
-    .video-info p { font-size: 0.95rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem; }
-    
-    .card-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .project-tag { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border: 1px solid var(--ink); font-weight: 700; }
+    .project-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .video-card:hover .project-cover-img { transform: scale(1.04); }
+    .card-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 1.2rem;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.78) 45%, rgba(0,0,0,0.9) 100%);
+      z-index: 1;
+    }
+    .card-category {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: #ffd9dd;
+    }
+    .card-overlay h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: #fff;
+    }
+    .card-overlay p {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #f0f0f0;
+      margin-bottom: 0.9rem;
+    }
+    .card-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+    .meta-chip {
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.08);
+      padding: 0.45rem 0.5rem;
+      border-radius: 8px;
+      min-height: 56px;
+    }
+    .meta-chip b {
+      display: block;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: #d8d8d8;
+      margin-bottom: 0.2rem;
+    }
+    .meta-chip span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.2;
+      display: block;
+      color: #fff;
+    }
 
     /* --- MODAL --- */
     .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: var(--bg); overflow-y: auto; }
@@ -125,6 +193,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 1000px) {
       header h1 { font-size: 6rem; letter-spacing: -5px; }
       nav { gap: 1.5rem; font-size: 10px; }
+    }
+    @media (max-width: 700px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .video-card { min-height: 400px; }
+      .card-overlay h3 { font-size: 1.75rem; }
+      .card-meta { grid-template-columns: 1fr; }
+      .meta-chip { min-height: auto; }
     }
   </style>
 </head>
@@ -163,15 +238,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('drypops')">
         <div class="video-preview">
           <img src="assets/project-covers/drypops.svg" alt="DryPops projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Performance Marketing</span>
-          <h3>DryPops</h3>
-          <p>Använde Paid Social som ett testlabb för att identifiera målgruppsbeteende och optimera budskap inför varumärkeslansering.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">Meta Ads</span>
-              <span class="project-tag">Performance</span>
+          <div class="card-overlay">
+            <span class="card-category">Performance Marketing</span>
+            <h3>DryPops</h3>
+            <p>Paid social som testlabb för att hitta målgrupp, budskap och format med högst effekt.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>Paid Social</span></div>
+              <div class="meta-chip"><b>Skills</b><span>A/B-test, CTR</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>Meta Ads</span></div>
             </div>
           </div>
         </div>
@@ -181,15 +255,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('seo')">
         <div class="video-preview">
           <img src="assets/project-covers/akademibokhandeln.svg" alt="Akademibokhandeln projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">SEO & Content</span>
-          <h3>Akademibokhandeln</h3>
-          <p>Utvecklade en kundreseanpassad strategi som kombinerade SEO, community och sociala medier för att öka återkommande köp av barnböcker.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">SEO</span>
-              <span class="project-tag">Strategy</span>
+          <div class="card-overlay">
+            <span class="card-category">SEO & Content</span>
+            <h3>Akademibokhandeln</h3>
+            <p>Kundreseanpassad innehållsstrategi för ökad synlighet, engagemang och återkommande köp.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>SEO</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Strategi, struktur</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>Keyword research</span></div>
             </div>
           </div>
         </div>
@@ -199,15 +272,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('cro')">
         <div class="video-preview">
           <img src="assets/project-covers/under-your-skin.svg" alt="Under Your Skin projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">CRO</span>
-          <h3>Under Your Skin</h3>
-          <p>Identifiering av friktion på produktsidor för ökad konvertering.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">UX</span>
-              <span class="project-tag">Optimering</span>
+          <div class="card-overlay">
+            <span class="card-category">CRO</span>
+            <h3>Under Your Skin</h3>
+            <p>Identifierade friktion i köpresan och prioriterade förbättringar med störst konverteringseffekt.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>Konvertering</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Hypotes, UX</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>PIE-modellen</span></div>
             </div>
           </div>
         </div>
@@ -217,15 +289,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('stadium')">
         <div class="video-preview">
           <img src="assets/project-covers/stadium.svg" alt="Stadium projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">CRM & Retention</span>
-          <h3>Stadium</h3>
-          <p>Design av livscykelflöden för att stärka medlemsvärde.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">CRM</span>
-              <span class="project-tag">Lifecycle</span>
+          <div class="card-overlay">
+            <span class="card-category">CRM & Retention</span>
+            <h3>Stadium</h3>
+            <p>Livscykelflöden som synliggör medlemsvärde och stärker lojalitet över tid.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>CRM</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Retention, copy</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>E-postflöden</span></div>
             </div>
           </div>
         </div>
@@ -235,15 +306,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('ecom')">
         <div class="video-preview">
           <img src="assets/project-covers/room48.svg" alt="ROOM 48 projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">E-commerce</span>
-          <h3>ROOM 48</h3>
-          <p>Event- och community-baserad affärsmodell med skalbarhet.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">Business</span>
-              <span class="project-tag">Growth</span>
+          <div class="card-overlay">
+            <span class="card-category">E-commerce</span>
+            <h3>ROOM 48</h3>
+            <p>Community-drivet e-handelskoncept där innehåll, event och affärsmål stöder varandra.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>E-handel</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Affärsmodell</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>Shopify</span></div>
             </div>
           </div>
         </div>
@@ -253,15 +323,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('ecomid')">
         <div class="video-preview">
           <img src="assets/project-covers/ecomid.svg" alt="eComID projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Growth & Strategy</span>
-          <h3>eComID</h3>
-          <p>Beteendeanalys och organisk TikTok-strategi för tillväxt.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">TikTok</span>
-              <span class="project-tag">SaaS</span>
+          <div class="card-overlay">
+            <span class="card-category">Growth & Strategy</span>
+            <h3>eComID</h3>
+            <p>Målgruppsinsikter översatta till TikTok-innehåll som skapade tydlig organisk tillväxt.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>TikTok growth</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Analys, innehåll</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>TikTok</span></div>
             </div>
           </div>
         </div>
@@ -271,15 +340,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('growthtoolbox')">
         <div class="video-preview">
           <img src="assets/project-covers/growth-toolbox.svg" alt="Growth Toolbox projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Growth Toolbox</span>
-          <h3>Pomodoro Plugin</h3>
-          <p>Kursprojekt: Pomodoro-plugin med musik i pauserna för bättre fokus och hållbar arbetsrytm.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">Productivity</span>
-              <span class="project-tag">Chrome</span>
+          <div class="card-overlay">
+            <span class="card-category">Growth Toolbox</span>
+            <h3>Pomodoro Plugin</h3>
+            <p>Chrome-plugin som kombinerar fokuspass och pausmusik för bättre arbetsrytm.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>Produktivitet</span></div>
+              <div class="meta-chip"><b>Skills</b><span>UX, prototyp</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>Chrome Extension</span></div>
             </div>
           </div>
         </div>
@@ -289,15 +357,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-card" onclick="openCase('frankisfood')">
         <div class="video-preview">
           <img src="assets/project-covers/frankisfood.svg" alt="FRANKISFOOD projektbild" class="project-cover-img" loading="lazy">
-        </div>
-        <div class="video-info">
-          <span class="project-tag" style="border:none; padding:0; color:var(--burgundy); margin-bottom:0.5rem; display:block;">Social & Brand</span>
-          <h3>FRANKISFOOD</h3>
-          <p>Projektkort skapat som placeholder. Fylls på med casebeskrivning, mål, metod och resultat.</p>
-          <div class="card-footer">
-            <div class="project-tags">
-              <span class="project-tag">Content</span>
-              <span class="project-tag">Creator</span>
+          <div class="card-overlay">
+            <span class="card-category">Social & Brand</span>
+            <h3>FRANKISFOOD</h3>
+            <p>Eget varumärkesprojekt med fokus på content, tonalitet och community över tid.</p>
+            <div class="card-meta">
+              <div class="meta-chip"><b>Ämne</b><span>Creator brand</span></div>
+              <div class="meta-chip"><b>Skills</b><span>Content, format</span></div>
+              <div class="meta-chip"><b>Verktyg</b><span>Instagram, TikTok</span></div>
             </div>
           </div>
         </div>
