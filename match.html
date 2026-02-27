@@ -100,10 +100,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .entry-sub {
       font-size: 1.2rem;
-      margin-bottom: 2.4rem;
+      margin-bottom: 1.2rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .entry-value {
+      display: inline-block;
+      margin: 0 0 1.6rem;
+      padding: 10px 14px;
+      border: var(--border);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: #fff;
+      color: var(--navy);
     }
     .entry-note {
       margin-top: 1rem;
@@ -226,6 +239,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div id="quizEntry" class="quiz-card entry-card">
       <h2 class="entry-title">Är vi en match?</h2>
       <p class="entry-sub">Svara på fyra korta frågor och få en tydlig matchprocent direkt. Det ger er ett snabbt första urval, sparar tid i rekryteringen och gör det enkelt att avgöra om vi ska ta nästa steg.</p>
+      <p class="entry-value">Value: matchprocent direkt, snabbare urval, sparad rekryteringstid</p>
       <button id="startQuizBtn" class="btn btn-primary" style="padding: 20px 40px;">Starta testet</button>
       <p class="entry-note">Ni får snabb indikation, tydligt underlag och enkel kontakt i samma flöde.</p>
     </div>
