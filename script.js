@@ -1,6 +1,9 @@
 // script.js handles the interaction between the user and the AI assistant.
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure dataLayer exists before any tracking push.
+    window.dataLayer = window.dataLayer || [];
+
     // Vi letar efter knappen på alla sidor
     const sendBtn = document.getElementById('send-btn');
     const chatInput = document.getElementById('chat-input') || document.getElementById('user-input');
@@ -30,6 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     askAI();
                 }
             }
+        });
+    }
+
+    // Track clicks on "Är vi en match?" navigation CTA across pages.
+    const matchCtas = document.querySelectorAll('a.nav-cta[href="match.html"]');
+    if (matchCtas.length) {
+        matchCtas.forEach((cta) => {
+            cta.addEventListener('click', () => {
+                window.dataLayer.push({
+                    event: 'match_button_click',
+                    button_text: cta.textContent.trim() || 'Är vi en match?',
+                    button_location: 'navigation',
+                    page_path: window.location.pathname
+                });
+            });
         });
     }
 });
