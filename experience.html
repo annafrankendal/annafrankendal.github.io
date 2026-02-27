@@ -390,6 +390,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     function generatePDF() {
       const element = document.querySelector('.cv-paper');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'cv_pdf_download_click',
+        page_path: window.location.pathname
+      });
       
       // Vi döljer knappen tillfälligt så den inte kommer med i PDF:en
       const btn = document.querySelector('.download-cv-btn');
