@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input') || document.getElementById('user-input');
     
     if (sendBtn) {
-        sendBtn.addEventListener('click', askAI);
+        sendBtn.addEventListener('click', () => askAI('manual'));
         console.log("Anna-AI: Systemet är redo.");
     }
 
     if (chatInput) {
         chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                askAI();
+                askAI('manual');
             }
         });
     }
@@ -30,7 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const input = document.getElementById('chat-input') || document.getElementById('user-input');
                 if (input) {
                     input.value = suggestionText;
-                    askAI();
+                    pushDataLayerEvent({
+                        event: 'ai_chat_suggestion_click',
+                        suggestion_text: suggestionText.trim(),
+                        page_path: window.location.pathname
+                    });
+                    askAI('suggestion');
                 }
             }
         });
@@ -60,10 +65,18 @@ function toggleChat() {
         chatContainer.style.display = 'none';
         trigger.innerHTML = '💬';
         trigger.classList.remove('active');
+        pushDataLayerEvent({
+            event: 'ai_chat_close',
+            page_path: window.location.pathname
+        });
     } else {
         chatContainer.style.display = 'flex';
         trigger.innerHTML = '✕';
         trigger.classList.add('active');
+        pushDataLayerEvent({
+            event: 'ai_chat_open',
+            page_path: window.location.pathname
+        });
         // Skrolla till botten när den öppnas
         const display = document.getElementById('chat-display');
         if (display) display.scrollTop = display.scrollHeight;
@@ -87,13 +100,19 @@ function toggleLoading(show) {
     }
 }
 
-async function askAI() {
+async function askAI(source = 'manual') {
     const inputField = document.getElementById('chat-input') || document.getElementById('user-input');
     const display = document.getElementById('chat-display') || document.getElementById('chat-box');
     
     if (!inputField || !inputField.value.trim()) return;
 
     const userText = inputField.value.trim();
+    pushDataLayerEvent({
+        event: 'ai_chat_message_sent',
+        message_length: userText.length,
+        message_source: source,
+        page_path: window.location.pathname
+    });
 
     // 1. Visa ditt meddelande direkt
     if (display) {
@@ -129,8 +148,17 @@ async function askAI() {
         // 5. Visa Annas strategiska svar
         if (data.reply && display) {
             display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${data.reply}</div>`;
+            pushDataLayerEvent({
+                event: 'ai_chat_response_received',
+                response_length: data.reply.length,
+                page_path: window.location.pathname
+            });
         } else if (display) {
             display.innerHTML += `<div class="message system" style="color:red;">Kunde inte tolka svaret.</div>`;
+            pushDataLayerEvent({
+                event: 'ai_chat_response_empty',
+                page_path: window.location.pathname
+            });
         }
 
     } catch (error) {
@@ -140,9 +168,18 @@ async function askAI() {
         if (display) {
             display.innerHTML += `<div class="message system" style="color:red;"><b>System:</b> Servern sover. Kör 'npm start' i terminalen!</div>`;
         }
+        pushDataLayerEvent({
+            event: 'ai_chat_error',
+            page_path: window.location.pathname
+        });
     }
 
     if (display) {
         display.scrollTop = display.scrollHeight;
     }
+}
+
+function pushDataLayerEvent(payload) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
 }
