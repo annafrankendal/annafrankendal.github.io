@@ -60,48 +60,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .hero {
       position: relative;
-      width: 100vw;
-      left: 50%;
-      margin-left: -50vw;
-      padding: 6.5rem 2rem 3rem;
-      min-height: 78vh;
+      padding: 8rem 0 4rem;
+      min-height: 58vh;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       overflow: hidden;
     }
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('annabild.JPG') center 26% / cover no-repeat;
-      z-index: 0;
-      transform: scale(1.02);
+      content: none;
     }
     .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.22) 6%, rgba(0,0,0,0.48) 65%, rgba(0,0,0,0.62) 100%);
-      z-index: 1;
+      content: none;
     }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(6rem, 18vw, 16rem);
+      font-size: clamp(6rem, 18vw, 14rem);
       font-weight: 900;
       line-height: 0.78;
       text-transform: uppercase;
       letter-spacing: -10px;
-      margin-bottom: 1.4rem;
-      color: #FFFFFF;
+      margin-bottom: 2.2rem;
+      color: #000000;
       position: relative;
       z-index: 2;
-      text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+      text-shadow: none;
     }
     .hero-image-wrap {
-      display: none;
+      width: 180px;
+      margin: 0;
+      border: var(--border);
+      overflow: hidden;
+      aspect-ratio: 0.85;
+      background: var(--lightblue);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%);
+      z-index: 1;
+      opacity: 0.95;
     }
     .hero-image-wrap img {
       width: 100%;
@@ -116,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-transform: uppercase;
       letter-spacing: 6px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #000000;
       display: block;
       position: relative;
       z-index: 2;
@@ -223,8 +222,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 1000px) {
-      .hero { min-height: 68vh; padding: 4.8rem 1.2rem 2.4rem; }
-      .hero h1 { font-size: clamp(4.4rem, 17vw, 9rem); letter-spacing: -6px; margin-bottom: 1.1rem; }
+      .hero { min-height: 52vh; padding: 5.3rem 0 3.4rem; }
+      .hero h1 { font-size: clamp(3rem, 14vw, 9rem); letter-spacing: -6px; margin-bottom: 1.7rem; }
+      .hero-image-wrap { width: 150px; transform: translate(-50%, -44%); }
       nav { gap: 1.5rem; font-size: 10px; }
       .project-card { flex-basis: 50%; min-height: 240px; }
     }
