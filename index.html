@@ -138,84 +138,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--navy);
       line-height: 0.95;
     }
-    .carousel-nav { display: flex; gap: 0.5rem; }
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
-      border: var(--border);
-      background: #FFFFFF;
-      color: var(--navy);
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 999px;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
     }
-    .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-    .carousel-window {
-      overflow: hidden;
-      border: var(--border);
-      background: #FFFFFF;
-    }
-    .carousel-track { display: flex; transition: transform 0.35s ease; }
 
     .project-card {
-      border: 0;
-      background: #1A1A1A;
-      color: #FFFFFF;
+      border: var(--border);
+      background: #FFFFFF;
+      color: #1A1A1A;
       cursor: default;
       text-align: left;
       position: relative;
-      min-height: 280px;
-      flex: 0 0 calc(100% / 3);
-      border-right: 1px solid rgba(255,255,255,0.14);
+      min-height: 220px;
+      display: block;
+      overflow: hidden;
     }
-    .project-card:last-child { border-right: 0; }
     .project-card img {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
+      aspect-ratio: 16 / 10;
+      height: auto;
       object-fit: cover;
-      z-index: 0;
-    }
-    .project-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04) 18%, rgba(0,0,0,0.86) 100%);
-      z-index: 1;
+      display: block;
     }
     .project-card-content {
-      position: relative;
-      z-index: 2;
-      padding: 1rem;
+      padding: 0.75rem 0.8rem 0.85rem;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      height: 100%;
+      justify-content: flex-start;
+      gap: 0.35rem;
     }
     .project-card small {
       text-transform: uppercase;
-      letter-spacing: 1.3px;
-      font-size: 0.62rem;
-      color: #E5E5E5;
+      letter-spacing: 1px;
+      font-size: 0.58rem;
+      color: #666666;
       display: block;
-      margin-bottom: 0.45rem;
       font-weight: 700;
     }
     .project-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.9rem;
-      line-height: 0.95;
-      letter-spacing: -0.8px;
-      margin-bottom: 0.35rem;
-      text-transform: uppercase;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+      text-transform: none;
+      font-weight: 700;
     }
     .project-card p {
-      font-size: 0.78rem;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: #E5E5E5;
+      font-size: 0.72rem;
+      letter-spacing: 0.2px;
+      text-transform: none;
+      color: #666666;
     }
 
     @media (max-width: 1000px) {
@@ -223,10 +197,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero h1 { font-size: clamp(3rem, 14vw, 9rem); letter-spacing: -6px; margin-bottom: 1.7rem; }
       .hero-image-wrap { width: 150px; margin-bottom: 1.6rem; }
       nav { gap: 1.5rem; font-size: 10px; }
-      .project-card { flex-basis: 50%; min-height: 240px; }
+      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 680px) {
-      .project-card { flex-basis: 100%; min-height: 250px; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
 
     footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: #000000; }
@@ -271,14 +245,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="home-projects" aria-label="Projekt i urval">
       <div class="projects-head">
         <h2>Projekt</h2>
-        <div class="carousel-nav">
-          <button id="projectsPrev" class="carousel-btn" type="button" aria-label="Föregående projekt">&#8592;</button>
-          <button id="projectsNext" class="carousel-btn" type="button" aria-label="Nästa projekt">&#8594;</button>
-        </div>
       </div>
-      <div class="carousel-window">
-        <div id="projectsTrack" class="carousel-track"></div>
-      </div>
+      <div id="projectsTrack" class="projects-grid"></div>
     </section>
   </main>
 
@@ -330,17 +298,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ];
 
     const trackEl = document.getElementById('projectsTrack');
-    const prevBtn = document.getElementById('projectsPrev');
-    const nextBtn = document.getElementById('projectsNext');
-    let currentSlide = 0;
-    let visibleCards = 3;
-
-    function getVisibleCards() {
-      if (window.innerWidth <= 680) return 1;
-      if (window.innerWidth <= 1000) return 2;
-      return 3;
-    }
-
     function renderCards() {
       trackEl.innerHTML = featuredProjects.map((project, idx) => `
         <button type="button" class="project-card" data-index="${idx}">
@@ -353,41 +310,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </button>
       `).join('');
     }
-
-    function updateCarousel() {
-      const cardWidth = 100 / visibleCards;
-      trackEl.style.transform = `translateX(-${currentSlide * cardWidth}%)`;
-      prevBtn.disabled = currentSlide === 0;
-      prevBtn.setAttribute('aria-disabled', prevBtn.disabled ? 'true' : 'false');
-      nextBtn.disabled = currentSlide >= featuredProjects.length - visibleCards;
-      nextBtn.setAttribute('aria-disabled', nextBtn.disabled ? 'true' : 'false');
-    }
-
-    function initCarousel() {
-      visibleCards = getVisibleCards();
-      const maxSlide = Math.max(featuredProjects.length - visibleCards, 0);
-      if (currentSlide > maxSlide) currentSlide = maxSlide;
-      updateCarousel();
-    }
-
     renderCards();
-    initCarousel();
-
-    prevBtn.addEventListener('click', () => {
-      if (currentSlide > 0) {
-        currentSlide -= 1;
-        updateCarousel();
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (currentSlide < featuredProjects.length - visibleCards) {
-        currentSlide += 1;
-        updateCarousel();
-      }
-    });
-
-    window.addEventListener('resize', initCarousel);
   </script>
 </body>
 </html>
