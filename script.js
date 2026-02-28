@@ -91,7 +91,7 @@ function toggleLoading(show) {
         const loadingDiv = document.createElement('div');
         loadingDiv.id = 'loading-indicator';
         loadingDiv.className = 'message system';
-        loadingDiv.innerHTML = '<p style="font-style: italic; color: #630d16;">Anna tänker...</p>';
+        loadingDiv.innerHTML = '<p style="font-style: italic; color: #000000;">Anna tänker...</p>';
         display.appendChild(loadingDiv);
         display.scrollTop = display.scrollHeight;
     } else {

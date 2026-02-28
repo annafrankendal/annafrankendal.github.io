@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
   <title id="t">Stadium cover</title><desc id="d">CRM and Retention</desc>
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1b263b"/><stop offset="100%" stop-color="#630d16"/></linearGradient></defs>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1A1A1A"/><stop offset="100%" stop-color="#000000"/></linearGradient></defs>
   <rect width="1600" height="900" fill="url(#g)"/>
-  <text x="120" y="360" fill="#fdfaf6" font-size="54" font-family="Georgia, serif" font-weight="700" letter-spacing="2">STADIUM</text>
-  <text x="120" y="430" fill="#d1e8ff" font-size="30" font-family="Arial, sans-serif" letter-spacing="4">CRM &amp; RETENTION</text>
+  <text x="120" y="360" fill="#FFFFFF" font-size="54" font-family="Georgia, serif" font-weight="700" letter-spacing="2">STADIUM</text>
+  <text x="120" y="430" fill="#E5E5E5" font-size="30" font-family="Arial, sans-serif" letter-spacing="4">CRM &amp; RETENTION</text>
 </svg>

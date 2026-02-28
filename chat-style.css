@@ -8,8 +8,8 @@
     max-width: 90vw;
     height: 600px;
     max-height: 80vh;
-    background: #fff;
-    border: 1.5px solid #1a1a1a;
+    background: #FFFFFF;
+    border: 1.5px solid #1A1A1A;
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(0,0,0,0.15);
     display: none; /* Hidden by default */
@@ -25,8 +25,8 @@
 }
 
 .ai-chat-hero {
-    background: #630d16; /* Burgundy */
-    color: #fff;
+    background: #000000; /* Burgundy */
+    color: #FFFFFF;
     padding: 25px;
     text-align: left;
 }
@@ -35,7 +35,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 5px;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 .ai-chat-hero p {
@@ -48,7 +48,7 @@
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    background: #fdfaf6;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -64,30 +64,30 @@
 }
 
 .message.user {
-    background: #e7e5e2;
+    background: #E5E5E5;
     align-self: flex-end;
     border-bottom-right-radius: 2px;
 }
 
 .message.ai {
-    background: #fff;
-    border: 1px solid #e7e5e2;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
     align-self: flex-start;
     border-bottom-left-radius: 2px;
 }
 
 .chat-suggestions {
     padding: 10px 20px;
-    background: #fdfaf6;
+    background: #FFFFFF;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #E5E5E5;
 }
 
 .chip {
-    background: #fff;
-    border: 1px solid #1a1a1a;
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -96,14 +96,14 @@
 }
 
 .chip:hover {
-    background: #1a1a1a;
-    color: #fff;
+    background: #1A1A1A;
+    color: #FFFFFF;
 }
 
 .chat-controls {
     padding: 20px;
-    background: #fff;
-    border-top: 1px solid #eee;
+    background: #FFFFFF;
+    border-top: 1px solid #E5E5E5;
     display: flex;
     gap: 10px;
 }
@@ -111,7 +111,7 @@
 #chat-input {
     flex: 1;
     padding: 12px 15px;
-    border: 1.5px solid #e7e5e2;
+    border: 1.5px solid #E5E5E5;
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.9rem;
@@ -119,12 +119,12 @@
 }
 
 #chat-input:focus {
-    border-color: #630d16;
+    border-color: #000000;
 }
 
 #send-btn {
-    background: #630d16;
-    color: #fff;
+    background: #000000;
+    color: #FFFFFF;
     border: none;
     padding: 0 20px;
     border-radius: 10px;
@@ -144,13 +144,13 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: #630d16;
-    color: #fff;
+    background: #000000;
+    color: #FFFFFF;
     border: none;
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(99, 13, 22, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     z-index: 10000;
     display: flex;
     align-items: center;

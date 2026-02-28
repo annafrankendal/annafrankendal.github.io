@@ -19,13 +19,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root {
-      --bg: #fdfaf6;
-      --ink: #1a1a1a;
-      --burgundy: #630d16;
-      --navy: #1b263b;
-      --lightblue: #d1e8ff;
-      --beige: #f2ede4;
-      --border: 1.5px solid #1a1a1a;
+      --bg: #FFFFFF;
+      --ink: #1A1A1A;
+      --burgundy: #000000;
+      --navy: #1A1A1A;
+      --lightblue: #E5E5E5;
+      --beige: #F8F8F8;
+      --border: 1.5px solid #E5E5E5;
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
       --radius: 12px;
@@ -45,13 +45,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* --- NAVIGATION --- */
     .contact-bar {
-      background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
+      background: #1A1A1A; color: #FFFFFF; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
       font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
     }
-    .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; }
+    .contact-bar a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
 
     nav { 
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
+      background: #FFFFFF; backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
       justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
       border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
       flex-wrap: wrap;
@@ -59,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: var(--burgundy); }
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
-    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
+    .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #FFFFFF !important; }
 
     @media (max-width: 600px) {
       nav { gap: 1rem; padding: 1rem 0.5rem; }
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .video-card {
       cursor: pointer;
-      background: #111;
+      background: #1A1A1A;
       border-radius: 14px;
       border: var(--border);
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       position: absolute;
       inset: auto 0 0;
       padding: 1.2rem;
-      color: #fff;
+      color: #FFFFFF;
       background:
         linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.74) 46%, rgba(0,0,0,0.9) 100%);
       z-index: 1;
@@ -127,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-transform: uppercase;
       letter-spacing: 1.5px;
       font-weight: 700;
-      color: #ffd9dd;
+      color: #E5E5E5;
     }
     .card-overlay h3 {
       font-family: var(--font-display);
@@ -136,14 +136,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1;
       text-transform: uppercase;
       letter-spacing: -1px;
-      color: #fff;
+      color: #FFFFFF;
     }
     .card-client {
       display: block;
       font-size: 0.74rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #e7e7e7;
+      color: #E5E5E5;
       margin-bottom: 0.9rem;
     }
     .card-meta {
@@ -163,7 +163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 8px;
       text-transform: uppercase;
       letter-spacing: 1.1px;
-      color: #d8d8d8;
+      color: #E5E5E5;
       margin-bottom: 0.2rem;
     }
     .meta-chip span {
@@ -171,25 +171,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 700;
       line-height: 1.2;
       display: block;
-      color: #fff;
+      color: #FFFFFF;
     }
 
     /* --- MODAL --- */
     .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: var(--bg); overflow-y: auto; }
     .modal-content { max-width: 900px; margin: 100px auto; padding: 0 40px; animation: fadeIn 0.6s ease; }
     .close-modal { position: fixed; top: 40px; right: 40px; font-size: 40px; cursor: pointer; z-index: 3001; }
-    .pdf-container { width: 100%; aspect-ratio: 16 / 9; background: #000; border: var(--border); overflow: hidden; margin-bottom: 3rem; position: relative; }
+    .pdf-container { width: 100%; aspect-ratio: 16 / 9; background: #000000; border: var(--border); overflow: hidden; margin-bottom: 3rem; position: relative; }
     .pdf-viewer { width: 100%; height: 100%; border: none; }
     .case-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); }
+    footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: #000000; }
     footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 2rem; line-height: 1.15; letter-spacing: 3px; color: var(--burgundy); text-transform: uppercase; }
-    .footer-sub { margin-top: 40px; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; color: var(--burgundy); display: block; text-transform: uppercase; }
+    .footer-sub { margin-top: 40px; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; color: #FFFFFF; display: block; text-transform: uppercase; }
     .footer-icons { margin-top: 40px; display: flex; justify-content: center; gap: 40px; }
-    .footer-links a { color: var(--ink); font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
-    .footer-links a:hover { transform: translateY(-3px); opacity: 1; color: var(--burgundy); }
+    .footer-links a { color: #FFFFFF; font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
+    .footer-links a:hover { transform: translateY(-3px); opacity: 1; color: #E5E5E5; }
     .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
@@ -753,16 +753,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
         : `
-        <div style="text-align:center; padding-top:2rem; border-top:1px solid #eee; margin-top:2rem;">
+        <div style="text-align:center; padding-top:2rem; border-top:1px solid #E5E5E5; margin-top:2rem;">
           ${hasDownloadCta ? `<a href="${downloadHref}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
-          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#fff; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva)</button>` : ''}
+          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva)</button>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
         ? `
           <div class="pdf-container" style="background:var(--beige); display:flex; align-items:center; justify-content:center; padding:2rem;">
             <div style="text-align:center; max-width:60ch;">
-              <p style="font-size:1rem; line-height:1.6; margin-bottom:1.4rem; color:#333;">
+              <p style="font-size:1rem; line-height:1.6; margin-bottom:1.4rem; color:#1A1A1A;">
                 Det här projektet levereras som Chrome-extension. Ladda ner zip-filen, packa upp den och installera via chrome://extensions.
               </p>
               <a href="${data.link}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none;">${downloadLabel}</a>
@@ -780,15 +780,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (data.sections) {
         // Modern structured layout (used for Akademibokhandeln)
         detailContent = `
-          <div style="border-top: 1px solid #eee; padding-top: 2rem; max-width: 700px;">
+          <div style="border-top: 1px solid #E5E5E5; padding-top: 2rem; max-width: 700px;">
             <p style="font-size:1.3rem; font-weight:600; line-height:1.4; margin-bottom:3rem; font-family:var(--font-body);">${data.summary}</p>
             
             ${data.sections.map(section => `
               <div style="margin-bottom: 3.5rem;">
-                <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin-bottom:1.2rem; font-weight:700; color:var(--burgundy); border-bottom:1px solid #eee; padding-bottom:8px; display:inline-block;">${section.title}</h4>
-                ${section.content ? `<p style="font-size:1.05rem; line-height:1.7; color:#333; max-width:65ch;">${section.content}</p>` : ''}
+                <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin-bottom:1.2rem; font-weight:700; color:var(--burgundy); border-bottom:1px solid #E5E5E5; padding-bottom:8px; display:inline-block;">${section.title}</h4>
+                ${section.content ? `<p style="font-size:1.05rem; line-height:1.7; color:#1A1A1A; max-width:65ch;">${section.content}</p>` : ''}
                 ${section.list ? `
-                  <ul style="padding-left:1.2rem; font-size:1.05rem; line-height:1.8; color:#333; max-width:65ch;">
+                  <ul style="padding-left:1.2rem; font-size:1.05rem; line-height:1.8; color:#1A1A1A; max-width:65ch;">
                     ${section.list.map(item => `<li>${item}</li>`).join('')}
                   </ul>
                 ` : ''}
@@ -804,22 +804,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         
         detailContent = `
-          <div style="border-top: 1px solid #eee; padding-top: 2rem;">
+          <div style="border-top: 1px solid #E5E5E5; padding-top: 2rem;">
             <p style="font-size:1.3rem; font-weight:600; line-height:1.5; margin-bottom:2rem;">${data.summary}</p>
-            <div style="font-size:1.1rem; line-height:1.7; color:#333; margin-bottom:3rem; font-family:var(--font-body);">
+            <div style="font-size:1.1rem; line-height:1.7; color:#1A1A1A; margin-bottom:3rem; font-family:var(--font-body);">
               ${data.description || ''}
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom:4rem; font-family:var(--font-body);">
             <div>
-              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000; padding-bottom:5px;">Vad jag gjorde</h4>
+              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000000; padding-bottom:5px;">Vad jag gjorde</h4>
               <ul style="padding-left:1.5rem; font-size:1rem; line-height:1.8;">${whatIDidHtml}</ul>
             </div>
             <div>
-              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000; padding-bottom:5px;">Verktyg & Effekt</h4>
+              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000000; padding-bottom:5px;">Verktyg & Effekt</h4>
               <p style="font-size:1rem; margin-bottom:1.5rem;"><strong>Verktyg:</strong> ${data.tools || ''}</p>
-              <p style="font-size:1.1rem; font-style:italic; color:#000;"><strong>KPI/Effekt:</strong> ${data.kpi || ''}</p>
+              <p style="font-size:1.1rem; font-style:italic; color:#000000;"><strong>KPI/Effekt:</strong> ${data.kpi || ''}</p>
             </div>
           </div>
         `;
@@ -827,9 +827,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       body.innerHTML = `
         <div style="margin-bottom: 2rem;">
-          <span style="text-transform:uppercase; letter-spacing:2px; font-size:10px; color:#999; display:block; margin-bottom:0.5rem;">${data.category} // ${data.tags}</span>
+          <span style="text-transform:uppercase; letter-spacing:2px; font-size:10px; color:#666666; display:block; margin-bottom:0.5rem;">${data.category} // ${data.tags}</span>
           <h2 style="font-family:var(--font-display); font-size:2.5rem; line-height:1.1; margin-bottom:1rem; text-transform:uppercase; font-weight:900; letter-spacing:-1px;">${data.title}</h2>
-          <p style="font-family:var(--font-display); font-style:italic; font-size:1.4rem; color:#666;">${data.course}</p>
+          <p style="font-family:var(--font-display); font-style:italic; font-size:1.4rem; color:#666666;">${data.course}</p>
         </div>
         
         ${presentationBlock}
