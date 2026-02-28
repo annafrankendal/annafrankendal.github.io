@@ -13,7 +13,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anna Frankendal | Strategi & Berättande</title>
 
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
@@ -42,7 +41,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
 
-    /* --- CONTACT BAR --- */
     .contact-bar {
       background: #000; color: #fff; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
       font-size: 10px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
@@ -50,10 +48,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .contact-bar a { color: #fff; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
 
-    /* --- NAVIGATION --- */
-    nav { 
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
-      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px; 
+    nav {
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex;
+      justify-content: center; align-items: center; gap: 3rem; position: sticky; top: 39px;
       border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
@@ -61,8 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
     .nav-cta { padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #fff !important; }
 
-    /* --- HERO --- */
-    .hero { padding: 8rem 0 5rem; text-align: center; }
+    .hero { padding: 8rem 0 4rem; text-align: center; }
     .hero h1 {
       font-family: var(--font-display);
       font-size: clamp(3.2rem, 8.8vw, 6.8rem);
@@ -70,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 0.82;
       text-transform: uppercase;
       letter-spacing: -7px;
-      margin-bottom: 3.6rem;
+      margin-bottom: 3.2rem;
       color: var(--burgundy);
     }
     .hero-image-wrap {
@@ -97,15 +93,147 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--burgundy);
       display: block;
     }
+
+    .home-projects {
+      margin: 0 auto 6rem;
+      border-top: var(--border);
+      padding-top: 2.4rem;
+    }
+    .projects-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .projects-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: var(--burgundy);
+      line-height: 0.95;
+    }
+    .carousel-nav { display: flex; gap: 0.5rem; }
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border: var(--border);
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 999px;
+    }
+    .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .carousel-window {
+      overflow: hidden;
+      border: var(--border);
+      background: #fff;
+    }
+    .carousel-track { display: flex; transition: transform 0.35s ease; }
+
+    .project-card {
+      border: 0;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      position: relative;
+      min-height: 280px;
+      flex: 0 0 calc(100% / 3);
+      border-right: 1px solid rgba(255,255,255,0.14);
+    }
+    .project-card:last-child { border-right: 0; }
+    .project-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.04) 18%, rgba(0,0,0,0.86) 100%);
+      z-index: 1;
+    }
+    .project-card-content {
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .project-card small {
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-size: 0.62rem;
+      color: #f4dfe2;
+      display: block;
+      margin-bottom: 0.45rem;
+      font-weight: 700;
+    }
+    .project-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 0.95;
+      letter-spacing: -0.8px;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+    .project-card p {
+      font-size: 0.78rem;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: #ececec;
+    }
+
+    .project-info {
+      margin-top: 1rem;
+      border: var(--border);
+      background: #fff;
+      padding: 1rem 1.2rem;
+      min-height: 140px;
+    }
+    .project-info h3 {
+      font-family: var(--font-display);
+      color: var(--burgundy);
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .project-info p {
+      font-size: 0.96rem;
+      line-height: 1.5;
+      max-width: 74ch;
+    }
+    .project-info-meta {
+      margin-top: 0.65rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: #5b5b5b;
+      font-weight: 700;
+    }
+
     @media (max-width: 1000px) {
       .hero { padding: 5.3rem 0 3.4rem; }
       .hero h1 { font-size: clamp(3rem, 14vw, 5rem); letter-spacing: -4px; margin-bottom: 2.4rem; }
       .hero-image-wrap { width: 160px; margin-bottom: 2.2rem; }
       nav { gap: 1.5rem; font-size: 10px; }
+      .project-card { flex-basis: 50%; min-height: 240px; }
+    }
+    @media (max-width: 680px) {
+      .project-card { flex-basis: 100%; min-height: 250px; }
     }
 
     footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: #fff; }
-    footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 2rem; line-height: 1.15; letter-spacing: 3px; color: var(--burgundy); text-transform: uppercase; }
     .footer-sub { margin-top: 40px; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; color: var(--burgundy); display: block; text-transform: uppercase; }
     .footer-icons { margin-top: 40px; display: flex; justify-content: center; gap: 40px; }
     .footer-links a { color: var(--ink); font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
@@ -118,7 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD8Z8J5B"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
- 
+
   <div class="contact-bar">
     <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
     <a href="tel:+46707595554">070-759 55 54</a>
@@ -144,6 +272,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="hero-role">Growth Marketer</span>
     </section>
 
+    <section class="home-projects" aria-label="Projekt i urval">
+      <div class="projects-head">
+        <h2>Utvalda Projekt</h2>
+        <div class="carousel-nav">
+          <button id="projectsPrev" class="carousel-btn" type="button" aria-label="Föregående projekt">&#8592;</button>
+          <button id="projectsNext" class="carousel-btn" type="button" aria-label="Nästa projekt">&#8594;</button>
+        </div>
+      </div>
+      <div class="carousel-window">
+        <div id="projectsTrack" class="carousel-track"></div>
+      </div>
+      <div id="projectInfo" class="project-info"></div>
+    </section>
   </main>
 
   <footer>
@@ -160,9 +301,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
-  <!-- Floating Chat Interface -->
   <button class="chat-trigger" onclick="toggleChat()">💬</button>
-  
+
   <div id="ai-chat-container">
     <div class="ai-chat-hero">
       <h2>Testa hur jag tänker</h2>
@@ -173,7 +313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button type="button" class="chip">Varför får vi få klick?</button>
       <button type="button" class="chip">Varför blir det inga köp?</button>
       <button type="button" class="chip">Hur får vi kunder att stanna?</button>
-    </div>    
+    </div>
     <div class="chat-controls">
       <input type="text" id="chat-input" placeholder="Beskriv ett problem...">
       <button id="send-btn">Fråga</button>
@@ -182,7 +322,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <link rel="stylesheet" href="chat-style.css">
   <script src="script.js"></script>
-
   <script>
-    const matchAnswers = { q1:null, q2:null, q3:null, q4:null };
-    // ... existing script logic (omitted for brevity in replacement but kept in file) ...
+    const featuredProjects = [
+      { id: 'drypops', title: 'DryPops', category: 'Performance Marketing', skill: 'Paid Social', image: 'assets/project-covers/drypops.svg', summary: 'Paid social som testlabb för att förstå målgruppsbeteende och optimera budskap inför lansering.' },
+      { id: 'seo', title: 'Akademibokhandeln', category: 'SEO & Content', skill: 'Content Strategy', image: 'assets/project-covers/akademibokhandeln.svg', summary: 'Kundreseanpassad SEO- och innehållsstrategi för synlighet, engagemang och återkommande köp.' },
+      { id: 'cro', title: 'Under Your Skin', category: 'CRO', skill: 'UX & Optimering', image: 'assets/project-covers/under-your-skin.svg', summary: 'Identifierade friktion i köpresan och prioriterade insatser som stärker konvertering.' },
+      { id: 'stadium', title: 'Stadium', category: 'CRM & Retention', skill: 'Lojalitetsflöden', image: 'assets/project-covers/stadium.svg', summary: 'Utvecklade livscykelkommunikation som tydliggör medlemsvärde och stärker relation över tid.' },
+      { id: 'ecom', title: 'ROOM 48', category: 'E-commerce', skill: 'Affärsmodell', image: 'assets/project-covers/room48.svg', summary: 'Byggde ett communitydrivet e-handelskoncept där innehåll, event och commerce samspelar.' },
+      { id: 'ecomid', title: 'eComID', category: 'Growth & Strategy', skill: 'TikTok Growth', image: 'assets/project-covers/ecomid.svg', summary: 'Analys och kanalstrategi för organisk tillväxt med tydligare träff i målgrupp.' }
+    ];
+
+    const trackEl = document.getElementById('projectsTrack');
+    const infoEl = document.getElementById('projectInfo');
+    const prevBtn = document.getElementById('projectsPrev');
+    const nextBtn = document.getElementById('projectsNext');
+    let currentSlide = 0;
+    let visibleCards = 3;
+
+    function getVisibleCards() {
+      if (window.innerWidth <= 680) return 1;
+      if (window.innerWidth <= 1000) return 2;
+      return 3;
+    }
+
+    function renderCards() {
+      trackEl.innerHTML = featuredProjects.map((project, idx) => `
+        <button type="button" class="project-card" data-index="${idx}">
+          <img src="${project.image}" alt="${project.title} projektbild" loading="lazy">
+          <div class="project-card-content">
+            <small>${project.category}</small>
+            <h3>${project.title}</h3>
+            <p>${project.skill}</p>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function renderInfo(idx) {
+      const project = featuredProjects[idx];
+      infoEl.innerHTML = `
+        <h3>${project.title}</h3>
+        <p>${project.summary}</p>
+        <div class="project-info-meta">Visas pa startsidan | stannar pa samma sida</div>
+      `;
+    }
+
+    function updateCarousel() {
+      const cardWidth = 100 / visibleCards;
+      trackEl.style.transform = `translateX(-${currentSlide * cardWidth}%)`;
+      prevBtn.disabled = currentSlide === 0;
+      prevBtn.setAttribute('aria-disabled', prevBtn.disabled ? 'true' : 'false');
+      nextBtn.disabled = currentSlide >= featuredProjects.length - visibleCards;
+      nextBtn.setAttribute('aria-disabled', nextBtn.disabled ? 'true' : 'false');
+    }
+
+    function initCarousel() {
+      visibleCards = getVisibleCards();
+      const maxSlide = Math.max(featuredProjects.length - visibleCards, 0);
+      if (currentSlide > maxSlide) currentSlide = maxSlide;
+      updateCarousel();
+    }
+
+    renderCards();
+    renderInfo(0);
+    initCarousel();
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide -= 1;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < featuredProjects.length - visibleCards) {
+        currentSlide += 1;
+        updateCarousel();
+      }
+    });
+
+    trackEl.addEventListener('click', (event) => {
+      const card = event.target.closest('.project-card');
+      if (!card) return;
+      const idx = Number(card.getAttribute('data-index'));
+      renderInfo(idx);
+    });
+
+    window.addEventListener('resize', initCarousel);
+  </script>
+</body>
+</html>
