@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero {
       position: relative;
       padding: 8rem 0 4rem;
-      min-height: 58vh;
+      min-height: auto;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -82,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 0.78;
       text-transform: uppercase;
       letter-spacing: -10px;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.4rem;
       color: #000000;
       position: relative;
       z-index: 2;
@@ -90,17 +90,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .hero-image-wrap {
       width: 180px;
-      margin: 0;
+      margin: 0 auto 2rem;
       border: var(--border);
       overflow: hidden;
       aspect-ratio: 0.85;
       background: var(--lightblue);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -46%);
-      z-index: 1;
-      opacity: 0.95;
+      position: relative;
+      z-index: 2;
+      opacity: 1;
     }
     .hero-image-wrap img {
       width: 100%;
@@ -224,7 +221,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 1000px) {
       .hero { min-height: 52vh; padding: 5.3rem 0 3.4rem; }
       .hero h1 { font-size: clamp(3rem, 14vw, 9rem); letter-spacing: -6px; margin-bottom: 1.7rem; }
-      .hero-image-wrap { width: 150px; transform: translate(-50%, -44%); }
+      .hero-image-wrap { width: 150px; margin-bottom: 1.6rem; }
       nav { gap: 1.5rem; font-size: 10px; }
       .project-card { flex-basis: 50%; min-height: 240px; }
     }
