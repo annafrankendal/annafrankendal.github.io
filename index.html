@@ -137,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: 0;
       background: #111;
       color: #fff;
-      cursor: pointer;
+      cursor: default;
       text-align: left;
       position: relative;
       min-height: 280px;
@@ -193,35 +193,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #ececec;
     }
 
-    .project-info {
-      margin-top: 1rem;
-      border: var(--border);
-      background: #fff;
-      padding: 1rem 1.2rem;
-      min-height: 140px;
-    }
-    .project-info h3 {
-      font-family: var(--font-display);
-      color: var(--burgundy);
-      font-size: 1.7rem;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-      text-transform: uppercase;
-    }
-    .project-info p {
-      font-size: 0.96rem;
-      line-height: 1.5;
-      max-width: 74ch;
-    }
-    .project-info-meta {
-      margin-top: 0.65rem;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-      color: #5b5b5b;
-      font-weight: 700;
-    }
-
     @media (max-width: 1000px) {
       .hero { padding: 5.3rem 0 3.4rem; }
       .hero h1 { font-size: clamp(3rem, 14vw, 5rem); letter-spacing: -4px; margin-bottom: 2.4rem; }
@@ -274,7 +245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="home-projects" aria-label="Projekt i urval">
       <div class="projects-head">
-        <h2>Utvalda Projekt</h2>
+        <h2>Projekt</h2>
         <div class="carousel-nav">
           <button id="projectsPrev" class="carousel-btn" type="button" aria-label="Föregående projekt">&#8592;</button>
           <button id="projectsNext" class="carousel-btn" type="button" aria-label="Nästa projekt">&#8594;</button>
@@ -283,7 +254,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="carousel-window">
         <div id="projectsTrack" class="carousel-track"></div>
       </div>
-      <div id="projectInfo" class="project-info"></div>
     </section>
   </main>
 
@@ -329,11 +299,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       { id: 'cro', title: 'Under Your Skin', category: 'CRO', skill: 'UX & Optimering', image: 'assets/project-covers/under-your-skin.svg', summary: 'Identifierade friktion i köpresan och prioriterade insatser som stärker konvertering.' },
       { id: 'stadium', title: 'Stadium', category: 'CRM & Retention', skill: 'Lojalitetsflöden', image: 'assets/project-covers/stadium.svg', summary: 'Utvecklade livscykelkommunikation som tydliggör medlemsvärde och stärker relation över tid.' },
       { id: 'ecom', title: 'ROOM 48', category: 'E-commerce', skill: 'Affärsmodell', image: 'assets/project-covers/room48.svg', summary: 'Byggde ett communitydrivet e-handelskoncept där innehåll, event och commerce samspelar.' },
-      { id: 'ecomid', title: 'eComID', category: 'Growth & Strategy', skill: 'TikTok Growth', image: 'assets/project-covers/ecomid.svg', summary: 'Analys och kanalstrategi för organisk tillväxt med tydligare träff i målgrupp.' }
+      { id: 'ecomid', title: 'eComID', category: 'Growth & Strategy', skill: 'TikTok Growth', image: 'assets/project-covers/ecomid.svg', summary: 'Analys och kanalstrategi för organisk tillväxt med tydligare träff i målgrupp.' },
+      { id: 'growthtoolbox', title: 'Pomodoro Plugin', category: 'Growth Toolbox', skill: 'Chrome Extension', image: 'assets/project-covers/growth-toolbox.svg', summary: 'Pomodoro-plugin med pausmusik för fokus och återhämtning.' },
+      { id: 'frankisfood', title: 'FRANKISFOOD', category: 'Social & Brand', skill: 'Creator Content', image: 'assets/project-covers/frankisfood.svg', summary: 'Eget varumärkesprojekt inom sociala medier och innehåll.' }
     ];
 
     const trackEl = document.getElementById('projectsTrack');
-    const infoEl = document.getElementById('projectInfo');
     const prevBtn = document.getElementById('projectsPrev');
     const nextBtn = document.getElementById('projectsNext');
     let currentSlide = 0;
@@ -358,15 +329,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       `).join('');
     }
 
-    function renderInfo(idx) {
-      const project = featuredProjects[idx];
-      infoEl.innerHTML = `
-        <h3>${project.title}</h3>
-        <p>${project.summary}</p>
-        <div class="project-info-meta">Visas pa startsidan | stannar pa samma sida</div>
-      `;
-    }
-
     function updateCarousel() {
       const cardWidth = 100 / visibleCards;
       trackEl.style.transform = `translateX(-${currentSlide * cardWidth}%)`;
@@ -384,7 +346,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     renderCards();
-    renderInfo(0);
     initCarousel();
 
     prevBtn.addEventListener('click', () => {
@@ -399,13 +360,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         currentSlide += 1;
         updateCarousel();
       }
-    });
-
-    trackEl.addEventListener('click', (event) => {
-      const card = event.target.closest('.project-card');
-      if (!card) return;
-      const idx = Number(card.getAttribute('data-index'));
-      renderInfo(idx);
     });
 
     window.addEventListener('resize', initCarousel);
