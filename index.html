@@ -184,7 +184,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-underline-offset: 3px;
     }
     .projects-head {
-      display: none; /* Döljer rubriken för ett renare utseende */
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .projects-head a {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity 0.3s ease;
+    }
+    .projects-head a:hover {
+      opacity: 0.7;
     }
     .projects-grid {
       display: grid;
@@ -314,7 +329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="home-projects" aria-label="Projekt i urval">
       <div class="projects-head">
-        <h2>Projekt</h2>
+        <a href="projects.html">Projekt</a>
       </div>
       <div id="projectsTrack" class="projects-grid"></div>
     </section>
