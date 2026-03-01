@@ -25,7 +25,7 @@
 }
 
 .ai-chat-hero {
-    background: #000000; /* Burgundy */
+    background: var(--cta-blue, #072AC8);
     color: #FFFFFF;
     padding: 25px;
     text-align: left;
@@ -64,7 +64,8 @@
 }
 
 .message.user {
-    background: #E5E5E5;
+    background: var(--cta-blue, #072AC8);
+    color: #FFFFFF;
     align-self: flex-end;
     border-bottom-right-radius: 2px;
 }

@@ -143,6 +143,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 1rem;
       line-height: 1.55;
       color: #1A1A1A;
+      margin-bottom: 2rem;
+    }
+    .intro-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-primary {
+      background: #1A1A1A;
+      color: #FFFFFF !important;
+      border: 1.5px solid #1A1A1A;
+    }
+    .btn-primary:hover {
+      background: #000000;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #1A1A1A !important;
+      border: 1.5px solid #1A1A1A;
+    }
+    .btn-secondary:hover {
+      background: #F8F8F8;
+      transform: translateY(-2px);
     }
     .home-intro a {
       color: #1A1A1A;
@@ -272,8 +307,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="home-intro" aria-label="Kort sammanfattning">
       <h2>Kort sammanfattning</h2>
       <p>
-        Jag är nyfiken, driven och trivs där kreativitet möter data. Med bakgrund inom sociologi och HR har jag en naturlig lyhördhet för hur människor tänker och fattar beslut. Jag tar gärna ägandeskap och driver arbetet från idé till resultat med en genomtänkt strategi. Jag kombinerar människoförståelse med dataläsning och omsätter insikter till tydlig riktning, relevanta insatser och mätbara resultat. Jag vill arbeta långsiktigt med att förstå målgruppen och skapa kommunikation utifrån kundresan, med data som stöd för rätt mål och prioriteringar. Vill du veta mer? Se <a href="experience.html">CV</a>.
+        Driven strateg som trivs i skärningspunkten mellan kreativitet och data. Med bakgrund inom sociologi och HR kombinerar jag människoförståelse med analys för att skapa mätbara resultat genom hela kundresan. Jag omsätter insikter till tydlig riktning och driver projekt från idé till effekt.
       </p>
+      <div class="intro-buttons">
+        <a href="mailto:afrankendal@gmail.com" class="btn btn-primary">Maila mig</a>
+        <a href="Anna Frankendal CV - BERGHS  .pdf" download class="btn btn-secondary">Ladda ner CV</a>
+      </div>
     </section>
 
     <section class="home-projects" aria-label="Projekt i urval">
