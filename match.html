@@ -576,6 +576,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     matchConsentInput.addEventListener('change', updateSubmitState);
 
     document.getElementById('startQuizBtn').addEventListener('click', () => {
+      window.dataLayer.push({
+        event: 'match_button_click',
+        button_text: 'Starta testet',
+        button_location: 'match_page_entry'
+      });
       document.getElementById('quizEntry').style.display = 'none';
       document.getElementById('quizCard').style.display = 'block';
       showMatchStep(1);
@@ -587,15 +592,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     matchForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!isFinalStepValid()) {
-        if (!matchEmailInput.checkValidity()) {
-          matchEmailInput.reportValidity();
-        } else if (!matchConsentInput.checked) {
-          alert('Du behöver godkänna återkoppling via mail för att gå vidare.');
-        } else if (!matchAnswers.q4) {
-          alert('Välj ett svar på fråga 4 först.');
-        }
+        // ... (validering) ...
         return;
       }
+      
+      window.dataLayer.push({
+        event: 'match_form_submit',
+        page_path: window.location.pathname
+      });
+      
       matchSubmitBtn.disabled = true;
       matchSubmitBtn.textContent = 'Sparar...';
 
