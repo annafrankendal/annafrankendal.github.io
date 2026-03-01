@@ -802,9 +802,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
       const individualCanvaLink = data.individualCanvaLink;
       
+      // Vi visar bara PDF-knappen om det finns en faktisk länk (inte bara #)
+      const hasDownloadCta = !!downloadHref && downloadHref !== '#' && downloadHref !== '';
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
       const hasIndividualCta = !!individualCanvaLink && !data.hideCta;
-      const hasDownloadCta = !!downloadHref && downloadHref !== '#';
       
       const canvaLabel = hasIndividualCta ? 'Se presentation (Canva - Grupp)' : 'Se presentation (Canva)';
       
@@ -812,9 +813,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #E5E5E5; margin-top:2rem;">
-          ${hasDownloadCta ? `<a href="${downloadHref}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
-          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">${canvaLabel}</button>` : ''}
-          ${hasIndividualCta ? `<button type="button" class="nav-cta" onclick="window.open('${individualCanvaLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva - Individuell)</button>` : ''}
+          ${hasDownloadCta ? `<a href="${downloadHref}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#000000; color:#FFFFFF !important;">${downloadLabel}</a>` : ''}
+          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:#000000 !important; border:1px solid #000000; cursor:pointer;">${canvaLabel}</button>` : ''}
+          ${hasIndividualCta ? `<button type="button" class="nav-cta" onclick="window.open('${individualCanvaLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:#000000 !important; border:1px solid #000000; cursor:pointer;">Se presentation (Canva - Individuell)</button>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
