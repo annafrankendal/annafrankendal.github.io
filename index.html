@@ -124,6 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin: 0 auto 6rem;
       border-top: var(--border);
       padding-top: 2.4rem;
+      max-width: 960px; /* Begränsar bredden för att minska rutorna */
     }
     .home-intro {
       margin: 0 auto 3.5rem;
@@ -183,23 +184,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-underline-offset: 3px;
     }
     .projects-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    .projects-head h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.9rem, 3.8vw, 3.2rem);
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      color: var(--navy);
-      line-height: 0.95;
+      display: none; /* Döljer rubriken för ett renare utseende */
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
     }
 
     .project-card {
