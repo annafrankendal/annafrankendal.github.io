@@ -11,9 +11,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Om Anna | Anna Frankendal</title>
+  <title>Om mig | Anna Frankendal</title>
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
@@ -21,11 +21,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     :root {
       --bg: #FFFFFF;
       --ink: #1A1A1A;
+      --navy: #1A1A1A;
       --burgundy: #000000;
       --cta-blue: #072AC8;
-      --navy: #000000;
       --lightblue: #E5E5E5;
-      --beige: #F8F8F8;
       --border: 1.5px solid #E5E5E5;
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
@@ -41,23 +40,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
-
-    /* --- CONTACT BAR --- */
-    .contact-bar {
-      background: #1A1A1A; color: #FFFFFF; padding: 12px 30px; display: flex; justify-content: center; gap: 30px;
-      font-size: 8px; text-transform: uppercase; letter-spacing: 2px; position: sticky; top: 0; width: 100%; z-index: 2000;
-      flex-wrap: wrap;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    .contact-bar a { color: #FFFFFF; text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
 
     /* --- NAVIGATION --- */
     nav { 
       background: #FFFFFF; backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex; 
-      justify-content: flex-start; align-items: center; gap: 3rem; position: sticky; top: 39px; 
+      justify-content: flex-start; align-items: center; gap: 3rem; position: sticky; top: 0; 
       border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
-    nav a { color: #000000; text-decoration: none; transition: color 0.3s; }
+    nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: var(--burgundy); }
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
     .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
@@ -69,21 +64,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-image-wrap { width: 130px; margin: 0 auto 2.2rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; mix-blend-mode: multiply; }
 
-    .hero-intro {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: clamp(1.2rem, 2.1vw, 1.6rem);
-      font-family: var(--font-body);
-      font-weight: 700;
-      line-height: 1.5;
-      letter-spacing: 0.2px;
-      color: #1A1A1A;
-    }
-
-    /* --- THE THREE BOXES --- */
+    /* --- GRID BOXES --- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
       margin-bottom: 8rem;
     }
@@ -98,41 +82,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       min-height: 280px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    
     .box h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 2.6vw, 2.5rem);
-      font-weight: 900;
+      font-size: 1.4rem;
       text-transform: uppercase;
-      margin-bottom: 1rem;
-      line-height: 0.9;
-      letter-spacing: -1px;
-      min-height: 2.4rem;
-      display: flex;
-      align-items: flex-start;
+      letter-spacing: 1px;
+      margin-bottom: 1.4rem;
+      font-weight: 900;
+      color: var(--burgundy);
     }
-    .box p { font-size: 1rem; font-weight: 500; line-height: 1.45; }
-
-    /* Box Colors (Consistent with index.html) */
-    .box-1 { background: #F8F8F8; color: var(--navy); }
-    .box-1 p { color: var(--ink); }
-    
-    .box-2 { background: #F8F8F8; color: var(--navy); }
-    .box-2 p { color: var(--ink); }
-    
-    .box-3 { background: #F8F8F8; color: var(--navy); }
-    .box-3 p { color: var(--ink); }
-    .box:hover { transform: translateY(-3px); box-shadow: 10px 10px 0 rgba(26, 26, 26, 0.08); }
+    .box p {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #1A1A1A;
+    }
 
     /* --- FOOTER --- */
-    footer { padding: 80px 0 40px; text-align: center; background: #000000; border-top: var(--border); }
-    footer h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 2rem; line-height: 1.15; letter-spacing: 3px; color: var(--burgundy); text-transform: uppercase; }
-    .footer-sub { margin-top: 40px; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; color: #FFFFFF; display: block; text-transform: uppercase; }
-    .footer-icons { margin-top: 40px; display: flex; justify-content: center; gap: 40px; }
-    .footer-links a { color: #FFFFFF; font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
-    .footer-links a:hover { transform: translateY(-3px); opacity: 1; color: #E5E5E5; }
-    
-    .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
+    footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: #000000; }
+    .footer-contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .footer-contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .footer-contact-item:hover {
+      transform: translateY(-3px);
+    }
+    .footer-contact-item i {
+      font-size: 1.8rem;
+      color: #FFFFFF;
+    }
+    .footer-contact-item span {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #FFFFFF;
+      opacity: 0.8;
+    }
+    .footer-contact-item:hover span {
+      opacity: 1;
+    }
+    .footer-copyright { margin-top: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; gap: 0.9rem; }
@@ -141,7 +141,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       nav { gap: 1.5rem; font-size: 10px; padding: 1rem 1.5rem; }
     }
     @media (max-width: 680px) {
-      .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
       nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
       .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
     }
@@ -189,41 +188,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p style="font-family: var(--font-body); font-weight: 400; line-height: 1.6; letter-spacing: 0.3px; font-size: 0.95rem;">Jag vill arbeta långsiktigt med att förstå målgruppens behov och skapa digital kommunikation utifrån var kunden befinner sig i kundresan. Jag vill också använda data för att sätta rätt mål och prioritera det som faktiskt driver resultat.</p>
         </div>
       </div>
-    .footer-contact-grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .footer-contact-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
-    .footer-contact-item:hover {
-      transform: translateY(-3px);
-    }
-    .footer-contact-item i {
-      font-size: 1.8rem;
-      color: #FFFFFF;
-    }
-    .footer-contact-item span {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: #FFFFFF;
-      opacity: 0.8;
-    }
-    .footer-contact-item:hover span {
-      opacity: 1;
-    }
-    .footer-copyright { margin-top: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
-...
+  </main>
+
   <footer>
     <div class="container">
       <div class="footer-contact-grid">
@@ -249,7 +215,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
       </div>
 
-      <div class="footer-copyright">© 2025 Anna Frankendal</div>
+      <p class="footer-copyright">© 2025 Anna Frankendal</p>
     </div>
   </footer>
 
