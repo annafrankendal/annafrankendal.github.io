@@ -131,6 +131,7 @@ async function askAI(source = 'manual') {
     // 2. Visa laddningsindikator
     toggleLoading(true);
     if (sendBtn) sendBtn.disabled = true;
+    let timeout;
 
     try {
         // 3. Skicka meddelandet till backend
@@ -138,13 +139,17 @@ async function askAI(source = 'manual') {
         const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
             ? "http://localhost:3000/api/chat" 
             : "https://anna-backend-live.onrender.com/api/chat";
+        const controller = new AbortController();
+        timeout = setTimeout(() => controller.abort(), 15000); // 15 sek
 
         const response = await fetch(apiUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             // Keep only the latest 6 turns to limit payload size.
-            body: JSON.stringify({ message: userText, history: conversationHistory.slice(-6) })
+            body: JSON.stringify({ message: userText, history: conversationHistory.slice(-6) }),
+            signal: controller.signal
         });
+        clearTimeout(timeout);
 
         if (!response.ok) throw new Error('Servern svarade inte korrekt');
 
@@ -172,12 +177,17 @@ async function askAI(source = 'manual') {
 
         if (sendBtn) sendBtn.disabled = false;
     } catch (error) {
+        clearTimeout(timeout);
         // Ta bort laddningsindikator även vid fel
         toggleLoading(false);
         conversationHistory.pop(); // tar bort senaste user om inget svar kom
         console.error("Fel:", error);
         if (display) {
-            display.innerHTML += `<div class="message system" style="color:red;"><b>System:</b> Servern sover. Kör 'npm start' i terminalen!</div>`;
+            if (error.name === "AbortError") {
+                display.innerHTML += `<div class="message system">Svaret tog för lång tid. Försök igen.</div>`;
+            } else {
+                display.innerHTML += `<div class="message system">Tekniskt fel. Försök igen.</div>`;
+            }
         }
         pushDataLayerEvent({
             event: 'ai_chat_error',
