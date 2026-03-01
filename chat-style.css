@@ -25,7 +25,7 @@
 }
 
 .ai-chat-hero {
-    background: var(--cta-blue, #072AC8);
+    background: var(--cta-blue, #C8102E);
     color: #FFFFFF;
     padding: 25px;
     text-align: left;
@@ -64,7 +64,7 @@
 }
 
 .message.user {
-    background: var(--cta-blue, #072AC8);
+    background: var(--cta-blue, #C8102E);
     color: #FFFFFF;
     align-self: flex-end;
     border-bottom-right-radius: 2px;
@@ -88,7 +88,7 @@
 
 .chip {
     background: #FFFFFF;
-    border: 1px solid var(--cta-blue, #072AC8);
+    border: 1px solid var(--cta-blue, #C8102E);
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -97,7 +97,7 @@
 }
 
 .chip:hover {
-    background: var(--cta-blue, #072AC8);
+    background: var(--cta-blue, #C8102E);
     color: #FFFFFF;
 }
 
@@ -120,11 +120,11 @@
 }
 
 #chat-input:focus {
-    border-color: var(--cta-blue, #072AC8);
+    border-color: var(--cta-blue, #C8102E);
 }
 
 #send-btn {
-    background: var(--cta-blue, #072AC8);
+    background: var(--cta-blue, #C8102E);
     color: #FFFFFF;
     border: none;
     padding: 0 20px;
@@ -145,7 +145,7 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: var(--cta-blue, #072AC8);
+    background: var(--cta-blue, #C8102E);
     color: #FFFFFF;
     border: none;
     border-radius: 50%;
