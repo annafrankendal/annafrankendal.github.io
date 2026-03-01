@@ -101,9 +101,13 @@ function toggleLoading(show) {
     }
 }
 
+const escapeHtml = (s) =>
+    String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 async function askAI(source = 'manual') {
     const inputField = document.getElementById('chat-input') || document.getElementById('user-input');
     const display = document.getElementById('chat-display') || document.getElementById('chat-box');
+    const sendBtn = document.getElementById('send-btn');
     
     if (!inputField || !inputField.value.trim()) return;
 
@@ -118,7 +122,7 @@ async function askAI(source = 'manual') {
 
     // 1. Visa ditt meddelande direkt
     if (display) {
-        display.innerHTML += `<div class="message user"><b>Du:</b> ${userText}</div>`;
+        display.innerHTML += `<div class="message user"><b>Du:</b> ${escapeHtml(userText)}</div>`;
         display.scrollTop = display.scrollHeight;
     }
     
@@ -126,6 +130,7 @@ async function askAI(source = 'manual') {
 
     // 2. Visa laddningsindikator
     toggleLoading(true);
+    if (sendBtn) sendBtn.disabled = true;
 
     try {
         // 3. Skicka meddelandet till backend
@@ -150,7 +155,7 @@ async function askAI(source = 'manual') {
 
         // 5. Visa Annas strategiska svar
         if (data.reply && display) {
-            display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${data.reply}</div>`;
+            display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${escapeHtml(data.reply)}</div>`;
             conversationHistory.push({ role: "assistant", content: data.reply });
             pushDataLayerEvent({
                 event: 'ai_chat_response_received',
@@ -165,9 +170,11 @@ async function askAI(source = 'manual') {
             });
         }
 
+        if (sendBtn) sendBtn.disabled = false;
     } catch (error) {
         // Ta bort laddningsindikator även vid fel
         toggleLoading(false);
+        conversationHistory.pop(); // tar bort senaste user om inget svar kom
         console.error("Fel:", error);
         if (display) {
             display.innerHTML += `<div class="message system" style="color:red;"><b>System:</b> Servern sover. Kör 'npm start' i terminalen!</div>`;
@@ -176,6 +183,7 @@ async function askAI(source = 'manual') {
             event: 'ai_chat_error',
             page_path: window.location.pathname
         });
+        if (sendBtn) sendBtn.disabled = false;
     }
 
     if (display) {
