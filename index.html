@@ -60,8 +60,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
     .hero {
       position: relative;
-      padding: 8rem 0 6rem;
-      min-height: auto;
+      padding: 0;
+      min-height: 100vh;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -125,10 +125,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       max-width: 960px; /* Begränsar bredden för att minska rutorna */
     }
     .home-intro {
-      margin: 8rem auto 10rem; /* Betydligt mer utrymme uppåt och neråt */
+      margin: 0 auto;
       border-top: var(--border);
-      padding-top: 6rem; /* Mer luft inuti blocket */
+      padding: 10rem 2rem;
       text-align: center;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .home-intro h2 {
       display: none;
@@ -397,7 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div id="chat-display"></div>
     <div class="chat-suggestions">
-      <button type="button" class="chip">Varför får vi få klick?</button>
+      <button type="button" class="chip">Låg CTR i Google?</button>
       <button type="button" class="chip">Varför blir det inga köp?</button>
       <button type="button" class="chip">Hur får vi kunder att stanna?</button>
     </div>
