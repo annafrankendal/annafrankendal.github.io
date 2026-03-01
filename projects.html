@@ -22,6 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --bg: #FFFFFF;
       --ink: #1A1A1A;
       --burgundy: #000000;
+      --cta-blue: #072AC8;
       --navy: #1A1A1A;
       --lightblue: #E5E5E5;
       --beige: #F8F8F8;
@@ -59,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: var(--burgundy); }
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
-    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #FFFFFF !important; }
+    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
 
     @media (max-width: 600px) {
       nav { gap: 1rem; padding: 1rem 0.5rem; }
@@ -847,6 +848,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.getElementById('caseModal').style.display = "none";
       document.body.style.overflow = "auto";
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '').trim();
+      if (hash && caseData[hash]) {
+        openCase(hash);
+      }
+    });
 
     window.onclick = function(event) { if (event.target == document.getElementById('caseModal')) closeModal(); }
   </script>

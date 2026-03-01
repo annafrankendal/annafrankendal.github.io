@@ -87,7 +87,7 @@
 
 .chip {
     background: #FFFFFF;
-    border: 1px solid #1A1A1A;
+    border: 1px solid var(--cta-blue, #072AC8);
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -96,7 +96,7 @@
 }
 
 .chip:hover {
-    background: #1A1A1A;
+    background: var(--cta-blue, #072AC8);
     color: #FFFFFF;
 }
 
@@ -119,11 +119,11 @@
 }
 
 #chat-input:focus {
-    border-color: #000000;
+    border-color: var(--cta-blue, #072AC8);
 }
 
 #send-btn {
-    background: #000000;
+    background: var(--cta-blue, #072AC8);
     color: #FFFFFF;
     border: none;
     padding: 0 20px;
@@ -144,7 +144,7 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: #000000;
+    background: var(--cta-blue, #072AC8);
     color: #FFFFFF;
     border: none;
     border-radius: 50%;

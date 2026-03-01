@@ -21,6 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --bg: #FFFFFF;
       --ink: #1A1A1A;
       --burgundy: #000000;
+      --cta-blue: #072AC8;
       --navy: #000000;
       --lightblue: #E5E5E5;
       --beige: #F8F8F8;
@@ -56,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav a { color: #000000; text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: var(--burgundy); }
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
-    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #FFFFFF !important; }
+    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
 
     .hero {
       position: relative;
@@ -124,6 +125,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-top: var(--border);
       padding-top: 2.4rem;
     }
+    .home-intro {
+      margin: 0 auto 3.5rem;
+      border-top: var(--border);
+      padding-top: 2rem;
+      text-align: left;
+    }
+    .home-intro h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .home-intro p {
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #1A1A1A;
+    }
+    .home-intro a {
+      color: #1A1A1A;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     .projects-head {
       display: flex;
       justify-content: space-between;
@@ -154,6 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       min-height: 220px;
       display: block;
       overflow: hidden;
+      text-decoration: none;
     }
     .project-card img {
       width: 100%;
@@ -242,6 +269,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="hero-role">Growth Marketer</span>
     </section>
 
+    <section class="home-intro" aria-label="Kort sammanfattning">
+      <h2>Kort sammanfattning</h2>
+      <p>
+        Jag är nyfiken, driven och trivs där kreativitet möter data. Med bakgrund inom sociologi och HR har jag en naturlig lyhördhet för hur människor tänker och fattar beslut. Jag tar gärna ägandeskap och driver arbetet från idé till resultat med en genomtänkt strategi. Jag kombinerar människoförståelse med dataläsning och omsätter insikter till tydlig riktning, relevanta insatser och mätbara resultat. Jag vill arbeta långsiktigt med att förstå målgruppen och skapa kommunikation utifrån kundresan, med data som stöd för rätt mål och prioriteringar. Vill du veta mer? Se <a href="experience.html">CV</a>.
+      </p>
+    </section>
+
     <section class="home-projects" aria-label="Projekt i urval">
       <div class="projects-head">
         <h2>Projekt</h2>
@@ -299,15 +333,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const trackEl = document.getElementById('projectsTrack');
     function renderCards() {
-      trackEl.innerHTML = featuredProjects.map((project, idx) => `
-        <button type="button" class="project-card" data-index="${idx}">
+      trackEl.innerHTML = featuredProjects.map((project) => `
+        <a class="project-card" href="projects.html#${project.id}" aria-label="Öppna projekt: ${project.title}">
           <img src="${project.image}" alt="${project.title} projektbild" loading="lazy">
           <div class="project-card-content">
             <small>${project.category}</small>
             <h3>${project.title}</h3>
             <p>${project.skill}</p>
           </div>
-        </button>
+        </a>
       `).join('');
     }
     renderCards();

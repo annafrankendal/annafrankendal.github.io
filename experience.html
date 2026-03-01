@@ -23,6 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card: #FFFFFF;
       --ink: #1A1A1A;
       --burgundy: #000000;
+      --cta-blue: #072AC8;
       --muted: #666666;
       --line: #E5E5E5;
       --font-serif: 'Playfair Display', serif;
@@ -74,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: var(--burgundy); }
     nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
-    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--burgundy); color: #FFFFFF !important; }
+    .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
 
     /* --- CV PAPER STYLE --- */
     #experience { padding: 60px 20px; }
@@ -100,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       right: 40px;
       padding: 10px 20px;
       font-size: 11px;
-      background: var(--burgundy);
+      background: var(--cta-blue);
       color: #FFFFFF;
       border: none;
       border-radius: 999px;
@@ -113,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 700;
       letter-spacing: 1px;
     }
-    .download-cv-btn:hover { background: #1A1A1A; transform: translateY(-2px); }
+    .download-cv-btn:hover { filter: brightness(0.92); transform: translateY(-2px); }
 
     /* Symmetrisk Grid Layout */
     .cv-grid { 
