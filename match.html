@@ -85,47 +85,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .entry-card {
-      padding: 84px 60px 74px;
+      padding: 60px 40px;
       text-align: center;
-      background: linear-gradient(155deg, #FFFFFF 0%, #F8F8F8 52%, #E5E5E5 100%);
+      background: #FFFFFF;
     }
     .entry-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 6.4vw, 4.4rem);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 900;
       line-height: 0.9;
       text-transform: uppercase;
       letter-spacing: -2px;
       color: var(--burgundy);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
     .entry-sub {
-      font-size: 1.2rem;
-      margin-bottom: 1.2rem;
-      max-width: 600px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 540px;
       margin-left: auto;
       margin-right: auto;
+      color: #444;
     }
-    .entry-value {
-      display: inline-block;
-      margin: 0 0 1.6rem;
-      padding: 10px 14px;
-      border: var(--border);
-      border-radius: 999px;
-      font-size: 0.88rem;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--beige);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--cta-blue);
       font-weight: 700;
-      background: #FFFFFF;
-      color: var(--navy);
     }
+    .step-text {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #666;
+    }
+    
     .entry-note {
-      margin-top: 1rem;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      color: #666666;
-      font-weight: 700;
+      display: none;
     }
     
     .topbar { 
@@ -205,7 +222,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 700px) {
       main.container { padding-top: 2.2rem; padding-bottom: 4rem; }
-      .entry-card { padding: 56px 22px; }
+      .entry-card { padding: 40px 20px; }
+      .how-it-works { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
       .entry-title { letter-spacing: -1px; }
       .entry-sub { font-size: 1.05rem; }
       .quiz-body { padding: 36px 20px 28px; }
@@ -243,10 +261,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ENTRY CARD -->
     <div id="quizEntry" class="quiz-card entry-card">
       <h2 class="entry-title">Är vi en match?</h2>
-      <p class="entry-sub">Svara på fyra korta frågor och få en tydlig matchprocent direkt. Det ger er ett snabbt första urval, sparar tid i rekryteringen och gör det enkelt att avgöra om vi ska ta nästa steg.</p>
-      <p class="entry-value">Value: matchprocent direkt, snabbare urval, sparad rekryteringstid</p>
-      <button id="startQuizBtn" class="btn btn-primary" style="padding: 20px 40px;">Starta testet</button>
-      <p class="entry-note">Ni får snabb indikation, tydligt underlag och enkel kontakt i samma flöde.</p>
+      <p class="entry-sub">Svara på fyra korta frågor och få en indikation på hur väl mitt arbetssätt matchar era behov.</p>
+      
+      <div class="how-it-works">
+        <div class="step-item">
+          <div class="step-icon">1</div>
+          <span class="step-text">Svara på 4 frågor</span>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">2</div>
+          <span class="step-text">Få matchprocent</span>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">3</div>
+          <span class="step-text">Boka möte</span>
+        </div>
+      </div>
+
+      <button id="startQuizBtn" class="btn btn-primary" style="padding: 18px 36px; font-size: 1rem;">Starta testet</button>
     </div>
 
     <!-- QUIZ CARD -->
