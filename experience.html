@@ -33,6 +33,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background: var(--bg);
       color: var(--ink);
@@ -156,6 +161,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-item span { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
     .cv-item p { font-size: 0.85rem; color: #1A1A1A; line-height: 1.6; }
     .cv-item, .skills-section > div { break-inside: avoid; page-break-inside: avoid; }
+    .cv-item h4,
+    .cv-item span,
+    .cv-item p,
+    .skill-tag,
+    .footer-contact-item span {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
 
     /* Skills & Verktyg */
     .skills-section {
@@ -202,11 +216,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .cv-column-title:last-of-type { margin-top: 3rem; }
       .skills-section { gap: 2.5rem; }
       nav { gap: 1rem; font-size: 10px; padding: 1rem 1.5rem; }
+      .cv-header h1 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1; }
+      .cv-header p { font-size: clamp(1rem, 4vw, 1.2rem); letter-spacing: 1px; }
     }
     @media (max-width: 680px) {
+      .container { padding: 0 1rem; }
+      #experience { padding: 28px 0; }
+      .cv-paper {
+        padding: 24px 16px;
+        box-shadow: none;
+      }
+      .download-cv-btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+      }
+      .cv-column-title h3 {
+        margin-bottom: 1.4rem;
+        font-size: 1.05rem;
+      }
+      .cv-item {
+        padding-left: 1rem;
+        padding-bottom: 1.8rem;
+      }
+      .cv-item h4 {
+        font-size: 0.92rem;
+        letter-spacing: 0.6px;
+      }
+      .cv-item span {
+        font-size: 0.68rem;
+      }
+      .cv-item p {
+        font-size: 0.8rem;
+        line-height: 1.45;
+      }
+      .skills-section {
+        margin-top: 0.8rem;
+        padding-top: 1.4rem;
+        gap: 1.5rem;
+      }
+      .skills-section > div[style*="margin-top: 2rem"] {
+        margin-top: 0 !important;
+      }
+      .skills-section > div[style*="text-align: right"] {
+        text-align: left !important;
+      }
+      .skills-section > div[style*="text-align: right"] h3 {
+        font-size: 2.1rem !important;
+      }
       .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
-      nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
+      nav {
+        gap: 0.6rem 0.9rem;
+        font-size: 8px;
+        letter-spacing: 1px;
+        padding: 0.9rem 0.7rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        top: 0;
+      }
       .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
+      footer { padding: 56px 0 28px; }
+      .footer-contact-grid { gap: 22px; }
     }
 
     footer { text-align: center; padding: 80px 0 40px; background: #FFFFFF; border-top: var(--border); margin-top: 60px; }
