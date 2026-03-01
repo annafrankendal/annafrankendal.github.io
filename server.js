@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const fetch = require("node-fetch");
+const rateLimit = require("express-rate-limit");
 const fs = require("fs/promises");
 const path = require("path");
 const { SYSTEM_PROMPT, KNOWLEDGE_BLOCK } = require("./prompts");
@@ -14,6 +15,15 @@ app.use(express.json());
 app.use(express.static("."));
 const LEADS_FILE = path.join(__dirname, "data", "match-leads.json");
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "";
+const chatLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => {
+    res.status(429).json({ error: "För många förfrågningar. Försök igen om en stund." });
+  },
+});
 
 function finalizeReply(text, maxChars = 520, maxSentences = 4) {
   if (!text || typeof text !== "string") return "";
@@ -129,7 +139,7 @@ app.post("/api/match-lead", async (req, res) => {
   }
 });
 
-app.post("/api/chat", async (req, res) => {
+app.post("/api/chat", chatLimiter, async (req, res) => {
   const message = (req.body && (req.body.message || req.body.prompt || req.body.text))?.trim();
   const incomingHistory = req.body?.history;
 
@@ -196,7 +206,18 @@ app.post("/api/chat", async (req, res) => {
     });
 
     const data = await groqRes.json();
-    const rawReply = data?.choices?.[0]?.message?.content || "";
+    if (!groqRes.ok) {
+      console.error("Groq API-fel:", {
+        status: groqRes.status,
+        error: data?.error || data?.message || "Okänt fel",
+      });
+      return res.status(502).json({ error: "AI-tjänsten svarade med fel." });
+    }
+
+    const rawReply = data?.choices?.[0]?.message?.content;
+    if (!rawReply) {
+      return res.status(502).json({ error: "Tomt AI-svar." });
+    }
     const reply = finalizeReply(rawReply);
     res.json({ reply });
   } catch (error) {
