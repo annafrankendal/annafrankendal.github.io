@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     nav {
       background: #FFFFFF; backdrop-filter: blur(10px); padding: 1.5rem 2rem; display: flex;
-      justify-content: flex-start; align-items: center; gap: 3rem; position: sticky; top: 39px;
+      justify-content: flex-start; align-items: center; gap: 3rem; position: sticky; top: 0;
       border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
     nav a { color: #000000; text-decoration: none; transition: color 0.3s; }
@@ -273,7 +273,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     }
     @media (max-width: 680px) {
-      .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
       nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
       .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -287,7 +286,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .footer-icons { margin-top: 40px; display: flex; justify-content: center; gap: 40px; }
     .footer-links a { color: #FFFFFF; font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
     .footer-links a:hover { transform: translateY(-3px); opacity: 1; color: var(--burgundy); }
-    .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
+    .footer-contact-bar {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      flex-wrap: wrap;
+    }
+    .footer-contact-bar a { color: #FFFFFF; text-decoration: none; font-weight: 600; opacity: 0.8; transition: opacity 0.3s; }
+    .footer-contact-bar a:hover { opacity: 1; }
+    .footer-copyright { margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -295,14 +306,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD8Z8J5B"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-  <div class="contact-bar">
-    <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
-    <a href="tel:+46707595554">070-759 55 54</a>
-    <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
-  </div>
 
   <nav>
     <a href="index.html" class="active">Hem</a>
@@ -341,16 +344,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <footer>
     <div class="container">
-      <span class="footer-sub">Låt oss höras:</span>
-      <div class="footer-contact-list" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; color: #FFFFFF; font-weight: 500;">
-        <a href="mailto:afrankendal@gmail.com" style="color: #FFFFFF; text-decoration: none; font-size: 1.1rem;">afrankendal@gmail.com</a>
-        <a href="tel:+46707595554" style="color: #FFFFFF; text-decoration: none; font-size: 1.1rem;">070-759 55 54</a>
-      </div>
-      <div class="footer-icons footer-links" style="margin-top: 3rem;">
+      <div class="footer-icons footer-links">
+        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
         <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
+
+      <div class="footer-contact-bar">
+        <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
+        <a href="tel:+46707595554">070-759 55 54</a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
+      </div>
+
       <p class="footer-copyright">© 2025 Anna Frankendal</p>
     </div>
   </footer>

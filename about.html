@@ -152,13 +152,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD8Z8J5B"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <div class="contact-bar">
-    <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
-    <a href="tel:+46707595554">070-759 55 54</a>
-    <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
-  </div>
 
   <nav>
     <a href="index.html">Hem</a>
@@ -193,22 +186,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Jag vill arbeta långsiktigt med att förstå målgruppens behov och skapa digital kommunikation utifrån var kunden befinner sig i kundresan. Jag vill också använda data för att sätta rätt mål och prioritera det som faktiskt driver resultat.</p>
         </div>
       </div>
-  </main>
-
+  .footer-contact-bar {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex-wrap: wrap;
+  }
+  .footer-contact-bar a { color: #FFFFFF; text-decoration: none; font-weight: 600; opacity: 0.8; transition: opacity 0.3s; }
+  .footer-contact-bar a:hover { opacity: 1; }
+  .footer-copyright { margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
+  ...
   <footer>
-    <div class="container">
-      <span class="footer-sub">Låt oss höras:</span>
-      <div class="footer-contact-list" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; color: #FFFFFF; font-weight: 500;">
-        <a href="mailto:afrankendal@gmail.com" style="color: #FFFFFF; text-decoration: none; font-size: 1.1rem;">afrankendal@gmail.com</a>
-        <a href="tel:+46707595554" style="color: #FFFFFF; text-decoration: none; font-size: 1.1rem;">070-759 55 54</a>
-      </div>
-      <div class="footer-icons footer-links" style="margin-top: 3rem;">
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <div class="footer-copyright">© 2025 Anna Frankendal</div>
+  <div class="container">
+    <div class="footer-icons footer-links">
+      <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
+      <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
+      <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
+
+    <div class="footer-contact-bar">
+      <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
+      <a href="tel:+46707595554">070-759 55 54</a>
+      <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
+    </div>
+
+    <div class="footer-copyright">© 2025 Anna Frankendal</div>
+  </div>
   </footer>
 
   <!-- Floating Chat Interface -->
