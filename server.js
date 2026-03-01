@@ -131,10 +131,56 @@ app.post("/api/match-lead", async (req, res) => {
 
 app.post("/api/chat", async (req, res) => {
   const message = (req.body && (req.body.message || req.body.prompt || req.body.text))?.trim();
+  const incomingHistory = req.body?.history;
 
   if (!message) return res.status(400).json({ error: "Inget meddelande mottaget" });
 
   try {
+    let validatedHistory = null;
+    if (
+      Array.isArray(incomingHistory) &&
+      incomingHistory.every(
+        (item) =>
+          item &&
+          (item.role === "user" || item.role === "assistant") &&
+          typeof item.content === "string"
+      )
+    ) {
+      validatedHistory = incomingHistory.map((item) => ({
+        role: item.role,
+        content: item.content,
+      }));
+    }
+
+    // Cap history to avoid huge payloads
+    if (validatedHistory && validatedHistory.length > 12) {
+      validatedHistory = validatedHistory.slice(-12);
+    }
+
+    if (validatedHistory) {
+      validatedHistory = validatedHistory.map((item) => ({
+        role: item.role,
+        content: item.content.slice(0, 800),
+      }));
+    }
+
+    let messages = [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "system", content: KNOWLEDGE_BLOCK },
+    ];
+
+    if (validatedHistory && validatedHistory.length > 0) {
+      messages = messages.concat(validatedHistory);
+      const hasLatestUser = validatedHistory.some(
+        (item) => item.role === "user" && item.content.trim() === message
+      );
+      if (!hasLatestUser) {
+        messages.push({ role: "user", content: message });
+      }
+    } else {
+      messages.push({ role: "user", content: message });
+    }
+
     const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -143,11 +189,7 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          { role: "system", content: KNOWLEDGE_BLOCK },
-          { role: "user", content: message },
-        ],
+        messages,
         temperature: 0.15,
         max_tokens: 320,
       }),

@@ -1,4 +1,5 @@
 // script.js handles the interaction between the user and the AI assistant.
+const conversationHistory = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure dataLayer exists before any tracking push.
@@ -107,6 +108,7 @@ async function askAI(source = 'manual') {
     if (!inputField || !inputField.value.trim()) return;
 
     const userText = inputField.value.trim();
+    conversationHistory.push({ role: "user", content: userText });
     pushDataLayerEvent({
         event: 'ai_chat_message_sent',
         message_length: userText.length,
@@ -135,7 +137,8 @@ async function askAI(source = 'manual') {
         const response = await fetch(apiUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userText })
+            // Keep only the latest 6 turns to limit payload size.
+            body: JSON.stringify({ message: userText, history: conversationHistory.slice(-6) })
         });
 
         if (!response.ok) throw new Error('Servern svarade inte korrekt');
@@ -148,6 +151,7 @@ async function askAI(source = 'manual') {
         // 5. Visa Annas strategiska svar
         if (data.reply && display) {
             display.innerHTML += `<div class="message ai"><b>Anna-AI:</b> ${data.reply}</div>`;
+            conversationHistory.push({ role: "assistant", content: data.reply });
             pushDataLayerEvent({
                 event: 'ai_chat_response_received',
                 response_length: data.reply.length,
