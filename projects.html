@@ -194,8 +194,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .footer-copyright { margin-top: 80px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
-      header h1 { font-size: 6rem; letter-spacing: -5px; }
-      nav { gap: 1.5rem; font-size: 10px; }
+      header h1 { font-size: clamp(3rem, 12vw, 6rem); letter-spacing: -3px; }
+      nav { gap: 1.5rem; font-size: 10px; padding: 1rem 1.5rem; }
+      .modal-content { padding: 0 20px; margin: 60px auto; }
+    }
+    @media (max-width: 680px) {
+      .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
+      nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
+      .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .video-card { min-height: 400px; }
+      .close-modal { top: 20px; right: 20px; font-size: 30px; }
+      .modal-content h2 { font-size: 1.8rem !important; }
+      .modal-content p { font-size: 1.05rem !important; }
     }
     @media (max-width: 700px) {
       .project-grid { grid-template-columns: 1fr; }

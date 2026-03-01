@@ -138,7 +138,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .grid { grid-template-columns: 1fr; gap: 0.9rem; }
       .box { padding: 1.8rem 1.4rem; min-height: auto; }
       .hero h1 { font-size: 3.4rem; letter-spacing: -2px; }
-      nav { gap: 1.5rem; }
+      nav { gap: 1.5rem; font-size: 10px; padding: 1rem 1.5rem; }
+    }
+    @media (max-width: 680px) {
+      .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
+      nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
+      .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
     }
   </style>
 </head>

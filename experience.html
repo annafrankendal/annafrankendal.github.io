@@ -198,11 +198,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 850px) {
-      .cv-paper { padding: 40px 25px; }
+      .cv-paper { padding: 40px 20px; }
       .cv-grid, .skills-section { grid-template-columns: 1fr; gap: 0; }
       .cv-column-title:last-of-type { margin-top: 3rem; }
       .skills-section { gap: 2.5rem; }
-      nav { gap: 1rem; font-size: 9px; }
+      nav { gap: 1rem; font-size: 10px; padding: 1rem 1.5rem; }
+    }
+    @media (max-width: 680px) {
+      .contact-bar { gap: 15px; padding: 10px 15px; font-size: 7px; }
+      nav { gap: 0.8rem; font-size: 9px; padding: 1rem 1rem; flex-wrap: wrap; justify-content: center; top: 0; }
+      .nav-cta { margin-left: 0; width: 100%; text-align: center; margin-top: 5px; }
     }
 
     footer { text-align: center; padding: 80px 0 40px; background: #000000; border-top: 1px solid var(--line); margin-top: 60px; }
