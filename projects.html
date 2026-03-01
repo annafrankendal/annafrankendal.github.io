@@ -439,6 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         coverImage: 'assets/project-covers/drypops.svg',
         canvaLink: 'https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view?embed',
         canvaViewLink: 'https://www.canva.com/design/DAGzzyNrLfY/8kNfq71BKbX7HKPGpxulkg/view',
+        individualCanvaLink: 'https://www.canva.com/design/DAG5z7OlLeE/1ra4VibCGCdC_zSmjQUBzw/view',
         pdfLink: 'presentations/drypops.pdf',
         summary: 'Använde Paid Social som ett testlabb för att identifiera målgruppsbeteende och optimera budskap inför varumärkeslansering.',
         sections: [
@@ -760,14 +761,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const downloadLabel = data.downloadLabel || 'Ladda ner (PDF)';
       const downloadHref = data.pdfLink || data.link;
       const canvaViewLink = data.canvaViewLink || getCanvaViewUrl(data.canvaLink);
+      const individualCanvaLink = data.individualCanvaLink;
+      
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
+      const hasIndividualCta = !!individualCanvaLink && !data.hideCta;
       const hasDownloadCta = !!downloadHref && downloadHref !== '#';
+      
+      const canvaLabel = hasIndividualCta ? 'Se presentation (Canva - Grupp)' : 'Se presentation (Canva)';
+      
       const ctaBlock = (data.hideCta || data.downloadOnly)
         ? ''
         : `
         <div style="text-align:center; padding-top:2rem; border-top:1px solid #E5E5E5; margin-top:2rem;">
           ${hasDownloadCta ? `<a href="${downloadHref}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px;">${downloadLabel}</a>` : ''}
-          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva)</button>` : ''}
+          ${hasCanvaCta ? `<button type="button" class="nav-cta" onclick="window.open('${canvaViewLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">${canvaLabel}</button>` : ''}
+          ${hasIndividualCta ? `<button type="button" class="nav-cta" onclick="window.open('${individualCanvaLink}', '_blank', 'noopener')" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:var(--burgundy) !important; border:1px solid var(--burgundy); cursor:pointer;">Se presentation (Canva - Individuell)</button>` : ''}
         </div>
       `;
       const presentationBlock = data.downloadOnly
