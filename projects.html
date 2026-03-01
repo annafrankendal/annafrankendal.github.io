@@ -786,7 +786,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             ${data.sections.map(section => `
               <div style="margin-bottom: 3.5rem;">
-                <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin-bottom:1.2rem; font-weight:700; color:var(--burgundy); border-bottom:1px solid #E5E5E5; padding-bottom:8px; display:inline-block;">${section.title}</h4>
+                <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin-bottom:1.2rem; font-weight:700; color:var(--cta-blue); border-bottom:1px solid var(--cta-blue); padding-bottom:8px; display:inline-block;">${section.title}</h4>
                 ${section.content ? `<p style="font-size:1.05rem; line-height:1.7; color:#1A1A1A; max-width:65ch;">${section.content}</p>` : ''}
                 ${section.list ? `
                   <ul style="padding-left:1.2rem; font-size:1.05rem; line-height:1.8; color:#1A1A1A; max-width:65ch;">
@@ -814,11 +814,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom:4rem; font-family:var(--font-body);">
             <div>
-              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000000; padding-bottom:5px;">Vad jag gjorde</h4>
+              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid var(--cta-blue); color:var(--cta-blue); padding-bottom:5px; display:inline-block;">Vad jag gjorde</h4>
               <ul style="padding-left:1.5rem; font-size:1rem; line-height:1.8;">${whatIDidHtml}</ul>
             </div>
             <div>
-              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid #000000; padding-bottom:5px;">Verktyg & Effekt</h4>
+              <h4 style="text-transform:uppercase; letter-spacing:1.5px; font-size:12px; margin-bottom:1.5rem; border-bottom:1px solid var(--cta-blue); color:var(--cta-blue); padding-bottom:5px; display:inline-block;">Verktyg & Effekt</h4>
               <p style="font-size:1rem; margin-bottom:1.5rem;"><strong>Verktyg:</strong> ${data.tools || ''}</p>
               <p style="font-size:1.1rem; font-style:italic; color:#000000;"><strong>KPI/Effekt:</strong> ${data.kpi || ''}</p>
             </div>
