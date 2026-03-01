@@ -191,19 +191,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .footer-icons { margin-top: 40px; display: flex; justify-content: center; gap: 40px; }
     .footer-links a { color: #FFFFFF; font-size: 2.5rem; opacity: 0.8; transition: all 0.2s ease; display: inline-block; }
     .footer-links a:hover { transform: translateY(-3px); opacity: 1; color: #E5E5E5; }
-    .footer-contact-bar {
-      margin-top: 40px;
+    .footer-contact-grid {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .footer-contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .footer-contact-item:hover {
+      transform: translateY(-3px);
+    }
+    .footer-contact-item i {
+      font-size: 1.8rem;
+      color: #FFFFFF;
+    }
+    .footer-contact-item span {
       font-size: 9px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      flex-wrap: wrap;
+      font-weight: 600;
+      color: #FFFFFF;
+      opacity: 0.8;
     }
-    .footer-contact-bar a { color: #FFFFFF; text-decoration: none; font-weight: 600; opacity: 0.8; transition: opacity 0.3s; }
-    .footer-contact-bar a:hover { opacity: 1; }
-    .footer-copyright { margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
+    .footer-contact-item:hover span {
+      opacity: 1;
+    }
+    .footer-copyright { margin-top: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
       header h1 { font-size: clamp(3rem, 12vw, 6rem); letter-spacing: -3px; }
@@ -396,20 +417,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <footer>
     <div class="container">
-      <div class="footer-icons footer-links">
-        <a href="mailto:afrankendal@gmail.com" title="Mail"><i class="far fa-envelope"></i></a>
-        <a href="tel:+46707595554" title="Telefon"><i class="fas fa-mobile-alt"></i></a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-
-      <div class="footer-contact-bar">
-        <a href="mailto:afrankendal@gmail.com">afrankendal@gmail.com</a>
-        <a href="tel:+46707595554">070-759 55 54</a>
-        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank">LinkedIn</a>
-        <a href="https://www.instagram.com/frankisfood/" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@frankisfood" target="_blank">TikTok</a>
+      <div class="footer-contact-grid">
+        <a href="mailto:afrankendal@gmail.com" class="footer-contact-item">
+          <i class="far fa-envelope"></i>
+          <span>afrankendal@gmail.com</span>
+        </a>
+        <a href="tel:+46707595554" class="footer-contact-item">
+          <i class="fas fa-mobile-alt"></i>
+          <span>070-759 55 54</span>
+        </a>
+        <a href="https://www.linkedin.com/in/annafrankendal/" target="_blank" class="footer-contact-item">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://www.instagram.com/frankisfood/" target="_blank" class="footer-contact-item">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@frankisfood" target="_blank" class="footer-contact-item">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </a>
       </div>
 
       <p class="footer-copyright">© 2025 Anna Frankendal</p>
