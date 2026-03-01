@@ -167,14 +167,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .scale-wrap { display: inline-block; }
     .scale { display: flex; gap: 14px; margin-bottom: 10px; width: max-content; }
-    .chip {
+    .scale-chip {
       width: 76px; height: 76px; border-radius: 50%; border: 1px solid #E5E5E5;
       background: #FFFFFF; color: #000000; font-weight: 600; cursor: pointer;
       transition: all 0.2s ease; font-family: var(--font-body); font-size: 22px;
       display: flex; align-items: center; justify-content: center;
     }
-    .chip:hover { border-color: var(--navy); transform: translateY(-1px); }
-    .chip.selected { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
+    .scale-chip:hover { border-color: var(--navy); transform: translateY(-1px); }
+    .scale-chip.selected { background: var(--navy); border-color: var(--navy); color: #FFFFFF; }
     .scale-hint { color: #666666; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
     .scaleLegend { display: flex; justify-content: space-between; color: #666666; font-size: 11px; margin-top: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; width: 100%; }
@@ -262,7 +262,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .quiz-body { padding: 36px 20px 28px; }
       .q-text { font-size: 2rem; max-width: 100%; }
       .scale { gap: 10px; }
-      .chip { width: 56px; height: 56px; font-size: 1.1rem; }
+      .scale-chip { width: 56px; height: 56px; font-size: 1.1rem; }
       .match-bar { width: 120px; }
       .quiz-nav { padding: 0 20px 28px; }
     }
@@ -321,11 +321,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="scale-wrap">
               <div class="scale-hint">Skala 1-5</div>
               <div class="scale" data-q="q1">
-                <div class="chip" data-value="1">1</div>
-                <div class="chip" data-value="2">2</div>
-                <div class="chip" data-value="3">3</div>
-                <div class="chip" data-value="4">4</div>
-                <div class="chip" data-value="5">5</div>
+                <div class="scale-chip" data-value="1">1</div>
+                <div class="scale-chip" data-value="2">2</div>
+                <div class="scale-chip" data-value="3">3</div>
+                <div class="scale-chip" data-value="4">4</div>
+                <div class="scale-chip" data-value="5">5</div>
               </div>
               <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
             </div>
@@ -336,11 +336,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="scale-wrap">
               <div class="scale-hint">Skala 1-5</div>
               <div class="scale" data-q="q2">
-                <div class="chip" data-value="1">1</div>
-                <div class="chip" data-value="2">2</div>
-                <div class="chip" data-value="3">3</div>
-                <div class="chip" data-value="4">4</div>
-                <div class="chip" data-value="5">5</div>
+                <div class="scale-chip" data-value="1">1</div>
+                <div class="scale-chip" data-value="2">2</div>
+                <div class="scale-chip" data-value="3">3</div>
+                <div class="scale-chip" data-value="4">4</div>
+                <div class="scale-chip" data-value="5">5</div>
               </div>
               <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
             </div>
@@ -351,11 +351,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="scale-wrap">
               <div class="scale-hint">Skala 1-5</div>
               <div class="scale" data-q="q3">
-                <div class="chip" data-value="1">1</div>
-                <div class="chip" data-value="2">2</div>
-                <div class="chip" data-value="3">3</div>
-                <div class="chip" data-value="4">4</div>
-                <div class="chip" data-value="5">5</div>
+                <div class="scale-chip" data-value="1">1</div>
+                <div class="scale-chip" data-value="2">2</div>
+                <div class="scale-chip" data-value="3">3</div>
+                <div class="scale-chip" data-value="4">4</div>
+                <div class="scale-chip" data-value="5">5</div>
               </div>
               <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
             </div>
@@ -366,11 +366,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="scale-wrap">
               <div class="scale-hint">Skala 1-5</div>
               <div class="scale" data-q="q4">
-                <div class="chip" data-value="1">1</div>
-                <div class="chip" data-value="2">2</div>
-                <div class="chip" data-value="3">3</div>
-                <div class="chip" data-value="4">4</div>
-                <div class="chip" data-value="5">5</div>
+                <div class="scale-chip" data-value="1">1</div>
+                <div class="scale-chip" data-value="2">2</div>
+                <div class="scale-chip" data-value="3">3</div>
+                <div class="scale-chip" data-value="4">4</div>
+                <div class="scale-chip" data-value="5">5</div>
               </div>
               <div class="scaleLegend"><span>Stämmer inte alls</span><span>Stämmer helt</span></div>
             </div>
@@ -554,11 +554,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
-    document.querySelectorAll('.scale .chip').forEach(c => {
+    document.querySelectorAll('.scale .scale-chip').forEach(c => {
       c.addEventListener('click', () => {
         const q = c.parentElement.dataset.q;
         matchAnswers[q] = Number(c.dataset.value);
-        c.parentElement.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
+        c.parentElement.querySelectorAll('.scale-chip').forEach(chip => chip.classList.remove('selected'));
         c.classList.add('selected');
         if (matchStep < matchTotalSteps) {
           document.getElementById('matchNextBtn').disabled = false;
