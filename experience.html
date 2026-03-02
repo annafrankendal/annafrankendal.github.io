@@ -519,29 +519,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Vi döljer knappen tillfälligt så den inte kommer med i PDF:en
       const btn = document.querySelector('.download-cv-btn');
       btn.style.display = 'none';
-      element.classList.add('pdf-mode');
-      element.classList.remove('pdf-two-pages');
-
-      // Fallback: om allt inte ryms på en A4-höjd, bryt före skills-delen till sida 2
-      const a4Ratio = 297 / 210;
-      const maxOnePageHeight = element.clientWidth * a4Ratio;
-      if (element.scrollHeight > maxOnePageHeight) {
-        element.classList.add('pdf-two-pages');
-      }
 
       const opt = {
-        margin:       [4, 4, 4, 4],
+        margin:       [10, 10, 10, 10],
         filename:     'Anna_Frankendal_CV.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 1.8, useCORS: true, letterRendering: true },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] },
+        html2canvas:  { scale: 2.2, useCORS: true, letterRendering: true },
+        pagebreak:    { mode: ['css', 'legacy'] },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
 
       // Kör genereringen
       html2pdf().set(opt).from(element).save().finally(() => {
-        element.classList.remove('pdf-mode');
-        element.classList.remove('pdf-two-pages');
         btn.style.display = 'inline-flex';
       });
     }
