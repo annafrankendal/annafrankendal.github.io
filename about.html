@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -26,8 +26,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --cta-blue: #D1001C;
       --lightblue: #E5E5E5;
       --border: 1.5px solid rgba(255, 255, 255, 0.5);
-      --font-display: 'Playfair Display', serif;
-      --font-body: 'Space Grotesk', sans-serif;
+      --font-display: 'Anton', sans-serif;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,6 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-body);
+      font-weight: 500;
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
@@ -85,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .box h2 {
-      font-family: var(--font-display);
+      font-family: var(--font-heading);
       font-size: 1.4rem;
       text-transform: uppercase;
       letter-spacing: 1px;
