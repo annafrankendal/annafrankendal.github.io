@@ -830,6 +830,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       const hasCanvaCta = !!canvaViewLink && !data.hideCta && !data.downloadOnly;
       const hasIndividualCta = !!individualCanvaLink && !data.hideCta;
+      const downloadLabel = data.downloadLabel || 'Ladda ner fil';
       
       const canvaLabel = hasIndividualCta ? 'Se presentation (Canva - Grupp)' : 'Se presentation (Canva)';
       
