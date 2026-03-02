@@ -19,13 +19,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
     :root {
-      --bg: #FFFFFF;
-      --ink: #1A1A1A;
-      --navy: #1A1A1A;
-      --burgundy: #000000;
+      --bg: #C8102E;
+      --ink: #FFFFFF;
+      --navy: #FFFFFF;
+      --burgundy: #FFFFFF;
       --cta-blue: #C8102E;
       --lightblue: #E5E5E5;
-      --border: 1.5px solid #E5E5E5;
+      --border: 1.5px solid rgba(255, 255, 255, 0.5);
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
     }
@@ -52,17 +52,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: flex-start; align-items: center; gap: 3rem; position: sticky; top: 0; 
       border-bottom: var(--border); z-index: 1500; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 2px;
     }
-    nav a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    nav a:hover { color: var(--burgundy); }
-    nav .active { color: var(--burgundy); border-bottom: 2px solid var(--burgundy); padding-bottom: 4px; }
+    nav a { color: #000000; text-decoration: none; transition: color 0.3s; }
+    nav a:hover { color: #000000; }
+    nav .active { color: #000000; border-bottom: 2px solid #000000; padding-bottom: 4px; }
     .nav-cta { margin-left: auto; padding: 10px 16px; border-radius: 999px; text-decoration: none; background: var(--cta-blue); color: #FFFFFF !important; }
 
     /* --- HERO --- */
     .hero { padding: 8rem 0 5rem; text-align: center; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 9vw, 5.2rem); font-weight: 900; line-height: 0.85; text-transform: uppercase; letter-spacing: -3px; margin-bottom: 2rem; color: var(--navy); }
-    .hero h1 .anna-red { color: var(--cta-blue); }
+    .hero h1 .anna-red { color: #FFFFFF; }
     
-    .hero-image-wrap { width: 130px; margin: 0 auto 2.2rem; border: 1.5px solid var(--cta-blue); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
+    .hero-image-wrap { width: 130px; margin: 0 auto 2.2rem; border: 1.5px solid #FFFFFF; overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; mix-blend-mode: multiply; }
 
     /* --- GRID BOXES --- */
@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     
     .box {
-      border: 2px solid var(--cta-blue);
+      border: 2px solid #FFFFFF;
       background: #FFFFFF;
       border-radius: 0;
       padding: 2.3rem 2rem;
@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 1px;
       margin-bottom: 1.4rem;
       font-weight: 900;
-      color: var(--burgundy);
+      color: #1A1A1A;
     }
     .box p {
       font-size: 1.05rem;
@@ -100,7 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* --- FOOTER --- */
-    footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: #FFFFFF; }
+    footer { padding: 80px 0 40px; text-align: center; border-top: var(--border); background: var(--bg); }
     .footer-contact-grid {
       display: flex;
       justify-content: center;
@@ -121,20 +121,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .footer-contact-item i {
       font-size: 1.8rem;
-      color: #000000;
+      color: #FFFFFF;
     }
     .footer-contact-item span {
       font-size: 9px;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 600;
-      color: #000000;
+      color: #FFFFFF;
       opacity: 0.8;
     }
     .footer-contact-item:hover span {
       opacity: 1;
     }
-    .footer-copyright { margin-top: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #000000; text-transform: uppercase; }
+    .footer-copyright { margin-top: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #FFFFFF; text-transform: uppercase; }
 
     @media (max-width: 1000px) {
       .grid { grid-template-columns: 1fr; gap: 0.9rem; }
@@ -164,7 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <main class="container">
       <section class="hero">
-        <h1>OM <span class="anna-red">ANNA</span></h1>
+        <h1><span class="anna-red">OM</span> <span class="anna-red">ANNA</span></h1>
         <div class="hero-image-wrap">
           <img src="annabild.JPG" alt="Anna Frankendal">
         </div>
