@@ -60,8 +60,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* --- HERO --- */
     .hero { padding: 8rem 0 5rem; text-align: center; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 9vw, 5.2rem); font-weight: 900; line-height: 0.85; text-transform: uppercase; letter-spacing: -3px; margin-bottom: 2rem; color: var(--navy); }
+    .hero h1 .anna-red { color: var(--cta-blue); }
     
-    .hero-image-wrap { width: 130px; margin: 0 auto 2.2rem; border: var(--border); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
+    .hero-image-wrap { width: 130px; margin: 0 auto 2.2rem; border: 1.5px solid var(--cta-blue); overflow: hidden; aspect-ratio: 0.85; background: var(--lightblue); }
     .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; mix-blend-mode: multiply; }
 
     /* --- GRID BOXES --- */
@@ -74,6 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     .box {
       border: 2px solid var(--cta-blue);
+      background: #FFFFFF;
       border-radius: 0;
       padding: 2.3rem 2rem;
       display: flex;
@@ -162,7 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <main class="container">
       <section class="hero">
-        <h1>OM ANNA</h1>
+        <h1>OM <span class="anna-red">ANNA</span></h1>
         <div class="hero-image-wrap">
           <img src="annabild.JPG" alt="Anna Frankendal">
         </div>
