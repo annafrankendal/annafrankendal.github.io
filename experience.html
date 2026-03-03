@@ -503,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="cv-paper">
         <div style="display: flex; justify-content: flex-end;">
-          <a href="#" onclick="generatePDF(); return false;" class="download-cv-btn">
+          <a href="Anna Frankendal CV - BERGHS  .pdf" download class="download-cv-btn">
             <i class="fas fa-download"></i> Ladda ner (PDF)
           </a>
         </div>
@@ -668,133 +668,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button id="send-btn">Fråga</button>
     </div>
   </div>
-
-  <script src="html2pdf.bundle.min.js"></script>
-  <script>
-    async function generatePDF() {
-      const element = document.querySelector('.cv-paper');
-      const btn = document.querySelector('.download-cv-btn');
-      const html2canvasFn = window.html2canvas;
-      const jsPDFCtor = (window.jspdf && window.jspdf.jsPDF) || window.jsPDF;
-      if (!element || !btn || !html2canvasFn || !jsPDFCtor) return;
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'cv_pdf_download_click',
-        page_path: window.location.pathname
-      });
-
-      let exportRoot = null;
-      try {
-        if (document.fonts && document.fonts.ready) {
-          await document.fonts.ready;
-        }
-        await new Promise((resolve) => setTimeout(resolve, 120));
-
-        btn.style.display = 'none';
-
-        // 1) Build hidden temporary A4 container
-        exportRoot = document.createElement('div');
-        exportRoot.style.position = 'absolute';
-        exportRoot.style.left = '-9999px';
-        exportRoot.style.top = '0';
-        exportRoot.style.width = '210mm';
-        exportRoot.style.minHeight = '297mm';
-        exportRoot.style.margin = '0';
-        exportRoot.style.padding = '0';
-        exportRoot.style.background = '#FFFFFF';
-        exportRoot.style.boxSizing = 'border-box';
-        exportRoot.style.overflow = 'visible';
-
-        // 2) Clone CV content into temporary A4 root
-        const clone = element.cloneNode(true);
-        clone.style.width = '210mm';
-        clone.style.maxWidth = '210mm';
-        clone.style.minHeight = '297mm';
-        clone.style.margin = '0';
-        clone.style.padding = '20mm';
-        clone.style.boxSizing = 'border-box';
-        clone.style.border = 'none';
-        clone.style.boxShadow = 'none';
-        clone.style.overflow = 'visible';
-
-        // 3) Force layout inside clone
-        clone.querySelectorAll('.cv-grid').forEach((grid) => {
-          grid.style.display = 'flex';
-          grid.style.flexDirection = 'row';
-          grid.style.width = '100%';
-          grid.style.justifyContent = 'space-between';
-          grid.style.gap = '40px';
-          grid.style.overflow = 'visible';
-          Array.from(grid.children).forEach((col) => {
-            col.style.width = '50%';
-            col.style.flex = '1';
-            col.style.minWidth = '0';
-            col.style.overflow = 'visible';
-          });
-        });
-
-        clone.querySelectorAll('.skills-section').forEach((section) => {
-          section.style.overflow = 'visible';
-          Array.from(section.children).forEach((block) => {
-            block.style.overflow = 'visible';
-            if ((block.getAttribute('style') || '').includes('text-align: right')) {
-              block.style.marginRight = '0';
-              block.style.position = 'static';
-              block.style.right = 'auto';
-              block.style.left = 'auto';
-            }
-          });
-        });
-
-        exportRoot.appendChild(clone);
-        document.body.appendChild(exportRoot);
-
-        // 4) Export the clone in A4 scale
-        const canvas = await html2canvasFn(exportRoot, {
-          scale: 3,
-          useCORS: true,
-          backgroundColor: '#FFFFFF',
-          windowWidth: 1200,
-          scrollX: 0,
-          scrollY: 0
-        });
-
-        const pdf = new jsPDFCtor({
-          unit: 'mm',
-          format: 'a4',
-          orientation: 'portrait'
-        });
-
-        const pageWidth = 210;
-        const pageHeight = 297;
-        const imgData = canvas.toDataURL('image/jpeg', 0.98);
-        const ratio = Math.min(pageWidth / canvas.width, pageHeight / canvas.height);
-        const renderWidth = canvas.width * ratio;
-        const renderHeight = canvas.height * ratio;
-        const offsetX = (pageWidth - renderWidth) / 2;
-        const offsetY = (pageHeight - renderHeight) / 2;
-
-        pdf.addImage(imgData, 'JPEG', offsetX, offsetY, renderWidth, renderHeight);
-        pdf.save('Anna_Frankendal_CV.pdf');
-      } finally {
-        // 5) Cleanup temporary export node
-        if (exportRoot && exportRoot.parentNode) {
-          exportRoot.parentNode.removeChild(exportRoot);
-        }
-        btn.style.display = 'inline-flex';
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('download') === 'cv') {
-        setTimeout(() => {
-          generatePDF();
-        }, 120);
-      }
-    });
-  </script>
 
   <link rel="stylesheet" href="chat-style.css">
   <script src="script.js"></script>
