@@ -674,7 +674,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     async function generatePDF() {
       const element = document.querySelector('.cv-paper');
       const btn = document.querySelector('.download-cv-btn');
-      if (!element || !btn || typeof html2pdf === 'undefined') return;
+      const html2canvasFn = window.html2canvas;
+      const jsPDFCtor = (window.jspdf && window.jspdf.jsPDF) || window.jsPDF;
+      if (!element || !btn || !html2canvasFn || !jsPDFCtor) return;
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -682,6 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         page_path: window.location.pathname
       });
 
+      let exportRoot = null;
       try {
         if (document.fonts && document.fonts.ready) {
           await document.fonts.ready;
@@ -689,25 +692,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         await new Promise((resolve) => setTimeout(resolve, 120));
 
         btn.style.display = 'none';
-        element.classList.add('pdf-mode');
 
-        await html2pdf().set({
-          margin: [10, 10, 10, 10],
-          filename: 'Anna_Frankendal_CV.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: {
-            scale: 3,
-            useCORS: true,
-            backgroundColor: '#FFFFFF',
-            windowWidth: 1200,
-            scrollX: 0,
-            scrollY: 0
-          },
-          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        }).from(element).save();
+        exportRoot = document.createElement('div');
+        exportRoot.style.position = 'absolute';
+        exportRoot.style.left = '-9999px';
+        exportRoot.style.top = '0';
+        exportRoot.style.width = '210mm';
+        exportRoot.style.minHeight = '297mm';
+        exportRoot.style.margin = '0';
+        exportRoot.style.padding = '0';
+        exportRoot.style.background = '#FFFFFF';
+        exportRoot.style.overflow = 'visible';
+        exportRoot.style.boxSizing = 'border-box';
+
+        const clone = element.cloneNode(true);
+        clone.classList.add('pdf-mode');
+        clone.style.width = '210mm';
+        clone.style.maxWidth = '210mm';
+        clone.style.minHeight = '297mm';
+        clone.style.margin = '0';
+        clone.style.padding = '20mm';
+        clone.style.boxSizing = 'border-box';
+        clone.style.border = 'none';
+        clone.style.boxShadow = 'none';
+        clone.style.overflow = 'visible';
+
+        clone.querySelectorAll('.cv-grid').forEach((grid) => {
+          grid.style.display = 'flex';
+          grid.style.flexDirection = 'row';
+          grid.style.justifyContent = 'space-between';
+          grid.style.gap = '40px';
+          grid.style.width = '100%';
+          grid.style.overflow = 'visible';
+          Array.from(grid.children).forEach((col) => {
+            col.style.flex = '1';
+            col.style.width = '50%';
+            col.style.minWidth = '0';
+            col.style.overflow = 'visible';
+          });
+        });
+
+        clone.querySelectorAll('.skills-section').forEach((section) => {
+          section.style.display = 'flex';
+          section.style.flexDirection = 'row';
+          section.style.flexWrap = 'wrap';
+          section.style.gap = '12px 18px';
+          section.style.width = '100%';
+          section.style.overflow = 'visible';
+          Array.from(section.children).forEach((block) => {
+            block.style.flex = '1';
+            block.style.minWidth = '0';
+            block.style.margin = '0';
+            block.style.overflow = 'visible';
+            if ((block.getAttribute('style') || '').includes('text-align: right')) {
+              block.style.marginRight = '0';
+              block.style.position = 'static';
+              block.style.right = 'auto';
+              block.style.left = 'auto';
+            }
+          });
+        });
+
+        exportRoot.appendChild(clone);
+        document.body.appendChild(exportRoot);
+
+        const canvas = await html2canvasFn(exportRoot, {
+          scale: 3,
+          useCORS: true,
+          backgroundColor: '#FFFFFF',
+          windowWidth: 1200,
+          scrollX: 0,
+          scrollY: 0
+        });
+
+        const pdf = new jsPDFCtor({
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait'
+        });
+
+        const pageWidth = 210;
+        const pageHeight = 297;
+        const imgData = canvas.toDataURL('image/jpeg', 0.98);
+        const ratio = Math.min(pageWidth / canvas.width, pageHeight / canvas.height);
+        const renderWidth = canvas.width * ratio;
+        const renderHeight = canvas.height * ratio;
+        const offsetX = (pageWidth - renderWidth) / 2;
+        const offsetY = (pageHeight - renderHeight) / 2;
+
+        pdf.addImage(imgData, 'JPEG', offsetX, offsetY, renderWidth, renderHeight);
+        pdf.save('Anna_Frankendal_CV.pdf');
       } finally {
-        element.classList.remove('pdf-mode');
+        if (exportRoot && exportRoot.parentNode) {
+          exportRoot.parentNode.removeChild(exportRoot);
+        }
         btn.style.display = 'inline-flex';
       }
     }
