@@ -185,31 +185,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Export mode used by html2canvas/jsPDF */
     .cv-paper.pdf-mode {
-      width: 190mm !important;
-      max-width: 190mm !important;
+      width: 210mm !important;
+      max-width: 210mm !important;
+      box-sizing: border-box !important;
       margin: 0 auto !important;
-      padding: 10mm 9mm 8mm !important;
+      padding: 16mm !important;
       box-shadow: none;
       border: none;
+      overflow: hidden !important;
     }
     .cv-paper.pdf-mode .cv-grid,
     .cv-paper.pdf-mode .skills-section {
-      grid-template-columns: 1fr 1fr !important;
-      gap: 8mm !important;
+      display: flex !important;
+      gap: 7mm !important;
     }
-    .cv-paper.pdf-mode .cv-header { margin-bottom: 6mm !important; }
-    .cv-paper.pdf-mode .cv-header h1 { font-size: 2.05rem !important; letter-spacing: -0.4px !important; margin-bottom: 1.5mm !important; }
-    .cv-paper.pdf-mode .cv-header p { font-size: 0.95rem !important; letter-spacing: 1px !important; }
+    .cv-paper.pdf-mode .cv-grid > div,
+    .cv-paper.pdf-mode .skills-section > div { flex: 1 1 0 !important; min-width: 0 !important; }
+    .cv-paper.pdf-mode .cv-header { margin-bottom: 5mm !important; }
+    .cv-paper.pdf-mode .cv-header h1 { font-size: 1.95rem !important; letter-spacing: -0.3px !important; margin-bottom: 1.2mm !important; }
+    .cv-paper.pdf-mode .cv-header p { font-size: 0.88rem !important; letter-spacing: 0.9px !important; }
     .cv-paper.pdf-mode .cv-column-title h3 { font-size: 0.95rem !important; margin-bottom: 3.5mm !important; padding-bottom: 2mm !important; }
-    .cv-paper.pdf-mode .cv-item { padding-left: 4mm !important; padding-bottom: 4.2mm !important; }
-    .cv-paper.pdf-mode .cv-item h4 { font-size: 0.73rem !important; margin-bottom: 0.7mm !important; letter-spacing: 0.35px !important; line-height: 1.2 !important; }
-    .cv-paper.pdf-mode .cv-item span { font-size: 0.56rem !important; margin-bottom: 0.7mm !important; line-height: 1.15 !important; letter-spacing: 0.45px !important; }
-    .cv-paper.pdf-mode .cv-item p { font-size: 0.65rem !important; line-height: 1.24 !important; }
-    .cv-paper.pdf-mode .skills-section { margin-top: 4mm !important; padding-top: 4mm !important; }
-    .cv-paper.pdf-mode .skills-section h3 { font-size: 0.52rem !important; margin-bottom: 2mm !important; letter-spacing: 0.8px !important; }
-    .cv-paper.pdf-mode .skill-tag { font-size: 0.36rem !important; padding: 1.5px 4px !important; margin-bottom: 1.2px !important; letter-spacing: 0.3px !important; }
-    .cv-paper.pdf-mode .skills-section p { font-size: 0.6rem !important; line-height: 1.15 !important; margin-bottom: 0.8mm !important; }
-    .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] h3 { font-size: 1.1rem !important; margin-bottom: 0.5mm !important; }
+    .cv-paper.pdf-mode .cv-item { padding-left: 4mm !important; padding-bottom: 3.6mm !important; }
+    .cv-paper.pdf-mode .cv-item h4 { font-size: 0.69rem !important; margin-bottom: 0.6mm !important; letter-spacing: 0.3px !important; line-height: 1.2 !important; }
+    .cv-paper.pdf-mode .cv-item span { font-size: 0.52rem !important; margin-bottom: 0.6mm !important; line-height: 1.12 !important; letter-spacing: 0.35px !important; }
+    .cv-paper.pdf-mode .cv-item p { font-size: 0.6rem !important; line-height: 1.2 !important; }
+    .cv-paper.pdf-mode .skills-section { margin-top: 3.2mm !important; padding-top: 3.2mm !important; }
+    .cv-paper.pdf-mode .skills-section h3 { font-size: 0.48rem !important; margin-bottom: 1.8mm !important; letter-spacing: 0.7px !important; }
+    .cv-paper.pdf-mode .skill-tag { font-size: 0.33rem !important; padding: 1.2px 3.6px !important; margin-bottom: 1px !important; letter-spacing: 0.25px !important; }
+    .cv-paper.pdf-mode .skills-section p { font-size: 0.56rem !important; line-height: 1.12 !important; margin-bottom: 0.6mm !important; }
+    .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] h3 { font-size: 0.95rem !important; margin-bottom: 0.4mm !important; }
+    .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] p { font-size: 0.56rem !important; }
+    .cv-paper.pdf-mode .skills-section > div[style*="display: flex; flex-wrap: wrap"] { gap: 2px !important; }
     .cv-paper.pdf-mode .cv-grid > div,
     .cv-paper.pdf-mode .cv-item,
     .cv-paper.pdf-mode .skills-section > div,
@@ -227,6 +233,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       html, body {
         width: 210mm;
         height: 297mm;
+        box-sizing: border-box;
         background: #FFFFFF !important;
         overflow: visible !important;
       }
@@ -245,40 +252,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .container {
         width: 210mm !important;
         max-width: 210mm !important;
+        box-sizing: border-box !important;
         margin: 0 auto !important;
         padding: 0 !important;
       }
       .cv-paper {
-        width: 190mm !important;
-        max-width: 190mm !important;
+        width: 210mm !important;
+        max-width: 210mm !important;
+        box-sizing: border-box !important;
         margin: 0 auto !important;
-        padding: 10mm 9mm 8mm !important;
+        padding: 16mm !important;
         border: none !important;
         box-shadow: none !important;
+        overflow: hidden !important;
       }
       .cv-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        column-gap: 8mm !important;
+        display: flex !important;
+        gap: 7mm !important;
       }
+      .cv-grid > div { flex: 1 1 0 !important; min-width: 0 !important; }
       .skills-section {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 8mm !important;
-        margin-top: 4mm !important;
-        padding-top: 4mm !important;
+        display: flex !important;
+        gap: 7mm !important;
+        margin-top: 3.2mm !important;
+        padding-top: 3.2mm !important;
       }
-      .cv-header { margin-bottom: 6mm !important; }
-      .cv-header h1 { font-size: 2.05rem !important; letter-spacing: -0.4px !important; margin-bottom: 1.5mm !important; }
-      .cv-header p { font-size: 0.95rem !important; letter-spacing: 1px !important; }
+      .skills-section > div { flex: 1 1 0 !important; min-width: 0 !important; }
+      .cv-header { margin-bottom: 5mm !important; }
+      .cv-header h1 { font-size: 1.95rem !important; letter-spacing: -0.3px !important; margin-bottom: 1.2mm !important; }
+      .cv-header p { font-size: 0.88rem !important; letter-spacing: 0.9px !important; }
       .cv-column-title h3 { font-size: 0.95rem !important; margin-bottom: 3.5mm !important; padding-bottom: 2mm !important; }
-      .cv-item { padding-left: 4mm !important; padding-bottom: 4.2mm !important; }
-      .cv-item h4 { font-size: 0.73rem !important; letter-spacing: 0.35px !important; line-height: 1.2 !important; }
-      .cv-item span { font-size: 0.56rem !important; letter-spacing: 0.45px !important; line-height: 1.15 !important; }
-      .cv-item p { font-size: 0.65rem !important; line-height: 1.24 !important; }
-      .skills-section h3 { font-size: 0.52rem !important; letter-spacing: 0.8px !important; margin-bottom: 2mm !important; }
-      .skill-tag { font-size: 0.36rem !important; padding: 1.5px 4px !important; margin-bottom: 1.2px !important; letter-spacing: 0.3px !important; }
-      .skills-section p { font-size: 0.6rem !important; line-height: 1.15 !important; }
+      .cv-item { padding-left: 4mm !important; padding-bottom: 3.6mm !important; }
+      .cv-item h4 { font-size: 0.69rem !important; letter-spacing: 0.3px !important; line-height: 1.2 !important; }
+      .cv-item span { font-size: 0.52rem !important; letter-spacing: 0.35px !important; line-height: 1.12 !important; }
+      .cv-item p { font-size: 0.6rem !important; line-height: 1.2 !important; }
+      .skills-section h3 { font-size: 0.48rem !important; letter-spacing: 0.7px !important; margin-bottom: 1.8mm !important; }
+      .skill-tag { font-size: 0.33rem !important; padding: 1.2px 3.6px !important; margin-bottom: 1px !important; letter-spacing: 0.25px !important; }
+      .skills-section p { font-size: 0.56rem !important; line-height: 1.12 !important; }
+      .skills-section > div[style*="text-align: right"] h3 { font-size: 0.95rem !important; }
+      .skills-section > div[style*="text-align: right"] p { font-size: 0.56rem !important; }
+      .skills-section > div[style*="display: flex; flex-wrap: wrap"] { gap: 2px !important; }
       .cv-grid > div,
       .cv-item,
       .skills-section > div,
@@ -606,7 +619,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           filename: 'Anna_Frankendal_CV.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: {
-            scale: 2,
+            scale: 3,
             useCORS: true,
             backgroundColor: '#FFFFFF',
             windowWidth: 1280
