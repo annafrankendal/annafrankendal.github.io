@@ -183,51 +183,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .skill-tag { border: 1px solid var(--line); padding: 6px 12px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: inline-block; border-radius: 4px; color: var(--muted); font-weight: 600; }
 
-    /* Tighter export-only layout to keep CV on one A4 page */
+    /* Export mode: keep on-screen layout and hide controls */
     .cv-paper.pdf-mode {
-      width: 190mm;
-      max-width: 190mm;
-      min-height: 277mm;
-      margin: 0 auto;
-      padding: 30px 28px 22px;
+      width: 1100px !important;
+      max-width: 1100px !important;
       box-shadow: none;
-      border: none;
-      font-family: Arial, Helvetica, sans-serif;
     }
-    .cv-paper.pdf-mode .cv-header { margin-bottom: 1.1rem; }
-    .cv-paper.pdf-mode .cv-header h1 { font-size: 2.35rem; margin-bottom: 0.05rem; line-height: 0.92; }
-    .cv-paper.pdf-mode .cv-header p { font-size: 0.95rem; line-height: 1; }
-    .cv-paper.pdf-mode .cv-grid { column-gap: 2.1rem; }
-    .cv-paper.pdf-mode .cv-column-title h3 { margin-bottom: 0.8rem; padding-bottom: 6px; font-size: 0.95rem; }
-    .cv-paper.pdf-mode .cv-item { padding-left: 0.85rem; padding-bottom: 1.05rem; }
-    .cv-paper.pdf-mode .cv-item h4 { font-size: 0.79rem; margin-bottom: 0.12rem; letter-spacing: 0.6px; }
-    .cv-paper.pdf-mode .cv-item span { font-size: 0.58rem; margin-bottom: 0.22rem; line-height: 1.15; }
-    .cv-paper.pdf-mode .cv-item p { font-size: 0.67rem; line-height: 1.22; }
-    .cv-paper.pdf-mode .skills-section { margin-top: 0.45rem; padding-top: 0.9rem; gap: 1.4rem; }
-    .cv-paper.pdf-mode .skill-tag { font-size: 6px; padding: 3px 6px; margin-bottom: 3px; letter-spacing: 0.45px; }
-    .cv-paper.pdf-mode .skills-section h3 { font-size: 8px !important; margin-bottom: 0.55rem !important; letter-spacing: 1.1px !important; }
-    .cv-paper.pdf-mode .skills-section p { font-size: 0.68rem !important; line-height: 1.1; }
-    .cv-paper.pdf-mode .skills-section > div[style*="margin-top: 2rem"] { margin-top: 0.35rem !important; }
-    .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] h3 { font-size: 1.45rem !important; margin-bottom: 0.12rem !important; }
-    .cv-paper.pdf-mode .cv-header h1,
-    .cv-paper.pdf-mode .cv-header p,
-    .cv-paper.pdf-mode .cv-column-title h3,
-    .cv-paper.pdf-mode .cv-item h4,
-    .cv-paper.pdf-mode .cv-item span,
-    .cv-paper.pdf-mode .cv-item p,
-    .cv-paper.pdf-mode .skill-tag,
-    .cv-paper.pdf-mode .skills-section h3,
-    .cv-paper.pdf-mode .skills-section p {
-      font-family: Arial, Helvetica, sans-serif !important;
-      letter-spacing: normal !important;
+    .cv-paper.pdf-mode .cv-grid,
+    .cv-paper.pdf-mode .skills-section {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 5rem !important;
     }
     .cv-paper.pdf-mode .download-cv-btn { display: none !important; }
-    .cv-paper.pdf-mode.pdf-two-pages .skills-section {
-      break-before: page;
-      page-break-before: always;
-      margin-top: 0;
-      padding-top: 1.1rem;
-    }
 
     @media (max-width: 850px) {
       .cv-paper { padding: 40px 20px; }
@@ -543,21 +510,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         btn.style.display = 'none';
         element.classList.add('pdf-mode');
 
-        const opt = {
-          margin: [6, 6, 6, 6],
-          filename: 'Anna_Frankendal_CV.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
+        const worker = html2pdf().set({
           html2canvas: {
-            scale: 1.8,
+            scale: 2,
             useCORS: true,
             backgroundColor: '#FFFFFF',
-            letterRendering: false
+            letterRendering: true
           },
-          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+          image: { type: 'jpeg', quality: 0.98 }
+        }).from(element);
 
-        await html2pdf().set(opt).from(element).save();
+        const canvas = await worker.toCanvas().get('canvas');
+        const imgData = canvas.toDataURL('image/jpeg', 0.98);
+
+        const { jsPDF } = window.jspdf || {};
+        if (!jsPDF) {
+          await html2pdf().set({
+            margin: [8, 8, 8, 8],
+            filename: 'Anna_Frankendal_CV.pdf',
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: '#FFFFFF', letterRendering: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          }).from(element).save();
+          return;
+        }
+
+        const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const margin = 8;
+        const maxWidth = pageWidth - margin * 2;
+        const maxHeight = pageHeight - margin * 2;
+        const ratio = Math.min(maxWidth / canvas.width, maxHeight / canvas.height);
+        const renderWidth = canvas.width * ratio;
+        const renderHeight = canvas.height * ratio;
+        const offsetX = (pageWidth - renderWidth) / 2;
+        const offsetY = (pageHeight - renderHeight) / 2;
+
+        pdf.addImage(imgData, 'JPEG', offsetX, offsetY, renderWidth, renderHeight);
+        pdf.save('Anna_Frankendal_CV.pdf');
       } finally {
         element.classList.remove('pdf-mode');
         btn.style.display = 'inline-flex';
