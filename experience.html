@@ -187,20 +187,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-paper.pdf-mode {
       width: 210mm !important;
       max-width: 210mm !important;
+      min-height: 297mm !important;
       box-sizing: border-box !important;
       margin: 0 auto !important;
-      padding: 16mm !important;
+      padding: 20mm !important;
       box-shadow: none;
       border: none;
-      overflow: hidden !important;
+      overflow: visible !important;
     }
     .cv-paper.pdf-mode .cv-grid,
-    .cv-paper.pdf-mode .skills-section {
+    .cv-paper.pdf-mode .skills-section,
+    .cv-paper.pdf-mode .skills-section > div {
       display: flex !important;
+      overflow: visible !important;
+    }
+    .cv-paper.pdf-mode .cv-grid {
+      flex-direction: row !important;
+      width: 100% !important;
       gap: 7mm !important;
     }
-    .cv-paper.pdf-mode .cv-grid > div,
-    .cv-paper.pdf-mode .skills-section > div { flex: 1 1 0 !important; min-width: 0 !important; }
+    .cv-paper.pdf-mode .cv-grid > div {
+      width: 50% !important;
+      flex: 0 0 50% !important;
+      min-width: 0 !important;
+    }
+    .cv-paper.pdf-mode .skills-section {
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      width: 100% !important;
+      gap: 7mm !important;
+    }
+    .cv-paper.pdf-mode .skills-section > div {
+      width: calc(50% - 3.5mm) !important;
+      max-width: calc(50% - 3.5mm) !important;
+      min-width: 0 !important;
+      flex: 0 0 calc(50% - 3.5mm) !important;
+      margin: 0 !important;
+    }
+    .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] {
+      width: calc(50% - 3.5mm) !important;
+      max-width: calc(50% - 3.5mm) !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      text-align: right !important;
+      align-self: flex-start !important;
+    }
     .cv-paper.pdf-mode .cv-header { margin-bottom: 5mm !important; }
     .cv-paper.pdf-mode .cv-header h1 { font-size: 1.95rem !important; letter-spacing: -0.3px !important; margin-bottom: 1.2mm !important; }
     .cv-paper.pdf-mode .cv-header p { font-size: 0.88rem !important; letter-spacing: 0.9px !important; }
@@ -227,12 +258,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @page {
       size: A4 portrait;
-      margin: 10mm;
+      margin: 0;
     }
     @media print {
       html, body {
         width: 210mm;
         height: 297mm;
+        min-height: 297mm;
         box-sizing: border-box;
         background: #FFFFFF !important;
         overflow: visible !important;
@@ -252,32 +284,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .container {
         width: 210mm !important;
         max-width: 210mm !important;
+        min-height: 297mm !important;
         box-sizing: border-box !important;
         margin: 0 auto !important;
         padding: 0 !important;
+        overflow: visible !important;
       }
       .cv-paper {
         width: 210mm !important;
         max-width: 210mm !important;
+        min-height: 297mm !important;
         box-sizing: border-box !important;
         margin: 0 auto !important;
-        padding: 16mm !important;
+        padding: 20mm !important;
         border: none !important;
         box-shadow: none !important;
-        overflow: hidden !important;
+        overflow: visible !important;
       }
       .cv-grid {
         display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
         gap: 7mm !important;
+        overflow: visible !important;
       }
-      .cv-grid > div { flex: 1 1 0 !important; min-width: 0 !important; }
+      .cv-grid > div {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+      }
       .skills-section {
         display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
         gap: 7mm !important;
         margin-top: 3.2mm !important;
         padding-top: 3.2mm !important;
+        overflow: visible !important;
       }
-      .skills-section > div { flex: 1 1 0 !important; min-width: 0 !important; }
+      .skills-section > div {
+        width: calc(50% - 3.5mm) !important;
+        max-width: calc(50% - 3.5mm) !important;
+        flex: 0 0 calc(50% - 3.5mm) !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+      }
+      .skills-section > div[style*="text-align: right"] {
+        width: calc(50% - 3.5mm) !important;
+        max-width: calc(50% - 3.5mm) !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        text-align: right !important;
+      }
       .cv-header { margin-bottom: 5mm !important; }
       .cv-header h1 { font-size: 1.95rem !important; letter-spacing: -0.3px !important; margin-bottom: 1.2mm !important; }
       .cv-header p { font-size: 0.88rem !important; letter-spacing: 0.9px !important; }
@@ -298,6 +359,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .skill-tag {
         break-inside: avoid;
         page-break-inside: avoid;
+      }
+      #experience,
+      .cv-header,
+      .cv-column-title,
+      .cv-column-title h3,
+      .skill-tag {
+        overflow: visible !important;
       }
     }
 
@@ -622,7 +690,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             scale: 3,
             useCORS: true,
             backgroundColor: '#FFFFFF',
-            windowWidth: 1280
+            windowWidth: 1200
           },
           pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
