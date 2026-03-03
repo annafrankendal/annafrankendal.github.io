@@ -693,6 +693,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         btn.style.display = 'none';
 
+        // 1) Build hidden temporary A4 container
         exportRoot = document.createElement('div');
         exportRoot.style.position = 'absolute';
         exportRoot.style.left = '-9999px';
@@ -702,11 +703,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         exportRoot.style.margin = '0';
         exportRoot.style.padding = '0';
         exportRoot.style.background = '#FFFFFF';
-        exportRoot.style.overflow = 'visible';
         exportRoot.style.boxSizing = 'border-box';
+        exportRoot.style.overflow = 'visible';
 
+        // 2) Clone CV content into temporary A4 root
         const clone = element.cloneNode(true);
-        clone.classList.add('pdf-mode');
         clone.style.width = '210mm';
         clone.style.maxWidth = '210mm';
         clone.style.minHeight = '297mm';
@@ -717,32 +718,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         clone.style.boxShadow = 'none';
         clone.style.overflow = 'visible';
 
+        // 3) Force layout inside clone
         clone.querySelectorAll('.cv-grid').forEach((grid) => {
           grid.style.display = 'flex';
           grid.style.flexDirection = 'row';
+          grid.style.width = '100%';
           grid.style.justifyContent = 'space-between';
           grid.style.gap = '40px';
-          grid.style.width = '100%';
           grid.style.overflow = 'visible';
           Array.from(grid.children).forEach((col) => {
-            col.style.flex = '1';
             col.style.width = '50%';
+            col.style.flex = '1';
             col.style.minWidth = '0';
             col.style.overflow = 'visible';
           });
         });
 
         clone.querySelectorAll('.skills-section').forEach((section) => {
-          section.style.display = 'flex';
-          section.style.flexDirection = 'row';
-          section.style.flexWrap = 'wrap';
-          section.style.gap = '12px 18px';
-          section.style.width = '100%';
           section.style.overflow = 'visible';
           Array.from(section.children).forEach((block) => {
-            block.style.flex = '1';
-            block.style.minWidth = '0';
-            block.style.margin = '0';
             block.style.overflow = 'visible';
             if ((block.getAttribute('style') || '').includes('text-align: right')) {
               block.style.marginRight = '0';
@@ -756,6 +750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         exportRoot.appendChild(clone);
         document.body.appendChild(exportRoot);
 
+        // 4) Export the clone in A4 scale
         const canvas = await html2canvasFn(exportRoot, {
           scale: 3,
           useCORS: true,
@@ -783,6 +778,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         pdf.addImage(imgData, 'JPEG', offsetX, offsetY, renderWidth, renderHeight);
         pdf.save('Anna_Frankendal_CV.pdf');
       } finally {
+        // 5) Cleanup temporary export node
         if (exportRoot && exportRoot.parentNode) {
           exportRoot.parentNode.removeChild(exportRoot);
         }
