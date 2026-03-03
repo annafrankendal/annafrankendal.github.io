@@ -185,8 +185,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Tighter export-only layout to keep CV on one A4 page */
     .cv-paper.pdf-mode {
-      padding: 34px 34px 26px;
+      width: 190mm;
+      max-width: 190mm;
+      min-height: 277mm;
+      margin: 0 auto;
+      padding: 30px 28px 22px;
       box-shadow: none;
+      border: none;
+      font-family: Arial, Helvetica, sans-serif;
     }
     .cv-paper.pdf-mode .cv-header { margin-bottom: 1.1rem; }
     .cv-paper.pdf-mode .cv-header h1 { font-size: 2.35rem; margin-bottom: 0.05rem; line-height: 0.92; }
@@ -203,6 +209,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cv-paper.pdf-mode .skills-section p { font-size: 0.68rem !important; line-height: 1.1; }
     .cv-paper.pdf-mode .skills-section > div[style*="margin-top: 2rem"] { margin-top: 0.35rem !important; }
     .cv-paper.pdf-mode .skills-section > div[style*="text-align: right"] h3 { font-size: 1.45rem !important; margin-bottom: 0.12rem !important; }
+    .cv-paper.pdf-mode .cv-header h1,
+    .cv-paper.pdf-mode .cv-header p,
+    .cv-paper.pdf-mode .cv-column-title h3,
+    .cv-paper.pdf-mode .cv-item h4,
+    .cv-paper.pdf-mode .cv-item span,
+    .cv-paper.pdf-mode .cv-item p,
+    .cv-paper.pdf-mode .skill-tag,
+    .cv-paper.pdf-mode .skills-section h3,
+    .cv-paper.pdf-mode .skills-section p {
+      font-family: Arial, Helvetica, sans-serif !important;
+      letter-spacing: normal !important;
+    }
     .cv-paper.pdf-mode .download-cv-btn { display: none !important; }
     .cv-paper.pdf-mode.pdf-two-pages .skills-section {
       break-before: page;
@@ -336,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="cv-paper">
         <div style="display: flex; justify-content: flex-end;">
-          <a href="javascript:void(0)" onclick="generatePDF()" class="download-cv-btn">
+          <a href="#" onclick="generatePDF('manual'); return false;" class="download-cv-btn">
             <i class="fas fa-download"></i> Ladda ner (PDF)
           </a>
         </div>
@@ -502,38 +520,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <link rel="stylesheet" href="chat-style.css">
-  <script src="script.js"></script>
-
   <script src="html2pdf.bundle.min.js"></script>
-
   <script>
-    function generatePDF() {
+    async function generatePDF(source = 'manual') {
       const element = document.querySelector('.cv-paper');
+      const btn = document.querySelector('.download-cv-btn');
+      if (!element || !btn || typeof html2pdf === 'undefined') return;
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'cv_pdf_download_click',
-        page_path: window.location.pathname
+        page_path: window.location.pathname,
+        source
       });
-      
-      // Vi döljer knappen tillfälligt så den inte kommer med i PDF:en
-      const btn = document.querySelector('.download-cv-btn');
-      btn.style.display = 'none';
 
-      const opt = {
-        margin:       [10, 10, 10, 10],
-        filename:     'Anna_Frankendal_CV.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2.2, useCORS: true, letterRendering: true },
-        pagebreak:    { mode: ['css', 'legacy'] },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+        await new Promise((resolve) => setTimeout(resolve, 120));
 
-      // Kör genereringen
-      html2pdf().set(opt).from(element).save().finally(() => {
+        btn.style.display = 'none';
+        element.classList.add('pdf-mode');
+
+        const opt = {
+          margin: [6, 6, 6, 6],
+          filename: 'Anna_Frankendal_CV.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 1.8,
+            useCORS: true,
+            backgroundColor: '#FFFFFF',
+            letterRendering: false
+          },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        await html2pdf().set(opt).from(element).save();
+      } finally {
+        element.classList.remove('pdf-mode');
         btn.style.display = 'inline-flex';
-      });
+      }
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('download') === 'cv') {
+        generatePDF('homepage');
+      }
+    });
   </script>
 
   <link rel="stylesheet" href="chat-style.css">
