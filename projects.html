@@ -783,6 +783,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         category: 'Social & Brand',
         tags: 'TikTok, SEO i social, Creator content, Growth',
         coverImage: 'assets/project-covers/frankisfood.jpg',
+        detailImage: 'assets/project-covers/frankisfood-tiktok-screenshot.png',
         summary: 'Ett praktiskt growth-experiment på mitt eget TikTok-konto där målet var att testa hur struktur, sökoptimering och sparbarhet påverkar räckvidd, engagemang och följartillväxt.',
         sections: [
           {
@@ -955,6 +956,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ${presentationBlock}
 
         ${detailContent}
+
+        ${data.detailImage ? `
+          <div style="margin-top:1rem; margin-bottom:2rem;">
+            <img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;">
+          </div>
+        ` : ''}
 
         ${extraLinksBlock}
 
