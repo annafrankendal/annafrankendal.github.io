@@ -701,6 +701,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         canvaLink: 'https://www.canva.com/design/DAG_hLISNBI/1UXkxcNDj--DiX9bmJ6bEA/view?utm_content=DAG_hLISNBI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he7c068867e',
         canvaViewLink: 'https://www.canva.com/design/DAG_hLISNBI/1UXkxcNDj--DiX9bmJ6bEA/view?utm_content=DAG_hLISNBI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he7c068867e',
         pdfLink: 'presentations/ecomid.pdf',
+        extraLinks: [
+          { label: 'Se TikTok: När vi visar upp VERA', href: 'https://www.tiktok.com/@ecomid/video/7589591403148234006' },
+          { label: 'Se TikTok: Lära känna eComID', href: 'https://www.tiktok.com/@ecomid/video/7589949254089805079' }
+        ],
         summary: 'Genomförde marknads- och beteendeanalys som grund för en organisk TikTok-strategi med tydligare träff i målgruppen.',
         sections: [
           {
@@ -801,6 +805,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         tags: 'TikTok, SEO i social, Creator content, Growth',
         coverImage: 'assets/project-covers/frankisfood.jpg',
         detailImage: 'assets/project-covers/frankisfood-tiktok-screenshot.png',
+        detailImageLink: 'https://www.tiktok.com/@frankisfood/photo/7605641920391433494',
         summary: 'Ett praktiskt growth-experiment på mitt eget TikTok-konto där målet var att testa hur struktur, sökoptimering och sparbarhet påverkar räckvidd, engagemang och följartillväxt.',
         sections: [
           {
@@ -976,7 +981,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         ${data.detailImage ? `
           <div style="margin-top:1rem; margin-bottom:2rem;">
-            <img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;">
+            ${data.detailImageLink
+              ? `<a href="${data.detailImageLink}" target="_blank" rel="noopener noreferrer"><img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;"></a>`
+              : `<img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;">`
+            }
           </div>
         ` : ''}
 
