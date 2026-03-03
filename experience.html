@@ -337,7 +337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="cv-paper">
         <div style="display: flex; justify-content: flex-end;">
-          <a href="#" onclick="generatePDF('manual'); return false;" class="download-cv-btn">
+          <a href="Anna Frankendal CV - BERGHS  .pdf" download class="download-cv-btn">
             <i class="fas fa-download"></i> Ladda ner (PDF)
           </a>
         </div>
@@ -545,12 +545,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('download') === 'cv') {
-        generatePDF('homepage');
-      }
-    });
   </script>
 
   <link rel="stylesheet" href="chat-style.css">
