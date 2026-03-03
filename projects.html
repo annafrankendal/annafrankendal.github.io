@@ -806,6 +806,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         coverImage: 'assets/project-covers/frankisfood.jpg',
         detailImage: 'assets/project-covers/frankisfood-tiktok-screenshot.png',
         detailImageLink: 'https://www.tiktok.com/@frankisfood/photo/7605641920391433494',
+        detailImageCaption: 'Klicka på bilden för att se inlägget.',
         summary: 'Ett praktiskt growth-experiment på mitt eget TikTok-konto där målet var att testa hur struktur, sökoptimering och sparbarhet påverkar räckvidd, engagemang och följartillväxt.',
         sections: [
           {
@@ -985,6 +986,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               ? `<a href="${data.detailImageLink}" target="_blank" rel="noopener noreferrer"><img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;"></a>`
               : `<img src="${data.detailImage}" alt="${data.title} skärmbild" style="width:100%; max-width:700px; height:auto; border:1px solid #E5E5E5;">`
             }
+            ${data.detailImageCaption ? `<p style="margin-top:0.65rem; font-size:0.9rem; color:#666666;">${data.detailImageCaption}</p>` : ''}
           </div>
         ` : ''}
 
