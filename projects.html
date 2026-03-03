@@ -795,6 +795,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ],
         downloadLink: 'downloads/PomodoroTimer-extension.zip',
         downloadLabel: 'Ladda ner plugin (.zip)',
+        secondaryDownloadLink: 'presentations/den-manskliga-faktorn-ai-driven-sokmiljo.pdf',
+        secondaryDownloadLabel: 'Ladda ner PDF: Den mänskliga faktorn i en AI-driven sökmiljö',
         hideCta: true
       },
       'frankisfood': {
@@ -922,6 +924,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         `
         : '';
+      const secondaryDownloadBlockBottom = data.secondaryDownloadLink
+        ? `
+          <div style="text-align:center; margin-top:0.6rem;">
+            <a href="${data.secondaryDownloadLink}" target="_blank" class="nav-cta" style="display:inline-block; text-decoration:none; margin:0 6px 10px; background:#FFFFFF; color:#D1001C !important; border:1px solid #D1001C; cursor:pointer; padding:12px 22px; font-size:0.86rem;">${data.secondaryDownloadLabel || 'Ladda ner PDF'}</a>
+          </div>
+        `
+        : '';
 
       let detailContent = '';
 
@@ -997,6 +1006,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ${extraLinksBlock}
 
         ${downloadBlockBottom}
+        
+        ${secondaryDownloadBlockBottom}
 
         ${ctaBlock}
       `;
