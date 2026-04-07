@@ -42,20 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Track clicks on "Är vi en match?" navigation CTA across pages.
-    const matchCtas = document.querySelectorAll('a.nav-cta[href="match.html"]');
-    if (matchCtas.length) {
-        matchCtas.forEach((cta) => {
-            cta.addEventListener('click', () => {
-                window.dataLayer.push({
-                    event: 'match_button_click',
-                    button_text: cta.textContent.trim() || 'Är vi en match?',
-                    button_location: 'navigation',
-                    page_path: window.location.pathname
-                });
-            });
-        });
-    }
 });
 
 function toggleChat() {
