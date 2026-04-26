@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Restaurang Eld på The Viking Museum</title>
+  <desc id="d">Placeholder-omslagsbild för portfolio-case om growth marketing för Restaurang Eld.</desc>
+  <rect width="1200" height="675" fill="#111111"/>
+  <rect x="42" y="42" width="1116" height="591" fill="#181818" stroke="#f5f5f5" stroke-width="3"/>
+  <path d="M600 142c61 74 104 138 104 220 0 86-58 151-143 151-79 0-133-56-133-132 0-66 38-119 86-173-8 51 16 89 52 111 40-53 47-105 34-177z" fill="#D1001C"/>
+  <path d="M606 274c37 44 63 82 63 131 0 52-35 91-86 91-48 0-80-34-80-79 0-40 23-72 52-105-5 31 10 54 31 67 24-32 28-63 20-105z" fill="#FFFFFF"/>
+  <text x="600" y="555" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="2">RESTAURANG ELD</text>
+  <text x="600" y="600" text-anchor="middle" fill="#E5E5E5" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="5">THE VIKING MUSEUM</text>
+</svg>
